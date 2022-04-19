@@ -1,8 +1,11 @@
 import * as React from "react";
 import { red } from "@mui/material/colors";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import {
+  ThemeProvider as MUIThemeProvider,
+  createTheme,
+} from "@mui/material/styles";
 
-interface CZUIProviderProps {
+interface ThemeProviderProps {
   children: React.ReactNode;
 }
 
@@ -14,6 +17,6 @@ const theme = createTheme({
   },
 });
 
-export const CZUIProvider = ({ children }: CZUIProviderProps) => {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+export const ThemeProvider = ({ children }: ThemeProviderProps) => {
+  return <MUIThemeProvider theme={theme}>{children}</MUIThemeProvider>;
 };
