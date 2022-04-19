@@ -1,4 +1,4 @@
-const withTM = require("next-transpile-modules")(["@cz-ui/biohub"]);
+const withTM = require("next-transpile-modules")(["@cz-ui/core"]);
 
 module.exports = withTM({
   reactStrictMode: true,

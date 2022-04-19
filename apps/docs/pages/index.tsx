@@ -1,5 +1,5 @@
-import { CZUIProvider } from "@cz-ui/biohub";
-import { Button } from "@cz-ui/biohub";
+import { CZUIProvider } from "@cz-ui/core";
+import { Button } from "@cz-ui/core";
 
 export default function Docs() {
   return (
