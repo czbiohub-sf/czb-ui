@@ -5,7 +5,8 @@
   "types": "./dist/src/index.d.ts",
   "license": "MIT",
   "scripts": {
-    "build": "rollup --config rollup.config.ts"
+    "build": "rollup --config rollup.config.ts",
+    "dev": "rollup --config rollup.config.ts --watch"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.2",

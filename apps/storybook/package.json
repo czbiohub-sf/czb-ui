@@ -33,17 +33,16 @@
     "babel-loader": "^8.2.4",
     "babel-plugin-macros": "^3.1.0",
     "babel-plugin-polyfill-corejs3": "^0.5.2",
-    "core-js": "^3.22.0",
-    "@cz-ui/core": "*"
+    "core-js": "^3.22.0"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
-    "@mui/material": "^5.6.2"
+    "@mui/material": "^5.6.2",
+    "@cz-ui/core": "*"
   },
   "scripts": {
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "build": "build-storybook"
+    "dev": "start-storybook -p 6006 --quiet",
+    "build": "build-storybook --quiet"
   }
 }
