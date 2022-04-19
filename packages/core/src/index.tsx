@@ -1,3 +1,3 @@
 import * as React from "react";
-export * from "./Button";
-export * from "./CZUIProvider";
+export * from "./Button/Button";
+export * from "./ThemeProvider";
