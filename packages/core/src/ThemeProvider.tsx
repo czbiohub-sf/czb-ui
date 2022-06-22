@@ -31,6 +31,18 @@ const theme = createTheme({
   typography: {
     fontFamily: "Lato",
   },
+  components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
+    MuiButton: {
+      defaultProps: {
+        disableElevation: true,
+      },
+    },
+  },
 });
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
