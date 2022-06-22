@@ -3,6 +3,7 @@ import {
   ThemeProvider as MUIThemeProvider,
   createTheme,
 } from "@mui/material/styles";
+import "@fontsource/lato";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
