@@ -1,6 +1,6 @@
 import * as React from "react";
-import ButtonUnstyled from "@mui/base/ButtonUnstyled";
+import MaterialButton from "@mui/material/Button";
 
 export const Button = () => {
-  return <ButtonUnstyled>Boop</ButtonUnstyled>;
+  return <MaterialButton>Boop</MaterialButton>;
 };

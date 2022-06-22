@@ -1,5 +1,4 @@
 import * as React from "react";
-import { red } from "@mui/material/colors";
 import {
   ThemeProvider as MUIThemeProvider,
   createTheme,
@@ -12,8 +11,24 @@ interface ThemeProviderProps {
 const theme = createTheme({
   palette: {
     primary: {
-      main: red[500],
+      main: "#00A3E0",
+      contrastText: "#ffffff",
     },
+    secondary: {
+      main: "#888b8d",
+    },
+    error: {
+      main: "#E03B0B",
+    },
+    warning: {
+      main: "#E0A90B",
+    },
+  },
+  shape: {
+    borderRadius: 0,
+  },
+  typography: {
+    fontFamily: "Lato",
   },
 });
 
