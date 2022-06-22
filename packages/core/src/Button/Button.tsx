@@ -1,9 +1,13 @@
-import MaterialButton from "@mui/material/Button";
+import MaterialButton, { ButtonProps } from "@mui/material/Button";
 
-export const Button = () => {
+export const Button = (props: ButtonProps) => {
   return (
-    <MaterialButton variant="contained" sx={{ textTransform: "none" }}>
-      Boop
+    <MaterialButton
+      variant="contained"
+      sx={{ textTransform: "none", ...props.sx }}
+      {...props}
+    >
+      {props.children}
     </MaterialButton>
   );
 };
