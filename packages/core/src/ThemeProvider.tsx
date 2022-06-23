@@ -4,6 +4,7 @@ import {
   createTheme,
 } from "@mui/material/styles";
 import "@fontsource/lato";
+import CssBaseline from "@mui/material/CssBaseline";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -46,5 +47,10 @@ const theme = createTheme({
 });
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  return <MUIThemeProvider theme={theme}>{children}</MUIThemeProvider>;
+  return (
+    <MUIThemeProvider theme={theme}>
+      <CssBaseline />
+      {children}
+    </MUIThemeProvider>
+  );
 };
