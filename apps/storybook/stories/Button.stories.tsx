@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button } from "@cz-ui/core";
+import { Button as CZBUIButton } from "@cz-ui/core";
 import { ButtonProps } from "@mui/material";
 
 export default {
@@ -9,20 +9,27 @@ export default {
    * to learn how to generate automatic titles
    */
   title: "Button",
-  component: Button,
+  component: CZBUIButton,
   argTypes: {
     color: {
       options: ["primary", "secondary"],
+      control: { type: "radio" },
+    },
+    variant: {
+      options: ["text", "contained", "outlined"],
       control: { type: "radio" },
     },
   },
 };
 
 const Template = (args: ButtonProps) => (
-  <Button color={args.color}>Test</Button>
+  <CZBUIButton color={args.color} variant={args.variant}>
+    Test
+  </CZBUIButton>
 );
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Button = Template.bind({});
+Button.args = {
   color: "primary",
+  variant: "text",
 };
