@@ -1,3 +1,3 @@
 # czb-ui
 
-Run storybook with live refresh: `yarn dev`
+Run storybook with live refresh: `yarn dev` from project root
