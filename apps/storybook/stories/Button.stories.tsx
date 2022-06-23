@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button as CZBUIButton } from "@cz-ui/core";
+import { Button as CZBUIButton } from "@czb-ui/core";
 import { ButtonProps } from "@mui/material";
 
 export default {

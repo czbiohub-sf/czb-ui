@@ -1,5 +1,5 @@
 {
-  "name": "@cz-ui/core",
+  "name": "@czb-ui/core",
   "version": "0.0.0",
   "main": "./dist/index.js",
   "types": "./dist/src/index.d.ts",

@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@cz-ui/core";
+import { ThemeProvider } from "@czb-ui/core";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
