@@ -11,9 +11,15 @@ const AppBarComponent = styled(MaterialAppBar)<AppBarProps>(({ theme }) => ({
   borderColor: theme.palette.line.main,
 })) as typeof MaterialAppBar;
 
-const ToolbarComponent = styled(Toolbar)<ToolbarProps>({
+const ToolbarComponent = styled(Toolbar)<ToolbarProps>(({ theme }) => ({
   minHeight: "40px",
-});
+  [theme.breakpoints.up("sm")]: {
+    minHeight: "40px",
+  },
+  [theme.breakpoints.up("xs")]: {
+    minHeight: "40px",
+  },
+}));
 
 export const AppBar = (props: AppBarProps) => {
   return (
