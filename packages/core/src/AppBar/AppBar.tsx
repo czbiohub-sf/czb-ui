@@ -15,7 +15,7 @@ export const AppBar = (props: AppBarProps) => {
       }}
       {...props}
     >
-      <Toolbar>{props.children}</Toolbar>
+      <Toolbar sx={{ minHeight: "40px" }}>{props.children}</Toolbar>
     </MaterialAppBar>
   );
 };
