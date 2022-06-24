@@ -6,6 +6,7 @@ import {
 
 import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { fontSize } from "@mui/system";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -75,6 +76,13 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
             fontFamily: "Barlow",
             fontWeight: 800,
             fontSize: "4rem",
+          },
+          h2: {
+            fontWeight: 800,
+            fontSize: "2rem",
+          },
+          body1: {
+            marginBottom: "1em",
           },
         },
         components: {

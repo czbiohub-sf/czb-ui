@@ -9,21 +9,19 @@ export default {
 
 const Template = () => (
   <CZBUIContainer>
-    <Typography variant="h1">CZB-UI is the next big new thing.</Typography>
+    <Typography variant="h1">Who we are</Typography>
+    <Typography variant="h2">We don't believe in impossible</Typography>
     <Typography>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fringilla
-      faucibus augue, vitae pharetra tellus semper eget. Vivamus elit nulla,
-      pellentesque sit amet sagittis id, placerat at tellus. Etiam molestie est
-      pulvinar neque mollis scelerisque. Donec sit amet molestie purus, non
-      imperdiet turpis. Interdum et malesuada fames ac ante ipsum primis in
-      faucibus. Fusce sagittis eleifend enim quis pulvinar. Nullam in neque ut
-      justo fringilla commodo ac tempus lectus. Sed a tempor enim. Curabitur
-      lobortis justo elementum ante tincidunt, facilisis posuere risus
-      convallis. Morbi eget sapien vestibulum, ultrices orci in, vulputate orci.
-      Phasellus vitae justo dignissim, rhoncus risus at, ultrices nunc. Integer
-      venenatis facilisis mi, eget volutpat magna mattis sit amet. Duis mi
-      neque, feugiat eu lectus et, accumsan tempus arcu. Nam cursus rhoncus
-      nulla, mollis egestas neque cursus vitae. Duis hendrerit dignissim urna.
+      CZ Biohub is an independent, non-profit medical research organization
+      working in collaboration with UC San Francisco, Stanford University and UC
+      Berkeley.
+    </Typography>
+    <Typography variant="h2">
+      So what does this container component do?
+    </Typography>
+    <Typography>
+      The container centers your content horizontally. It's the most basic
+      layout element.
     </Typography>
   </CZBUIContainer>
 );
