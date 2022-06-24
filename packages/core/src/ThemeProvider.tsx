@@ -4,9 +4,6 @@ import {
   createTheme,
 } from "@mui/material/styles";
 
-import "@fontsource/lato";
-import "@fontsource/barlow";
-
 import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
