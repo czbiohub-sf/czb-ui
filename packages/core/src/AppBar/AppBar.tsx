@@ -5,19 +5,20 @@ import { styled } from "@mui/system";
 const AppBarComponent = styled(MaterialAppBar)<AppBarProps>(({ theme }) => ({
   backgroundColor: "inherit",
   color: theme.palette.text.primary,
-  height: "40px",
   boxShadow: "none",
   borderBottom: "1px solid",
   borderColor: theme.palette.line.main,
 })) as typeof MaterialAppBar;
 
+const minAppBarHeight = "50px";
+
 const ToolbarComponent = styled(Toolbar)<ToolbarProps>(({ theme }) => ({
-  minHeight: "40px",
+  minHeight: minAppBarHeight,
   [theme.breakpoints.up("sm")]: {
-    minHeight: "40px",
+    minHeight: minAppBarHeight,
   },
   [theme.breakpoints.up("xs")]: {
-    minHeight: "40px",
+    minHeight: minAppBarHeight,
   },
 }));
 
