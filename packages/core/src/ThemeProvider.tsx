@@ -3,7 +3,10 @@ import {
   ThemeProvider as MUIThemeProvider,
   createTheme,
 } from "@mui/material/styles";
+
 import "@fontsource/lato";
+import "@fontsource/barlow";
+
 import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
@@ -56,7 +59,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
           borderRadius: 0,
         },
         typography: {
-          fontFamily: "Lato",
+          fontFamily: "Lato, Barlow",
         },
         components: {
           MuiButtonBase: {

@@ -1,7 +1,6 @@
 import React from "react";
 
-import { AppBar as CZBUIAppBar } from "@czb-ui/core";
-import { ButtonProps } from "@mui/material";
+import { AppBar as CZBUIAppBar, Typography } from "@czb-ui/core";
 import { BiohubLogo } from "@czb-ui/biohub-logos";
 
 export default {
@@ -19,9 +18,12 @@ export default {
   },
 };
 
-const Template = (args: ButtonProps) => (
+const Template = (args) => (
   <CZBUIAppBar>
-    <BiohubLogo />
+    <BiohubLogo sx={{ mr: 1 }} />
+    <Typography fontFamily="Barlow" fontWeight={800}>
+      DATAHUB
+    </Typography>
   </CZBUIAppBar>
 );
 

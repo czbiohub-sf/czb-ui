@@ -1380,6 +1380,11 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
+"@fontsource/barlow@^4.5.7":
+  version "4.5.7"
+  resolved "https://registry.yarnpkg.com/@fontsource/barlow/-/barlow-4.5.7.tgz#2739217b258887002f07151f0476bddf1058fca7"
+  integrity sha512-1NliOxBjbipalO47kOv6ailiL80+BtO6bbyKtR/9KloOffxDTsPR9MhNjRlje+Y3PSk0XkW44qe8ZRDJ7jWsUA==
+
 "@fontsource/lato@^4.5.8":
   version "4.5.8"
   resolved "https://registry.yarnpkg.com/@fontsource/lato/-/lato-4.5.8.tgz#20acb60d0895cc82723b4999492c70b1f9816460"
