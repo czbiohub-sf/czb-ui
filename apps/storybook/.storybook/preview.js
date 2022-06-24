@@ -1,4 +1,6 @@
 import { ThemeProvider } from "@czb-ui/core";
+import "@fontsource/barlow";
+import "@fontsource/lato";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

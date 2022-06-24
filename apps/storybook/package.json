@@ -36,10 +36,12 @@
     "core-js": "^3.22.0"
   },
   "dependencies": {
-    "@czb-ui/core": "*",
     "@czb-ui/biohub-logos": "*",
+    "@czb-ui/core": "*",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@fontsource/barlow": "^4.5.7",
+    "@fontsource/lato": "^4.5.8",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
