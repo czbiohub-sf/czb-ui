@@ -1,5 +1,4 @@
 import MaterialButton, { ButtonProps } from "@mui/material/Button";
+import { styled } from "@mui/system";
 
-export const Button = (props: ButtonProps) => {
-  return <MaterialButton {...props}>{props.children}</MaterialButton>;
-};
+export const Button = styled(MaterialButton)<ButtonProps>(() => ({}));
