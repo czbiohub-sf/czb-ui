@@ -2,6 +2,7 @@ import React from "react";
 
 import { AppBar as CZBUIAppBar } from "@czb-ui/core";
 import { ButtonProps } from "@mui/material";
+import { BiohubLogo } from "@czb-ui/biohub-logos";
 
 export default {
   title: "App Bar",
@@ -18,7 +19,11 @@ export default {
   },
 };
 
-const Template = (args: ButtonProps) => <CZBUIAppBar />;
+const Template = (args: ButtonProps) => (
+  <CZBUIAppBar>
+    <BiohubLogo />
+  </CZBUIAppBar>
+);
 
 export const AppBar = Template.bind({});
 AppBar.args = {

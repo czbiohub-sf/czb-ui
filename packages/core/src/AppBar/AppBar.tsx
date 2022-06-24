@@ -6,7 +6,7 @@ export const AppBar = (props: AppBarProps) => {
       sx={{ backgroundColor: "inherit", color: "text.primary" }}
       {...props}
     >
-      hi
+      {props.children}
     </MaterialAppBar>
   );
 };

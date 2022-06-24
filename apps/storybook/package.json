@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "@czb-ui/core": "*",
+    "@czb-ui/biohub-logos": "*",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "react": "^18.0.0",
