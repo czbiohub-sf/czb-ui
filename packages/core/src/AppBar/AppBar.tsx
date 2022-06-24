@@ -1,4 +1,6 @@
 import MaterialAppBar, { AppBarProps } from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Box from "@mui/material/Box";
 
 export const AppBar = (props: AppBarProps) => {
   return (
@@ -7,14 +9,13 @@ export const AppBar = (props: AppBarProps) => {
         backgroundColor: "inherit",
         color: "text.primary",
         height: "40px",
-        padding: "5px",
         boxShadow: "none",
         borderBottom: "1px solid",
         borderColor: "line.main",
       }}
       {...props}
     >
-      {props.children}
+      <Toolbar>{props.children}</Toolbar>
     </MaterialAppBar>
   );
 };
