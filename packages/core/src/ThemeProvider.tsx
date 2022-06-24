@@ -71,6 +71,11 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
             '"Segoe UI Emoji"',
             '"Segoe UI Symbol"',
           ].join(","),
+          h1: {
+            fontFamily: "Barlow",
+            fontWeight: 800,
+            fontSize: "4rem",
+          },
         },
         components: {
           MuiButtonBase: {
@@ -81,6 +86,11 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
           MuiButton: {
             defaultProps: {
               disableElevation: true,
+            },
+          },
+          MuiTypography: {
+            defaultProps: {
+              gutterBottom: true,
             },
           },
         },
