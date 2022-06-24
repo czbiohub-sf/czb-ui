@@ -11,6 +11,22 @@ interface ThemeProviderProps {
   children: React.ReactNode;
 }
 
+declare module "@mui/material/styles" {
+  interface Palette {
+    line: Palette["primary"];
+  }
+  interface PaletteOptions {
+    line: PaletteOptions["primary"];
+  }
+
+  interface PaletteColor {
+    darker?: string;
+  }
+  interface SimplePaletteColorOptions {
+    darker?: string;
+  }
+}
+
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
@@ -31,6 +47,9 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
           },
           warning: {
             main: "#E0A90B",
+          },
+          line: {
+            main: "rgba(0,0,0,0.1)",
           },
         },
         shape: {
