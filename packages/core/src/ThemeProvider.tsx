@@ -14,6 +14,7 @@ interface ThemeProviderProps {
   children: React.ReactNode;
 }
 
+// For custom palette colors, e.g the "line" color
 declare module "@mui/material/styles" {
   interface Palette {
     line: Palette["primary"];
