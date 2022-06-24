@@ -7,28 +7,22 @@ export default {
   title: "App Bar",
   component: CZBUIAppBar,
   argTypes: {
-    color: {
-      options: ["primary", "secondary"],
-      control: { type: "radio" },
-    },
-    variant: {
-      options: ["text", "contained", "outlined"],
-      control: { type: "radio" },
+    title: {
+      control: { type: "text" },
     },
   },
 };
 
-const Template = (args) => (
+const Template = (args: any) => (
   <CZBUIAppBar>
     <BiohubLogo sx={{ mr: 1 }} />
     <Typography fontFamily="Barlow" fontWeight={800}>
-      DATAHUB
+      {args.title}
     </Typography>
   </CZBUIAppBar>
 );
 
 export const AppBar = Template.bind({});
 AppBar.args = {
-  color: "primary",
-  variant: "text",
+  title: "CZB UI",
 };
