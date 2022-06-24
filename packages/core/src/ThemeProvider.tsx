@@ -57,7 +57,20 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
           borderRadius: 0,
         },
         typography: {
-          fontFamily: "Lato, Barlow",
+          fontFamily: [
+            "Lato",
+            "Barlow",
+            "-apple-system",
+            "BlinkMacSystemFont",
+            '"Segoe UI"',
+            "Roboto",
+            '"Helvetica Neue"',
+            "Arial",
+            "sans-serif",
+            '"Apple Color Emoji"',
+            '"Segoe UI Emoji"',
+            '"Segoe UI Symbol"',
+          ].join(","),
         },
         components: {
           MuiButtonBase: {
