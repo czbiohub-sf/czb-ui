@@ -1,21 +1,24 @@
 import MaterialAppBar, { AppBarProps } from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Box from "@mui/material/Box";
+import Toolbar, { ToolbarProps } from "@mui/material/Toolbar";
+import { styled } from "@mui/system";
+
+const AppBarComponent = styled(MaterialAppBar)<AppBarProps>(({ theme }) => ({
+  backgroundColor: "inherit",
+  color: theme.palette.text.primary,
+  height: "40px",
+  boxShadow: "none",
+  borderBottom: "1px solid",
+  borderColor: theme.palette.line.main,
+})) as typeof MaterialAppBar;
+
+const ToolbarComponent = styled(Toolbar)<ToolbarProps>({
+  minHeight: "40px",
+});
 
 export const AppBar = (props: AppBarProps) => {
   return (
-    <MaterialAppBar
-      sx={{
-        backgroundColor: "inherit",
-        color: "text.primary",
-        height: "40px",
-        boxShadow: "none",
-        borderBottom: "1px solid",
-        borderColor: "line.main",
-      }}
-      {...props}
-    >
-      <Toolbar sx={{ minHeight: "40px" }}>{props.children}</Toolbar>
-    </MaterialAppBar>
+    <AppBarComponent {...props}>
+      <ToolbarComponent>{props.children}</ToolbarComponent>
+    </AppBarComponent>
   );
 };
