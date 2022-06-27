@@ -16,7 +16,14 @@ export default {
 const Template = (args: any) => (
   <CZBUIAppBar>
     <BiohubLogo sx={{ mr: 1, fontSize: "2rem" }} />
-    <Typography fontFamily="Barlow" fontWeight={800} fontSize="1rem">
+    <Typography
+      fontFamily="Barlow"
+      fontWeight={800}
+      fontSize="1rem"
+      gutterBottom={false}
+      component="span"
+      variant="inherit"
+    >
       {args.title}
     </Typography>
   </CZBUIAppBar>
