@@ -9,6 +9,7 @@
     "dev": "rollup --config rollup.config.ts --watch"
   },
   "devDependencies": {
+    "@mui/material": "^5.8.5",
     "@rollup/plugin-typescript": "^8.3.2",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
