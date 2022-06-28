@@ -73,12 +73,12 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
           ].join(","),
           h1: {
             fontFamily: "Barlow",
-            fontWeight: 800,
+            fontWeight: 700,
             fontSize: "2.5rem",
           },
           h2: {
             marginTop: "1em",
-            fontWeight: 800,
+            fontWeight: 700,
             fontSize: "1.5rem",
           },
           h3: {
