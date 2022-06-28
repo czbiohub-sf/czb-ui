@@ -18,7 +18,7 @@ const Template = (args: any) => (
     <BiohubLogo sx={{ mr: 1, fontSize: "2rem" }} />
     <Typography
       fontFamily="Barlow"
-      fontWeight={800}
+      fontWeight={700}
       fontSize="1rem"
       gutterBottom={false}
       component="span"
