@@ -6,3 +6,4 @@ export * from "./Container/Container";
 export * from "./Box/Box";
 export * from "./Input/Input";
 export * from "./Grid/Grid";
+export * from "./Stack/Stack";
