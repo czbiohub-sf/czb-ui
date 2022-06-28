@@ -7,9 +7,9 @@ interface StyledInputBaseProps extends InputBaseProps {
 }
 
 export const Input = styled(MaterialInputBase, {
-	shouldForwardProp: (prop) => prop !== 
-})<StyledInputBaseProps>(({ theme }) => ({
+	shouldForwardProp: (prop) => prop !== "error",
+})<StyledInputBaseProps>(({ error, theme }) => ({
   border: "1px solid",
-  borderColor: theme.palette.line.main,
+  borderColor: error ? theme.palette.error.main : theme.palette.line.main,
   padding: "10px",
 })) as typeof MaterialInputBase;

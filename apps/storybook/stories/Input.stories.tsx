@@ -5,10 +5,9 @@ import { Input as CZBUIInput } from "@czb-ui/core";
 export default {
   title: "Input",
   component: CZBUIInput,
-  argTypes: {},
 };
 
-const Template = () => <CZBUIInput />;
+const Template = () => <CZBUIInput/>;
 
 export const TextInput = Template.bind({});
 TextInput.args = {};
