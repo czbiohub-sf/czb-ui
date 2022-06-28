@@ -74,16 +74,16 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
           h1: {
             fontFamily: "Barlow",
             fontWeight: 800,
-            fontSize: "4rem",
+            fontSize: "2.5rem",
           },
           h2: {
-            marginTop: "0.50em",
+            marginTop: "1em",
             fontWeight: 800,
-            fontSize: "2rem",
+            fontSize: "1.5rem",
           },
           h3: {
             marginTop: "0.50em",
-            fontSize: "1.5rem",
+            fontSize: "1rem",
           },
           body1: {
             marginBottom: "1em",
@@ -103,6 +103,11 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
           MuiTypography: {
             defaultProps: {
               gutterBottom: true,
+            },
+          },
+          MuiContainer: {
+            defaultProps: {
+              maxWidth: "sm",
             },
           },
         },
