@@ -4,7 +4,7 @@ import { AppBar as CZBUIAppBar, Typography } from "@czb-ui/core";
 import { BiohubLogo } from "@czb-ui/biohub-logos";
 
 export default {
-  title: "App Bar",
+  title: "App Bar (with components)",
   component: CZBUIAppBar,
   argTypes: {
     title: {
@@ -29,7 +29,7 @@ const Template = (args: any) => (
   </CZBUIAppBar>
 );
 
-export const AppBar = Template.bind({});
-AppBar.args = {
+export const AppBarWithLogoAndTypographyComponents = Template.bind({});
+AppBarWithLogoAndTypographyComponents.args = {
   title: "CZB UI",
 };
