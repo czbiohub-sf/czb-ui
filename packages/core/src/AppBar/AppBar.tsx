@@ -22,7 +22,7 @@ const ToolbarComponent = styled(Toolbar)<ToolbarProps>(({ theme }) => ({
   },
 }));
 
-export const NavBar = (props: AppBarProps) => {
+export const AppBar = (props: AppBarProps) => {
   return (
     <AppBarComponent {...props}>
       <ToolbarComponent>{props.children}</ToolbarComponent>
