@@ -6,6 +6,7 @@ import background from "./assets/viral_background_biohub.png";
 export default {
   title: "Banner",
   component: CZBUIBanner,
+  argTypes: {},
 };
 
 const BannerTemplate = (args: any) => (
@@ -17,11 +18,15 @@ const BannerTemplate = (args: any) => (
       />
     }
     title={args.title}
+    subtitle={args.subtitle}
+    backgroundOpacity={args.backgroundOpacity}
   />
 );
 
 export const Banner = BannerTemplate.bind({});
 Banner.args = {
   title: "CZB-UI",
+  subtitle: "The new UI library for CZ Biohub",
+  backgroundOpacity: 0.5,
   background: background,
 };
