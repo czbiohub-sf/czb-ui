@@ -3,8 +3,6 @@ import React from "react";
 import { NavBar as CZBUINavBar } from "@czb-ui/core";
 import { BiohubLogo } from "@czb-ui/biohub-logos";
 
-// TODO: Put each example in a component
-
 export default {
   title: "NavBar",
   component: CZBUINavBar,
