@@ -8,7 +8,7 @@ interface PagesObject {
 }
 
 interface NavBarProps {
-  logo?: React.FC;
+  logo?: React.ReactNode;
   title?: string;
   pages?: Array<PagesObject>;
   pagesComponent?: any; // TODO: Find type of mui button component prop
@@ -17,7 +17,7 @@ interface NavBarProps {
 export const NavBar = ({ logo, title, pages, pagesComponent }: NavBarProps) => {
   return (
     <AppBar>
-      {logo}
+      <Box sx={{ mr: 1, display: "inherit" }}>{logo}</Box>
       <Typography
         fontFamily="Barlow"
         fontWeight={700}
