@@ -1,8 +1,13 @@
 import React from "react";
 import { AppBar } from "../AppBar/AppBar";
-import { Typography, Box, Button } from "@mui/material";
+import { Typography, Box } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+import { DesktopPagesMenu } from "./DesktopPagesMenu";
 
-interface PagesObject {
+// Exported for the page menu components,
+// e.g. <DesktopPagesMenu />
+export interface PagesObject {
   title: string;
   to: string;
 }
@@ -15,6 +20,9 @@ interface NavBarProps {
 }
 
 export const NavBar = ({ logo, title, pages, pagesComponent }: NavBarProps) => {
+  const theme = useTheme();
+  const onDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+
   return (
     <AppBar>
       <Box sx={{ mr: 1, display: "inherit" }}>{logo}</Box>
@@ -28,14 +36,8 @@ export const NavBar = ({ logo, title, pages, pagesComponent }: NavBarProps) => {
       >
         {title}
       </Typography>
-      {pages && (
-        <Box sx={{ mx: 2 }}>
-          {pages.map((page) => (
-            <Button color="inherit" component={pagesComponent} to={page.to}>
-              {page.title}
-            </Button>
-          ))}
-        </Box>
+      {pages && onDesktop && (
+        <DesktopPagesMenu pages={pages} pagesComponent={pagesComponent} />
       )}
     </AppBar>
   );
