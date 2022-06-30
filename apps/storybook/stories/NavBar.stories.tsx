@@ -15,7 +15,9 @@ export default {
   },
 };
 
-const NavBarTemplate = (args: any) => <CZBUINavBar />;
+const NavBarTemplate = (args: any) => (
+  <CZBUINavBar title={args.title} pages={args.pages} />
+);
 
 export const NavBar = NavBarTemplate.bind({});
 NavBar.args = {
