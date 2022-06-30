@@ -3,8 +3,8 @@ import { AppBar } from "../AppBar/AppBar";
 import { Typography, Box } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import Hamburger from "hamburger-react";
 import { DesktopPagesMenu } from "./DesktopPagesMenu";
+import { MobilePagesMenu } from "./MobilePagesMenu";
 
 // Exported for the page menu components,
 // e.g. <DesktopPagesMenu />
@@ -34,13 +34,16 @@ export const NavBar = ({ logo, title, pages, pagesComponent }: NavBarProps) => {
         gutterBottom={false}
         component="span"
         variant="inherit"
+        flexGrow={onDesktop ? 0 : 1} // So it pushes the hamburger menu to the right
       >
         {title}
       </Typography>
       {pages && onDesktop && (
         <DesktopPagesMenu pages={pages} pagesComponent={pagesComponent} />
       )}
-      {pages && !onDesktop && <Hamburger />}
+      {pages && !onDesktop && (
+        <MobilePagesMenu pages={pages} pagesComponent={pagesComponent} />
+      )}
     </AppBar>
   );
 };
