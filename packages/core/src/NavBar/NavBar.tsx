@@ -3,6 +3,7 @@ import { AppBar } from "../AppBar/AppBar";
 import { Typography, Box } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import Hamburger from "hamburger-react";
 import { DesktopPagesMenu } from "./DesktopPagesMenu";
 
 // Exported for the page menu components,
@@ -39,6 +40,7 @@ export const NavBar = ({ logo, title, pages, pagesComponent }: NavBarProps) => {
       {pages && onDesktop && (
         <DesktopPagesMenu pages={pages} pagesComponent={pagesComponent} />
       )}
+      {pages && !onDesktop && <Hamburger />}
     </AppBar>
   );
 };
