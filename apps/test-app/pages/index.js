@@ -8,8 +8,14 @@ export default function Home() {
       <Banner
         title="CZBUI"
         subtitle="The portal for the CZ Biohub's UI library."
+        height="50%"
         background={
-          <Image src={viralBackgroundBiohub} layout="fill" objectFit="cover" />
+          <Image
+            src={viralBackgroundBiohub}
+            layout="fill"
+            objectFit="cover"
+            alt="Viral virus (it looks like)"
+          />
         }
       />
     </Box>
