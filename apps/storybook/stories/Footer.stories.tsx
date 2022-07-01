@@ -33,6 +33,6 @@ const FooterTemplate = (args: any) => (
 
 export const Footer = FooterTemplate.bind({});
 Footer.args = {
-  title: "CZB UI",
+  title: "CZ BIOHUB",
   pages: pages,
 };
