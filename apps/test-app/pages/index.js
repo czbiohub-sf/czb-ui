@@ -8,7 +8,7 @@ export default function Home() {
       <Banner
         title="CZBUI"
         subtitle="The portal for the CZ Biohub's UI library."
-        height="50%"
+        height="50vh"
         background={
           <Image
             src={viralBackgroundBiohub}
