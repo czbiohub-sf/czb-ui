@@ -1,15 +1,16 @@
 import React from "react";
-import { AppBar } from "../AppBar/AppBar";
+import { FooterBar } from "../FooterBar/FooterBar";
 import { Typography, Box } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import { PagesObject } from "../NavBar/NavBar";
 
 // Exported for the page menu components,
 // e.g. <DesktopPagesMenu />
-export interface PagesObject {
-  title: string;
-  to: string;
-}
+// export interface PagesObject {
+//   title: string;
+//   to: string;
+// }
 
 interface FooterProps {
   logo?: React.ReactNode;
@@ -23,7 +24,7 @@ export const Footer = ({ logo, title, pages, pagesComponent }: FooterProps) => {
   const onDesktop = useMediaQuery(theme.breakpoints.up("sm"));
 
   return (
-    <AppBar position="relative">
+    <FooterBar position="relative" sx={{ top: "auto", bottom: 0 }}>
       <Box sx={{ mr: 1, display: "inherit" }}>{logo}</Box>
       <Typography
         fontFamily="Barlow"
@@ -36,6 +37,6 @@ export const Footer = ({ logo, title, pages, pagesComponent }: FooterProps) => {
       >
         {title}
       </Typography>
-    </AppBar>
+    </FooterBar>
   );
 };

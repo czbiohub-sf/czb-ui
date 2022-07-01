@@ -1,6 +1,7 @@
 export * from "./ThemeProvider";
 
 export * from "./AppBar/AppBar";
+export * from "./FooterBar/FooterBar";
 export * from "./Box/Box";
 export * from "./Center/Center";
 
