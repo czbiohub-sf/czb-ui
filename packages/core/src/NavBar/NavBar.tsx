@@ -25,7 +25,7 @@ export const NavBar = ({ logo, title, pages, pagesComponent }: NavBarProps) => {
   const onDesktop = useMediaQuery(theme.breakpoints.up("sm"));
 
   return (
-    <AppBar>
+    <AppBar position="relative">
       <Box sx={{ mr: 1, display: "inherit" }}>{logo}</Box>
       <Typography
         fontFamily="Barlow"
