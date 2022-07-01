@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { Center } from "../Center/Center";
 
 interface BannerProps {
@@ -21,14 +21,14 @@ export const Banner = ({
       sx={{ height: height, position: "relative", backgroundColor: "black" }}
     >
       <Center justifyContent="left">
-        <Box margin={10} color="white" zIndex={1}>
+        <Container maxWidth="lg" sx={{ color: "white", zIndex: 1 }}>
           <Typography variant="h1" gutterBottom={false}>
             {title}
           </Typography>
           <Typography variant="h2" gutterBottom={false} marginTop="0.5rem">
             {subtitle}
           </Typography>
-        </Box>
+        </Container>
       </Center>
       <Box
         sx={{

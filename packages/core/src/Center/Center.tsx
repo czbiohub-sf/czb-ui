@@ -1,5 +1,5 @@
 import Box, { BoxProps } from "@mui/material/Box";
-import { styled } from "@mui/system";
+import { styled } from "@mui/material/styles";
 
 // I had to sort of override justifyContent here,
 // I know the Box component already has it, but
