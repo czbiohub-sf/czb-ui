@@ -1,9 +1,8 @@
 export * from "./ThemeProvider";
-export * from "./Button/Button";
-export * from "./Typography/Typography";
+
 export * from "./AppBar/AppBar";
-export * from "./Container/Container";
-export * from "./Box/Box";
-export * from "./Input/Input";
-export * from "./Grid/Grid";
-export * from "./Stack/Stack";
+export * from "./Center/Center";
+
+export * from "./NavBar/NavBar";
+export * from "./Button/Button";
+export * from "./Banner/Banner";
