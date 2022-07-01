@@ -41,7 +41,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
             contrastText: "#ffffff",
           },
           secondary: {
-            main: "#888b8d",
+            main: "#3E484C",
           },
           error: {
             main: "#E03B0B",
