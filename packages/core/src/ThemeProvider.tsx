@@ -85,9 +85,6 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
             marginTop: "0.50em",
             fontSize: "1rem",
           },
-          body1: {
-            marginBottom: "1em",
-          },
         },
         components: {
           MuiButtonBase: {
