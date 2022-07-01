@@ -6,9 +6,12 @@ import "@fontsource/barlow/700.css";
 import "@fontsource/lato/400.css";
 import "@fontsource/lato/700.css";
 
+import NavBar from "../components/NavBar/NavBar";
+
 function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider>
+      <NavBar />
       <Component {...pageProps} />
     </ThemeProvider>
   );
