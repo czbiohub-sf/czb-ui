@@ -4,6 +4,7 @@ export * from "./AppBar/AppBar";
 export * from "./FooterBar/FooterBar";
 export * from "./Box/Box";
 export * from "./Center/Center";
+export * from "./Stack/Stack";
 
 export * from "./NavBar/NavBar";
 export * from "./Footer/Footer";
