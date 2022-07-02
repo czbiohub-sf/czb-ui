@@ -8,5 +8,5 @@ export * from "./Center/Center";
 export * from "./NavBar/NavBar";
 export * from "./Footer/Footer";
 export * from "./Button/Button";
-export * from "./Banner/Banner";
+export * from "./Banner/GenericBanner";
 export * from "./NavBarAndFooterPlacer/NavBarAndFooterPlacer";

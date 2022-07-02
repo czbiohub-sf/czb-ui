@@ -1,16 +1,16 @@
 import React from "react";
 
-import { Banner as CZBUIBanner } from "@czb-ui/core";
+import { GenericBanner as CZBUIGenericBanner } from "@czb-ui/core";
 import background from "./assets/viral_background_biohub.png";
 
 export default {
-  title: "Banner",
-  component: CZBUIBanner,
+  title: "Banners",
+  component: CZBUIGenericBanner,
   argTypes: {},
 };
 
 const BannerTemplate = (args: any) => (
-  <CZBUIBanner
+  <CZBUIGenericBanner
     background={
       <img
         style={{ objectFit: "cover", height: "100%", width: "100%", zIndex: 0 }}
@@ -23,8 +23,8 @@ const BannerTemplate = (args: any) => (
   />
 );
 
-export const Banner = BannerTemplate.bind({});
-Banner.args = {
+export const GenericBanner = BannerTemplate.bind({});
+GenericBanner.args = {
   title: "CZB-UI",
   subtitle: "The new UI library for CZ Biohub",
   backgroundOpacity: 0.5,

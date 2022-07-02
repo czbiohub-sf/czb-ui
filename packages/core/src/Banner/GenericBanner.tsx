@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from "@mui/material";
 import { Center } from "../Center/Center";
 
-interface BannerProps {
+interface GenericBannerProps {
   background?: React.ReactNode;
   backgroundOpacity?: number;
   title?: string;
@@ -9,13 +9,13 @@ interface BannerProps {
   height?: string;
 }
 
-export const Banner = ({
+export const GenericBanner = ({
   background,
   backgroundOpacity = 0.5,
   title,
   subtitle,
   height = "500px",
-}: BannerProps) => {
+}: GenericBannerProps) => {
   return (
     <Box
       sx={{ height: height, position: "relative", backgroundColor: "black" }}
