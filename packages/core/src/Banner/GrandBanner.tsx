@@ -26,7 +26,7 @@ export const GrandBanner = ({
           direction={{ xs: "column", sm: "row" }}
           spacing={{ xs: 1, sm: 2, md: 4 }}
         >
-          <Box>{image}</Box>
+          <Box maxHeight={height}>{image}</Box>
           <Box
             sx={{
               display: "inherit",

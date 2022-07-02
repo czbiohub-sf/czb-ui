@@ -1,7 +1,7 @@
 import React from "react";
 
 import { GrandBanner as CZBUIGrandBanner } from "@czb-ui/core";
-import background from "./assets/viral_background_biohub.png";
+import background from "./assets/sapiens_banner.webp";
 
 export default {
   title: "Banners",
@@ -24,7 +24,7 @@ const BannerTemplate = (args: any) => (
 
 export const GrandBanner = BannerTemplate.bind({});
 GrandBanner.args = {
-  title: "CZB-UI",
-  subtitle: "The new UI library for CZ Biohub",
+  title: "TABULA SAPIENS",
+  subtitle: "Human transcriptome reference at single cell resolution.",
   background: background,
 };
