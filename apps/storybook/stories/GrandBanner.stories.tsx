@@ -13,7 +13,12 @@ const BannerTemplate = (args: any) => (
   <CZBUIGrandBanner
     image={
       <img
-        style={{ objectFit: "cover", height: "100%", width: "100%", zIndex: 0 }}
+        style={{
+          objectFit: "scale-down",
+          height: "100%",
+          width: "100%",
+          zIndex: 0,
+        }}
         src={args.background}
       />
     }
