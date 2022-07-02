@@ -1,10 +1,11 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Typography, Stack } from "@mui/material";
 import { Center } from "../Center/Center";
 
 interface GrandBannerProps {
   image?: React.ReactNode;
   title?: string;
   subtitle?: string;
+  direction?: "left" | "right";
   height?: string;
 }
 
@@ -12,30 +13,36 @@ export const GrandBanner = ({
   image,
   title,
   subtitle,
+  direction = "right",
   height = "500px",
 }: GrandBannerProps) => {
+  // If direction is left, return right, and vice versa
+  const otherDirection = direction == "left" ? "right" : "left";
+
   return (
     <Box sx={{ height: height, position: "relative" }}>
-      <Center justifyContent="left">
-        <Container maxWidth="lg" sx={{ color: "white", zIndex: 1 }}>
-          <Typography variant="h1" gutterBottom={false}>
-            {title}
-          </Typography>
-          <Typography variant="h2" gutterBottom={false} marginTop="0.5rem">
-            {subtitle}
-          </Typography>
-        </Container>
-      </Center>
-      <Box
-        sx={{
-          position: "absolute",
-          top: 0,
-          width: "100%",
-          height: "100%",
-        }}
-      >
-        {image}
-      </Box>
+      <Container maxWidth="lg" sx={{ zIndex: 1 }}>
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          spacing={{ xs: 1, sm: 2, md: 4 }}
+        >
+          <Box>{image}</Box>
+          <Box
+            sx={{
+              display: "inherit",
+              flexDirection: "column",
+              justifyContent: "center",
+            }}
+          >
+            <Typography variant="h1" gutterBottom={false}>
+              {title}
+            </Typography>
+            <Typography variant="h2" gutterBottom={false} marginTop="0.5rem">
+              {subtitle}
+            </Typography>
+          </Box>
+        </Stack>
+      </Container>
     </Box>
   );
 };
