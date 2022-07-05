@@ -2,8 +2,13 @@ import { Box, Typography } from "@mui/material";
 import MaterialInputBase, { InputBaseProps } from "@mui/material/InputBase";
 import { styled } from "@mui/material/styles";
 
+// We use shouldForwardProp to not pass the additonal props
+// added for this component (at the interface extend) to the
+// text box
+const excludeProps = ["errorDesc"];
+
 const TextBox = styled(MaterialInputBase, {
-  shouldForwardProp: (prop) => prop !== "error",
+  shouldForwardProp: (prop) => !excludeProps.includes(prop.toString()),
 })<InputBaseProps>(({ error, theme }) => ({
   border: "1px solid",
   borderColor: error ? theme.palette.error.main : theme.palette.line.main,
