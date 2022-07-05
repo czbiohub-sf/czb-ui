@@ -1,20 +1,20 @@
 import React from "react";
 
-import { Input as CZBUIInput } from "@czb-ui/core";
+import { TextInput as CZBUITextInput } from "@czb-ui/core";
 
 export default {
   /* 👇 The title prop is optional.
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: "Input",
-  component: CZBUIInput,
+  title: "Inputs",
+  component: CZBUITextInput,
   argTypes: {},
 };
 
-const template = (args: any) => <CZBUIInput error={args.error} />;
+const template = (args: any) => <CZBUITextInput error={args.error} />;
 
-export const Input = template.bind({});
-Input.args = {
+export const TextInput = template.bind({});
+TextInput.args = {
   error: false,
 };
