@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Button as CZBUIButton } from "@czb-ui/core";
-import { ButtonProps } from "@mui/material";
+import { ButtonProps } from "@mui/material"; // TODO: Get props not from mui
 
 export default {
   /* 👇 The title prop is optional.

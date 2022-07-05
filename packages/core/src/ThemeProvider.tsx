@@ -88,9 +88,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
         },
         components: {
           MuiButtonBase: {
-            defaultProps: {
-              disableRipple: true,
-            },
+            defaultProps: {},
           },
           MuiButton: {
             defaultProps: {
