@@ -8,6 +8,9 @@ const TextBox = styled(MaterialInputBase, {
   border: "1px solid",
   borderColor: error ? theme.palette.error.main : theme.palette.line.main,
   padding: "5px",
+  "&.Mui-focused": {
+    borderColor: theme.palette.primary.main,
+  },
 })) as typeof MaterialInputBase;
 
 // Would extending InputBaseProps be right here?
