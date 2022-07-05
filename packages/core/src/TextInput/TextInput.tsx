@@ -23,7 +23,7 @@ export const TextInput = (props: TextInputProps) => {
   return (
     <Box>
       <TextBox {...props} />
-      {error && <Typography>{errorDesc}</Typography>}
+      {error && <Typography color="error">{errorDesc}</Typography>}
     </Box>
   );
 };
