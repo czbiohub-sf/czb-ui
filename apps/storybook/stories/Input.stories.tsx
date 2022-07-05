@@ -12,7 +12,9 @@ export default {
   argTypes: {},
 };
 
-const template = (args: any) => <CZBUIInput />;
+const template = (args: any) => <CZBUIInput error={args.error} />;
 
 export const Input = template.bind({});
-Input.args = {};
+Input.args = {
+  error: false,
+};
