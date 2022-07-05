@@ -1,4 +1,4 @@
-import Box from "@mui/material/Box";
+import { Box, Typography } from "@mui/material";
 import MaterialInputBase, { InputBaseProps } from "@mui/material/InputBase";
 import { styled } from "@mui/material/styles";
 
@@ -23,7 +23,7 @@ export const TextInput = (props: TextInputProps) => {
   return (
     <Box>
       <TextBox {...props} />
-      {error && <div>{errorDesc}</div>}
+      {error && <Typography>{errorDesc}</Typography>}
     </Box>
   );
 };
