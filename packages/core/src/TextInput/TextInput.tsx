@@ -1,3 +1,4 @@
+import Box from "@mui/material/Box";
 import MaterialInputBase, { InputBaseProps } from "@mui/material/InputBase";
 import { styled } from "@mui/material/styles";
 
@@ -12,8 +13,17 @@ const TextBox = styled(MaterialInputBase, {
 // Would extending InputBaseProps be right here?
 // I would think extending TextBox's props would
 // be correct but I'm not sure how to extend the const
-interface TextInputProps extends InputBaseProps {}
+interface TextInputProps extends InputBaseProps {
+  errorDesc?: string;
+}
 
-export const TextInput = ({ ...props }) => {
-  return <TextBox {...props} />;
+export const TextInput = (props: TextInputProps) => {
+  const { error, errorDesc } = props;
+
+  return (
+    <Box>
+      <TextBox {...props} />
+      {error && <div>{errorDesc}</div>}
+    </Box>
+  );
 };

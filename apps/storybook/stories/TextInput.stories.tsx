@@ -12,9 +12,12 @@ export default {
   argTypes: {},
 };
 
-const template = (args: any) => <CZBUITextInput error={args.error} />;
+const template = (args: any) => (
+  <CZBUITextInput error={args.error} errorDesc={args.errorDesc} />
+);
 
 export const TextInput = template.bind({});
 TextInput.args = {
   error: false,
+  errorDesc: "Wrong info",
 };
