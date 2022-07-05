@@ -13,11 +13,16 @@ export default {
 };
 
 const template = (args: any) => (
-  <CZBUITextInput error={args.error} errorDesc={args.errorDesc} />
+  <CZBUITextInput
+    error={args.error}
+    errorDesc={args.errorDesc}
+    label={args.label}
+  />
 );
 
 export const TextInput = template.bind({});
 TextInput.args = {
   error: false,
   errorDesc: "Wrong info",
+  label: "Name",
 };

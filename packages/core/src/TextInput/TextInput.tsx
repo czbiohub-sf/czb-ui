@@ -1,11 +1,11 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, InputLabel } from "@mui/material";
 import MaterialInputBase, { InputBaseProps } from "@mui/material/InputBase";
 import { styled } from "@mui/material/styles";
 
 // We use shouldForwardProp to not pass the additonal props
 // added for this component (at the interface extend) to the
 // text box
-const excludeProps = ["errorDesc"];
+const excludeProps = ["errorDesc", "label"];
 
 const TextBox = styled(MaterialInputBase, {
   shouldForwardProp: (prop) => !excludeProps.includes(prop.toString()),
@@ -23,13 +23,15 @@ const TextBox = styled(MaterialInputBase, {
 // be correct but I'm not sure how to extend the const
 interface TextInputProps extends InputBaseProps {
   errorDesc?: string;
+  label?: string;
 }
 
 export const TextInput = (props: TextInputProps) => {
-  const { error, errorDesc } = props;
+  const { error, errorDesc, label } = props;
 
   return (
     <Box>
+      <InputLabel>{label}</InputLabel>
       <TextBox {...props} />
       {error && <Typography color="error">{errorDesc}</Typography>}
     </Box>
