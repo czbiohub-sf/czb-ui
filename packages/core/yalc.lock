@@ -1,0 +1,9 @@
+{
+  "version": "v1",
+  "packages": {
+    "czifui": {
+      "signature": "d0f3e029721ab73c90d5faa61b6d2f50",
+      "file": true
+    }
+  }
+}

@@ -1,6 +1,5 @@
-import MaterialButton, { ButtonProps } from "@mui/material/Button";
-import { styled } from "@mui/material/styles";
+import { Button as CZIFUIButton } from "czifui";
 
-export const Button = styled(MaterialButton)<ButtonProps>(
-  () => ({})
-) as typeof MaterialButton;
+export const Button = () => {
+  return <CZIFUIButton>I am CZI Button</CZIFUIButton>;
+};

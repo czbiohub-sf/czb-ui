@@ -33,4 +33,5 @@ yarn-error.log*
 .turbo
 
 # dist
-dist
+packages/*/dist
+!pacakges/**/.yalc/dist
