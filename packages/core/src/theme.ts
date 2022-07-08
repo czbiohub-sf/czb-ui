@@ -2,27 +2,12 @@ import { createTheme } from "@mui/material/styles";
 import { defaultAppTheme, makeThemeOptions } from "czifui";
 
 const primaryColors = {
-  "100": "#FCFAFF",
-  "200": "#F6F2FC",
-  "300": "#D4BFFF",
-  "400": "#511CC1",
-  "500": "#4317A1",
-  "600": "#371680",
-};
-
-const infoColors = {
-  "100": "#F6F2FC",
-  "200": "#F3EDFC",
-  "400": "#511CC1",
-  "600": "#371680",
-};
-
-const primaryBorders = {
-  300: `1px solid ${primaryColors[300]}`,
-  400: `1px solid ${primaryColors[400]}`,
-  500: `1px solid ${primaryColors[500]}`,
-  600: `1px solid ${primaryColors[600]}`,
-  dashed: `2px dashed ${primaryColors[400]}`,
+  "100": "#0076A1", // I can't find a 100 color to choose
+  "200": "#0076A1",
+  "300": "#004761",
+  "400": "#00A3E0",
+  "500": "#00AEED",
+  "600": "#0092C7",
 };
 
 const fontFamily = ["Lato", "Barlow"].join(",");
@@ -30,17 +15,6 @@ const fontFamily = ["Lato", "Barlow"].join(",");
 const appTheme = { ...defaultAppTheme };
 
 appTheme.colors.primary = primaryColors;
-appTheme.colors.info = infoColors;
 appTheme.typography.fontFamily = fontFamily;
-
-appTheme.borders = appTheme.borders ?? {
-  error: {},
-  gray: {},
-  link: {},
-  primary: {},
-  success: {},
-  warning: {},
-};
-appTheme.borders.primary = primaryBorders;
 
 export const biohubTheme = createTheme(makeThemeOptions(appTheme));
