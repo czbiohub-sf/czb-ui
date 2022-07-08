@@ -3,11 +3,9 @@ import Toolbar, { ToolbarProps } from "@mui/material/Toolbar";
 import { styled } from "@mui/material/styles";
 
 const AppBarComponent = styled(MaterialAppBar)<AppBarProps>(({ theme }) => ({
-  backgroundColor: theme.palette.secondary.main,
+  backgroundColor: theme.palette.grey[300],
   color: "white",
   boxShadow: "none",
-  borderTop: "1px solid",
-  borderColor: theme.palette.grey[200],
 })) as typeof MaterialAppBar;
 
 const minAppBarHeight = "100px";

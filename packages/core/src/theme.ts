@@ -10,11 +10,21 @@ const primaryColors = {
   "600": "#0092C7",
 };
 
+// There's only two grey colors I need to apply
+// btw when getting these colors, its
+// themes.palette.grey, grey with E
+const grayColors = {
+  ...defaultAppTheme.colors.gray,
+  "300": "#3E484C",
+  "400": "#888B8D",
+};
+
 const fontFamily = ["Lato", "Barlow"].join(",");
 
 const appTheme = { ...defaultAppTheme };
 
 appTheme.colors.primary = primaryColors;
+appTheme.colors.gray = grayColors;
 appTheme.typography.fontFamily = fontFamily;
 
 export const biohubTheme = createTheme(makeThemeOptions(appTheme));
