@@ -10,6 +10,9 @@ import { BiohubLogo } from "@czb-ui/biohub-logos";
 export default {
   title: "NavBarAndFooterPlacer",
   component: CZBUINavAndFootPlacer,
+  parameters: {
+    layout: "fullscreen",
+  },
 };
 
 const pages = [

@@ -6,6 +6,9 @@ import { BiohubLogo } from "@czb-ui/biohub-logos";
 export default {
   title: "NavBar",
   component: CZBUINavBar,
+  parameters: {
+    layout: "fullscreen",
+  },
 };
 
 const pages = [
