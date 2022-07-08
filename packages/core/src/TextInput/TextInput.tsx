@@ -12,7 +12,6 @@ const TextBox = styled(MaterialInputBase, {
   shouldForwardProp: (prop) => !excludeProps.includes(prop.toString()),
 })<InputBaseProps>(({ error, theme }) => ({
   border: "1px solid",
-  borderColor: error ? theme.palette.error.main : theme.palette.line.main,
   padding: "5px",
   "&.Mui-focused": {
     borderColor: theme.palette.primary.main,
