@@ -19,8 +19,22 @@ const grayColors = {
   "400": "#888B8D",
 };
 
+// Error color
+const errorColors = {
+  ...defaultAppTheme.colors.error,
+  "400": "#E03B0B",
+};
+
+// Warning color
+const warningColors = {
+  ...defaultAppTheme.colors.warning,
+  "400": "#E0A90B",
+};
+
+// Two fonts we need
 const fontFamily = ["Lato", "Barlow"].join(",");
 
+// xxl is used on the h1, font change is needed
 const headingStyles = {
   ...defaultAppTheme.typography.styles.header,
   xxl: {
@@ -33,6 +47,8 @@ const appTheme = { ...defaultAppTheme };
 
 appTheme.colors.primary = primaryColors;
 appTheme.colors.gray = grayColors;
+appTheme.colors.error = errorColors;
+appTheme.colors.warning = warningColors;
 appTheme.typography.fontFamily = fontFamily;
 appTheme.typography.styles.header = headingStyles;
 
