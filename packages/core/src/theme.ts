@@ -21,10 +21,19 @@ const grayColors = {
 
 const fontFamily = ["Lato", "Barlow"].join(",");
 
+const headingStyles = {
+  ...defaultAppTheme.typography.styles.header,
+  xxl: {
+    ...defaultAppTheme.typography.styles.header.xxl,
+    fontFamily: "Barlow",
+  },
+};
+
 const appTheme = { ...defaultAppTheme };
 
 appTheme.colors.primary = primaryColors;
 appTheme.colors.gray = grayColors;
 appTheme.typography.fontFamily = fontFamily;
+appTheme.typography.styles.header = headingStyles;
 
 export const biohubTheme = createTheme(makeThemeOptions(appTheme));
