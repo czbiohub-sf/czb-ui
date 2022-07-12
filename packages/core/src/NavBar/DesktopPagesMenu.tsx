@@ -12,7 +12,7 @@ export const DesktopPagesMenu = ({
   pagesComponent,
 }: DesktopPagesMenuProps) => {
   return (
-    <Box sx={{ mx: 2 }}>
+    <Box sx={{ mx: 5 }}>
       {pages.map((page) => (
         <Link
           color="inherit"
