@@ -10,6 +10,7 @@ Run storybook with live refresh: `yarn dev` from project root
 
 1. Run `yarn changeset` in the project's root directory.
 2. Mark the packages that need to have their version bumped up.
+   - Make sure to follow the [SemVer Versioning spec](https://semver.org/#semantic-versioning-specification-semver)
 3. Answer the remaining questions.
 4. Commit the new changeset into git.
 5. Remember to push those changes into your branch before making a PR!
