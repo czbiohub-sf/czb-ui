@@ -11,10 +11,6 @@ const pages = [
     title: "Data",
     to: "/data",
   },
-  {
-    title: "Images",
-    to: "/images",
-  },
 ];
 
 export default function NavBar() {
