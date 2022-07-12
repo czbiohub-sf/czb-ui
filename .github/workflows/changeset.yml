@@ -7,6 +7,10 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v3
 
+      - script:
+          # Required so that Changesets can compare with main branch
+          - git pull -f origin main:main
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
