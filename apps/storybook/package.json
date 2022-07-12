@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Kyle Awayan",
+  "private": true,
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.17.9",
