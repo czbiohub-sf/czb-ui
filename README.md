@@ -12,3 +12,10 @@ Run storybook with live refresh: `yarn dev` from project root
 2. Mark the packages that need to have their version bumped up.
 3. Answer the remaining questions.
 4. Commit the new changeset into git.
+
+## Publishing a version to npm
+
+You will need to be on the `czb-ui` npm organization with 2FA enabled.
+
+1. Run `yarn changeset version`.
+2. Run `yarn changeset publish`.
