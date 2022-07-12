@@ -1,35 +1,31 @@
 import React from "react";
 
-import { Button as CZBUIButton } from "@czb-ui/core";
-import { ButtonProps } from "@mui/material"; // TODO: Get props not from mui
+import { Button as CZIFUIButton } from "czifui";
 
 export default {
   /* 👇 The title prop is optional.
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: "Button",
-  component: CZBUIButton,
+  title: "Demos of CZI components",
+  component: CZIFUIButton,
   argTypes: {
-    color: {
-      options: ["primary", "secondary"],
+    sdsStyle: {
+      options: ["rounded", "square", "minimal"],
       control: { type: "radio" },
     },
-    variant: {
-      options: ["text", "contained", "outlined"],
+    sdsType: {
+      options: ["primary", "secondary"],
       control: { type: "radio" },
     },
   },
 };
 
-const Template = (args: ButtonProps) => (
-  <CZBUIButton color={args.color} variant={args.variant}>
-    Test
-  </CZBUIButton>
-);
+const Template = (args: any) => <CZIFUIButton {...args}>Test</CZIFUIButton>;
 
 export const Button = Template.bind({});
 Button.args = {
-  color: "primary",
-  variant: "text",
+  sdsStyle: "rounded",
+  sdsType: "primary",
+  disabled: false,
 };

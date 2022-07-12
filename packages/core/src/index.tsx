@@ -9,7 +9,6 @@ export * from "./TextInput/TextInput";
 
 export * from "./NavBar/NavBar";
 export * from "./Footer/Footer";
-export * from "./Button/Button";
 export * from "./Banner/GenericBanner";
 export * from "./Banner/GrandBanner";
 export * from "./NavBarAndFooterPlacer/NavBarAndFooterPlacer";
