@@ -13,17 +13,22 @@
     "@rollup/plugin-typescript": "^8.3.2",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
+    "@types/uuid": "^8.3.4",
     "config": "*",
     "rollup": "^2.70.2",
     "tsconfig": "*",
     "typescript": "^4.5.3"
   },
   "peerDependencies": {
+    "@emotion/css": "^11.9.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.6.1"
   },
   "dependencies": {
-    "hamburger-react": "^2.5.0"
+    "czifui": "^5.0.0-beta.6",
+    "hamburger-react": "^2.5.0",
+    "uuid": "^8.3.2"
   }
 }

@@ -34,10 +34,20 @@ export const GrandBanner = ({
               justifyContent: "center",
             }}
           >
-            <Typography variant="h1" gutterBottom={false}>
+            <Typography
+              variant="h1"
+              fontSize="2.5rem"
+              component="div"
+              gutterBottom={false}
+            >
               {title}
             </Typography>
-            <Typography variant="h2" gutterBottom={false} marginTop="0.5rem">
+            <Typography
+              variant="h2"
+              component="div"
+              gutterBottom={false}
+              marginTop="0.5rem"
+            >
               {subtitle}
             </Typography>
           </Box>

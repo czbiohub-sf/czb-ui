@@ -26,7 +26,7 @@ export const NavBar = ({ logo, title, pages, pagesComponent }: NavBarProps) => {
 
   return (
     <AppBar position="relative">
-      <Box sx={{ mr: 1, display: "inherit" }}>{logo}</Box>
+      <Box sx={{ mr: 5, display: "inherit" }}>{logo}</Box>
       <Typography
         fontFamily="Barlow"
         fontWeight={700}

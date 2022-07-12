@@ -25,7 +25,7 @@ export const Footer = ({ logo, title, pages, pagesComponent }: FooterProps) => {
 
   return (
     <FooterBar position="relative" sx={{ top: "auto", bottom: 0 }}>
-      <Box sx={{ mr: 1, display: "inherit" }}>{logo}</Box>
+      <Box sx={{ mr: 5, display: "inherit" }}>{logo}</Box>
       <Typography
         fontFamily="Barlow"
         fontWeight={700}

@@ -1,5 +1,6 @@
 import { PagesObject } from "./NavBar";
-import { Box, Button } from "@mui/material";
+import { Link } from "czifui";
+import { Box } from "@mui/material";
 
 interface DesktopPagesMenuProps {
   pages: Array<PagesObject>;
@@ -13,9 +14,14 @@ export const DesktopPagesMenu = ({
   return (
     <Box sx={{ mx: 2 }}>
       {pages.map((page) => (
-        <Button color="inherit" component={pagesComponent} to={page.to}>
+        <Link
+          color="inherit"
+          component={pagesComponent}
+          to={page.to}
+          sx={{ mx: 5 }}
+        >
           {page.title}
-        </Button>
+        </Link>
       ))}
     </Box>
   );

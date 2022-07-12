@@ -3,7 +3,7 @@ import Toolbar, { ToolbarProps } from "@mui/material/Toolbar";
 import { styled } from "@mui/material/styles";
 
 const AppBarComponent = styled(MaterialAppBar)<AppBarProps>(({ theme }) => ({
-  backgroundColor: theme.palette.secondary.main,
+  backgroundColor: theme.palette.grey[300],
   color: "white",
   boxShadow: "none",
 })) as typeof MaterialAppBar;
@@ -14,9 +14,13 @@ const ToolbarComponent = styled(Toolbar)<ToolbarProps>(({ theme }) => ({
   minHeight: minAppBarHeight,
   [theme.breakpoints.up("sm")]: {
     minHeight: minAppBarHeight,
+    paddingLeft: theme.spacing(7),
+    paddingRight: theme.spacing(7),
   },
   [theme.breakpoints.up("xs")]: {
     minHeight: minAppBarHeight,
+    paddingLeft: theme.spacing(7),
+    paddingRight: theme.spacing(7),
   },
 }));
 
