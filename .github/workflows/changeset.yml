@@ -1,7 +1,7 @@
 name: changeset Check
 on: [push]
 jobs:
-  lintcheck:
+  changeset:
     runs-on: ubuntu-latest
     steps:
       - name: Check out Git repository
