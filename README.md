@@ -12,6 +12,7 @@ Run storybook with live refresh: `yarn dev` from project root
 2. Mark the packages that need to have their version bumped up.
 3. Answer the remaining questions.
 4. Commit the new changeset into git.
+5. Remember to push those changes into your branch before making a PR!
 
 ## Publishing a version to npm
 
