@@ -8,5 +8,12 @@ export default {
     format: "cjs",
   },
   plugins: [typescript()],
-  external: [/^@emotion\/.*/, /^@mui\/.*/, /^react\/.*/],
+  external: [
+    /^@emotion\/.*/,
+    /^@mui\/.*/,
+    /^react\/.*/,
+    "uuid",
+    "czifui",
+    "hamburger-react",
+  ],
 };
