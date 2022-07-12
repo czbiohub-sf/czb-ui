@@ -11,3 +11,4 @@ Run storybook with live refresh: `yarn dev` from project root
 1. Run `yarn changeset`.
 2. Mark the packages that need to have their version bumped up.
 3. Answer the remaining questions.
+4. Commit the new changeset into git.
