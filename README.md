@@ -20,7 +20,7 @@ Run storybook with live refresh: `yarn dev` from project root
 You will need to be on the `czb-ui` npm organization with 2FA enabled. Make sure you are also on the `main` branch.
 
 1. Run `yarn changeset version` in the project's root directory. **Note after running this command you should not make anymore commits after step 2.**
-2. Commit the changes the command made and push them.
+2. Commit the changes the command made.
 3. Run `yarn build` in the project's root directory.
 4. Run `yarn changeset publish` in the project's root directory.
 5. Run `git push --tags` to push the tags made from the previous command.
