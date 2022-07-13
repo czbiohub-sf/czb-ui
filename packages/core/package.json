@@ -16,6 +16,7 @@
     "@types/uuid": "^8.3.4",
     "config": "*",
     "rollup": "^2.70.2",
+    "rollup-plugin-delete": "^2.0.0",
     "tsconfig": "*",
     "typescript": "^4.5.3"
   },

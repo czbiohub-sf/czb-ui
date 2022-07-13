@@ -1,5 +1,6 @@
 // rollup.config.js
 import typescript from "@rollup/plugin-typescript";
+import del from "rollup-plugin-delete";
 
 export default {
   input: "src/index.tsx",
@@ -7,7 +8,7 @@ export default {
     dir: "dist",
     format: "cjs",
   },
-  plugins: [typescript()],
+  plugins: [typescript(), del({ targets: "dist/*" })],
   external: [
     /^@emotion\/.*/,
     /^@mui\/.*/,
