@@ -23,4 +23,4 @@ You will need to be on the `czb-ui` npm organization with 2FA enabled. Make sure
 2. Commit the changes the command made.
 3. Run `yarn build` in the project's root directory.
 4. Run `yarn changeset publish` in the project's root directory.
-5. Run `git push --tags` to push the tags made from the previous command.
+5. Run `git push && git push --tags` to push the remaining commits and tags made from the previous commands.
