@@ -4,8 +4,8 @@ import {
   NavBarAndFooterPlacer as CZBUINavAndFootPlacer,
   NavBar,
   Footer,
-} from "@czb-ui/core";
-import { BiohubLogo } from "@czb-ui/biohub-logos";
+} from "@czb-ui/core/src";
+import { BiohubLogo } from "@czb-ui/biohub-logos/src";
 
 export default {
   title: "NavBarAndFooterPlacer",

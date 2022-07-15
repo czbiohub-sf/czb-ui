@@ -1,6 +1,6 @@
 import React from "react";
 
-import { GrandBanner as CZBUIGrandBanner } from "@czb-ui/core";
+import { GrandBanner as CZBUIGrandBanner } from "@czb-ui/core/src";
 import background from "./assets/sapiens_banner.webp";
 
 export default {
