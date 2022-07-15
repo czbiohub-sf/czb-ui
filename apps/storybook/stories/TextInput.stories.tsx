@@ -1,6 +1,6 @@
 import React from "react";
 
-import { TextInput as CZBUITextInput } from "@czb-ui/core";
+import { TextInput as CZBUITextInput } from "@czb-ui/core/src";
 
 export default {
   /* 👇 The title prop is optional.

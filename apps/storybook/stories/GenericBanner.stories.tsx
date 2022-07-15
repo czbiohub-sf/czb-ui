@@ -1,6 +1,6 @@
 import React from "react";
 
-import { GenericBanner as CZBUIGenericBanner } from "@czb-ui/core";
+import { GenericBanner as CZBUIGenericBanner } from "@czb-ui/core/src";
 import background from "./assets/viral_background_biohub.png";
 
 export default {

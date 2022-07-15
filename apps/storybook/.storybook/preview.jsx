@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@czb-ui/core";
+import { ThemeProvider } from "@czb-ui/core/src";
 
 // Import fonts at their various weights
 // 400 is normal, 700 is bold

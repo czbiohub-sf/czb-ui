@@ -1,7 +1,7 @@
 import React from "react";
 
-import { NavBar as CZBUINavBar } from "@czb-ui/core";
-import { BiohubLogo } from "@czb-ui/biohub-logos";
+import { NavBar as CZBUINavBar } from "@czb-ui/core/src";
+import { BiohubLogo } from "@czb-ui/biohub-logos/src";
 
 export default {
   title: "NavBar",
