@@ -13,7 +13,7 @@ export default function BackgroundInfoBox({
         height: "100%",
         padding: "20px",
         display: "flex",
-        flexDirection: imageOnRight ? "row-reverse" : "row",
+        flexDirection: imageOnRight ? "row" : "row-reverse",
         gap: "50px",
         position: "relative",
       }}
@@ -38,7 +38,7 @@ export default function BackgroundInfoBox({
       <Box
         sx={{
           background: `linear-gradient(${
-            imageOnRight ? "90" : "-90"
+            imageOnRight ? "-90" : "90"
           }deg, rgba(0,0,0,0) 0%, #000 100%)`,
           position: "absolute",
           height: "100%",
