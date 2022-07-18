@@ -37,7 +37,9 @@ export default function BackgroundInfoBox({
       </Box>
       <Box
         sx={{
-          background: "linear-gradient(-90deg, rgba(0,0,0,0) 0%, #000 100%)",
+          background: `linear-gradient(${
+            imageOnRight ? "90" : "-90"
+          }deg, rgba(0,0,0,0) 0%, #000 100%)`,
           position: "absolute",
           height: "100%",
           width: "100%",
@@ -50,6 +52,7 @@ export default function BackgroundInfoBox({
         sx={{
           position: "absolute",
           top: 0,
+          left: 0,
           width: "100%",
           height: "100%",
         }}
