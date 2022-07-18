@@ -8,7 +8,7 @@ export default {
     dir: "dist",
     format: "cjs",
   },
-  plugins: [typescript(), del({ targets: "dist/*" })],
+  plugins: [typescript(), del({ targets: "dist/*", runOnce: true })],
   external: [
     /^@emotion\/.*/,
     /^@mui\/.*/,
