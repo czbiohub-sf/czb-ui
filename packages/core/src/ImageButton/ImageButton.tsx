@@ -1,4 +1,5 @@
 import { Box, Paper, Typography } from "@mui/material";
+import { Link } from "czifui";
 
 interface ImageButtonProps {
   image?: React.ReactNode;
@@ -25,14 +26,17 @@ export const ImageButton = ({ image }: ImageButtonProps) => {
           bgcolor: "#f9f9f9",
           height: "100%",
           padding: "20px",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
         <Box
           sx={{
             top: 0,
             width: "100%",
-            height: "350px",
+            height: "50%",
           }}
+          mb={4}
         >
           {image}
         </Box>
@@ -42,6 +46,7 @@ export const ImageButton = ({ image }: ImageButtonProps) => {
         <Typography>
           Utilise informatics tools developed by the CZ Biohub.
         </Typography>
+        <Link sx={{ marginTop: "auto" }}>Explore Tools</Link>
       </Box>
     </Paper>
   );

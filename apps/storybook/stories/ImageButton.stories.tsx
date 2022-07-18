@@ -4,7 +4,7 @@ import { ImageButton as CZBUIImageButton } from "@czb-ui/core/src";
 import sampleImage from "./assets/sapiens_banner.webp";
 
 export default {
-  title: "Image Button",
+  title: "Big Buttons",
   component: CZBUIImageButton,
   argTypes: {},
 };
