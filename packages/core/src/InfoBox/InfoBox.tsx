@@ -34,7 +34,9 @@ export const InfoBox = ({
       {type == "normal" && (
         <NormalInfoBox image={image} imageOnRight={imageOnRight} />
       )}
-      {type == "background" && <BackgroundInfoBox image={image} />}
+      {type == "background" && (
+        <BackgroundInfoBox image={image} imageOnRight={imageOnRight} />
+      )}
     </Paper>
   );
 };
