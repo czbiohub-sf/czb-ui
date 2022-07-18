@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { Link } from "czifui";
 import { InfoBoxProps } from "./InfoBox";
 
-export default function NormalInfoBox({ image }: InfoBoxProps) {
+export default function NormalInfoBox({ image, imageOnRight }: InfoBoxProps) {
   return (
     <Box
       sx={{
@@ -11,7 +11,7 @@ export default function NormalInfoBox({ image }: InfoBoxProps) {
         height: "100%",
         padding: "20px",
         display: "flex",
-        flexDirection: "row",
+        flexDirection: imageOnRight ? "row-reverse" : "row",
         gap: "50px",
       }}
     >

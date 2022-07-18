@@ -4,6 +4,7 @@ import NormalInfoBox from "./NormalInfoBox";
 
 export interface InfoBoxProps {
   image: React.ReactNode;
+  imageOnRight?: boolean;
 }
 
 interface InfoBoxContainerProps extends InfoBoxProps {
@@ -13,6 +14,7 @@ interface InfoBoxContainerProps extends InfoBoxProps {
 
 export const InfoBox = ({
   image,
+  imageOnRight,
   type = "normal",
   size = "normal",
 }: InfoBoxContainerProps) => {
@@ -29,7 +31,9 @@ export const InfoBox = ({
       elevation={0}
       square
     >
-      {type == "normal" && <NormalInfoBox image={image} />}
+      {type == "normal" && (
+        <NormalInfoBox image={image} imageOnRight={imageOnRight} />
+      )}
       {type == "background" && <BackgroundInfoBox image={image} />}
     </Paper>
   );

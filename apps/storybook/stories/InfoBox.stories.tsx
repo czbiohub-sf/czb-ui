@@ -23,6 +23,7 @@ const Template = (args: any) => (
       />
     }
     type={args.type}
+    imageOnRight={args.imageOnRight}
   />
 );
 
@@ -30,4 +31,5 @@ export const InfoBox = Template.bind({});
 InfoBox.args = {
   image: sampleImage,
   type: "normal",
+  imageOnRight: false,
 };
