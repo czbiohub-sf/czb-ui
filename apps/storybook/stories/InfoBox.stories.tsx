@@ -6,7 +6,12 @@ import sampleImage from "./assets/sapiens_banner.webp";
 export default {
   title: "Big Buttons",
   component: CZBUIInfoBox,
-  argTypes: {},
+  argTypes: {
+    type: {
+      options: ["normal", "background"],
+      control: { type: "radio" },
+    },
+  },
 };
 
 const Template = (args: any) => (
@@ -17,10 +22,12 @@ const Template = (args: any) => (
         src={args.image}
       />
     }
+    type={args.type}
   />
 );
 
 export const InfoBox = Template.bind({});
 InfoBox.args = {
   image: sampleImage,
+  type: "normal",
 };
