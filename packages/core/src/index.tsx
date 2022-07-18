@@ -12,3 +12,4 @@ export * from "./Footer/Footer";
 export * from "./Banner/GenericBanner";
 export * from "./Banner/GrandBanner";
 export * from "./NavBarAndFooterPlacer/NavBarAndFooterPlacer";
+export * from "./ImageButton/ImageButton";
