@@ -35,3 +35,4 @@ yarn-error.log*
 # dist
 packages/*/dist
 !pacakges/**/.yalc/dist
+storybook-static
