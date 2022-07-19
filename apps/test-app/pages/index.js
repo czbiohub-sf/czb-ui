@@ -1,4 +1,5 @@
-import { GenericBanner, Box } from "@czb-ui/core";
+import { GenericBanner } from "@czb-ui/core";
+import { Box } from "@mui/material";
 import Image from "next/image";
 import viralBackgroundBiohub from "../public/images/viral_background_biohub.png";
 
