@@ -12,12 +12,13 @@
     "@emotion/css": "^11.9.0",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
-    "@mui/base": "^5.0.0-alpha.89",
+    "@mui/base": "^5.0.0-alpha.90",
     "@mui/icons-material": "^5.8.4",
-    "@mui/lab": "^5.0.0-alpha.90",
-    "@mui/material": "^5.9.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "@mui/lab": "^5.0.0-alpha.91",
+    "@mui/material": "^5.9.1",
+    "czifui": "5.0.0-beta.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.4.18",
