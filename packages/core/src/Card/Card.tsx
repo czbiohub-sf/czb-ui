@@ -1,23 +1,33 @@
 import Box, { BoxProps } from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 
-const CardOuter = styled(Box)<BoxProps>(({ theme }) => ({
+interface CardProps extends BoxProps {
+  disablePadding?: boolean;
+}
+
+const CardOuter = styled(Box, {
+  shouldForwardProp: (prop) => prop !== "disablePadding",
+})<BoxProps>(({ theme }) => ({
   // TODO: Put grey colors in palette
   border: `1px solid #f1f0f0`,
   padding: "1rem",
 })) as typeof Box;
 
-const CardInner = styled(Box)<BoxProps>(({ theme }) => ({
+const CardInner = styled(Box, {
+  shouldForwardProp: (prop) => prop !== "disablePadding",
+})<CardProps>(({ theme, disablePadding }) => ({
   // TODO: Put grey colors in palette
   background: "#f9f9f9",
   height: "100%",
-  padding: "20px",
-})) as typeof Box;
+  padding: disablePadding ? "0px" : "20px",
+})) as React.FunctionComponent<CardProps>;
 
-export const Card = (props: BoxProps) => {
+export const Card = (props: CardProps) => {
   return (
     <CardOuter {...props}>
-      <CardInner>{props.children}</CardInner>
+      <CardInner disablePadding={props.disablePadding}>
+        {props.children}
+      </CardInner>
     </CardOuter>
   );
 };

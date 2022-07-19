@@ -9,7 +9,6 @@ export default function NormalInfoBox({ image, imageOnRight }: InfoBoxProps) {
         zIndex: 1,
         bgcolor: "#f9f9f9",
         height: "100%",
-        padding: "20px",
         display: "flex",
         flexDirection: imageOnRight ? "row-reverse" : "row",
         gap: "50px",

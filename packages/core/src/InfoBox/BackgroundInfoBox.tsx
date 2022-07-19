@@ -9,9 +9,8 @@ export default function BackgroundInfoBox({
   return (
     <Box
       sx={{
-        bgcolor: "#f9f9f9",
+        padding: 0,
         height: "100%",
-        padding: "20px",
         display: "flex",
         flexDirection: imageOnRight ? "row" : "row-reverse",
         gap: "50px",
@@ -26,6 +25,8 @@ export default function BackgroundInfoBox({
           flexDirection: "column",
           justifyContent: "center",
           color: "white",
+          padding: "20px",
+          maxWidth: "400px",
         }}
       >
         <Typography variant="h2" component="div">
