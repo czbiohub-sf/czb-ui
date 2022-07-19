@@ -2,9 +2,7 @@ export * from "./ThemeProvider";
 
 export * from "./AppBar/AppBar";
 export * from "./FooterBar/FooterBar";
-export * from "./Box/Box";
 export * from "./Center/Center";
-export * from "./Stack/Stack";
 export * from "./TextInput/TextInput";
 
 export * from "./NavBar/NavBar";
