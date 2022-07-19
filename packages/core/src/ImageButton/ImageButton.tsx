@@ -1,4 +1,5 @@
-import { Box, Paper, Typography } from "@mui/material";
+import { Card } from "../Card/Card";
+import { Box, Typography } from "@mui/material";
 import { Link } from "czifui";
 
 interface ImageButtonProps {
@@ -6,30 +7,9 @@ interface ImageButtonProps {
 }
 
 export const ImageButton = ({ image }: ImageButtonProps) => {
-  // TODO: Put grey colors in palette
   return (
-    <Paper
-      sx={{
-        height: "700px",
-        width: "400px",
-        position: "relative",
-        border: "1px solid",
-        borderColor: "#f1f0f0",
-        padding: "1rem",
-      }}
-      elevation={0}
-      square
-    >
-      <Box
-        sx={{
-          zIndex: 1,
-          bgcolor: "#f9f9f9",
-          height: "100%",
-          padding: "20px",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
+    <Card sx={{ height: "700px", width: "400px" }}>
+      <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
         <Box
           sx={{
             top: 0,
@@ -48,6 +28,6 @@ export const ImageButton = ({ image }: ImageButtonProps) => {
         </Typography>
         <Link sx={{ marginTop: "auto" }}>Explore Tools</Link>
       </Box>
-    </Paper>
+    </Card>
   );
 };

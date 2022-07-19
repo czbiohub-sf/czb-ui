@@ -6,6 +6,7 @@ export * from "./Box/Box";
 export * from "./Center/Center";
 export * from "./Stack/Stack";
 export * from "./TextInput/TextInput";
+export * from "./Card/Card";
 
 export * from "./NavBar/NavBar";
 export * from "./Footer/Footer";
