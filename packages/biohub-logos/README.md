@@ -1,6 +1,6 @@
 # CZ Biohub Logos
 
-...as React Components.
+...as Material UI React Components.
 
 ## Installation
 
