@@ -5,7 +5,7 @@ High level components for CZ Biohub. Based on [CZI's Science Design System](http
 ## Installation
 
 ```
-npm install @czb-ui/core @mui/material @emotion/react @emotion/styled
+npm install @czb-ui/core czifui @emotion/css @emotion/react @emotion/styled @mui/base @mui/material @mui/icons-material @mui/lab
 ```
 
 Additionally, install the needed fonts:
