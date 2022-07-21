@@ -2,35 +2,49 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { Box, Container, Typography } from "@mui/material";
 import Image from "next/image";
 
+// TODO: Possible to get actual types from tinacms library?
+interface HeadingProps {
+  children: any;
+}
+
+interface ImageProps {
+  url: string;
+  alt: string;
+}
+
+interface TextBlockProps {
+  block: any;
+}
+
 // TODO: Seperate these components into their own files
 
 // TODO: Headings only supoort text with this implementation. They might include links and other stuff,
 // thats when you need to go through the content array
-const h1Component = ({ children }) => {
+const h1Component = ({ children }: HeadingProps) => {
   return <Typography variant="h1">{children.props.content[0].text}</Typography>;
 };
 
-const h2Component = ({ children }) => {
+const h2Component = ({ children }: HeadingProps) => {
   return <Typography variant="h2">{children.props.content[0].text}</Typography>;
 };
 
-const h3Component = ({ children }) => {
+const h3Component = ({ children }: HeadingProps) => {
   return <Typography variant="h3">{children.props.content[0].text}</Typography>;
 };
 
-const h4Component = ({ children }) => {
+const h4Component = ({ children }: HeadingProps) => {
   return <Typography variant="h4">{children.props.content[0].text}</Typography>;
 };
 
-const h5Component = ({ children }) => {
+const h5Component = ({ children }: HeadingProps) => {
   return <Typography variant="h5">{children.props.content[0].text}</Typography>;
 };
 
-const h6Component = ({ children }) => {
+const h6Component = ({ children }: HeadingProps) => {
   return <Typography variant="h6">{children.props.content[0].text}</Typography>;
 };
 
-const imgComponent = (props) => {
+const imgComponent = (props: ImageProps) => {
   // TODO: Caption, props.caption
   // TODO: Get image resolution somehow or
   // switch sizes to 100vw when on mobile
@@ -78,7 +92,7 @@ const components = {
   img: imgComponent,
 };
 
-export const TextBlock = ({ block }) => {
+export const TextBlock = ({ block }: TextBlockProps) => {
   return (
     <Container sx={{ my: "20px" }}>
       <TinaMarkdown components={components} content={block.text} />
