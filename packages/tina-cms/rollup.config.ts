@@ -17,7 +17,8 @@ export default {
     /^@emotion\/.*/,
     /^@mui\/.*/,
     /^react\/.*/,
+    /^next\/.*/,
+    /^tinacms\/.*/,
     /^@czb-ui\/.*/,
-    "tinacms",
   ],
 };
