@@ -1,22 +1,32 @@
-import React from "react";
 import { GenericBanner, GrandBanner } from "@czb-ui/core";
 import Image from "next/image";
 
-export const GenericBannerBlock = ({ block }) => {
+interface BannerBlockProps {
+  title: string;
+  subtitle: string;
+  image: string;
+  right?: boolean;
+}
+
+interface BannerProps {
+  block: BannerBlockProps;
+}
+
+export const GenericBannerBlock = ({ block }: BannerProps) => {
   return (
     <GenericBanner
       title={block.title}
       subtitle={block.subtitle}
       background={
-        block.background ? (
-          <Image src={block.background} layout="fill" objectFit="cover" />
+        block.image ? (
+          <Image src={block.image} layout="fill" objectFit="cover" />
         ) : undefined
       }
     />
   );
 };
 
-export const GrandBannerBlock = ({ block }) => {
+export const GrandBannerBlock = ({ block }: BannerProps) => {
   return (
     <GrandBanner
       title={block.title}

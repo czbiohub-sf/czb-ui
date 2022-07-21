@@ -17,7 +17,7 @@ export const GenericBanner: TinaTemplate = {
     {
       type: "image",
       label: "Background",
-      name: "background",
+      name: "image",
     },
   ],
 };
