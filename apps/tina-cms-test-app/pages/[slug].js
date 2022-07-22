@@ -1,16 +1,9 @@
 import { staticRequest } from "tinacms";
-import { Layout } from "../../components/Layout";
 import { useTina } from "tinacms/dist/edit-state";
+import TinaBlocks from "../components/TinaBlocks";
+import query from "../.tina/queries/pages";
 
-const query = `query getPost($relativePath: String!) {
-  post(relativePath: $relativePath) {
-    title
-    body
-  }
-}
-`;
-
-export default function Home(props) {
+export default function DynamicPage(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
     query,
@@ -18,25 +11,13 @@ export default function Home(props) {
     data: props.data,
   });
 
-  return (
-    <Layout>
-      <code>
-        <pre
-          style={{
-            backgroundColor: "lightgray",
-          }}
-        >
-          {JSON.stringify(data.post, null, 2)}
-        </pre>
-      </code>
-    </Layout>
-  );
+  return <TinaBlocks {...data.pages} />;
 }
 
 export const getStaticPaths = async () => {
-  const postsResponse = await staticRequest({
+  const pagesResponse = await staticRequest({
     query: `{
-        postConnection {
+        pagesConnection {
           edges {
             node {
               _sys {
@@ -48,7 +29,7 @@ export const getStaticPaths = async () => {
       }`,
     variables: {},
   });
-  const paths = postsResponse.postConnection.edges.map((x) => {
+  const paths = pagesResponse.pagesConnection.edges.map((x) => {
     return { params: { slug: x.node._sys.filename } };
   });
 
@@ -60,7 +41,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (ctx) => {
   const variables = {
-    relativePath: ctx.params.slug + ".md",
+    relativePath: ctx.params.slug + ".mdx",
   };
   let data = {};
   try {

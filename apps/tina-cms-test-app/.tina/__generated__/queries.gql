@@ -1,5 +1,5 @@
-query page($relativePath: String!) {
-  page(relativePath: $relativePath) {
+query pages($relativePath: String!) {
+  pages(relativePath: $relativePath) {
     ... on Document {
       _sys {
         filename
@@ -11,12 +11,12 @@ query page($relativePath: String!) {
       }
       id
     }
-    ...PageParts
+    ...PagesParts
   }
 }
 
-query pageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String) {
-  pageConnection(
+query pagesConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String) {
+  pagesConnection(
     before: $before
     after: $after
     first: $first
@@ -37,52 +37,7 @@ query pageConnection($before: String, $after: String, $first: Float, $last: Floa
           }
           id
         }
-        ...PageParts
-      }
-    }
-  }
-}
-
-query post($relativePath: String!) {
-  post(relativePath: $relativePath) {
-    ... on Document {
-      _sys {
-        filename
-        basename
-        breadcrumbs
-        path
-        relativePath
-        extension
-      }
-      id
-    }
-    ...PostParts
-  }
-}
-
-query postConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String) {
-  postConnection(
-    before: $before
-    after: $after
-    first: $first
-    last: $last
-    sort: $sort
-  ) {
-    totalCount
-    edges {
-      node {
-        ... on Document {
-          _sys {
-            filename
-            basename
-            breadcrumbs
-            path
-            relativePath
-            extension
-          }
-          id
-        }
-        ...PostParts
+        ...PagesParts
       }
     }
   }

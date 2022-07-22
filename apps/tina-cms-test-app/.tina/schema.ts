@@ -1,47 +1,37 @@
-import { defineConfig, defineSchema } from "tinacms";
+import { defineSchema, defineConfig } from "tinacms";
+import {
+  GenericBanner,
+  GrandBanner,
+  Text,
+} from "@czb-ui/tina-cms/dist/schema-blocks";
 
 const schema = defineSchema({
   config: {
     media: {
       tina: {
-        mediaRoot: "uploads",
+        mediaRoot: "tina_uploads",
         publicFolder: "public",
       },
     },
   },
   collections: [
     {
-      label: "Page Content",
-      name: "page",
-      path: "content/page",
+      label: "Pages",
+      name: "pages",
+      path: "content/pages",
       format: "mdx",
       fields: [
         {
-          name: "body",
-          label: "Main Content",
-          type: "rich-text",
-          isBody: true,
-        },
-      ],
-    },
-    {
-      label: "Blog Posts",
-      name: "post",
-      path: "content/post",
-      fields: [
-        {
-          type: "string",
-          label: "Title",
           name: "title",
+          label: "Title",
+          type: "string",
         },
         {
-          type: "string",
-          label: "Blog Post Body",
-          name: "body",
-          isBody: true,
-          ui: {
-            component: "textarea",
-          },
+          type: "object",
+          list: true,
+          name: "blocks",
+          label: "Sections",
+          templates: [GenericBanner, GrandBanner, Text],
         },
       ],
     },
@@ -50,7 +40,11 @@ const schema = defineSchema({
 
 export default schema;
 
-const branch = process.env.NEXT_PUBLIC_EDIT_BRANCH || "main";
+// Your tina config
+// ==============
+const branch = "main";
+// When working locally, hit our local filesystem.
+// On a Vercel deployment, hit the Tina Cloud API
 const apiURL =
   process.env.NODE_ENV == "development"
     ? "http://localhost:4001/graphql"
@@ -60,23 +54,33 @@ export const tinaConfig = defineConfig({
   apiURL,
   schema,
   cmsCallback: (cms) => {
+    //  add your CMS callback code here (if you want)
+
+    // The Route Mapper
+    /**
+     * 1. Import `tinacms` and `RouteMappingPlugin`
+     **/
     import("tinacms").then(({ RouteMappingPlugin }) => {
+      /**
+       * 2. Define the `RouteMappingPlugin` see https://tina.io/docs/tinacms-context/#the-routemappingplugin for more details
+       **/
       const RouteMapping = new RouteMappingPlugin((collection, document) => {
-        if (["page"].includes(collection.name)) {
-          if (document._sys.filename === "home") {
+        if (["pages"].includes(collection.name)) {
+          if (document._sys.filename == "home") {
             return "/";
           }
-        }
 
-        if (["post"].includes(collection.name)) {
-          return `/posts/${document._sys.filename}`;
+          return `/${document._sys.filename}`;
         }
 
         return undefined;
       });
-
+      /**
+       * 3. Add the `RouteMappingPlugin` to the `cms`.
+       **/
       cms.plugins.add(RouteMapping);
     });
+
     return cms;
   },
 });

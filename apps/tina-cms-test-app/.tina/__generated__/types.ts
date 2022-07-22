@@ -73,10 +73,8 @@ export type Query = {
   collections: Array<Collection>;
   node: Node;
   document: DocumentNode;
-  page: Page;
-  pageConnection: PageConnection;
-  post: Post;
-  postConnection: PostConnection;
+  pages: Pages;
+  pagesConnection: PagesConnection;
 };
 
 
@@ -101,26 +99,12 @@ export type QueryDocumentArgs = {
 };
 
 
-export type QueryPageArgs = {
+export type QueryPagesArgs = {
   relativePath?: InputMaybe<Scalars['String']>;
 };
 
 
-export type QueryPageConnectionArgs = {
-  before?: InputMaybe<Scalars['String']>;
-  after?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Float']>;
-  last?: InputMaybe<Scalars['Float']>;
-  sort?: InputMaybe<Scalars['String']>;
-};
-
-
-export type QueryPostArgs = {
-  relativePath?: InputMaybe<Scalars['String']>;
-};
-
-
-export type QueryPostConnectionArgs = {
+export type QueryPagesConnectionArgs = {
   before?: InputMaybe<Scalars['String']>;
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
@@ -163,49 +147,50 @@ export type CollectionDocumentsArgs = {
   sort?: InputMaybe<Scalars['String']>;
 };
 
-export type DocumentNode = Page | Post;
+export type DocumentNode = Pages;
 
-export type Page = Node & Document & {
-  __typename?: 'Page';
-  body?: Maybe<Scalars['JSON']>;
-  id: Scalars['ID'];
-  _sys: SystemInfo;
-  _values: Scalars['JSON'];
-};
-
-export type PageConnectionEdges = {
-  __typename?: 'PageConnectionEdges';
-  cursor: Scalars['String'];
-  node?: Maybe<Page>;
-};
-
-export type PageConnection = Connection & {
-  __typename?: 'PageConnection';
-  pageInfo: PageInfo;
-  totalCount: Scalars['Float'];
-  edges?: Maybe<Array<Maybe<PageConnectionEdges>>>;
-};
-
-export type Post = Node & Document & {
-  __typename?: 'Post';
+export type PagesBlocksGenericBanner = {
+  __typename?: 'PagesBlocksGenericBanner';
   title?: Maybe<Scalars['String']>;
-  body?: Maybe<Scalars['String']>;
+  subtitle?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
+};
+
+export type PagesBlocksGrandBanner = {
+  __typename?: 'PagesBlocksGrandBanner';
+  title?: Maybe<Scalars['String']>;
+  subtitle?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
+  right?: Maybe<Scalars['Boolean']>;
+};
+
+export type PagesBlocksText = {
+  __typename?: 'PagesBlocksText';
+  text?: Maybe<Scalars['JSON']>;
+};
+
+export type PagesBlocks = PagesBlocksGenericBanner | PagesBlocksGrandBanner | PagesBlocksText;
+
+export type Pages = Node & Document & {
+  __typename?: 'Pages';
+  title?: Maybe<Scalars['String']>;
+  blocks?: Maybe<Array<Maybe<PagesBlocks>>>;
   id: Scalars['ID'];
   _sys: SystemInfo;
   _values: Scalars['JSON'];
 };
 
-export type PostConnectionEdges = {
-  __typename?: 'PostConnectionEdges';
+export type PagesConnectionEdges = {
+  __typename?: 'PagesConnectionEdges';
   cursor: Scalars['String'];
-  node?: Maybe<Post>;
+  node?: Maybe<Pages>;
 };
 
-export type PostConnection = Connection & {
-  __typename?: 'PostConnection';
+export type PagesConnection = Connection & {
+  __typename?: 'PagesConnection';
   pageInfo: PageInfo;
   totalCount: Scalars['Float'];
-  edges?: Maybe<Array<Maybe<PostConnectionEdges>>>;
+  edges?: Maybe<Array<Maybe<PagesConnectionEdges>>>;
 };
 
 export type Mutation = {
@@ -214,10 +199,8 @@ export type Mutation = {
   updateDocument: DocumentNode;
   deleteDocument: DocumentNode;
   createDocument: DocumentNode;
-  updatePage: Page;
-  createPage: Page;
-  updatePost: Post;
-  createPost: Post;
+  updatePages: Pages;
+  createPages: Pages;
 };
 
 
@@ -248,55 +231,59 @@ export type MutationCreateDocumentArgs = {
 };
 
 
-export type MutationUpdatePageArgs = {
+export type MutationUpdatePagesArgs = {
   relativePath: Scalars['String'];
-  params: PageMutation;
+  params: PagesMutation;
 };
 
 
-export type MutationCreatePageArgs = {
+export type MutationCreatePagesArgs = {
   relativePath: Scalars['String'];
-  params: PageMutation;
-};
-
-
-export type MutationUpdatePostArgs = {
-  relativePath: Scalars['String'];
-  params: PostMutation;
-};
-
-
-export type MutationCreatePostArgs = {
-  relativePath: Scalars['String'];
-  params: PostMutation;
+  params: PagesMutation;
 };
 
 export type DocumentMutation = {
-  page?: InputMaybe<PageMutation>;
-  post?: InputMaybe<PostMutation>;
+  pages?: InputMaybe<PagesMutation>;
 };
 
-export type PageMutation = {
-  body?: InputMaybe<Scalars['JSON']>;
-};
-
-export type PostMutation = {
+export type PagesBlocksGenericBannerMutation = {
   title?: InputMaybe<Scalars['String']>;
-  body?: InputMaybe<Scalars['String']>;
+  subtitle?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['String']>;
 };
 
-export type PagePartsFragment = { __typename?: 'Page', body?: any | null };
+export type PagesBlocksGrandBannerMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  subtitle?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['String']>;
+  right?: InputMaybe<Scalars['Boolean']>;
+};
 
-export type PostPartsFragment = { __typename?: 'Post', title?: string | null, body?: string | null };
+export type PagesBlocksTextMutation = {
+  text?: InputMaybe<Scalars['JSON']>;
+};
 
-export type PageQueryVariables = Exact<{
+export type PagesBlocksMutation = {
+  GenericBanner?: InputMaybe<PagesBlocksGenericBannerMutation>;
+  GrandBanner?: InputMaybe<PagesBlocksGrandBannerMutation>;
+  text?: InputMaybe<PagesBlocksTextMutation>;
+};
+
+export type PagesMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  blocks?: InputMaybe<Array<InputMaybe<PagesBlocksMutation>>>;
+};
+
+export type PagesPartsFragment = { __typename?: 'Pages', title?: string | null, blocks?: Array<{ __typename: 'PagesBlocksGenericBanner', title?: string | null, subtitle?: string | null, image?: string | null } | { __typename: 'PagesBlocksGrandBanner', title?: string | null, subtitle?: string | null, image?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksText', text?: any | null } | null> | null };
+
+export type PagesQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type PageQuery = { __typename?: 'Query', page: { __typename?: 'Page', id: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type PagesQuery = { __typename?: 'Query', pages: { __typename?: 'Pages', id: string, title?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PagesBlocksGenericBanner', title?: string | null, subtitle?: string | null, image?: string | null } | { __typename: 'PagesBlocksGrandBanner', title?: string | null, subtitle?: string | null, image?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksText', text?: any | null } | null> | null } };
 
-export type PageConnectionQueryVariables = Exact<{
+export type PagesConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
@@ -305,40 +292,33 @@ export type PageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, edges?: Array<{ __typename?: 'PageConnectionEdges', node?: { __typename?: 'Page', id: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type PagesConnectionQuery = { __typename?: 'Query', pagesConnection: { __typename?: 'PagesConnection', totalCount: number, edges?: Array<{ __typename?: 'PagesConnectionEdges', node?: { __typename?: 'Pages', id: string, title?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PagesBlocksGenericBanner', title?: string | null, subtitle?: string | null, image?: string | null } | { __typename: 'PagesBlocksGrandBanner', title?: string | null, subtitle?: string | null, image?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksText', text?: any | null } | null> | null } | null } | null> | null } };
 
-export type PostQueryVariables = Exact<{
-  relativePath: Scalars['String'];
-}>;
-
-
-export type PostQuery = { __typename?: 'Query', post: { __typename?: 'Post', id: string, title?: string | null, body?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
-
-export type PostConnectionQueryVariables = Exact<{
-  before?: InputMaybe<Scalars['String']>;
-  after?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Float']>;
-  last?: InputMaybe<Scalars['Float']>;
-  sort?: InputMaybe<Scalars['String']>;
-}>;
-
-
-export type PostConnectionQuery = { __typename?: 'Query', postConnection: { __typename?: 'PostConnection', totalCount: number, edges?: Array<{ __typename?: 'PostConnectionEdges', node?: { __typename?: 'Post', id: string, title?: string | null, body?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
-
-export const PagePartsFragmentDoc = gql`
-    fragment PageParts on Page {
-  body
-}
-    `;
-export const PostPartsFragmentDoc = gql`
-    fragment PostParts on Post {
+export const PagesPartsFragmentDoc = gql`
+    fragment PagesParts on Pages {
   title
-  body
+  blocks {
+    __typename
+    ... on PagesBlocksGenericBanner {
+      title
+      subtitle
+      image
+    }
+    ... on PagesBlocksGrandBanner {
+      title
+      subtitle
+      image
+      right
+    }
+    ... on PagesBlocksText {
+      text
+    }
+  }
 }
     `;
-export const PageDocument = gql`
-    query page($relativePath: String!) {
-  page(relativePath: $relativePath) {
+export const PagesDocument = gql`
+    query pages($relativePath: String!) {
+  pages(relativePath: $relativePath) {
     ... on Document {
       _sys {
         filename
@@ -350,13 +330,13 @@ export const PageDocument = gql`
       }
       id
     }
-    ...PageParts
+    ...PagesParts
   }
 }
-    ${PagePartsFragmentDoc}`;
-export const PageConnectionDocument = gql`
-    query pageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String) {
-  pageConnection(
+    ${PagesPartsFragmentDoc}`;
+export const PagesConnectionDocument = gql`
+    query pagesConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String) {
+  pagesConnection(
     before: $before
     after: $after
     first: $first
@@ -377,73 +357,20 @@ export const PageConnectionDocument = gql`
           }
           id
         }
-        ...PageParts
+        ...PagesParts
       }
     }
   }
 }
-    ${PagePartsFragmentDoc}`;
-export const PostDocument = gql`
-    query post($relativePath: String!) {
-  post(relativePath: $relativePath) {
-    ... on Document {
-      _sys {
-        filename
-        basename
-        breadcrumbs
-        path
-        relativePath
-        extension
-      }
-      id
-    }
-    ...PostParts
-  }
-}
-    ${PostPartsFragmentDoc}`;
-export const PostConnectionDocument = gql`
-    query postConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String) {
-  postConnection(
-    before: $before
-    after: $after
-    first: $first
-    last: $last
-    sort: $sort
-  ) {
-    totalCount
-    edges {
-      node {
-        ... on Document {
-          _sys {
-            filename
-            basename
-            breadcrumbs
-            path
-            relativePath
-            extension
-          }
-          id
-        }
-        ...PostParts
-      }
-    }
-  }
-}
-    ${PostPartsFragmentDoc}`;
+    ${PagesPartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
-      page(variables: PageQueryVariables, options?: C): Promise<{data: PageQuery, variables: PageQueryVariables, query: string}> {
-        return requester<{data: PageQuery, variables: PageQueryVariables, query: string}, PageQueryVariables>(PageDocument, variables, options);
+      pages(variables: PagesQueryVariables, options?: C): Promise<{data: PagesQuery, variables: PagesQueryVariables, query: string}> {
+        return requester<{data: PagesQuery, variables: PagesQueryVariables, query: string}, PagesQueryVariables>(PagesDocument, variables, options);
       },
-    pageConnection(variables?: PageConnectionQueryVariables, options?: C): Promise<{data: PageConnectionQuery, variables: PageConnectionQueryVariables, query: string}> {
-        return requester<{data: PageConnectionQuery, variables: PageConnectionQueryVariables, query: string}, PageConnectionQueryVariables>(PageConnectionDocument, variables, options);
-      },
-    post(variables: PostQueryVariables, options?: C): Promise<{data: PostQuery, variables: PostQueryVariables, query: string}> {
-        return requester<{data: PostQuery, variables: PostQueryVariables, query: string}, PostQueryVariables>(PostDocument, variables, options);
-      },
-    postConnection(variables?: PostConnectionQueryVariables, options?: C): Promise<{data: PostConnectionQuery, variables: PostConnectionQueryVariables, query: string}> {
-        return requester<{data: PostConnectionQuery, variables: PostConnectionQueryVariables, query: string}, PostConnectionQueryVariables>(PostConnectionDocument, variables, options);
+    pagesConnection(variables?: PagesConnectionQueryVariables, options?: C): Promise<{data: PagesConnectionQuery, variables: PagesConnectionQueryVariables, query: string}> {
+        return requester<{data: PagesConnectionQuery, variables: PagesConnectionQueryVariables, query: string}, PagesConnectionQueryVariables>(PagesConnectionDocument, variables, options);
       }
     };
   }

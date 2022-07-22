@@ -1,8 +1,20 @@
-fragment PageParts on Page {
-  body
-}
-
-fragment PostParts on Post {
+fragment PagesParts on Pages {
   title
-  body
+  blocks {
+    __typename
+    ... on PagesBlocksGenericBanner {
+      title
+      subtitle
+      image
+    }
+    ... on PagesBlocksGrandBanner {
+      title
+      subtitle
+      image
+      right
+    }
+    ... on PagesBlocksText {
+      text
+    }
+  }
 }

@@ -1,46 +1,42 @@
+// This should be a copy of [slug].js, except that it just
+// queries "home.mdx" and does not take a slug
 import { staticRequest } from "tinacms";
-import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { Layout } from "../components/Layout";
 import { useTina } from "tinacms/dist/edit-state";
+import TinaBlocks from "../components/TinaBlocks";
+import query from "../.tina/queries/pages";
 
-const query = `{
-  page(relativePath: "home.mdx"){
-    body
-  }
-}`;
-
-export default function Home(props) {
+export default function DynamicPage(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
     query,
-    variables: {},
+    variables: props.variables,
     data: props.data,
   });
 
-  const content = data.page.body;
-  return (
-    <Layout>
-      <TinaMarkdown content={content} />
-    </Layout>
-  );
+  return <TinaBlocks {...data.pages} />;
 }
 
+// getStaticPaths is not needed
+
 export const getStaticProps = async () => {
-  const variables = {};
+  const variables = {
+    relativePath: "home.mdx",
+  };
   let data = {};
   try {
     data = await staticRequest({
       query,
       variables,
     });
-  } catch {
+  } catch (error) {
+    console.log(error);
     // swallow errors related to document creation
   }
 
   return {
     props: {
       data,
-      //myOtherProp: 'some-other-data',
+      variables,
     },
   };
 };
