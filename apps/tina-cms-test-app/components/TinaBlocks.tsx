@@ -1,5 +1,5 @@
 import React from "react";
-import type { Pages } from "../../.tina/__generated__/types";
+import type { Pages } from "../.tina/__generated__/types";
 import {
   GenericBannerBlock,
   GrandBannerBlock,
