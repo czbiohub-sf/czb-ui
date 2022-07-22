@@ -5,13 +5,13 @@ import Image from "next/image";
 import { NextLinkComposed } from "../../utils/NextLinkComposed";
 
 interface InfoBoxBlockProps {
-  title: string;
-  subtitle: string;
-  linkText: string;
-  linkTo: string;
+  title?: string;
+  subtitle?: string;
+  linkText?: string;
+  linkTo?: string;
   outsideLink: boolean;
-  image: any;
-  right: boolean;
+  image?: any;
+  right?: boolean;
 }
 
 interface InfoBoxProps {

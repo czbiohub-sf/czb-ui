@@ -2,9 +2,9 @@ import { GenericBanner, GrandBanner } from "@czb-ui/core";
 import Image from "next/image";
 
 interface BannerBlockProps {
-  title: string;
-  subtitle: string;
-  image: string;
+  title?: string;
+  subtitle?: string;
+  image?: string;
   right?: boolean;
 }
 
