@@ -169,7 +169,18 @@ export type PagesBlocksText = {
   text?: Maybe<Scalars['JSON']>;
 };
 
-export type PagesBlocks = PagesBlocksGenericBanner | PagesBlocksGrandBanner | PagesBlocksText;
+export type PagesBlocksInfoBox = {
+  __typename?: 'PagesBlocksInfoBox';
+  title?: Maybe<Scalars['String']>;
+  subtitle?: Maybe<Scalars['String']>;
+  linkText?: Maybe<Scalars['String']>;
+  linkTo?: Maybe<Scalars['String']>;
+  outsideLink?: Maybe<Scalars['Boolean']>;
+  image?: Maybe<Scalars['String']>;
+  right?: Maybe<Scalars['Boolean']>;
+};
+
+export type PagesBlocks = PagesBlocksGenericBanner | PagesBlocksGrandBanner | PagesBlocksText | PagesBlocksInfoBox;
 
 export type Pages = Node & Document & {
   __typename?: 'Pages';
@@ -263,10 +274,21 @@ export type PagesBlocksTextMutation = {
   text?: InputMaybe<Scalars['JSON']>;
 };
 
+export type PagesBlocksInfoBoxMutation = {
+  title?: InputMaybe<Scalars['String']>;
+  subtitle?: InputMaybe<Scalars['String']>;
+  linkText?: InputMaybe<Scalars['String']>;
+  linkTo?: InputMaybe<Scalars['String']>;
+  outsideLink?: InputMaybe<Scalars['Boolean']>;
+  image?: InputMaybe<Scalars['String']>;
+  right?: InputMaybe<Scalars['Boolean']>;
+};
+
 export type PagesBlocksMutation = {
   GenericBanner?: InputMaybe<PagesBlocksGenericBannerMutation>;
   GrandBanner?: InputMaybe<PagesBlocksGrandBannerMutation>;
   text?: InputMaybe<PagesBlocksTextMutation>;
+  InfoBox?: InputMaybe<PagesBlocksInfoBoxMutation>;
 };
 
 export type PagesMutation = {
@@ -274,14 +296,14 @@ export type PagesMutation = {
   blocks?: InputMaybe<Array<InputMaybe<PagesBlocksMutation>>>;
 };
 
-export type PagesPartsFragment = { __typename?: 'Pages', title?: string | null, blocks?: Array<{ __typename: 'PagesBlocksGenericBanner', title?: string | null, subtitle?: string | null, image?: string | null } | { __typename: 'PagesBlocksGrandBanner', title?: string | null, subtitle?: string | null, image?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksText', text?: any | null } | null> | null };
+export type PagesPartsFragment = { __typename?: 'Pages', title?: string | null, blocks?: Array<{ __typename: 'PagesBlocksGenericBanner', title?: string | null, subtitle?: string | null, image?: string | null } | { __typename: 'PagesBlocksGrandBanner', title?: string | null, subtitle?: string | null, image?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksText', text?: any | null } | { __typename: 'PagesBlocksInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, right?: boolean | null } | null> | null };
 
 export type PagesQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type PagesQuery = { __typename?: 'Query', pages: { __typename?: 'Pages', id: string, title?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PagesBlocksGenericBanner', title?: string | null, subtitle?: string | null, image?: string | null } | { __typename: 'PagesBlocksGrandBanner', title?: string | null, subtitle?: string | null, image?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksText', text?: any | null } | null> | null } };
+export type PagesQuery = { __typename?: 'Query', pages: { __typename?: 'Pages', id: string, title?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PagesBlocksGenericBanner', title?: string | null, subtitle?: string | null, image?: string | null } | { __typename: 'PagesBlocksGrandBanner', title?: string | null, subtitle?: string | null, image?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksText', text?: any | null } | { __typename: 'PagesBlocksInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, right?: boolean | null } | null> | null } };
 
 export type PagesConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -292,7 +314,7 @@ export type PagesConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PagesConnectionQuery = { __typename?: 'Query', pagesConnection: { __typename?: 'PagesConnection', totalCount: number, edges?: Array<{ __typename?: 'PagesConnectionEdges', node?: { __typename?: 'Pages', id: string, title?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PagesBlocksGenericBanner', title?: string | null, subtitle?: string | null, image?: string | null } | { __typename: 'PagesBlocksGrandBanner', title?: string | null, subtitle?: string | null, image?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksText', text?: any | null } | null> | null } | null } | null> | null } };
+export type PagesConnectionQuery = { __typename?: 'Query', pagesConnection: { __typename?: 'PagesConnection', totalCount: number, edges?: Array<{ __typename?: 'PagesConnectionEdges', node?: { __typename?: 'Pages', id: string, title?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PagesBlocksGenericBanner', title?: string | null, subtitle?: string | null, image?: string | null } | { __typename: 'PagesBlocksGrandBanner', title?: string | null, subtitle?: string | null, image?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksText', text?: any | null } | { __typename: 'PagesBlocksInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, right?: boolean | null } | null> | null } | null } | null> | null } };
 
 export const PagesPartsFragmentDoc = gql`
     fragment PagesParts on Pages {
@@ -312,6 +334,15 @@ export const PagesPartsFragmentDoc = gql`
     }
     ... on PagesBlocksText {
       text
+    }
+    ... on PagesBlocksInfoBox {
+      title
+      subtitle
+      linkText
+      linkTo
+      outsideLink
+      image
+      right
     }
   }
 }

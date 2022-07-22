@@ -17,6 +17,15 @@ query PagesDocument($relativePath: String!) {
         image
         right
       }
+			... on PagesBlocksInfoBox {
+        __typename
+        title
+        subtitle
+				linkText
+				linkTo
+        image
+        right
+      }
       ... on PagesBlocksText {
         __typename
         text

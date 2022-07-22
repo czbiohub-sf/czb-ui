@@ -16,5 +16,14 @@ fragment PagesParts on Pages {
     ... on PagesBlocksText {
       text
     }
+    ... on PagesBlocksInfoBox {
+      title
+      subtitle
+      linkText
+      linkTo
+      outsideLink
+      image
+      right
+    }
   }
 }

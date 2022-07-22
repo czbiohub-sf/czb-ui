@@ -94,7 +94,17 @@ type PagesBlocksText {
   text: JSON
 }
 
-union PagesBlocks = PagesBlocksGenericBanner | PagesBlocksGrandBanner | PagesBlocksText
+type PagesBlocksInfoBox {
+  title: String
+  subtitle: String
+  linkText: String
+  linkTo: String
+  outsideLink: Boolean
+  image: String
+  right: Boolean
+}
+
+union PagesBlocks = PagesBlocksGenericBanner | PagesBlocksGrandBanner | PagesBlocksText | PagesBlocksInfoBox
 
 type Pages implements Node & Document {
   title: String
@@ -145,10 +155,21 @@ input PagesBlocksTextMutation {
   text: JSON
 }
 
+input PagesBlocksInfoBoxMutation {
+  title: String
+  subtitle: String
+  linkText: String
+  linkTo: String
+  outsideLink: Boolean
+  image: String
+  right: Boolean
+}
+
 input PagesBlocksMutation {
   GenericBanner: PagesBlocksGenericBannerMutation
   GrandBanner: PagesBlocksGrandBannerMutation
   text: PagesBlocksTextMutation
+  InfoBox: PagesBlocksInfoBoxMutation
 }
 
 input PagesMutation {

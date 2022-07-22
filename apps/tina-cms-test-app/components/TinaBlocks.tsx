@@ -4,6 +4,7 @@ import {
   GenericBannerBlock,
   GrandBannerBlock,
   TextBlock,
+  InfoBoxBlock,
 } from "@czb-ui/tina-cms/dist/components";
 
 export default function TinaBlocks(props: Pages) {
@@ -20,6 +21,8 @@ export default function TinaBlocks(props: Pages) {
                 return <GrandBannerBlock block={block} key={i} />;
               case "PagesBlocksText":
                 return <TextBlock block={block} key={i} />;
+              case "PagesBlocksInfoBox":
+                return <InfoBoxBlock block={block} key={i} />;
             }
           })
         : null}

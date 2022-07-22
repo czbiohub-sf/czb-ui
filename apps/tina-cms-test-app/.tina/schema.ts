@@ -3,7 +3,10 @@ import {
   GenericBanner,
   GrandBanner,
   Text,
+  InfoBox,
 } from "@czb-ui/tina-cms/dist/schema-blocks";
+
+const templates = [GenericBanner, GrandBanner, Text, InfoBox];
 
 const schema = defineSchema({
   config: {
@@ -31,7 +34,7 @@ const schema = defineSchema({
           list: true,
           name: "blocks",
           label: "Sections",
-          templates: [GenericBanner, GrandBanner, Text],
+          templates: templates,
         },
       ],
     },
