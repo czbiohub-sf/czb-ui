@@ -11,6 +11,9 @@ export default {
 
 const Template = (args: any) => (
   <CZBUIImageButton
+    title={args.title}
+    subtitle={args.subtitle}
+    page={args.page}
     image={
       <img
         style={{ objectFit: "cover", height: "100%", width: "100%", zIndex: 0 }}
@@ -23,4 +26,10 @@ const Template = (args: any) => (
 export const ImageButton = Template.bind({});
 ImageButton.args = {
   image: sampleImage,
+  title: "Tools",
+  subtitle: "tools",
+  page: {
+    title: "Go to tools",
+    to: "/tools",
+  },
 };

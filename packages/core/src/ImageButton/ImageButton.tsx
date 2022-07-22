@@ -1,8 +1,13 @@
 import { Card } from "../Card/Card";
 import { Box, styled, Typography } from "@mui/material";
 import { Link } from "czifui";
+import { PagesObject } from "../NavBar/NavBar";
 
 interface ImageButtonProps {
+  title: string;
+  subtitle: string;
+  page: PagesObject;
+  pagesComponent?: any; // TODO: Find type of mui link component prop
   image?: React.ReactNode;
 }
 
@@ -18,7 +23,13 @@ const ImageButtonCard = styled(Card)<React.ComponentProps<typeof Card>>(
   })
 );
 
-export const ImageButton = ({ image }: ImageButtonProps) => {
+export const ImageButton = ({
+  title,
+  subtitle,
+  page,
+  pagesComponent,
+  image,
+}: ImageButtonProps) => {
   return (
     <ImageButtonCard>
       <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
@@ -33,12 +44,16 @@ export const ImageButton = ({ image }: ImageButtonProps) => {
           {image}
         </Box>
         <Typography variant="h2" component="div">
-          Tools
+          {title}
         </Typography>
-        <Typography>
-          Utilise informatics tools developed by the CZ Biohub.
-        </Typography>
-        <Link sx={{ marginTop: "auto" }}>Explore Tools</Link>
+        <Typography>{subtitle}</Typography>
+        <Link
+          sx={{ marginTop: "auto" }}
+          component={pagesComponent}
+          to={page.to}
+        >
+          {page.title}
+        </Link>
       </Box>
     </ImageButtonCard>
   );
