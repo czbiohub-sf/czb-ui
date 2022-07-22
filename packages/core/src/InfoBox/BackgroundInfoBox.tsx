@@ -3,6 +3,10 @@ import { Link } from "czifui";
 import { InfoBoxProps } from "./InfoBox";
 
 export default function BackgroundInfoBox({
+  title,
+  subtitle,
+  page,
+  pagesComponent,
   image,
   imageOnRight,
 }: InfoBoxProps) {
@@ -30,11 +34,16 @@ export default function BackgroundInfoBox({
         }}
       >
         <Typography variant="h2" component="div">
-          The Tabula Sapiens: A multiple-organ, single-cell transcriptomic atlas
-          of humans
+          {title}
         </Typography>
-        <Typography>Background</Typography>
-        <Link sx={{ marginTop: "1rem" }}>Explore Tools</Link>
+        <Typography>{subtitle}</Typography>
+        <Link
+          sx={{ marginTop: "1rem" }}
+          to={page.to}
+          component={pagesComponent}
+        >
+          {page.title}
+        </Link>
       </Box>
       <Box
         sx={{

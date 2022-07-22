@@ -16,6 +16,9 @@ export default {
 
 const Template = (args: any) => (
   <CZBUIInfoBox
+    title={args.title}
+    subtitle={args.subtitle}
+    page={args.page}
     image={
       <img
         style={{ objectFit: "cover", height: "100%", width: "100%", zIndex: 0 }}
@@ -31,5 +34,11 @@ export const InfoBox = Template.bind({});
 InfoBox.args = {
   image: sampleImage,
   type: "normal",
+  title: "Tools",
+  subtitle: "tools",
+  page: {
+    title: "Go to tools",
+    to: "/tools",
+  },
   imageOnRight: false,
 };

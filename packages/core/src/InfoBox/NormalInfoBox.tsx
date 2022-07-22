@@ -23,7 +23,14 @@ const NormalInfoBoxContainer = styled(Box, {
   },
 }));
 
-export default function NormalInfoBox({ image, imageOnRight }: InfoBoxProps) {
+export default function NormalInfoBox({
+  title,
+  subtitle,
+  page,
+  pagesComponent,
+  image,
+  imageOnRight,
+}: InfoBoxProps) {
   return (
     <NormalInfoBoxContainer imageOnRight={imageOnRight}>
       <Box flex={3} height="100%">
@@ -38,13 +45,16 @@ export default function NormalInfoBox({ image, imageOnRight }: InfoBoxProps) {
         }}
       >
         <Typography variant="h2" component="div">
-          The Tabula Sapiens: A multiple-organ, single-cell transcriptomic atlas
-          of humans
+          {title}
         </Typography>
-        <Typography>
-          The Tabula Sapiens Consortium, Science 376, eabl4896 (2022).
-        </Typography>
-        <Link sx={{ marginTop: "1rem" }}>Explore Tools</Link>
+        <Typography>{subtitle}</Typography>
+        <Link
+          sx={{ marginTop: "1rem" }}
+          to={page.to}
+          component={pagesComponent}
+        >
+          {page.title}
+        </Link>
       </Box>
     </NormalInfoBoxContainer>
   );
