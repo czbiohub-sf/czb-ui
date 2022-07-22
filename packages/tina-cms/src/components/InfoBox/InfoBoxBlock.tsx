@@ -26,7 +26,7 @@ export const InfoBoxBlock = ({ block }: InfoBoxProps) => {
   }
 
   return (
-    <Container>
+    <Container sx={{ my: 5 }}>
       <InfoBox
         title={block.title}
         subtitle={block.subtitle}
