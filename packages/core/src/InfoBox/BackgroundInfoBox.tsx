@@ -39,10 +39,10 @@ export default function BackgroundInfoBox({
         <Typography>{subtitle}</Typography>
         <Link
           sx={{ marginTop: "1rem" }}
-          to={page.to}
+          to={page?.to}
           component={pagesComponent}
         >
-          {page.title}
+          {page?.title}
         </Link>
       </Box>
       <Box

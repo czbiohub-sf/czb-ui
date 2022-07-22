@@ -19,7 +19,11 @@ interface InfoBoxProps {
 }
 
 export const InfoBoxBlock = ({ block }: InfoBoxProps) => {
-  const page = { title: block.linkText, to: block.linkTo };
+  let page;
+
+  if (block.linkText && block.linkTo) {
+    page = { title: block.linkText, to: block.linkTo };
+  }
 
   return (
     <Container>

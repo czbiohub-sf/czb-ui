@@ -4,10 +4,10 @@ import BackgroundInfoBox from "./BackgroundInfoBox";
 import NormalInfoBox from "./NormalInfoBox";
 
 export interface InfoBoxProps {
-  title: string;
-  subtitle: string;
-  page: PagesObject;
-  image: React.ReactNode;
+  title?: string;
+  subtitle?: string;
+  page?: PagesObject;
+  image?: React.ReactNode;
   imageOnRight?: boolean;
   pagesComponent?: any; // TODO: Find type of mui link component prop
 }

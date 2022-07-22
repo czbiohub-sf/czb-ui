@@ -50,10 +50,10 @@ export default function NormalInfoBox({
         <Typography>{subtitle}</Typography>
         <Link
           sx={{ marginTop: "1rem" }}
-          to={page.to}
-          component={pagesComponent}
+          to={page?.to}
+          component={page?.to ? pagesComponent : undefined}
         >
-          {page.title}
+          {page?.title}
         </Link>
       </Box>
     </NormalInfoBoxContainer>
