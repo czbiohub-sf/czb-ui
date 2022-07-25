@@ -1,13 +1,15 @@
-import React from "react";
-import type { Pages } from "../.tina/__generated__/types";
 import {
   GenericBannerBlock,
   GrandBannerBlock,
   TextBlock,
   InfoBoxBlock,
-} from "@czb-ui/tina-cms/dist/components";
+} from "../components";
 
-export default function TinaBlocks(props: Pages) {
+interface BlockSwitcher {
+  blocks: Array<any>;
+}
+
+export const BlockSwitcher = (props: BlockSwitcher) => {
   const blocks = props.blocks;
 
   return (
@@ -28,4 +30,4 @@ export default function TinaBlocks(props: Pages) {
         : null}
     </>
   );
-}
+};

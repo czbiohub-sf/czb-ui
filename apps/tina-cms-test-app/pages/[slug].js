@@ -1,6 +1,6 @@
 import { staticRequest } from "tinacms";
 import { useTina } from "tinacms/dist/edit-state";
-import TinaBlocks from "../components/TinaBlocks";
+import { BlockSwitcher } from "@czb-ui/tina-cms/dist/utils";
 import query from "../.tina/queries/pages";
 
 export default function DynamicPage(props) {
@@ -11,7 +11,7 @@ export default function DynamicPage(props) {
     data: props.data,
   });
 
-  return <TinaBlocks {...data.pages} />;
+  return <BlockSwitcher {...data.pages} />;
 }
 
 export const getStaticPaths = async () => {
