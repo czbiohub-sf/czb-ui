@@ -9,7 +9,7 @@ interface InfoBoxBlockProps {
   subtitle?: string;
   linkText?: string;
   linkTo?: string;
-  outsideLink: boolean;
+  outsideLink?: boolean;
   image?: any;
   right?: boolean;
 }
@@ -39,7 +39,7 @@ export const InfoBoxBlock = ({ block }: InfoBoxProps) => {
           ) : undefined
         }
         imageOnRight={block.right}
-        pagesComponent={NextLinkComposed}
+        pagesComponent={block.outsideLink ? undefined : NextLinkComposed}
       />
     </Container>
   );
