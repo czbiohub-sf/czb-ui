@@ -7,6 +7,7 @@ export default {
     index: "src/index.ts",
     "schema-blocks/index": "src/schemas/index.ts",
     "components/index": "src/components/index.ts",
+    "utils/index": "src/utils/index.ts",
   },
   output: {
     dir: "dist",
