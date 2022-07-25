@@ -23,6 +23,7 @@ query PagesDocument($relativePath: String!) {
         subtitle
 				linkText
 				linkTo
+				outsideLink
         image
         right
       }

@@ -48,7 +48,6 @@ export default function NormalInfoBox({
           {title}
         </Typography>
         <Typography>{subtitle}</Typography>
-        {/* TODO: Check if this switch actually works */}
         {pagesComponent && (
           <Link
             sx={{ marginTop: "1rem" }}
