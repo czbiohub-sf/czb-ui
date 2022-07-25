@@ -20,5 +20,6 @@ export default {
     /^next\/.*/,
     /^tinacms\/.*/,
     /^@czb-ui\/.*/,
+    "react",
   ],
 };
