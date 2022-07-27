@@ -17,6 +17,7 @@ const NormalInfoBoxContainer = styled(Box, {
   gap: "50px",
   [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
+    gap: "10px",
   },
   [theme.breakpoints.up("sm")]: {
     flexDirection: imageOnRight ? "row-reverse" : "row",

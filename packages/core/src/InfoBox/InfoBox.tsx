@@ -2,6 +2,8 @@ import { Card } from "../Card/Card";
 import { PagesObject } from "../NavBar/NavBar";
 import BackgroundInfoBox from "./BackgroundInfoBox";
 import NormalInfoBox from "./NormalInfoBox";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 export interface InfoBoxProps {
   title?: string;
@@ -28,10 +30,13 @@ export const InfoBox = ({
   size = "normal",
 }: InfoBoxContainerProps) => {
   // TODO: Put grey colors in palette
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("sm"));
+
   return (
     <Card
       sx={{
-        height: "300px",
+        height: matches ? "300px" : "600px",
         position: "relative",
       }}
       disablePadding={type == "background"}
