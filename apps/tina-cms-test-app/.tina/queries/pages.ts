@@ -8,7 +8,7 @@ query PagesDocument($relativePath: String!) {
         __typename
         title
         subtitle
-				image
+        image
       }
       ... on PagesBlocksGrandBanner {
         __typename
@@ -17,19 +17,34 @@ query PagesDocument($relativePath: String!) {
         image
         right
       }
-			... on PagesBlocksInfoBox {
+      ... on PagesBlocksInfoBox {
         __typename
         title
         subtitle
-				linkText
-				linkTo
-				outsideLink
+        linkText
+        linkTo
+        outsideLink
         image
         right
       }
       ... on PagesBlocksText {
         __typename
         text
+      }
+      ... on PagesBlocksStack {
+        blocks {
+          __typename
+          ... on PagesBlocksStackBlocksInfoBox {
+            __typename
+            title
+            subtitle
+            linkText
+            linkTo
+            outsideLink
+            image
+            right
+          }
+        }
       }
     }
   }

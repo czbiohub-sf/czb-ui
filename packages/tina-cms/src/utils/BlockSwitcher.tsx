@@ -3,6 +3,7 @@ import {
   GrandBannerBlock,
   TextBlock,
   InfoBoxBlock,
+  StackBlock,
 } from "../components";
 
 interface BlockSwitcher {
@@ -25,6 +26,8 @@ export const BlockSwitcher = (props: BlockSwitcher) => {
                 return <TextBlock block={block} key={i} />;
               case "PagesBlocksInfoBox":
                 return <InfoBoxBlock block={block} key={i} />;
+              case "PagesBlocksStack":
+                return <StackBlock block={block} key={i} />;
             }
           })
         : null}

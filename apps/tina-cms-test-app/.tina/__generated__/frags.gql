@@ -25,5 +25,19 @@ fragment PagesParts on Pages {
       image
       right
     }
+    ... on PagesBlocksStack {
+      blocks {
+        __typename
+        ... on PagesBlocksStackBlocksInfoBox {
+          title
+          subtitle
+          linkText
+          linkTo
+          outsideLink
+          image
+          right
+        }
+      }
+    }
   }
 }
