@@ -44,19 +44,6 @@ const headingStyles = {
   },
 };
 
-// Container padding is too small... this is the
-// only way I thought of fixing it for now...
-const componentOverrides = {
-  MuiContainer: {
-    styleOverrides: {
-      root: {
-        paddingLeft: "24px",
-        paddingRight: "24px",
-      },
-    },
-  },
-};
-
 const appTheme = { ...defaultAppTheme };
 
 appTheme.colors.primary = primaryColors;
@@ -66,7 +53,19 @@ appTheme.colors.warning = warningColors;
 appTheme.typography.fontFamily = fontFamily;
 appTheme.typography.styles.header = headingStyles;
 
+// Container padding is too small... this is the
+// only way I thought of fixing it for now...
 export const biohubTheme = createTheme({
   ...makeThemeOptions(appTheme),
-  components: componentOverrides,
+  components: {
+    ...makeThemeOptions(appTheme).components,
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+          paddingLeft: "24px",
+          paddingRight: "24px",
+        },
+      },
+    },
+  },
 });
