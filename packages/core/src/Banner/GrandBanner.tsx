@@ -21,7 +21,7 @@ export const GrandBanner = ({
 
   return (
     <Box sx={{ height: height, position: "relative" }}>
-      <Container maxWidth="lg" sx={{ zIndex: 1 }}>
+      <Container sx={{ zIndex: 1 }}>
         <Stack
           direction={{ xs: "column", sm: "row" }}
           spacing={{ xs: 1, sm: 2, md: 4 }}

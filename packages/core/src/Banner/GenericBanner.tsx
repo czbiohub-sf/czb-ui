@@ -21,7 +21,7 @@ export const GenericBanner = ({
       sx={{ height: height, position: "relative", backgroundColor: "black" }}
     >
       <Center justifyContent="left">
-        <Container maxWidth="lg" sx={{ color: "white", zIndex: 1 }}>
+        <Container sx={{ color: "white", zIndex: 1 }}>
           <Typography
             fontSize="2.5rem"
             variant="h1"

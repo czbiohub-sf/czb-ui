@@ -14,12 +14,12 @@ const minAppBarHeight = "50px";
 
 const ToolbarComponent = styled(Toolbar)<ToolbarProps>(({ theme }) => ({
   minHeight: minAppBarHeight,
-  [theme.breakpoints.up("sm")]: {
+  [theme.breakpoints.down("sm")]: {
     minHeight: minAppBarHeight,
-    paddingLeft: theme.spacing(7),
-    paddingRight: theme.spacing(7),
+    paddingLeft: theme.spacing(6),
+    paddingRight: theme.spacing(6),
   },
-  [theme.breakpoints.up("xs")]: {
+  [theme.breakpoints.up("sm")]: {
     minHeight: minAppBarHeight,
     paddingLeft: theme.spacing(7),
     paddingRight: theme.spacing(7),
