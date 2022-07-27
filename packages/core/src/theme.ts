@@ -46,6 +46,8 @@ const headingStyles = {
   xxl: {
     ...defaultAppTheme.typography.styles.header.xxl,
     fontFamily: "Barlow",
+    // https://github.com/mui/material-ui/issues/16307
+    textTransform: "uppercase" as const,
   },
 };
 
