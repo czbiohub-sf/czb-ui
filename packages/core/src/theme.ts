@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/material/styles";
-import styleFunctionSx from "@mui/system/styleFunctionSx";
 import { defaultAppTheme, makeThemeOptions } from "czifui";
 
 const primaryColors = {
@@ -35,6 +34,12 @@ const warningColors = {
 // Two fonts we need
 const fontFamily = ["Lato", "Barlow"].join(",");
 
+// Change xs size to 14px
+const xsFont = {
+  ...defaultAppTheme.typography.styles.body.xs,
+  fontSize: 14,
+};
+
 // xxl is used on the h1, font change is needed
 const headingStyles = {
   ...defaultAppTheme.typography.styles.header,
@@ -51,6 +56,7 @@ appTheme.colors.gray = grayColors;
 appTheme.colors.error = errorColors;
 appTheme.colors.warning = warningColors;
 appTheme.typography.fontFamily = fontFamily;
+appTheme.typography.styles.body["xs"] = xsFont;
 appTheme.typography.styles.header = headingStyles;
 
 // Container padding is too small... this is the
