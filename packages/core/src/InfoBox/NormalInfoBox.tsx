@@ -48,13 +48,21 @@ export default function NormalInfoBox({
           {title}
         </Typography>
         <Typography>{subtitle}</Typography>
-        <Link
-          sx={{ marginTop: "1rem" }}
-          to={page.to}
-          component={pagesComponent}
-        >
-          {page.title}
-        </Link>
+        {pagesComponent && (
+          <Link
+            sx={{ marginTop: "1rem" }}
+            to={page?.to}
+            component={page?.to ? pagesComponent : undefined}
+          >
+            {page?.title}
+          </Link>
+        )}
+        {/* If target="_blank" needs to be added also add rel="noopener" */}
+        {!pagesComponent && (
+          <Link sx={{ marginTop: "1rem" }} href={page?.to}>
+            {page?.title}
+          </Link>
+        )}
       </Box>
     </NormalInfoBoxContainer>
   );

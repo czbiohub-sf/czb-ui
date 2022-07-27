@@ -1,0 +1,38 @@
+{
+  "name": "tina-cms-test-app",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tinacms server:start -c \"next dev -p 3001\"",
+    "build": "tinacms server:start -c \"next build\"",
+    "start": "tinacms server:start -c \"next start -p 3001\"",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@czb-ui/biohub-logos": "*",
+    "@czb-ui/core": "*",
+    "@czb-ui/tina-cms": "*",
+    "@emotion/css": "^11.9.0",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/base": "^5.0.0-alpha.90",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/lab": "^5.0.0-alpha.91",
+    "@mui/material": "^5.9.1",
+    "czifui": "^5.0.0-beta.6",
+    "next": "12.0.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-is": "^18.2.0",
+    "styled-components": "^5.1.3",
+    "tinacms": "^0.68.12"
+  },
+  "devDependencies": {
+    "@tinacms/cli": "^0.60.26",
+    "eslint": "7",
+    "eslint-config-next": "12.0.3"
+  },
+  "resolutions": {
+    "@headlessui/react": "1.4.1"
+  }
+}

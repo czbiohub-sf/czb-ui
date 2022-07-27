@@ -1,0 +1,42 @@
+{
+  "name": "@czb-ui/tina-cms",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/src/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup --config rollup.config.ts",
+    "dev": "rollup --config rollup.config.ts --watch"
+  },
+  "devDependencies": {
+    "@czb-ui/core": "*",
+    "@emotion/css": "^11.9.0",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/base": "^5.0.0-alpha.90",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/lab": "^5.0.0-alpha.91",
+    "@mui/material": "^5.9.1",
+    "@rollup/plugin-typescript": "^8.3.3",
+    "czifui": "5.0.0-beta.6",
+    "next": "^12.2.2",
+    "rollup": "^2.77.0",
+    "rollup-plugin-delete": "^2.0.0",
+    "tinacms": "^0.68.13"
+  },
+  "peerDependencies": {
+    "@emotion/css": "^11.9.0",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/base": "^5.0.0-alpha.90",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/lab": "^5.0.0-alpha.91",
+    "@mui/material": "^5.9.1",
+    "czifui": "^5.0.0-beta.6",
+    "react": "^17.0.1 || ^18.0.0",
+    "react-dom": "^17.0.1 || ^18.0.0",
+    "react-is": "^17.0.1 || ^18.2.0",
+    "tinacms": "^0.68.13",
+    "next": "^12.2.2"
+  }
+}
