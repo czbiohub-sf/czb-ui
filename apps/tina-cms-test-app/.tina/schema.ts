@@ -4,7 +4,7 @@ import {
   GrandBanner,
   Text,
   InfoBox,
-} from "@czb-ui/tina-cms/dist/schema-blocks";
+} from "@czb-ui/tina-cms/dist/templates";
 
 const templates = [GenericBanner, GrandBanner, Text, InfoBox];
 

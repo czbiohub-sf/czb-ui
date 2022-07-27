@@ -5,7 +5,7 @@ import del from "rollup-plugin-delete";
 export default {
   input: {
     index: "src/index.ts",
-    "schema-blocks/index": "src/schemas/index.ts",
+    "templates/index": "src/templates/index.ts",
     "components/index": "src/components/index.ts",
     "utils/index": "src/utils/index.ts",
   },
