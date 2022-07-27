@@ -13,12 +13,13 @@ export const DesktopPagesMenu = ({
 }: DesktopPagesMenuProps) => {
   return (
     <Box sx={{ mx: 5 }}>
-      {pages.map((page) => (
+      {pages.map((page, i) => (
         <Link
           color="inherit"
           component={pagesComponent}
           to={page.to}
           sx={{ mx: 5 }}
+          key={i}
         >
           {page.title}
         </Link>

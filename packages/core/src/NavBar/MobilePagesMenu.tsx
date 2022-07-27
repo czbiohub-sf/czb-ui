@@ -29,12 +29,13 @@ export const MobilePagesMenu = ({
           },
         }}
       >
-        {pages.map((page) => (
+        {pages.map((page, i) => (
           <Link
             color="inherit"
             component={pagesComponent}
             to={page.to}
             sx={{ mx: 5 }}
+            key={i}
           >
             <ListItemButton>{page.title}</ListItemButton>
           </Link>
