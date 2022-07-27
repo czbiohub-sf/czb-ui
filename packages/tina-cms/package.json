@@ -3,12 +3,6 @@
   "version": "0.0.0",
   "main": "./dist/index.js",
   "types": "./dist/src/index.d.ts",
-  "exports": {
-    ".": "./dist/index.js",
-    "./utils": "./dist/utils/index.js",
-    "./components": "./dist/components/index.js",
-    "./templates": "./dist/templates/index.js"
-  },
   "license": "MIT",
   "scripts": {
     "build": "rollup --config rollup.config.ts",

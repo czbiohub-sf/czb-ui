@@ -2,7 +2,7 @@
 // queries "home.mdx" and does not take a slug
 import { staticRequest } from "tinacms";
 import { useTina } from "tinacms/dist/edit-state";
-import { BlockSwitcher } from "@czb-ui/tina-cms/utils";
+import { BlockSwitcher } from "@czb-ui/tina-cms/dist/utils";
 import query from "../.tina/queries/pages";
 
 export default function DynamicPage(props) {
