@@ -36,7 +36,7 @@ export const InfoBox = ({
   return (
     <Card
       sx={{
-        height: matches ? "300px" : "600px",
+        height: matches ? "300px" : "500px",
         position: "relative",
       }}
       disablePadding={type == "background"}
