@@ -32,6 +32,16 @@ export const GrandBannerBlock = ({ block }: BannerProps) => {
       title={block.title}
       subtitle={block.subtitle}
       direction={block.right ? "right" : "left"}
+      image={
+        block.image ? (
+          <Image
+            src={block.image}
+            width={1000}
+            height={500}
+            objectFit="scale-down"
+          />
+        ) : undefined
+      }
     />
   );
 };
