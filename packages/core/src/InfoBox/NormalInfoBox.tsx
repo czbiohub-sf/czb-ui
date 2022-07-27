@@ -1,4 +1,4 @@
-import { Typography, styled } from "@mui/material";
+import { Typography, styled, useTheme, useMediaQuery } from "@mui/material";
 import Box, { BoxProps } from "@mui/material/Box";
 import { Link } from "czifui";
 import { InfoBoxProps } from "./InfoBox";
@@ -15,11 +15,11 @@ const NormalInfoBoxContainer = styled(Box, {
   height: "100%",
   display: "flex",
   gap: "50px",
-  [theme.breakpoints.down("sm")]: {
+  [theme.breakpoints.down("md")]: {
     flexDirection: "column",
     gap: "10px",
   },
-  [theme.breakpoints.up("sm")]: {
+  [theme.breakpoints.up("md")]: {
     flexDirection: imageOnRight ? "row-reverse" : "row",
   },
 }));
@@ -32,13 +32,16 @@ export default function NormalInfoBox({
   image,
   imageOnRight,
 }: InfoBoxProps) {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
+
   return (
     <NormalInfoBoxContainer imageOnRight={imageOnRight}>
       <Box flex={3} height="100%">
         {image}
       </Box>
       <Box
-        flex={2}
+        flex={matches ? 2 : 1}
         sx={{
           display: "flex",
           flexDirection: "column",

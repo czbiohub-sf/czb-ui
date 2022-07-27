@@ -31,7 +31,7 @@ export const InfoBox = ({
 }: InfoBoxContainerProps) => {
   // TODO: Put grey colors in palette
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("sm"));
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
     <Card
