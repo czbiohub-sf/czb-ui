@@ -31,10 +31,10 @@ query PagesDocument($relativePath: String!) {
         __typename
         text
       }
-      ... on PagesBlocksStack {
+      ... on PagesBlocksGrid {
         blocks {
           __typename
-          ... on PagesBlocksStackBlocksInfoBox {
+          ... on PagesBlocksGridBlocksInfoBox {
             __typename
             title
             subtitle

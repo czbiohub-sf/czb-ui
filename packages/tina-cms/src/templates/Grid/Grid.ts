@@ -1,9 +1,9 @@
 import type { TinaTemplate } from "tinacms";
 import { InfoBox } from "../InfoBox/InfoBox";
 
-export const Stack: TinaTemplate = {
-  name: "Stack",
-  label: "Stack",
+export const Grid: TinaTemplate = {
+  name: "Grid",
+  label: "Grid",
   fields: [
     {
       type: "object",

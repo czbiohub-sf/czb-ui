@@ -104,7 +104,7 @@ type PagesBlocksInfoBox {
   right: Boolean
 }
 
-type PagesBlocksStackBlocksInfoBox {
+type PagesBlocksGridBlocksInfoBox {
   title: String
   subtitle: String
   linkText: String
@@ -114,13 +114,13 @@ type PagesBlocksStackBlocksInfoBox {
   right: Boolean
 }
 
-union PagesBlocksStackBlocks = PagesBlocksStackBlocksInfoBox
+union PagesBlocksGridBlocks = PagesBlocksGridBlocksInfoBox
 
-type PagesBlocksStack {
-  blocks: [PagesBlocksStackBlocks]
+type PagesBlocksGrid {
+  blocks: [PagesBlocksGridBlocks]
 }
 
-union PagesBlocks = PagesBlocksGenericBanner | PagesBlocksGrandBanner | PagesBlocksText | PagesBlocksInfoBox | PagesBlocksStack
+union PagesBlocks = PagesBlocksGenericBanner | PagesBlocksGrandBanner | PagesBlocksText | PagesBlocksInfoBox | PagesBlocksGrid
 
 type Pages implements Node & Document {
   title: String
@@ -181,7 +181,7 @@ input PagesBlocksInfoBoxMutation {
   right: Boolean
 }
 
-input PagesBlocksStackBlocksInfoBoxMutation {
+input PagesBlocksGridBlocksInfoBoxMutation {
   title: String
   subtitle: String
   linkText: String
@@ -191,12 +191,12 @@ input PagesBlocksStackBlocksInfoBoxMutation {
   right: Boolean
 }
 
-input PagesBlocksStackBlocksMutation {
-  InfoBox: PagesBlocksStackBlocksInfoBoxMutation
+input PagesBlocksGridBlocksMutation {
+  InfoBox: PagesBlocksGridBlocksInfoBoxMutation
 }
 
-input PagesBlocksStackMutation {
-  blocks: [PagesBlocksStackBlocksMutation]
+input PagesBlocksGridMutation {
+  blocks: [PagesBlocksGridBlocksMutation]
 }
 
 input PagesBlocksMutation {
@@ -204,7 +204,7 @@ input PagesBlocksMutation {
   GrandBanner: PagesBlocksGrandBannerMutation
   text: PagesBlocksTextMutation
   InfoBox: PagesBlocksInfoBoxMutation
-  Stack: PagesBlocksStackMutation
+  Grid: PagesBlocksGridMutation
 }
 
 input PagesMutation {

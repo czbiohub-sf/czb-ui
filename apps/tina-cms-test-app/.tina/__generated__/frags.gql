@@ -25,10 +25,10 @@ fragment PagesParts on Pages {
       image
       right
     }
-    ... on PagesBlocksStack {
+    ... on PagesBlocksGrid {
       blocks {
         __typename
-        ... on PagesBlocksStackBlocksInfoBox {
+        ... on PagesBlocksGridBlocksInfoBox {
           title
           subtitle
           linkText
