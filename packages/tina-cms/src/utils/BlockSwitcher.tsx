@@ -8,6 +8,7 @@ import {
 
 interface BlockSwitcher {
   blocks: Array<any>;
+  disableContainerGutters?: boolean;
 }
 
 export const BlockSwitcher = (props: BlockSwitcher) => {
@@ -25,7 +26,13 @@ export const BlockSwitcher = (props: BlockSwitcher) => {
               case "PagesBlocksText":
                 return <TextBlock block={block} key={i} />;
               case "PagesBlocksInfoBox":
-                return <InfoBoxBlock block={block} key={i} />;
+                return (
+                  <InfoBoxBlock
+                    block={block}
+                    disableContainerGutters={props.disableContainerGutters}
+                    key={i}
+                  />
+                );
               case "PagesBlocksGrid":
                 return <GridBlock block={block} key={i} />;
             }
