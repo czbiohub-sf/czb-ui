@@ -35,6 +35,7 @@ export const MobilePagesMenu = ({
             component={pagesComponent}
             to={page.to}
             sx={{ mx: 5 }}
+            onClick={() => setOpen(false)}
             key={i}
           >
             <ListItemButton>{page.title}</ListItemButton>
