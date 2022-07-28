@@ -27,24 +27,26 @@ export const NavBar = ({ logo, title, pages, pagesComponent }: NavBarProps) => {
 
   return (
     <AppBar position="relative">
-      <Link
-        sx={{ display: "flex", alignItems: "center", color: "inherit" }}
-        component={pagesComponent}
-        to="/"
-      >
-        <Box sx={{ mr: 5, display: "inherit" }}>{logo}</Box>
-        <Typography
-          fontFamily="Barlow"
-          fontWeight={700}
-          fontSize="1rem"
-          gutterBottom={false}
-          component="span"
-          variant="inherit"
-          flexGrow={onDesktop ? 0 : 1} // So it pushes the hamburger menu to the right
+      {/* flexGrow so it pushes the hamburger menu to the right */}
+      <Box flexGrow={onDesktop ? 0 : 1} display="flex">
+        <Link
+          sx={{ display: "flex", alignItems: "center", color: "inherit" }}
+          component={pagesComponent}
+          to="/"
         >
-          {title}
-        </Typography>
-      </Link>
+          <Box sx={{ mr: 5, display: "inherit" }}>{logo}</Box>
+          <Typography
+            fontFamily="Barlow"
+            fontWeight={700}
+            fontSize="1rem"
+            gutterBottom={false}
+            component="span"
+            variant="inherit"
+          >
+            {title}
+          </Typography>
+        </Link>
+      </Box>
       {pages && onDesktop && (
         <DesktopPagesMenu pages={pages} pagesComponent={pagesComponent} />
       )}
