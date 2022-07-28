@@ -69,14 +69,22 @@ export const biohubTheme = createTheme({
     ...makeThemeOptions(appTheme).components,
     MuiContainer: {
       styleOverrides: {
-        root: {
+        root: ({ theme }) => ({
+          [theme.breakpoints.up("sm")]: {
+            paddingLeft: "24px",
+            paddingRight: "24px",
+          },
           paddingLeft: "24px",
           paddingRight: "24px",
-        },
-        disableGutters: {
+        }),
+        disableGutters: ({ theme }) => ({
+          [theme.breakpoints.up("sm")]: {
+            paddingLeft: "0px",
+            paddingRight: "0px",
+          },
           paddingLeft: "0px",
           paddingRight: "0px",
-        },
+        }),
       },
     },
   },
