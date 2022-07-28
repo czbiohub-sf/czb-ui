@@ -17,11 +17,13 @@ interface InfoBoxBlockProps {
 interface InfoBoxProps {
   block: InfoBoxBlockProps;
   disableContainerGutters?: boolean;
+  disableYMargins?: boolean;
 }
 
 export const InfoBoxBlock = ({
   block,
   disableContainerGutters,
+  disableYMargins,
 }: InfoBoxProps) => {
   let page;
 
@@ -31,7 +33,7 @@ export const InfoBoxBlock = ({
 
   return (
     <Container
-      sx={{ my: disableContainerGutters ? undefined : 5 }}
+      sx={{ my: disableYMargins ? undefined : 5 }}
       disableGutters={disableContainerGutters}
     >
       <InfoBox
