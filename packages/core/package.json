@@ -21,7 +21,7 @@
     "@types/react-dom": "^17.0.11",
     "@types/uuid": "^8.3.4",
     "config": "*",
-    "czifui": "5.0.0-beta.6",
+    "czifui": "^7.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^2.70.2",
@@ -36,8 +36,8 @@
     "@mui/base": "^5.0.0-alpha.90",
     "@mui/icons-material": "^5.8.4",
     "@mui/lab": "^5.0.0-alpha.91",
+    "czifui": "^7.0.0",
     "@mui/material": "^5.9.1",
-    "czifui": "5.0.0-beta.6",
     "react": "^17.0.1 || ^18.0.0",
     "react-dom": "^17.0.1 || ^18.0.0"
   },
