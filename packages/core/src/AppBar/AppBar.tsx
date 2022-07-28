@@ -24,12 +24,13 @@ const ToolbarComponent = styled(Toolbar)<ToolbarProps>(({ theme }) => ({
     paddingLeft: theme.spacing(7),
     paddingRight: theme.spacing(7),
   },
-}));
+})) as typeof Toolbar;
 
+// TODO: Make nav component prop/option for this AppBar component
 export const AppBar = (props: AppBarProps) => {
   return (
     <AppBarComponent {...props}>
-      <ToolbarComponent>{props.children}</ToolbarComponent>
+      <ToolbarComponent component="nav">{props.children}</ToolbarComponent>
     </AppBarComponent>
   );
 };
