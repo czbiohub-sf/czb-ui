@@ -85,7 +85,11 @@ const imgComponent = (props: ImageProps) => {
 
 // TODO: Put types here
 const InfoBox = (props: any) => {
-  return <InfoBoxBlock block={props} disableContainerGutters />;
+  return (
+    <Box my={5}>
+      <InfoBoxBlock block={props} disableContainerGutters />
+    </Box>
+  );
 };
 
 const components = {
