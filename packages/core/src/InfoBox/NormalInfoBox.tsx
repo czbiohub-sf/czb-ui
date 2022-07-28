@@ -11,15 +11,14 @@ const NormalInfoBoxContainer = styled(Box, {
   shouldForwardProp: (prop) => prop != "imageOnRight",
 })<NormalInfoBoxContainerProps>(({ imageOnRight, theme }) => ({
   zIndex: 1,
-  background: "#f9f9f9",
   height: "100%",
   display: "flex",
-  gap: "50px",
-  [theme.breakpoints.down("md")]: {
+  gap: "40px",
+  [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
     gap: "10px",
   },
-  [theme.breakpoints.up("md")]: {
+  [theme.breakpoints.up("sm")]: {
     flexDirection: imageOnRight ? "row-reverse" : "row",
   },
 }));
@@ -33,15 +32,14 @@ export default function NormalInfoBox({
   imageOnRight,
 }: InfoBoxProps) {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
+  const matches = useMediaQuery(theme.breakpoints.up("sm"));
 
   return (
     <NormalInfoBoxContainer imageOnRight={imageOnRight}>
-      <Box flex={3} height="100%">
+      <Box maxWidth="300px" border="1px solid" borderColor="divider">
         {image}
       </Box>
       <Box
-        flex={matches ? 2 : 1}
         sx={{
           display: "flex",
           flexDirection: "column",

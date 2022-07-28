@@ -1,4 +1,4 @@
-import { Card } from "../Card/Card";
+import { Box } from "@mui/material";
 import { PagesObject } from "../NavBar/NavBar";
 import BackgroundInfoBox from "./BackgroundInfoBox";
 import NormalInfoBox from "./NormalInfoBox";
@@ -29,18 +29,10 @@ export const InfoBox = ({
   type = "normal",
   size = "normal",
 }: InfoBoxContainerProps) => {
-  // TODO: Put grey colors in palette
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
-    <Card
-      sx={{
-        height: matches ? "300px" : "500px",
-        position: "relative",
-      }}
-      disablePadding={type == "background"}
-    >
+    <Box sx={{ maxHeight: "300px", maxWidth: "600px" }}>
       {type == "normal" && (
         <NormalInfoBox
           title={title}
@@ -61,6 +53,6 @@ export const InfoBox = ({
           imageOnRight={imageOnRight}
         />
       )}
-    </Card>
+    </Box>
   );
 };
