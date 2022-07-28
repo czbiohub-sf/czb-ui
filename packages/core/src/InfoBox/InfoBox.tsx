@@ -29,10 +29,13 @@ export const InfoBox = ({
   type = "normal",
   size = "normal",
 }: InfoBoxContainerProps) => {
-  const theme = useTheme();
-
   return (
-    <Box sx={{ maxHeight: "300px", maxWidth: "600px" }}>
+    <Box
+      sx={{
+        border: "1px solid",
+        borderColor: "divider",
+      }}
+    >
       {type == "normal" && (
         <NormalInfoBox
           title={title}

@@ -14,6 +14,7 @@ const NormalInfoBoxContainer = styled(Box, {
   height: "100%",
   display: "flex",
   gap: "40px",
+  margin: "20px",
   [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
     gap: "10px",
@@ -36,9 +37,7 @@ export default function NormalInfoBox({
 
   return (
     <NormalInfoBoxContainer imageOnRight={imageOnRight}>
-      <Box maxWidth="300px" border="1px solid" borderColor="divider">
-        {image}
-      </Box>
+      <Box maxWidth="300px">{image}</Box>
       <Box
         sx={{
           display: "flex",
