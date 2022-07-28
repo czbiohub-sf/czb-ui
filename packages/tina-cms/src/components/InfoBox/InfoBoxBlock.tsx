@@ -43,7 +43,12 @@ export const InfoBoxBlock = ({
         image={
           block.image ? (
             <Box position="relative" height="100%">
-              <Image objectFit="cover" layout="fill" src={block.image} />
+              <Image
+                objectFit="cover"
+                width={300}
+                height={300}
+                src={block.image}
+              />
             </Box>
           ) : undefined
         }
