@@ -34,10 +34,10 @@ const warningColors = {
 // Two fonts we need
 const fontFamily = ["Lato", "Barlow"].join(",");
 
-// Change xs size to 14px
+// Change xs size to 16px
 const xsFont = {
   ...defaultAppTheme.typography.styles.body.xs,
-  fontSize: 14,
+  fontSize: 16,
 };
 
 // xxl is used on the h1, font change is needed
@@ -68,6 +68,9 @@ export const biohubTheme = createTheme({
   components: {
     ...makeThemeOptions(appTheme).components,
     MuiContainer: {
+      defaultProps: {
+        maxWidth: "md",
+      },
       styleOverrides: {
         root: ({ theme }) => ({
           [theme.breakpoints.up("sm")]: {
