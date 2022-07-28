@@ -7,7 +7,7 @@ const AppBarComponent = styled(MaterialAppBar)<AppBarProps>(({ theme }) => ({
   color: theme.palette.text.primary,
   boxShadow: "none",
   borderBottom: "1px solid",
-  borderColor: theme.palette.grey[200],
+  borderColor: theme.palette.divider,
 })) as typeof MaterialAppBar;
 
 const minAppBarHeight = "50px";
