@@ -13,12 +13,16 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider = ({ children, darkMode }: ThemeProviderProps) => {
-  const finalTheme = createTheme({
-    ...biohubTheme,
-    palette: {
-      mode: darkMode ? "dark" : "light",
-    },
-  });
+  let finalTheme = biohubTheme;
+
+  if (darkMode) {
+    finalTheme = createTheme({
+      ...biohubTheme,
+      palette: {
+        mode: "dark",
+      },
+    });
+  }
 
   return (
     <MUIThemeProvider theme={finalTheme}>
