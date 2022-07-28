@@ -30,7 +30,10 @@ export const InfoBoxBlock = ({
   }
 
   return (
-    <Container sx={{ my: 5 }} disableGutters={disableContainerGutters}>
+    <Container
+      sx={{ my: disableContainerGutters ? undefined : 5 }}
+      disableGutters={disableContainerGutters}
+    >
       <InfoBox
         title={block.title}
         subtitle={block.subtitle}
