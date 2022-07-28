@@ -61,7 +61,7 @@ export default function NormalInfoBox({
         )}
         {/* If target="_blank" needs to be added also add rel="noopener" */}
         {!pagesComponent && (
-          <Link sx={{ marginTop: "1rem" }} href={page?.to}>
+          <Link sx={{ marginTop: "1rem", fontWeight: "bold" }} href={page?.to}>
             {page?.title}
           </Link>
         )}
