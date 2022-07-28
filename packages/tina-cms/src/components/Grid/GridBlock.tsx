@@ -22,7 +22,11 @@ export const GridBlock = (props: any) => {
 
             return (
               <Grid item xs={2} sm={4} md={4} key={i}>
-                <BlockSwitcher blocks={[nestedBlock]} disableContainerGutters />
+                <BlockSwitcher
+                  blocks={[nestedBlock]}
+                  disableContainerGutters
+                  disableYMargins
+                />
               </Grid>
             );
           })}

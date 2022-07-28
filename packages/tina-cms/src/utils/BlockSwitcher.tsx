@@ -9,6 +9,7 @@ import {
 interface BlockSwitcher {
   blocks: Array<any>;
   disableContainerGutters?: boolean;
+  disableYMargins?: boolean;
 }
 
 export const BlockSwitcher = (props: BlockSwitcher) => {
@@ -30,6 +31,7 @@ export const BlockSwitcher = (props: BlockSwitcher) => {
                   <InfoBoxBlock
                     block={block}
                     disableContainerGutters={props.disableContainerGutters}
+                    disableYMargins={props.disableYMargins}
                     key={i}
                   />
                 );
