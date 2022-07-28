@@ -16,9 +16,13 @@ interface InfoBoxBlockProps {
 
 interface InfoBoxProps {
   block: InfoBoxBlockProps;
+  disableContainerGutters?: boolean;
 }
 
-export const InfoBoxBlock = ({ block }: InfoBoxProps) => {
+export const InfoBoxBlock = ({
+  block,
+  disableContainerGutters,
+}: InfoBoxProps) => {
   let page;
 
   if (block.linkText && block.linkTo) {
@@ -26,7 +30,7 @@ export const InfoBoxBlock = ({ block }: InfoBoxProps) => {
   }
 
   return (
-    <Container sx={{ my: 5 }}>
+    <Container sx={{ my: 5 }} disableGutters={disableContainerGutters}>
       <InfoBox
         title={block.title}
         subtitle={block.subtitle}

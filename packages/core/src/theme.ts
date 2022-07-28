@@ -73,6 +73,10 @@ export const biohubTheme = createTheme({
           paddingLeft: "24px",
           paddingRight: "24px",
         },
+        disableGutters: {
+          paddingLeft: "0px",
+          paddingRight: "0px",
+        },
       },
     },
   },
