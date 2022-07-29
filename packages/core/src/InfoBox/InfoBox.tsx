@@ -9,12 +9,13 @@ export interface InfoBoxProps {
   page?: PagesObject;
   image?: React.ReactNode;
   imageOnRight?: boolean;
+  small?: boolean;
   pagesComponent?: any; // TODO: Find type of mui link component prop
 }
 
 interface InfoBoxContainerProps extends InfoBoxProps {
+  small?: boolean;
   type?: "normal" | "background";
-  size?: "small" | "normal";
 }
 
 export const InfoBox = ({
@@ -24,8 +25,8 @@ export const InfoBox = ({
   pagesComponent,
   image,
   imageOnRight,
+  small,
   type = "normal",
-  size = "normal",
 }: InfoBoxContainerProps) => {
   return (
     <Box
@@ -42,6 +43,7 @@ export const InfoBox = ({
           pagesComponent={pagesComponent}
           image={image}
           imageOnRight={imageOnRight}
+          small={small}
         />
       )}
       {type == "background" && (

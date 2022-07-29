@@ -18,12 +18,14 @@ interface InfoBoxProps {
   block: InfoBoxBlockProps;
   disableContainerGutters?: boolean;
   disableYMargins?: boolean;
+  small?: boolean;
 }
 
 export const InfoBoxBlock = ({
   block,
   disableContainerGutters,
   disableYMargins,
+  small,
 }: InfoBoxProps) => {
   let page;
 
@@ -40,6 +42,7 @@ export const InfoBoxBlock = ({
         title={block.title}
         subtitle={block.subtitle}
         page={page}
+        small={small}
         image={
           block.image ? (
             <Box position="relative" height="100%">

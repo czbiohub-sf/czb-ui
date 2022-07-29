@@ -26,6 +26,7 @@ export const GridBlock = (props: any) => {
                   blocks={[nestedBlock]}
                   disableContainerGutters
                   disableYMargins
+                  smallVariants
                 />
               </Grid>
             );

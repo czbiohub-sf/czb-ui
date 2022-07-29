@@ -5,11 +5,13 @@ import { InfoBoxProps } from "./InfoBox";
 
 interface NormalInfoBoxContainerProps extends BoxProps {
   imageOnRight?: boolean;
+  small?: boolean;
 }
 
 const NormalInfoBoxContainer = styled(Box, {
-  shouldForwardProp: (prop) => prop != "imageOnRight",
-})<NormalInfoBoxContainerProps>(({ imageOnRight, theme }) => ({
+  shouldForwardProp: (prop) =>
+    !["imageOnRight", "small"].includes(prop.toString()),
+})<NormalInfoBoxContainerProps>(({ imageOnRight, small, theme }) => ({
   zIndex: 1,
   height: "100%",
   display: "flex",
@@ -20,7 +22,7 @@ const NormalInfoBoxContainer = styled(Box, {
     gap: "10px",
   },
   [theme.breakpoints.up("sm")]: {
-    flexDirection: imageOnRight ? "row-reverse" : "row",
+    flexDirection: small ? "column" : imageOnRight ? "row-reverse" : "row",
   },
 }));
 
@@ -31,9 +33,10 @@ export default function NormalInfoBox({
   pagesComponent,
   image,
   imageOnRight,
+  small,
 }: InfoBoxProps) {
   return (
-    <NormalInfoBoxContainer imageOnRight={imageOnRight}>
+    <NormalInfoBoxContainer imageOnRight={imageOnRight} small={small}>
       <Box maxWidth="300px" flex={3}>
         {image}
       </Box>

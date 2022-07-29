@@ -10,6 +10,7 @@ interface BlockSwitcher {
   blocks: Array<any>;
   disableContainerGutters?: boolean;
   disableYMargins?: boolean;
+  smallVariants?: boolean;
 }
 
 export const BlockSwitcher = (props: BlockSwitcher) => {
@@ -32,6 +33,7 @@ export const BlockSwitcher = (props: BlockSwitcher) => {
                     block={block}
                     disableContainerGutters={props.disableContainerGutters}
                     disableYMargins={props.disableYMargins}
+                    small={props.smallVariants}
                     key={i}
                   />
                 );
