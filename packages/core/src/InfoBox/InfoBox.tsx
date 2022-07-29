@@ -2,8 +2,6 @@ import { Box } from "@mui/material";
 import { PagesObject } from "../NavBar/NavBar";
 import BackgroundInfoBox from "./BackgroundInfoBox";
 import NormalInfoBox from "./NormalInfoBox";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
 
 export interface InfoBoxProps {
   title?: string;

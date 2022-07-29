@@ -1,4 +1,4 @@
-import { Typography, styled, useTheme, useMediaQuery } from "@mui/material";
+import { Typography, styled, useTheme } from "@mui/material";
 import Box, { BoxProps } from "@mui/material/Box";
 import { Link } from "czifui";
 import { InfoBoxProps } from "./InfoBox";
@@ -32,18 +32,18 @@ export default function NormalInfoBox({
   image,
   imageOnRight,
 }: InfoBoxProps) {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("sm"));
-
   return (
     <NormalInfoBoxContainer imageOnRight={imageOnRight}>
-      <Box maxWidth="300px">{image}</Box>
+      <Box maxWidth="300px" flex={3}>
+        {image}
+      </Box>
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
         }}
+        flex={2}
       >
         <Typography variant="h2" component="div">
           {title}
