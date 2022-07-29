@@ -1,5 +1,4 @@
 import { Box, Container, Typography, Stack } from "@mui/material";
-import { Center } from "../Center/Center";
 
 interface GrandBannerProps {
   image?: React.ReactNode;
