@@ -1,6 +1,7 @@
 // rollup.config.js
 import typescript from "@rollup/plugin-typescript";
 import del from "rollup-plugin-delete";
+import resolve from "@rollup/plugin-node-resolve";
 
 export default {
   input: {
@@ -13,7 +14,7 @@ export default {
     dir: "dist",
     format: "cjs",
   },
-  plugins: [typescript(), del({ targets: "dist/*", runOnce: true })],
+  plugins: [typescript(), del({ targets: "dist/*", runOnce: true }), resolve()],
   external: [
     /^@emotion\/.*/,
     /^@mui\/.*/,

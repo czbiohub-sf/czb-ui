@@ -17,8 +17,11 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/lab": "^5.0.0-alpha.91",
     "@mui/material": "^5.9.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.3",
+    "@types/d3-dsv": "^3.0.0",
     "czifui": "^7.0.0",
+    "d3-dsv": "^3.0.1",
     "next": "^12.2.2",
     "rollup": "^2.77.0",
     "rollup-plugin-delete": "^2.0.0",
@@ -33,10 +36,10 @@
     "@mui/lab": "^5.0.0-alpha.91",
     "@mui/material": "^5.9.1",
     "czifui": "^7.0.0",
+    "next": "^12.2.2",
     "react": "^17.0.1 || ^18.0.0",
     "react-dom": "^17.0.1 || ^18.0.0",
     "react-is": "^17.0.1 || ^18.2.0",
-    "tinacms": "^0.68.13",
-    "next": "^12.2.2"
+    "tinacms": "^0.68.13"
   }
 }
