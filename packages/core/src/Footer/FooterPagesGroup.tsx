@@ -30,7 +30,7 @@ export const FooterPagesGroup = ({
     return (
       <div>
         <b>{pageGroup.title}</b>
-        <ul>
+        <ul style={{ listStyleType: "none", padding: 0 }}>
           {pageGroup.pages.map((page) => {
             return (
               <li>
