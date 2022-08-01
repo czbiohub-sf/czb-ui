@@ -120,7 +120,11 @@ type PagesBlocksGrid {
   blocks: [PagesBlocksGridBlocks]
 }
 
-union PagesBlocks = PagesBlocksGenericBanner | PagesBlocksGrandBanner | PagesBlocksText | PagesBlocksInfoBox | PagesBlocksGrid
+type PagesBlocksTable {
+  csvData: String
+}
+
+union PagesBlocks = PagesBlocksGenericBanner | PagesBlocksGrandBanner | PagesBlocksText | PagesBlocksInfoBox | PagesBlocksGrid | PagesBlocksTable
 
 type Pages implements Node & Document {
   title: String
@@ -199,12 +203,17 @@ input PagesBlocksGridMutation {
   blocks: [PagesBlocksGridBlocksMutation]
 }
 
+input PagesBlocksTableMutation {
+  csvData: String
+}
+
 input PagesBlocksMutation {
   GenericBanner: PagesBlocksGenericBannerMutation
   GrandBanner: PagesBlocksGrandBannerMutation
   text: PagesBlocksTextMutation
   InfoBox: PagesBlocksInfoBoxMutation
   Grid: PagesBlocksGridMutation
+  Table: PagesBlocksTableMutation
 }
 
 input PagesMutation {

@@ -5,9 +5,10 @@ import {
   Text,
   InfoBox,
   Grid,
+  Table,
 } from "@czb-ui/tina-cms/dist/templates";
 
-const templates = [GenericBanner, GrandBanner, Text, InfoBox, Grid];
+const templates = [GenericBanner, GrandBanner, Text, InfoBox, Grid, Table];
 
 const schema = defineSchema({
   config: {

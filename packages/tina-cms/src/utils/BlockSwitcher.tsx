@@ -4,6 +4,7 @@ import {
   TextBlock,
   InfoBoxBlock,
   GridBlock,
+  TableBlock,
 } from "../components";
 
 interface BlockSwitcher {
@@ -39,6 +40,8 @@ export const BlockSwitcher = (props: BlockSwitcher) => {
                 );
               case "PagesBlocksGrid":
                 return <GridBlock block={block} key={i} />;
+              case "PagesBlocksTable":
+                return <TableBlock block={block} key={i} />;
             }
           })
         : null}

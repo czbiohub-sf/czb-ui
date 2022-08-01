@@ -46,6 +46,10 @@ query PagesDocument($relativePath: String!) {
           }
         }
       }
+      ... on PagesBlocksTable {
+        __typename
+        csvData
+      }
     }
   }
 }
