@@ -21,7 +21,6 @@ export const Table: TinaTemplate = {
             return;
           }
 
-          // TODO: Test this limit
           if (val.length > 50000) {
             return "This CSV is too big. A custom Table implementation is needed.";
           }
