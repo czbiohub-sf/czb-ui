@@ -33,7 +33,7 @@ export const TableBlock = ({ block }: TableProps) => {
       ...row,
       id: i,
     };
-  });
+  }) as GridRowsProp;
 
   // Change the columns so that it fits MUI's
   // DataGrid columns prop
