@@ -28,7 +28,12 @@ export const FooterBar = (props: AppBarProps) => {
   return (
     <AppBarComponent {...props}>
       <ToolbarComponent
-        sx={{ alignItems: "flex-start", padding: "30px", gap: "80px" }}
+        sx={{
+          alignItems: "flex-start",
+          padding: "30px",
+          flexDirection: { xs: "column", md: "row" },
+          gap: { xs: "40px", md: "80px" },
+        }}
       >
         {props.children}
       </ToolbarComponent>
