@@ -1,5 +1,4 @@
 import type { TinaTemplate } from "tinacms";
-import { csvParse, csvFormat } from "d3-dsv";
 
 export const Table: TinaTemplate = {
   name: "Table",
@@ -13,15 +12,13 @@ export const Table: TinaTemplate = {
       name: "csvData",
       ui: {
         component: "textarea",
-        parse: (val?: string) => val && JSON.stringify(csvParse(val)),
-        format: (val?: string) => val && csvFormat(JSON.parse(val)),
         validate: (val?: string) => {
-          // val is the stringified JSON of csvParse()
           if (!val) {
             return;
           }
 
-          if (val.length > 50000) {
+          // TODO: Test this limit
+          if (val.length > 30000) {
             return "This CSV is too big. A custom Table implementation is needed.";
           }
         },
