@@ -1,3 +1,4 @@
+import { Box, Typography } from "@mui/material";
 import { Link } from "czifui";
 
 // TODO: Create one page interface that has support
@@ -30,9 +31,21 @@ export const FooterPagesGroup = ({
     <>
       {pages.map((pageGroup, i) => {
         return (
-          <div key={i}>
-            <b style={{ textTransform: "uppercase" }}>{pageGroup.title}</b>
-            <ul style={{ listStyleType: "none", padding: 0 }}>
+          <Box key={i}>
+            <Typography
+              sx={{ textTransform: "uppercase", fontWeight: "bold" }}
+              component="b"
+            >
+              {pageGroup.title}
+            </Typography>
+            <Box
+              component="ul"
+              sx={{
+                listStyleType: "none",
+                padding: "0px",
+                marginBottom: "0px",
+              }}
+            >
               {pageGroup.pages.map((page, j) => {
                 return (
                   <li key={j}>
@@ -57,8 +70,8 @@ export const FooterPagesGroup = ({
                   </li>
                 );
               })}
-            </ul>
-          </div>
+            </Box>
+          </Box>
         );
       })}
     </>
