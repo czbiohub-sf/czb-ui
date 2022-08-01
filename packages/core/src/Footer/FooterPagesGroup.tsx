@@ -31,7 +31,7 @@ export const FooterPagesGroup = ({
       {pages.map((pageGroup, i) => {
         return (
           <div key={i}>
-            <b>{pageGroup.title}</b>
+            <b style={{ textTransform: "uppercase" }}>{pageGroup.title}</b>
             <ul style={{ listStyleType: "none", padding: 0 }}>
               {pageGroup.pages.map((page, j) => {
                 return (
