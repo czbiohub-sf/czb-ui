@@ -8,7 +8,7 @@ const AppBarComponent = styled(MaterialAppBar)<AppBarProps>(({ theme }) => ({
   boxShadow: "none",
 })) as typeof MaterialAppBar;
 
-const minAppBarHeight = "100px";
+const minAppBarHeight = "200px";
 
 const ToolbarComponent = styled(Toolbar)<ToolbarProps>(({ theme }) => ({
   minHeight: minAppBarHeight,
@@ -27,7 +27,9 @@ const ToolbarComponent = styled(Toolbar)<ToolbarProps>(({ theme }) => ({
 export const FooterBar = (props: AppBarProps) => {
   return (
     <AppBarComponent {...props}>
-      <ToolbarComponent sx={{ alignItems: "flex-start", padding: "10px" }}>
+      <ToolbarComponent
+        sx={{ alignItems: "flex-start", padding: "30px", gap: "80px" }}
+      >
         {props.children}
       </ToolbarComponent>
     </AppBarComponent>

@@ -8,7 +8,7 @@ export default {
   component: CZBUIFooter,
 };
 
-const pages = [
+const samplePages = [
   {
     title: "About",
     to: "/about",
@@ -23,6 +23,21 @@ const pages = [
   },
 ];
 
+const pageGroups = [
+  {
+    title: "Applications",
+    pages: samplePages,
+  },
+  {
+    title: "Company",
+    pages: samplePages,
+  },
+  {
+    title: "Resources",
+    pages: samplePages,
+  },
+];
+
 const FooterTemplate = (args: any) => (
   <CZBUIFooter
     logo={<BiohubLogo sx={{ fontSize: "2rem" }} />}
@@ -34,5 +49,5 @@ const FooterTemplate = (args: any) => (
 export const Footer = FooterTemplate.bind({});
 Footer.args = {
   title: "CZ BIOHUB",
-  pages: pages,
+  pages: pageGroups,
 };
