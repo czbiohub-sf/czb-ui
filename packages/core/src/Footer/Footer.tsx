@@ -16,7 +16,7 @@ import { FooterPagesGroup } from "./FooterPagesGroup";
 interface FooterProps {
   logo?: React.ReactNode;
   title?: string;
-  pages?: Array<PagesObject>;
+  pages?: Array<any>; // TODO: Fix prop type
   pagesComponent?: any; // TODO: Find type of mui button component prop
 }
 
@@ -41,7 +41,7 @@ export const Footer = ({ logo, title, pages, pagesComponent }: FooterProps) => {
           {title}
         </Typography>
       </Box>
-      <FooterPagesGroup pages={pages} />
+      {pages && <FooterPagesGroup pages={pages} />}
     </FooterBar>
   );
 };
