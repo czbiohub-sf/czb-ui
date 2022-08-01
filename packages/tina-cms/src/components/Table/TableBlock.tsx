@@ -47,7 +47,23 @@ export const TableBlock = ({ block }: TableProps) => {
 
   return (
     <div style={{ height: 750, width: "100%" }}>
-      <DataGrid rows={rows} columns={columns} />
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        sx={{
+          borderColor: "divider",
+          borderRadius: 0,
+          "& .MuiDataGrid-cell": {
+            borderColor: "divider",
+          },
+          "& .MuiDataGrid-columnHeaders": {
+            borderColor: "divider",
+          },
+          "& .MuiDataGrid-footerContainer": {
+            borderColor: "divider",
+          },
+        }}
+      />
     </div>
   );
 };
