@@ -1,6 +1,6 @@
 import { csvParse } from "d3-dsv";
 import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
-import { Container } from "@mui/material";
+import { Container, useMediaQuery, useTheme } from "@mui/material";
 
 interface TableBlockProps {
   csvData: string;
@@ -19,6 +19,12 @@ const TableIsInvalid = () => {
 };
 
 export const TableBlock = ({ block }: TableProps) => {
+  const theme = useTheme();
+  // If on a smaller screen, make the height shorter as filling
+  // the screen with the table makes scrolling the
+  // actual page (not the table) harder
+  const smallerScreen = useMediaQuery(theme.breakpoints.down("lg"));
+
   let parsedCsvData;
 
   try {
@@ -46,7 +52,7 @@ export const TableBlock = ({ block }: TableProps) => {
   }) as GridColDef[];
 
   return (
-    <div style={{ height: 750, width: "100%" }}>
+    <div style={{ height: smallerScreen ? 500 : 750, width: "100%" }}>
       <DataGrid
         rows={rows}
         columns={columns}
