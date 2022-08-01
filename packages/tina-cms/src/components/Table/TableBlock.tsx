@@ -59,6 +59,9 @@ export const TableBlock = ({ block }: TableProps) => {
           "& .MuiDataGrid-columnHeaders": {
             borderColor: "divider",
           },
+          "& .MuiDataGrid-columnHeaderTitle": {
+            fontWeight: "fontWeightBold",
+          },
           "& .MuiDataGrid-footerContainer": {
             borderColor: "divider",
           },
