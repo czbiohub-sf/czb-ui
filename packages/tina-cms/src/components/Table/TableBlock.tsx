@@ -1,5 +1,5 @@
 import { csvParse } from "d3-dsv";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
 import { Container } from "@mui/material";
 
 interface TableBlockProps {
@@ -10,20 +10,44 @@ interface TableProps {
   block: TableBlockProps;
 }
 
+const TableIsInvalid = () => {
+  return (
+    <Container>
+      <div>Table: CSV is invalid</div>
+    </Container>
+  );
+};
+
 export const TableBlock = ({ block }: TableProps) => {
   let parsedCsvData;
 
   try {
     parsedCsvData = csvParse(block.csvData);
   } catch {
-    return (
-      <Container>
-        <div>CSV is invalid</div>
-      </Container>
-    );
+    return <TableIsInvalid />;
   }
 
-  console.log(parsedCsvData);
+  // Add an ID to each row
+  const rows = parsedCsvData.map((row, i) => {
+    return {
+      ...row,
+      id: i,
+    };
+  });
 
-  return <div></div>;
+  // Change the columns so that it fits MUI's
+  // DataGrid columns prop
+  const columns = parsedCsvData.columns.map((column: string) => {
+    return {
+      field: column,
+      headerName: column,
+      width: 150,
+    };
+  }) as GridColDef[];
+
+  return (
+    <div style={{ height: 750, width: "100%" }}>
+      <DataGrid rows={rows} columns={columns} />
+    </div>
+  );
 };
