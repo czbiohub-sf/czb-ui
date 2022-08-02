@@ -51,6 +51,7 @@ export const ImageButton = ({
           sx={{ marginTop: "auto" }}
           component={pagesComponent}
           to={page?.to}
+          fontWeight="bold"
         >
           {page?.title}
         </Link>
