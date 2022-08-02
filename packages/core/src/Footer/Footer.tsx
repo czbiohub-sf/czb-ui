@@ -34,7 +34,9 @@ export const Footer = ({ logo, title, pages, pagesComponent }: FooterProps) => {
           {title}
         </Typography>
       </Box>
-      {pages && <FooterPagesGroup pages={pages} />}
+      {pages && (
+        <FooterPagesGroup pages={pages} pagesComponent={pagesComponent} />
+      )}
     </FooterBar>
   );
 };
