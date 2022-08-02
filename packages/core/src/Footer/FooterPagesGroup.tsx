@@ -15,7 +15,14 @@ export const FooterPagesGroup = ({
   pagesComponent,
 }: FooterPagesGroupProps) => {
   return (
-    <>
+    <Box
+      sx={{
+        display: "flex",
+        marginTop: "7px", // So it aligns with the title and logo (being centered in their div)
+        gap: "40px",
+        flexDirection: { xs: "column", md: "row" },
+      }}
+    >
       {pages.map((pageGroup, i) => {
         return (
           <Box key={i}>
@@ -61,6 +68,6 @@ export const FooterPagesGroup = ({
           </Box>
         );
       })}
-    </>
+    </Box>
   );
 };
