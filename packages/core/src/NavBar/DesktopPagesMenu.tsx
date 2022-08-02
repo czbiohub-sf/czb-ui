@@ -1,9 +1,9 @@
-import { PagesObject } from "./NavBar";
+import { PageLink } from "../UniversalTypes/links";
 import { Link } from "czifui";
 import { Box } from "@mui/material";
 
 interface DesktopPagesMenuProps {
-  pages: Array<PagesObject>;
+  pages: Array<PageLink>;
   pagesComponent?: any; // TODO: Find type of mui button component prop
 }
 

@@ -5,18 +5,12 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import { DesktopPagesMenu } from "./DesktopPagesMenu";
 import { MobilePagesMenu } from "./MobilePagesMenu";
-
-// Exported for the page menu components,
-// e.g. <DesktopPagesMenu />
-export interface PagesObject {
-  title: string;
-  to: string;
-}
+import { PageLink } from "../UniversalTypes/links";
 
 interface NavBarProps {
   logo?: React.ReactNode;
   title?: string;
-  pages?: Array<PagesObject>;
+  pages?: Array<PageLink>;
   pagesComponent?: any; // TODO: Find type of mui button component prop
 }
 

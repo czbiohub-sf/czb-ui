@@ -1,11 +1,11 @@
-import { PagesObject } from "./NavBar";
+import { PageLink } from "../UniversalTypes/links";
 import { Box, Drawer, ListItemButton, ClickAwayListener } from "@mui/material";
 import Hamburger from "hamburger-react";
 import { useState } from "react";
 import { Link } from "czifui";
 
 interface MobilePagesMenuProps {
-  pages: Array<PagesObject>;
+  pages: Array<PageLink>;
   pagesComponent?: any; // TODO: Find type of mui button component prop
 }
 

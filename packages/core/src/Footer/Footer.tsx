@@ -3,20 +3,13 @@ import { FooterBar } from "../FooterBar/FooterBar";
 import { Typography, Box } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import { PagesObject } from "../NavBar/NavBar";
+import { PageGroup } from "../UniversalTypes/links";
 import { FooterPagesGroup } from "./FooterPagesGroup";
-
-// Exported for the page menu components,
-// e.g. <DesktopPagesMenu />
-// export interface PagesObject {
-//   title: string;
-//   to: string;
-// }
 
 interface FooterProps {
   logo?: React.ReactNode;
   title?: string;
-  pages?: Array<any>; // TODO: Fix prop type
+  pages?: Array<PageGroup>;
   pagesComponent?: any; // TODO: Find type of mui button component prop
 }
 

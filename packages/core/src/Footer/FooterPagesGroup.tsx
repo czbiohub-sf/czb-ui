@@ -1,19 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { Link } from "czifui";
-
-// TODO: Create one page interface that has support
-// for external links, use that one for all the components
-// that require links
-interface FooterPages {
-  title: string;
-  to: string;
-  externalLink?: boolean;
-}
-
-interface PageGroup {
-  pages: Array<FooterPages>;
-  title: string;
-}
+import { PageGroup } from "../UniversalTypes/links";
 
 interface FooterPagesGroupProps {
   pages: Array<PageGroup>;

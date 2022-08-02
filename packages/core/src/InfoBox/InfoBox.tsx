@@ -1,12 +1,12 @@
 import { Box } from "@mui/material";
-import { PagesObject } from "../NavBar/NavBar";
+import { PageLink } from "../UniversalTypes/links";
 import BackgroundInfoBox from "./BackgroundInfoBox";
 import NormalInfoBox from "./NormalInfoBox";
 
 export interface InfoBoxProps {
   title?: string;
   subtitle?: string;
-  page?: PagesObject;
+  page?: PageLink;
   image?: React.ReactNode;
   imageOnRight?: boolean;
   small?: boolean;
