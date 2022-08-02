@@ -1,5 +1,5 @@
 import { NavBar as CZBUINavBar } from "@czb-ui/core";
-import { BiohubLogo } from "@czb-ui/biohub-logos";
+import { DnaMark } from "@czb-ui/biohub-logos";
 import { NextLinkComposed } from "../NextLinkComposed/NextLinkComposed";
 
 const pages = [
@@ -17,7 +17,7 @@ export default function NavBar() {
   return (
     <CZBUINavBar
       title="CZBUI"
-      logo={<BiohubLogo sx={{ fonSize: "2rem" }} />}
+      logo={<DnaMark sx={{ fonSize: "2rem" }} />}
       pages={pages}
       pagesComponent={NextLinkComposed}
     />

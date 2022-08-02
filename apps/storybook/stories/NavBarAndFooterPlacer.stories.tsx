@@ -5,7 +5,7 @@ import {
   NavBar,
   Footer,
 } from "@czb-ui/core/src";
-import { BiohubLogo } from "@czb-ui/biohub-logos/src";
+import { DnaMark } from "@czb-ui/biohub-logos/src";
 
 export default {
   title: "NavBarAndFooterPlacer",
@@ -60,7 +60,7 @@ const pageGroups = [
   },
 ];
 
-const logo = <BiohubLogo sx={{ fontSize: "2rem" }} />;
+const logo = <DnaMark sx={{ fontSize: "2rem" }} />;
 
 const NvBrAFoPlTemplate = (args: any) => {
   return (

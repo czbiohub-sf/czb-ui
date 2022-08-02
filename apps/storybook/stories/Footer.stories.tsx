@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Footer as CZBUIFooter } from "@czb-ui/core/src";
-import { BiohubLogo } from "@czb-ui/biohub-logos/src";
+import { DnaMark } from "@czb-ui/biohub-logos/src";
 
 export default {
   title: "Footer",
@@ -40,7 +40,7 @@ const pageGroups = [
 
 const FooterTemplate = (args: any) => (
   <CZBUIFooter
-    logo={<BiohubLogo sx={{ fontSize: "2rem" }} />}
+    logo={<DnaMark sx={{ fontSize: "2rem" }} />}
     title={args.title}
     pages={args.pages}
   />
