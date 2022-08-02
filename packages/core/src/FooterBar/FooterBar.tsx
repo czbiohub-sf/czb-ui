@@ -22,8 +22,9 @@ const ToolbarComponent = styled(Toolbar)<ToolbarProps>(({ theme }) => ({
     paddingLeft: theme.spacing(7),
     paddingRight: theme.spacing(7),
   },
-}));
+})) as typeof Toolbar;
 
+// TODO: Make footer component prop/option for this AppBar component
 export const FooterBar = (props: AppBarProps) => {
   return (
     <AppBarComponent {...props}>
@@ -34,6 +35,7 @@ export const FooterBar = (props: AppBarProps) => {
           flexDirection: { xs: "column", md: "row" },
           gap: { xs: "40px", md: "80px" },
         }}
+        component="footer"
       >
         {props.children}
       </ToolbarComponent>

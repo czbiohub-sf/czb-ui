@@ -17,7 +17,6 @@ export const Footer = ({ logo, title, pages, pagesComponent }: FooterProps) => {
   const theme = useTheme();
   const onDesktop = useMediaQuery(theme.breakpoints.up("sm"));
 
-  // TODO: add component=footer
   return (
     <FooterBar position="relative" sx={{ top: "auto", bottom: 0 }}>
       <Box display="flex" flexDirection="row" alignItems="center">
