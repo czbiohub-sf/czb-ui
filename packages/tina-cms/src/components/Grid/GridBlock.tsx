@@ -1,15 +1,39 @@
 import { Grid, Container } from "@mui/material";
 import { BlockSwitcher } from "../../utils";
 
-// TODO: Put types for props and map
-export const GridBlock = (props: any) => {
-  const blocks = props.block.blocks;
+/*
+ * Sample response
+ * (what will be in the "block" prop of the GridBlock component)
+ * {
+ *	  "__typename": "PagesBlocksGrid",
+ *	  "blocks": [
+ *		  {
+ *			  "__typename": "PagesBlocksGridBlocksInfoBox",
+ *			  "title": "why tina cms is cool",
+ *			  "subtitle": null,
+ *			  ...
+ *		  }
+ *	  ]
+ *	}
+ */
+
+interface GridBlockProps {
+  __typename: string;
+  blocks: Array<any>;
+}
+
+interface GridProps {
+  block: GridBlockProps;
+}
+
+export const GridBlock = ({ block }: GridProps) => {
+  const blocks = block.blocks;
 
   return (
     <Container sx={{ my: 5 }}>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 8 }}>
         {blocks &&
-          blocks.map((nestedBlock: any, i: number) => {
+          blocks.map((nestedBlock, i) => {
             // Since nested lists get their typename changed,
             // pass the right one for the block switcher component
             const blockTypeNameSplit =
