@@ -22,12 +22,11 @@ export const Footer = ({ logo, title, pages, pagesComponent }: FooterProps) => {
       <Box display="flex" alignItems="center">
         <Box sx={{ mr: 5, display: "inherit" }}>{logo}</Box>
         <Typography
-          fontFamily="Barlow"
           fontWeight={700}
           fontSize="1rem"
           gutterBottom={false}
           component="span"
-          variant="inherit"
+          variant="h1"
           flexGrow={onDesktop ? 0 : 1} // So it pushes the hamburger menu to the right
         >
           {title}

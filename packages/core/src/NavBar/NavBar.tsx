@@ -30,12 +30,11 @@ export const NavBar = ({ logo, title, pages, pagesComponent }: NavBarProps) => {
         >
           <Box sx={{ mr: 5, display: "inherit" }}>{logo}</Box>
           <Typography
-            fontFamily="Barlow"
             fontWeight={700}
             fontSize="1rem"
             gutterBottom={false}
             component="span"
-            variant="inherit"
+            variant="h1"
           >
             {title}
           </Typography>

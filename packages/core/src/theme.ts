@@ -45,7 +45,13 @@ const headingStyles = {
   ...defaultAppTheme.typography.styles.header,
   xxl: {
     ...defaultAppTheme.typography.styles.header.xxl,
-    fontFamily: "Barlow",
+    // Also stick the other body fonts too since
+    // overriding this font doesn't include the fallback
+    // body fonts with it
+    // (hardcoded for now since the actual body fonts
+    // are added programmatically after this)
+    fontFamily:
+      "Barlow, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif",
     // https://github.com/mui/material-ui/issues/16307
     textTransform: "uppercase" as const,
   },
