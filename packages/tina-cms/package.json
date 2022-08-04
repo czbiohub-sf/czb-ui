@@ -4,7 +4,7 @@
   "main": "./dist/index.js",
   "types": "./dist/src/index.d.ts",
   "license": "MIT",
-	"type": "commonjs",
+  "type": "commonjs",
   "scripts": {
     "build": "rollup --config rollup.config.ts",
     "dev": "rollup --config rollup.config.ts --watch"
