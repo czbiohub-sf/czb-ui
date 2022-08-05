@@ -4,7 +4,8 @@
 
 ### Minor Changes
 
-- f7e2fce: - Add experimental dark mode
+- f7e2fce:
+  - Add experimental dark mode
   - Work on info box styles
   - Change global container maxWidth
   - Change global body font size
