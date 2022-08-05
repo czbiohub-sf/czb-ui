@@ -15,7 +15,11 @@ export default {
       format: "esm",
     },
   ],
-  plugins: [typescript(), del({ targets: "dist/*", runOnce: true }), resolve()],
+  plugins: [
+    typescript({ tsconfig: "./tsconfig.json" }),
+    del({ targets: "dist/*", runOnce: true }),
+    resolve(),
+  ],
   external: [
     /^@emotion\/.*/,
     /^@mui\/.*/,
