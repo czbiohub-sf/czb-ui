@@ -15,13 +15,14 @@ query pages($relativePath: String!) {
   }
 }
 
-query pagesConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String) {
+query pagesConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PagesFilter) {
   pagesConnection(
     before: $before
     after: $after
     first: $first
     last: $last
     sort: $sort
+    filter: $filter
   ) {
     totalCount
     edges {

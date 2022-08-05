@@ -6,12 +6,18 @@ import {
   InfoBox,
   Grid,
   Table,
-} from "@czb-ui/tina-cms/dist/templates";
+} from "@czb-ui/tina-cms";
+import { client } from "./__generated__/client";
 
 const templates = [GenericBanner, GrandBanner, Text, InfoBox, Grid, Table];
 
 const schema = defineSchema({
   config: {
+    // This test app will be only local only,
+    // so the clientId and token are irrelevant
+    branch: "main",
+    clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
+    token: "*",
     media: {
       tina: {
         mediaRoot: "tina_uploads",
@@ -45,18 +51,8 @@ const schema = defineSchema({
 
 export default schema;
 
-// Your tina config
-// ==============
-const branch = "main";
-// When working locally, hit our local filesystem.
-// On a Vercel deployment, hit the Tina Cloud API
-const apiURL =
-  process.env.NODE_ENV == "development"
-    ? "http://localhost:4001/graphql"
-    : `https://content.tinajs.io/content/${process.env.NEXT_PUBLIC_TINA_CLIENT_ID}/github/${branch}`;
-
 export const tinaConfig = defineConfig({
-  apiURL,
+  client,
   schema,
   cmsCallback: (cms) => {
     //  add your CMS callback code here (if you want)

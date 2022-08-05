@@ -49,7 +49,11 @@ type Query {
   node(id: String): Node!
   document(collection: String, relativePath: String): DocumentNode!
   pages(relativePath: String): Pages!
-  pagesConnection(before: String, after: String, first: Float, last: Float, sort: String): PagesConnection!
+  pagesConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PagesFilter): PagesConnection!
+}
+
+input DocumentFilter {
+  pages: PagesFilter
 }
 
 type DocumentConnectionEdges {
@@ -72,7 +76,7 @@ type Collection {
   matches: String
   templates: [JSON]
   fields: [JSON]
-  documents(before: String, after: String, first: Float, last: Float, sort: String): DocumentConnection!
+  documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter): DocumentConnection!
 }
 
 union DocumentNode = Pages
@@ -132,6 +136,102 @@ type Pages implements Node & Document {
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input StringFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input ImageFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input PagesBlocksGenericBannerFilter {
+  title: StringFilter
+  subtitle: StringFilter
+  image: ImageFilter
+}
+
+input BooleanFilter {
+  eq: Boolean
+  exists: Boolean
+}
+
+input PagesBlocksGrandBannerFilter {
+  title: StringFilter
+  subtitle: StringFilter
+  image: ImageFilter
+  right: BooleanFilter
+}
+
+input PagesBlocksTextTextInfoBoxFilter {
+  title: StringFilter
+  subtitle: StringFilter
+  linkText: StringFilter
+  linkTo: StringFilter
+  outsideLink: BooleanFilter
+  image: ImageFilter
+  right: BooleanFilter
+}
+
+input PagesBlocksTextTextFilter {
+  infoBox: PagesBlocksTextTextInfoBoxFilter
+}
+
+input PagesBlocksTextFilter {
+  text: PagesBlocksTextTextFilter
+}
+
+input PagesBlocksInfoBoxFilter {
+  title: StringFilter
+  subtitle: StringFilter
+  linkText: StringFilter
+  linkTo: StringFilter
+  outsideLink: BooleanFilter
+  image: ImageFilter
+  right: BooleanFilter
+}
+
+input PagesBlocksGridBlocksInfoBoxFilter {
+  title: StringFilter
+  subtitle: StringFilter
+  linkText: StringFilter
+  linkTo: StringFilter
+  outsideLink: BooleanFilter
+  image: ImageFilter
+  right: BooleanFilter
+}
+
+input PagesBlocksGridBlocksFilter {
+  InfoBox: PagesBlocksGridBlocksInfoBoxFilter
+}
+
+input PagesBlocksGridFilter {
+  blocks: PagesBlocksGridBlocksFilter
+}
+
+input PagesBlocksTableFilter {
+  csvData: StringFilter
+}
+
+input PagesBlocksFilter {
+  GenericBanner: PagesBlocksGenericBannerFilter
+  GrandBanner: PagesBlocksGrandBannerFilter
+  text: PagesBlocksTextFilter
+  InfoBox: PagesBlocksInfoBoxFilter
+  Grid: PagesBlocksGridFilter
+  Table: PagesBlocksTableFilter
+}
+
+input PagesFilter {
+  title: StringFilter
+  blocks: PagesBlocksFilter
 }
 
 type PagesConnectionEdges {
