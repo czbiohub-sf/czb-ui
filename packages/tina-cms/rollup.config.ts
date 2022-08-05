@@ -4,16 +4,17 @@ import del from "rollup-plugin-delete";
 import resolve from "@rollup/plugin-node-resolve";
 
 export default {
-  input: {
-    index: "src/index.ts",
-    "templates/index": "src/templates/index.ts",
-    "components/index": "src/components/index.ts",
-    "utils/index": "src/utils/index.ts",
-  },
-  output: {
-    dir: "dist",
-    format: "cjs",
-  },
+  input: "src/index.ts",
+  output: [
+    {
+      file: "dist/index.cjs.js",
+      format: "cjs",
+    },
+    {
+      file: "dist/index.esm.js",
+      format: "esm",
+    },
+  ],
   plugins: [typescript(), del({ targets: "dist/*", runOnce: true }), resolve()],
   external: [
     /^@emotion\/.*/,
