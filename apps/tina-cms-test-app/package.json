@@ -3,7 +3,6 @@
   "private": true,
   "scripts": {
     "dev": "tinacms dev -c \"next dev -p 3001\"",
-    "build": "tinacms build && next build",
     "start": "tinacms server:start -c \"next start -p 3001\"",
     "lint": "next lint"
   },
