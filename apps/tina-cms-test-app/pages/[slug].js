@@ -1,4 +1,4 @@
-import { staticRequest } from "tinacms";
+import { client } from "../.tina/__generated__/client";
 import { useTina } from "tinacms/dist/edit-state";
 import { BlockSwitcher } from "@czb-ui/tina-cms";
 import query from "../.tina/queries/pages";
@@ -15,7 +15,7 @@ export default function DynamicPage(props) {
 }
 
 export const getStaticPaths = async () => {
-  const pagesResponse = await staticRequest({
+  const pagesResponse = await client.request({
     query: `{
         pagesConnection {
           edges {
@@ -29,7 +29,7 @@ export const getStaticPaths = async () => {
       }`,
     variables: {},
   });
-  const paths = pagesResponse.pagesConnection.edges.map((x) => {
+  const paths = pagesResponse.data.pagesConnection.edges.map((x) => {
     return { params: { slug: x.node._sys.filename } };
   });
 
@@ -45,7 +45,7 @@ export const getStaticProps = async (ctx) => {
   };
   let data = {};
   try {
-    data = await staticRequest({
+    data = await client.request({
       query,
       variables,
     });

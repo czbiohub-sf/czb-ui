@@ -16,8 +16,8 @@ const schema = defineSchema({
     // This test app will be only local only,
     // so the clientId and token are irrelevant
     branch: "main",
-    clientId: "dksjfsdklj",
-    token: "askljdak",
+    clientId: "foo",
+    token: "bar",
     media: {
       tina: {
         mediaRoot: "tina_uploads",
