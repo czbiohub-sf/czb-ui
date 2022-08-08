@@ -1,6 +1,6 @@
 // This should be a copy of [slug].js, except that it just
 // queries "home.mdx" and does not take a slug
-import { staticRequest } from "tinacms";
+import { client } from "../.tina/__generated__/client";
 import { useTina } from "tinacms/dist/edit-state";
 import { BlockSwitcher } from "@czb-ui/tina-cms";
 import query from "../.tina/queries/pages";
@@ -24,7 +24,7 @@ export const getStaticProps = async () => {
   };
   let data = {};
   try {
-    data = await staticRequest({
+    data = await client.request({
       query,
       variables,
     });
