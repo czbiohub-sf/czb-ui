@@ -1,5 +1,6 @@
 {
   "name": "tina-cms-test-app",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "tinacms dev -c \"next dev -p 3001\"",
