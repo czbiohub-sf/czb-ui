@@ -12,7 +12,7 @@ export default {
   external: [
     /^@emotion\/.*/,
     /^@mui\/.*/,
-    /^react\/.*/,
+    /^react\.*/,
     "uuid",
     "czifui",
     "hamburger-react",

@@ -1,5 +1,11 @@
 # @czb-ui/biohub-logos
 
+## 0.2.0
+
+### Minor Changes
+
+- f7e2fce: Add DNA Mark logo variant
+
 ## 0.1.1
 
 ### Patch Changes

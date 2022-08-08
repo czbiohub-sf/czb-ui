@@ -11,6 +11,9 @@ module.exports = {
     // customize the Vite config here
     return {
       ...config,
+      define: {
+        "process.env": {},
+      },
       resolve: {
         alias: [
           {

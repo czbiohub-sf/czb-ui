@@ -3,19 +3,13 @@ import { FooterBar } from "../FooterBar/FooterBar";
 import { Typography, Box } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import { PagesObject } from "../NavBar/NavBar";
-
-// Exported for the page menu components,
-// e.g. <DesktopPagesMenu />
-// export interface PagesObject {
-//   title: string;
-//   to: string;
-// }
+import { PageGroup } from "../UniversalTypes/links";
+import { FooterPagesGroup } from "./FooterPagesGroup";
 
 interface FooterProps {
   logo?: React.ReactNode;
   title?: string;
-  pages?: Array<PagesObject>;
+  pages?: Array<PageGroup>;
   pagesComponent?: any; // TODO: Find type of mui button component prop
 }
 
@@ -25,18 +19,22 @@ export const Footer = ({ logo, title, pages, pagesComponent }: FooterProps) => {
 
   return (
     <FooterBar position="relative" sx={{ top: "auto", bottom: 0 }}>
-      <Box sx={{ mr: 5, display: "inherit" }}>{logo}</Box>
-      <Typography
-        fontFamily="Barlow"
-        fontWeight={700}
-        fontSize="1rem"
-        gutterBottom={false}
-        component="span"
-        variant="inherit"
-        flexGrow={onDesktop ? 0 : 1} // So it pushes the hamburger menu to the right
-      >
-        {title}
-      </Typography>
+      <Box display="flex" alignItems="center">
+        <Box sx={{ mr: 5, display: "inherit" }}>{logo}</Box>
+        <Typography
+          fontWeight={700}
+          fontSize="1rem"
+          gutterBottom={false}
+          component="span"
+          variant="h1"
+          flexGrow={onDesktop ? 0 : 1} // So it pushes the hamburger menu to the right
+        >
+          {title}
+        </Typography>
+      </Box>
+      {pages && (
+        <FooterPagesGroup pages={pages} pagesComponent={pagesComponent} />
+      )}
     </FooterBar>
   );
 };

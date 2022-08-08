@@ -1,14 +1,14 @@
 import React from "react";
 
 import { Footer as CZBUIFooter } from "@czb-ui/core/src";
-import { BiohubLogo } from "@czb-ui/biohub-logos/src";
+import { DnaMark } from "@czb-ui/biohub-logos/src";
 
 export default {
   title: "Footer",
   component: CZBUIFooter,
 };
 
-const pages = [
+const samplePages = [
   {
     title: "About",
     to: "/about",
@@ -23,9 +23,24 @@ const pages = [
   },
 ];
 
+const pageGroups = [
+  {
+    title: "Applications",
+    pages: samplePages,
+  },
+  {
+    title: "Company",
+    pages: samplePages,
+  },
+  {
+    title: "Resources",
+    pages: samplePages,
+  },
+];
+
 const FooterTemplate = (args: any) => (
   <CZBUIFooter
-    logo={<BiohubLogo sx={{ fontSize: "2rem" }} />}
+    logo={<DnaMark sx={{ fontSize: "2rem" }} />}
     title={args.title}
     pages={args.pages}
   />
@@ -34,5 +49,5 @@ const FooterTemplate = (args: any) => (
 export const Footer = FooterTemplate.bind({});
 Footer.args = {
   title: "CZ BIOHUB",
-  pages: pages,
+  pages: pageGroups,
 };

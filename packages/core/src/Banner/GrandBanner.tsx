@@ -1,5 +1,4 @@
 import { Box, Container, Typography, Stack } from "@mui/material";
-import { Center } from "../Center/Center";
 
 interface GrandBannerProps {
   image?: React.ReactNode;
@@ -21,17 +20,19 @@ export const GrandBanner = ({
 
   return (
     <Box sx={{ height: height, position: "relative" }}>
-      <Container maxWidth="lg" sx={{ zIndex: 1 }}>
+      <Container sx={{ zIndex: 1, height: "100%" }}>
         <Stack
-          direction={{ xs: "column", sm: "row" }}
-          spacing={{ xs: 1, sm: 2, md: 4 }}
+          direction={{ xs: "column", lg: "row" }}
+          spacing={{ xs: 1, lg: 8 }}
+          sx={{ height: "100%", justifyContent: "center" }}
         >
-          <Box maxHeight={height}>{image}</Box>
+          <Box sx={{ flex: 2, display: "flex" }}>{image}</Box>
           <Box
             sx={{
               display: "inherit",
               flexDirection: "column",
               justifyContent: "center",
+              flex: 1,
             }}
           >
             <Typography

@@ -1,0 +1,46 @@
+fragment PagesParts on Pages {
+  title
+  blocks {
+    __typename
+    ... on PagesBlocksGenericBanner {
+      title
+      subtitle
+      image
+    }
+    ... on PagesBlocksGrandBanner {
+      title
+      subtitle
+      image
+      right
+    }
+    ... on PagesBlocksText {
+      text
+    }
+    ... on PagesBlocksInfoBox {
+      title
+      subtitle
+      linkText
+      linkTo
+      outsideLink
+      image
+      right
+    }
+    ... on PagesBlocksGrid {
+      blocks {
+        __typename
+        ... on PagesBlocksGridBlocksInfoBox {
+          title
+          subtitle
+          linkText
+          linkTo
+          outsideLink
+          image
+          right
+        }
+      }
+    }
+    ... on PagesBlocksTable {
+      csvData
+    }
+  }
+}

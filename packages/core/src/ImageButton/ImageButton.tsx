@@ -1,12 +1,12 @@
 import { Card } from "../Card/Card";
 import { Box, styled, Typography } from "@mui/material";
 import { Link } from "czifui";
-import { PagesObject } from "../NavBar/NavBar";
+import { PageLink } from "../UniversalTypes/links";
 
 interface ImageButtonProps {
-  title: string;
-  subtitle: string;
-  page: PagesObject;
+  title?: string;
+  subtitle?: string;
+  page?: PageLink;
   pagesComponent?: any; // TODO: Find type of mui link component prop
   image?: React.ReactNode;
 }
@@ -50,9 +50,10 @@ export const ImageButton = ({
         <Link
           sx={{ marginTop: "auto" }}
           component={pagesComponent}
-          to={page.to}
+          to={page?.to}
+          fontWeight="bold"
         >
-          {page.title}
+          {page?.title}
         </Link>
       </Box>
     </ImageButtonCard>

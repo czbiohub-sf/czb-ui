@@ -1,20 +1,21 @@
-import { Card } from "../Card/Card";
-import { PagesObject } from "../NavBar/NavBar";
+import { Box } from "@mui/material";
+import { PageLink } from "../UniversalTypes/links";
 import BackgroundInfoBox from "./BackgroundInfoBox";
 import NormalInfoBox from "./NormalInfoBox";
 
 export interface InfoBoxProps {
-  title: string;
-  subtitle: string;
-  page: PagesObject;
-  image: React.ReactNode;
+  title?: string;
+  subtitle?: string;
+  page?: PageLink;
+  image?: React.ReactNode;
   imageOnRight?: boolean;
+  small?: boolean;
   pagesComponent?: any; // TODO: Find type of mui link component prop
 }
 
 interface InfoBoxContainerProps extends InfoBoxProps {
+  small?: boolean;
   type?: "normal" | "background";
-  size?: "small" | "normal";
 }
 
 export const InfoBox = ({
@@ -24,17 +25,15 @@ export const InfoBox = ({
   pagesComponent,
   image,
   imageOnRight,
+  small,
   type = "normal",
-  size = "normal",
 }: InfoBoxContainerProps) => {
-  // TODO: Put grey colors in palette
   return (
-    <Card
+    <Box
       sx={{
-        height: "300px",
-        position: "relative",
+        border: "1px solid",
+        borderColor: "divider",
       }}
-      disablePadding={type == "background"}
     >
       {type == "normal" && (
         <NormalInfoBox
@@ -44,6 +43,7 @@ export const InfoBox = ({
           pagesComponent={pagesComponent}
           image={image}
           imageOnRight={imageOnRight}
+          small={small}
         />
       )}
       {type == "background" && (
@@ -56,6 +56,6 @@ export const InfoBox = ({
           imageOnRight={imageOnRight}
         />
       )}
-    </Card>
+    </Box>
   );
 };

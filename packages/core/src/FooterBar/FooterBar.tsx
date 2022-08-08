@@ -8,26 +8,35 @@ const AppBarComponent = styled(MaterialAppBar)<AppBarProps>(({ theme }) => ({
   boxShadow: "none",
 })) as typeof MaterialAppBar;
 
-const minAppBarHeight = "100px";
+const minAppBarHeight = "200px";
 
 const ToolbarComponent = styled(Toolbar)<ToolbarProps>(({ theme }) => ({
   minHeight: minAppBarHeight,
+  [theme.breakpoints.down("sm")]: {
+    minHeight: minAppBarHeight,
+    paddingLeft: theme.spacing(6),
+    paddingRight: theme.spacing(6),
+  },
   [theme.breakpoints.up("sm")]: {
     minHeight: minAppBarHeight,
     paddingLeft: theme.spacing(7),
     paddingRight: theme.spacing(7),
   },
-  [theme.breakpoints.up("xs")]: {
-    minHeight: minAppBarHeight,
-    paddingLeft: theme.spacing(7),
-    paddingRight: theme.spacing(7),
-  },
-}));
+})) as typeof Toolbar;
 
+// TODO: Make footer component prop/option for this AppBar component
 export const FooterBar = (props: AppBarProps) => {
   return (
     <AppBarComponent {...props}>
-      <ToolbarComponent sx={{ alignItems: "flex-start", padding: "10px" }}>
+      <ToolbarComponent
+        sx={{
+          alignItems: "flex-start",
+          padding: "30px",
+          flexDirection: { xs: "column", md: "row" },
+          gap: { xs: "40px", md: "80px" },
+        }}
+        component="footer"
+      >
         {props.children}
       </ToolbarComponent>
     </AppBarComponent>

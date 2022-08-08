@@ -7,29 +7,30 @@ const AppBarComponent = styled(MaterialAppBar)<AppBarProps>(({ theme }) => ({
   color: theme.palette.text.primary,
   boxShadow: "none",
   borderBottom: "1px solid",
-  borderColor: theme.palette.grey[200],
+  borderColor: theme.palette.divider,
 })) as typeof MaterialAppBar;
 
 const minAppBarHeight = "50px";
 
 const ToolbarComponent = styled(Toolbar)<ToolbarProps>(({ theme }) => ({
   minHeight: minAppBarHeight,
+  [theme.breakpoints.down("sm")]: {
+    minHeight: minAppBarHeight,
+    paddingLeft: theme.spacing(6),
+    paddingRight: theme.spacing(6),
+  },
   [theme.breakpoints.up("sm")]: {
     minHeight: minAppBarHeight,
     paddingLeft: theme.spacing(7),
     paddingRight: theme.spacing(7),
   },
-  [theme.breakpoints.up("xs")]: {
-    minHeight: minAppBarHeight,
-    paddingLeft: theme.spacing(7),
-    paddingRight: theme.spacing(7),
-  },
-}));
+})) as typeof Toolbar;
 
+// TODO: Make nav component prop/option for this AppBar component
 export const AppBar = (props: AppBarProps) => {
   return (
     <AppBarComponent {...props}>
-      <ToolbarComponent>{props.children}</ToolbarComponent>
+      <ToolbarComponent component="nav">{props.children}</ToolbarComponent>
     </AppBarComponent>
   );
 };

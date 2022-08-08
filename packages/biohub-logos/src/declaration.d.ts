@@ -1,3 +1,0 @@
-interface LogoProps {
-  className: string;
-}

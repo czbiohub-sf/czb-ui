@@ -5,9 +5,13 @@ interface CardProps extends BoxProps {
   disablePadding?: boolean;
 }
 
+// CardOuter and CardInner are styled Boxes
+// that create the Card look, used in
+// ImageButton
+
 const CardOuter = styled(Box, {
   shouldForwardProp: (prop) => prop !== "disablePadding",
-})<BoxProps>(({ theme }) => ({
+})<BoxProps>(() => ({
   // TODO: Put grey colors in palette
   border: `1px solid #f1f0f0`,
   padding: "1rem",
@@ -15,7 +19,7 @@ const CardOuter = styled(Box, {
 
 const CardInner = styled(Box, {
   shouldForwardProp: (prop) => prop !== "disablePadding",
-})<CardProps>(({ theme, disablePadding }) => ({
+})<CardProps>(({ disablePadding }) => ({
   // TODO: Put grey colors in palette
   background: "#f9f9f9",
   height: "100%",
