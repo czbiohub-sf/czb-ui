@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 
 interface HeadingSeparatorProps {
-  title: string;
+  title?: string;
 }
 
 export const HeadingSeparator = ({ title }: HeadingSeparatorProps) => {
