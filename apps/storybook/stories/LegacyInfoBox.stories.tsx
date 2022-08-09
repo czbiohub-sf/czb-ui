@@ -7,7 +7,7 @@ export default {
   title: "Big Buttons",
   component: CZBUILegacyInfoBox,
   argTypes: {
-    type: {
+    variant: {
       options: ["normal", "withButton"],
       control: { type: "radio" },
     },
@@ -29,7 +29,6 @@ const Template = (args: any) => (
 export const LegacyInfoBox = Template.bind({});
 LegacyInfoBox.args = {
   image: sampleImage,
-  type: "normal",
   title: "Tools",
   subtitle: "tools",
   page: {
