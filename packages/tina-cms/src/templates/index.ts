@@ -4,3 +4,4 @@ export * from "./InfoBox/InfoBox";
 export * from "./Grid/Grid";
 export * from "./Table/Table";
 export * from "./LegacyInfoBox/LegacyInfoBox";
+export * from "./HeadingSeparator/HeadingSeparator";

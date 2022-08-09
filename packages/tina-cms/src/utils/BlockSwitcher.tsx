@@ -6,6 +6,7 @@ import {
   GridBlock,
   TableBlock,
   LegacyInfoBoxBlock,
+  HeadingSeparatorBlock,
 } from "../components";
 
 interface BlockSwitcher {
@@ -52,6 +53,8 @@ export const BlockSwitcher = (props: BlockSwitcher) => {
                     key={i}
                   />
                 );
+              case "PagesBlocksHeadingSeparator":
+                return <HeadingSeparatorBlock block={block} key={i} />;
             }
           })
         : null}

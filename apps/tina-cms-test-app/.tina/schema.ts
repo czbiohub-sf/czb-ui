@@ -7,6 +7,7 @@ import {
   Grid,
   Table,
   LegacyInfoBox,
+  HeadingSeparator,
 } from "@czb-ui/tina-cms";
 import { client } from "./__generated__/client";
 
@@ -18,6 +19,7 @@ const templates = [
   Grid,
   Table,
   LegacyInfoBox,
+  HeadingSeparator,
 ];
 
 const schema = defineSchema({
