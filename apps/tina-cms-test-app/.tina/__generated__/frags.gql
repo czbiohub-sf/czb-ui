@@ -42,5 +42,13 @@ fragment PagesParts on Pages {
     ... on PagesBlocksTable {
       csvData
     }
+    ... on PagesBlocksLegacyInfoBox {
+      title
+      subtitle
+      linkText
+      linkTo
+      outsideLink
+      image
+    }
   }
 }

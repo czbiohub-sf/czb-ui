@@ -5,6 +5,7 @@ import {
   InfoBoxBlock,
   GridBlock,
   TableBlock,
+  LegacyInfoBoxBlock,
 } from "../components";
 
 interface BlockSwitcher {
@@ -42,6 +43,15 @@ export const BlockSwitcher = (props: BlockSwitcher) => {
                 return <GridBlock block={block} key={i} />;
               case "PagesBlocksTable":
                 return <TableBlock block={block} key={i} />;
+              case "PagesBlocksLegacyInfoBox":
+                return (
+                  <LegacyInfoBoxBlock
+                    block={block}
+                    disableContainerGutters={props.disableContainerGutters}
+                    disableYMargins={props.disableYMargins}
+                    key={i}
+                  />
+                );
             }
           })
         : null}
