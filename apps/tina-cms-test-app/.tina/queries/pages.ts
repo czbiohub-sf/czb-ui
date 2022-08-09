@@ -50,6 +50,15 @@ query PagesDocument($relativePath: String!) {
         __typename
         csvData
       }
+      ... on PagesBlocksLegacyInfoBox {
+        __typename
+        title
+        subtitle
+        linkText
+        linkTo
+        outsideLink
+        image
+      }
     }
   }
 }
