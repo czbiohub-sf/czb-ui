@@ -8,7 +8,7 @@ export interface LegacyInfoBoxProps {
   page?: PageLink;
   pagesComponent?: any; // TODO: Find type of mui link component prop
   image?: React.ReactNode;
-  variant: "normal" | "withButton";
+  variant?: "normal" | "withButton";
 }
 
 // TODO: Make this into a component itself,
