@@ -78,7 +78,13 @@ export const LegacyInfoBox = ({
   variant = "withButton",
 }: LegacyInfoBoxProps) => {
   return (
-    <Box display="flex" gap="30px" alignItems="center" height={160}>
+    <Box
+      display="flex"
+      gap={{ xs: "10px", sm: "30px" }}
+      alignItems={{ xs: "flex-start", sm: "center" }}
+      flexDirection={{ xs: "column", sm: "row" }}
+      height={160}
+    >
       <Box border="1px solid" borderColor="divider" width={300} height={160}>
         {image}
       </Box>
