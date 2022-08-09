@@ -13,3 +13,4 @@ export * from "./Banner/GrandBanner";
 export * from "./NavBarAndFooterPlacer/NavBarAndFooterPlacer";
 export * from "./ImageButton/ImageButton";
 export * from "./InfoBox/InfoBox";
+export * from "./LegacyInfoBox/LegacyInfoBox";
