@@ -37,6 +37,14 @@ fragment PagesParts on Pages {
           image
           right
         }
+        ... on PagesBlocksGridBlocksLegacyInfoBox {
+          title
+          subtitle
+          linkText
+          linkTo
+          outsideLink
+          image
+        }
       }
     }
     ... on PagesBlocksTable {

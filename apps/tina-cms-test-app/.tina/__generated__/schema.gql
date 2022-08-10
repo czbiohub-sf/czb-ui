@@ -118,7 +118,16 @@ type PagesBlocksGridBlocksInfoBox {
   right: Boolean
 }
 
-union PagesBlocksGridBlocks = PagesBlocksGridBlocksInfoBox
+type PagesBlocksGridBlocksLegacyInfoBox {
+  title: String
+  subtitle: String
+  linkText: String
+  linkTo: String
+  outsideLink: Boolean
+  image: String
+}
+
+union PagesBlocksGridBlocks = PagesBlocksGridBlocksInfoBox | PagesBlocksGridBlocksLegacyInfoBox
 
 type PagesBlocksGrid {
   blocks: [PagesBlocksGridBlocks]
@@ -221,8 +230,18 @@ input PagesBlocksGridBlocksInfoBoxFilter {
   right: BooleanFilter
 }
 
+input PagesBlocksGridBlocksLegacyInfoBoxFilter {
+  title: StringFilter
+  subtitle: StringFilter
+  linkText: StringFilter
+  linkTo: StringFilter
+  outsideLink: BooleanFilter
+  image: ImageFilter
+}
+
 input PagesBlocksGridBlocksFilter {
   InfoBox: PagesBlocksGridBlocksInfoBoxFilter
+  LegacyInfoBox: PagesBlocksGridBlocksLegacyInfoBoxFilter
 }
 
 input PagesBlocksGridFilter {
@@ -323,8 +342,18 @@ input PagesBlocksGridBlocksInfoBoxMutation {
   right: Boolean
 }
 
+input PagesBlocksGridBlocksLegacyInfoBoxMutation {
+  title: String
+  subtitle: String
+  linkText: String
+  linkTo: String
+  outsideLink: Boolean
+  image: String
+}
+
 input PagesBlocksGridBlocksMutation {
   InfoBox: PagesBlocksGridBlocksInfoBoxMutation
+  LegacyInfoBox: PagesBlocksGridBlocksLegacyInfoBoxMutation
 }
 
 input PagesBlocksGridMutation {
