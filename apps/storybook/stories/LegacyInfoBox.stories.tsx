@@ -20,10 +20,17 @@ const Template = (args: any) => (
     image={
       <img
         // Subtract 2 because of the border around the image
+        // TODO: make the height and width less confusing
         style={{
           objectFit: "cover",
-          height: args.square ? 248 : args.small ? 104 : 158,
-          width: 248,
+          height: args.square
+            ? args.small
+              ? 196
+              : 248
+            : args.small
+            ? 104
+            : 158,
+          width: args.small ? 198 : 248,
           zIndex: 0,
         }}
         src={args.image}

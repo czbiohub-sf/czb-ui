@@ -51,8 +51,8 @@ export const LegacyInfoBoxBlock = ({
               objectFit="contain"
               // Subtract 2 because of the
               // border around the image
-              width={248}
-              height={small ? 104 : 158}
+              width={200}
+              height={small ? 105 : 158}
               src={block.image}
             />
           ) : undefined
