@@ -41,14 +41,14 @@ export const LegacyInfoBoxBlock = ({
         page={page}
         image={
           block.image ? (
-            <Box position="relative" height="100%">
-              <Image
-                objectFit="cover"
-                width={300}
-                height={160}
-                src={block.image}
-              />
-            </Box>
+            <Image
+              objectFit="cover"
+              // Subtract 2 because of the
+              // border around the image
+              width={298}
+              height={158}
+              src={block.image}
+            />
           ) : undefined
         }
         pagesComponent={block.outsideLink ? undefined : NextLinkComposed}

@@ -19,7 +19,8 @@ const Template = (args: any) => (
     {...args}
     image={
       <img
-        style={{ objectFit: "cover", height: 160, width: 300, zIndex: 0 }}
+        // Subtract 2 because of the border around the image
+        style={{ objectFit: "cover", height: 158, width: 298, zIndex: 0 }}
         src={args.image}
       />
     }
