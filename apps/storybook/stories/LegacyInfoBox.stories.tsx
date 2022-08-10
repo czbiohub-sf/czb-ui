@@ -19,7 +19,12 @@ const Template = (args: any) => (
     {...args}
     image={
       <img
-        style={{ objectFit: "cover", height: 160, width: 300, zIndex: 0 }}
+        style={{
+          objectFit: "cover",
+          height: args.square ? 250 : 160,
+          width: 250,
+          zIndex: 0,
+        }}
         src={args.image}
       />
     }
@@ -36,4 +41,6 @@ LegacyInfoBox.args = {
     to: "/tools",
   },
   variant: "withButton",
+  small: false,
+  square: false,
 };
