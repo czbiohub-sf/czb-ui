@@ -82,6 +82,9 @@ export const LegacyInfoBox = ({
   variant = "withButton",
 }: LegacyInfoBoxProps) => {
   const defaultDim = 250;
+  const smallerDim = 200;
+
+  const currentDim = small ? smallerDim : defaultDim;
 
   return (
     <Box
@@ -101,8 +104,8 @@ export const LegacyInfoBox = ({
       <Box
         border="1px solid"
         borderColor="divider"
-        width={defaultDim}
-        height={square ? defaultDim : small ? 106 : 160}
+        width={currentDim}
+        height={square ? currentDim : small ? 106 : 160}
       >
         {image}
       </Box>
