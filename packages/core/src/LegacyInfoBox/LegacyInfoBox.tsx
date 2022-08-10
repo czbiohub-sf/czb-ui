@@ -86,7 +86,7 @@ export const LegacyInfoBox = ({
   return (
     <Box
       display="flex"
-      gap={small ? { xs: "10px", md: "30px" } : { xs: "10px", sm: "30px" }}
+      gap={small ? { xs: "10px", md: "20px" } : { xs: "10px", sm: "30px" }}
       alignItems={
         small
           ? { xs: "flex-start", md: "center" }
