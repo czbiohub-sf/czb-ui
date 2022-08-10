@@ -1,5 +1,4 @@
 import { LegacyInfoBox } from "@czb-ui/core";
-import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Image from "next/image";
 import { NextLinkComposed } from "../../utils/NextLinkComposed";
@@ -46,15 +45,14 @@ export const LegacyInfoBoxBlock = ({
         subtitle={block.subtitle}
         page={page}
         small={small}
-        square={small}
         image={
           block.image ? (
             <Image
-              objectFit="cover"
+              objectFit="contain"
               // Subtract 2 because of the
               // border around the image
               width={248}
-              height={small ? 248 : 158}
+              height={small ? 104 : 158}
               src={block.image}
             />
           ) : undefined
