@@ -8,6 +8,8 @@ export interface LegacyInfoBoxProps {
   page?: PageLink;
   pagesComponent?: any; // TODO: Find type of mui link component prop
   image?: React.ReactNode;
+  small?: boolean;
+  square?: boolean;
   variant?: "normal" | "withButton";
 }
 
@@ -45,7 +47,7 @@ const InfoBoxLink = ({
   if (pagesComponent && withButton) {
     return (
       <Button
-        sx={{ marginTop: "1rem" }}
+        sx={{ marginTop: { xs: "0.5rem", md: "1rem" } }}
         to={page?.to}
         component={page?.to ? pagesComponent : undefined}
         sdsStyle="square"
@@ -59,7 +61,7 @@ const InfoBoxLink = ({
   // if (!pagesComponent && withButton)
   return (
     <Button
-      sx={{ marginTop: "1rem", fontWeight: "bold" }}
+      sx={{ marginTop: { xs: "0.5rem", md: "1rem" }, fontWeight: "bold" }}
       href={page?.to}
       sdsStyle="square"
       sdsType="primary"
@@ -75,16 +77,36 @@ export const LegacyInfoBox = ({
   page,
   pagesComponent,
   image,
+  small,
+  square,
   variant = "withButton",
 }: LegacyInfoBoxProps) => {
+  const defaultDim = 250;
+  const smallerDim = 200;
+
+  const currentDim = small ? smallerDim : defaultDim;
+
   return (
     <Box
       display="flex"
-      gap={{ xs: "10px", sm: "30px" }}
-      alignItems={{ xs: "flex-start", sm: "center" }}
-      flexDirection={{ xs: "column", sm: "row" }}
+      gap={small ? { xs: "5px", md: "20px" } : { xs: "10px", sm: "30px" }}
+      alignItems={
+        small
+          ? { xs: "flex-start", md: "center" }
+          : { xs: "flex-start", sm: "center" }
+      }
+      flexDirection={
+        small
+          ? { xs: "column", md: "row" }
+          : { xs: "column", sm: small ? "column" : "row" }
+      }
     >
-      <Box border="1px solid" borderColor="divider" width={300} height={160}>
+      <Box
+        border="1px solid"
+        borderColor="divider"
+        width={currentDim}
+        height={square ? currentDim : small ? 106 : 160}
+      >
         {image}
       </Box>
       <Box>

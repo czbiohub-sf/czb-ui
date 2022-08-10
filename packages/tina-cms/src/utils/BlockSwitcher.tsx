@@ -49,7 +49,7 @@ export const BlockSwitcher = (props: BlockSwitcher) => {
                   <LegacyInfoBoxBlock
                     block={block}
                     disableContainerGutters={props.disableContainerGutters}
-                    disableYMargins={props.disableYMargins}
+                    small={props.smallVariants}
                     key={i}
                   />
                 );

@@ -44,6 +44,15 @@ query PagesDocument($relativePath: String!) {
             image
             right
           }
+          ... on PagesBlocksGridBlocksLegacyInfoBox {
+            __typename
+            title
+            subtitle
+            linkText
+            linkTo
+            outsideLink
+            image
+          }
         }
       }
       ... on PagesBlocksTable {

@@ -36,12 +36,10 @@ export const GridBlock = ({ block }: GridProps) => {
           blocks.map((nestedBlock, i) => {
             // Since nested lists get their typename changed,
             // pass the right one for the block switcher component
-            const blockTypeNameSplit =
-              nestedBlock.__typename.split(/(?=[A-Z])/);
-            const newBlockTypeName = blockTypeNameSplit
-              .slice(0, 2)
-              .concat(blockTypeNameSplit.slice(-2))
-              .join("");
+            const newBlockTypeName = nestedBlock.__typename.replace(
+              /GridBlocks/,
+              ""
+            );
             nestedBlock.__typename = newBlockTypeName;
 
             return (

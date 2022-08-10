@@ -1,5 +1,4 @@
 import { LegacyInfoBox } from "@czb-ui/core";
-import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Image from "next/image";
 import { NextLinkComposed } from "../../utils/NextLinkComposed";
@@ -13,16 +12,19 @@ interface InfoBoxBlockProps {
   image?: any;
 }
 
+// TODO: Take interface from other info box component block
 interface InfoBoxProps {
   block: InfoBoxBlockProps;
   disableContainerGutters?: boolean;
   disableYMargins?: boolean;
+  small?: boolean;
 }
 
 export const LegacyInfoBoxBlock = ({
   block,
   disableContainerGutters,
   disableYMargins,
+  small,
 }: InfoBoxProps) => {
   let page;
 
@@ -32,21 +34,25 @@ export const LegacyInfoBoxBlock = ({
 
   return (
     <Container
-      sx={{ my: disableYMargins ? undefined : 5 }}
+      sx={{
+        my: disableYMargins ? undefined : 5,
+        mb: small ? undefined : "30px",
+      }}
       disableGutters={disableContainerGutters}
     >
       <LegacyInfoBox
         title={block.title}
         subtitle={block.subtitle}
         page={page}
+        small={small}
         image={
           block.image ? (
             <Image
-              objectFit="cover"
-              // Subtract 2 because of the
+              objectFit="contain"
+              // Subtract 1 or 2 because of the
               // border around the image
-              width={298}
-              height={158}
+              width={small ? 200 : 250}
+              height={small ? 105 : 159}
               src={block.image}
             />
           ) : undefined
