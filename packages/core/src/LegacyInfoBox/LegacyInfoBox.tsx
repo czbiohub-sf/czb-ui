@@ -102,7 +102,7 @@ export const LegacyInfoBox = ({
         border="1px solid"
         borderColor="divider"
         width={defaultDim}
-        height={square ? defaultDim : 160}
+        height={square ? defaultDim : small ? 106 : 160}
       >
         {image}
       </Box>
