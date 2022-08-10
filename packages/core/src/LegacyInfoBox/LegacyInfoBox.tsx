@@ -81,19 +81,21 @@ export const LegacyInfoBox = ({
   square,
   variant = "withButton",
 }: LegacyInfoBoxProps) => {
+  const defaultDim = 250;
+
   return (
     <Box
       display="flex"
       gap={{ xs: "10px", sm: small ? "10px" : "30px" }}
       alignItems={{ xs: "flex-start", sm: small ? "flex-start" : "center" }}
       flexDirection={{ xs: "column", sm: small ? "column" : "row" }}
-      height={square ? 300 : 160}
+      height={square ? defaultDim : 160}
     >
       <Box
         border="1px solid"
         borderColor="divider"
-        width={300}
-        height={square ? 300 : 160}
+        width={defaultDim}
+        height={square ? defaultDim : 160}
       >
         {image}
       </Box>
