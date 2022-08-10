@@ -2,11 +2,12 @@ import { Box, Typography } from "@mui/material";
 
 interface HeadingSeparatorProps {
   title?: string;
+  id?: string;
 }
 
-export const HeadingSeparator = ({ title }: HeadingSeparatorProps) => {
+export const HeadingSeparator = ({ title, id }: HeadingSeparatorProps) => {
   return (
-    <Box>
+    <Box id={id}>
       <Typography mb={2} variant="h1">
         {title}
       </Typography>

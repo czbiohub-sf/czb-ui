@@ -22,27 +22,57 @@ interface TextBlockProps {
 // TODO: Headings only supoort text with this implementation. They might include links and other stuff,
 // thats when you need to go through the content array
 const h1Component = ({ children }: HeadingProps) => {
-  return <Typography variant="h1">{children.props.content[0].text}</Typography>;
+  const text = children.props.content[0].text;
+  return (
+    <Typography variant="h1" id={text}>
+      {text}
+    </Typography>
+  );
 };
 
 const h2Component = ({ children }: HeadingProps) => {
-  return <Typography variant="h2">{children.props.content[0].text}</Typography>;
+  const text = children.props.content[0].text;
+  return (
+    <Typography variant="h2" id={text}>
+      {text}
+    </Typography>
+  );
 };
 
 const h3Component = ({ children }: HeadingProps) => {
-  return <Typography variant="h3">{children.props.content[0].text}</Typography>;
+  const text = children.props.content[0].text;
+  return (
+    <Typography variant="h3" id={text}>
+      {text}
+    </Typography>
+  );
 };
 
 const h4Component = ({ children }: HeadingProps) => {
-  return <Typography variant="h4">{children.props.content[0].text}</Typography>;
+  const text = children.props.content[0].text;
+  return (
+    <Typography variant="h4" id={text}>
+      {text}
+    </Typography>
+  );
 };
 
 const h5Component = ({ children }: HeadingProps) => {
-  return <Typography variant="h5">{children.props.content[0].text}</Typography>;
+  const text = children.props.content[0].text;
+  return (
+    <Typography variant="h5" id={text}>
+      {text}
+    </Typography>
+  );
 };
 
 const h6Component = ({ children }: HeadingProps) => {
-  return <Typography variant="h6">{children.props.content[0].text}</Typography>;
+  const text = children.props.content[0].text;
+  return (
+    <Typography variant="h6" id={text}>
+      {children.props.content[0].text}
+    </Typography>
+  );
 };
 
 const imgComponent = (props: ImageProps) => {
