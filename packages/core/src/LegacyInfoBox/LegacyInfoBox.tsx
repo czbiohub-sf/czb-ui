@@ -86,10 +86,17 @@ export const LegacyInfoBox = ({
   return (
     <Box
       display="flex"
-      gap={{ xs: "10px", sm: small ? "10px" : "30px" }}
-      alignItems={{ xs: "flex-start", sm: small ? "flex-start" : "center" }}
-      flexDirection={{ xs: "column", sm: small ? "column" : "row" }}
-      height={square ? defaultDim : 160}
+      gap={small ? { xs: "10px", md: "30px" } : { xs: "10px", sm: "30px" }}
+      alignItems={
+        small
+          ? { xs: "flex-start", md: "center" }
+          : { xs: "flex-start", sm: "center" }
+      }
+      flexDirection={
+        small
+          ? { xs: "column", md: "row" }
+          : { xs: "column", sm: small ? "column" : "row" }
+      }
     >
       <Box
         border="1px solid"
