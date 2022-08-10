@@ -47,7 +47,7 @@ const InfoBoxLink = ({
   if (pagesComponent && withButton) {
     return (
       <Button
-        sx={{ marginTop: "1rem" }}
+        sx={{ marginTop: { xs: "0.5rem", md: "1rem" } }}
         to={page?.to}
         component={page?.to ? pagesComponent : undefined}
         sdsStyle="square"
@@ -61,7 +61,7 @@ const InfoBoxLink = ({
   // if (!pagesComponent && withButton)
   return (
     <Button
-      sx={{ marginTop: "1rem", fontWeight: "bold" }}
+      sx={{ marginTop: { xs: "0.5rem", md: "1rem" }, fontWeight: "bold" }}
       href={page?.to}
       sdsStyle="square"
       sdsType="primary"
@@ -86,7 +86,7 @@ export const LegacyInfoBox = ({
   return (
     <Box
       display="flex"
-      gap={small ? { xs: "10px", md: "20px" } : { xs: "10px", sm: "30px" }}
+      gap={small ? { xs: "5px", md: "20px" } : { xs: "10px", sm: "30px" }}
       alignItems={
         small
           ? { xs: "flex-start", md: "center" }
