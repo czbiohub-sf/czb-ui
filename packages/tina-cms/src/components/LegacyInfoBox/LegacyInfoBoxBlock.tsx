@@ -13,16 +13,19 @@ interface InfoBoxBlockProps {
   image?: any;
 }
 
+// TODO: Take interface from other info box component block
 interface InfoBoxProps {
   block: InfoBoxBlockProps;
   disableContainerGutters?: boolean;
   disableYMargins?: boolean;
+  small?: boolean;
 }
 
 export const LegacyInfoBoxBlock = ({
   block,
   disableContainerGutters,
   disableYMargins,
+  small,
 }: InfoBoxProps) => {
   let page;
 
@@ -39,13 +42,15 @@ export const LegacyInfoBoxBlock = ({
         title={block.title}
         subtitle={block.subtitle}
         page={page}
+        small={small}
+        square={small}
         image={
           block.image ? (
             <Box position="relative" height="100%">
               <Image
                 objectFit="cover"
-                width={300}
-                height={160}
+                width={250}
+                height={small ? 250 : 160}
                 src={block.image}
               />
             </Box>
