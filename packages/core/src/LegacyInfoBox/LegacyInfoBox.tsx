@@ -8,6 +8,8 @@ export interface LegacyInfoBoxProps {
   page?: PageLink;
   pagesComponent?: any; // TODO: Find type of mui link component prop
   image?: React.ReactNode;
+  small?: boolean;
+  square?: boolean;
   variant?: "normal" | "withButton";
 }
 
@@ -75,17 +77,24 @@ export const LegacyInfoBox = ({
   page,
   pagesComponent,
   image,
+  small,
+  square,
   variant = "withButton",
 }: LegacyInfoBoxProps) => {
   return (
     <Box
       display="flex"
-      gap={{ xs: "10px", sm: "30px" }}
-      alignItems={{ xs: "flex-start", sm: "center" }}
-      flexDirection={{ xs: "column", sm: "row" }}
-      height={160}
+      gap={{ xs: "10px", sm: small ? "10px" : "30px" }}
+      alignItems={{ xs: "flex-start", sm: small ? "flex-start" : "center" }}
+      flexDirection={{ xs: "column", sm: small ? "column" : "row" }}
+      height={square ? 300 : 160}
     >
-      <Box border="1px solid" borderColor="divider" width={300} height={160}>
+      <Box
+        border="1px solid"
+        borderColor="divider"
+        width={300}
+        height={square ? 300 : 160}
+      >
         {image}
       </Box>
       <Box>
