@@ -50,5 +50,8 @@ fragment PagesParts on Pages {
       outsideLink
       image
     }
+    ... on PagesBlocksHeadingSeparator {
+      title
+    }
   }
 }

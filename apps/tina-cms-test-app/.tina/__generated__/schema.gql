@@ -137,7 +137,11 @@ type PagesBlocksLegacyInfoBox {
   image: String
 }
 
-union PagesBlocks = PagesBlocksGenericBanner | PagesBlocksGrandBanner | PagesBlocksText | PagesBlocksInfoBox | PagesBlocksGrid | PagesBlocksTable | PagesBlocksLegacyInfoBox
+type PagesBlocksHeadingSeparator {
+  title: String
+}
+
+union PagesBlocks = PagesBlocksGenericBanner | PagesBlocksGrandBanner | PagesBlocksText | PagesBlocksInfoBox | PagesBlocksGrid | PagesBlocksTable | PagesBlocksLegacyInfoBox | PagesBlocksHeadingSeparator
 
 type Pages implements Node & Document {
   title: String
@@ -238,6 +242,10 @@ input PagesBlocksLegacyInfoBoxFilter {
   image: ImageFilter
 }
 
+input PagesBlocksHeadingSeparatorFilter {
+  title: StringFilter
+}
+
 input PagesBlocksFilter {
   GenericBanner: PagesBlocksGenericBannerFilter
   GrandBanner: PagesBlocksGrandBannerFilter
@@ -246,6 +254,7 @@ input PagesBlocksFilter {
   Grid: PagesBlocksGridFilter
   Table: PagesBlocksTableFilter
   LegacyInfoBox: PagesBlocksLegacyInfoBoxFilter
+  HeadingSeparator: PagesBlocksHeadingSeparatorFilter
 }
 
 input PagesFilter {
@@ -335,6 +344,10 @@ input PagesBlocksLegacyInfoBoxMutation {
   image: String
 }
 
+input PagesBlocksHeadingSeparatorMutation {
+  title: String
+}
+
 input PagesBlocksMutation {
   GenericBanner: PagesBlocksGenericBannerMutation
   GrandBanner: PagesBlocksGrandBannerMutation
@@ -343,6 +356,7 @@ input PagesBlocksMutation {
   Grid: PagesBlocksGridMutation
   Table: PagesBlocksTableMutation
   LegacyInfoBox: PagesBlocksLegacyInfoBoxMutation
+  HeadingSeparator: PagesBlocksHeadingSeparatorMutation
 }
 
 input PagesMutation {

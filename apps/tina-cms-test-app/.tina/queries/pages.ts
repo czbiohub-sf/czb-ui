@@ -59,6 +59,10 @@ query PagesDocument($relativePath: String!) {
         outsideLink
         image
       }
+      ... on PagesBlocksHeadingSeparator {
+        __typename
+        title
+      }
     }
   }
 }
