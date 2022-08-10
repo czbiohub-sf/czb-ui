@@ -2388,10 +2388,10 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.3.0.tgz#8368869dcb735be2e7f5cb7647de78e167a251fb"
   integrity sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ==
 
-"@headlessui/react@1.4.1", "@headlessui/react@^1.5.0":
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.4.1.tgz#0a8dbb20e1d63dcea55bfc3ab1b87637aaac7777"
-  integrity sha512-gL6Ns5xQM57cZBzX6IVv6L7nsam8rDEpRhs5fg28SN64ikfmuuMgunc+Rw5C1cMScnvFM+cz32ueVrlSFEVlSg==
+"@headlessui/react@^1.5.0":
+  version "1.6.6"
+  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.6.6.tgz#3073c066b85535c9d28783da0a4d9288b5354d0c"
+  integrity sha512-MFJtmj9Xh/hhBMhLccGbBoSk+sk61BlP6sJe4uQcVMtXZhCgGqd2GyIQzzmsdPdTEWGSF434CBi8mnhR6um46Q==
 
 "@heroicons/react@^1.0.4", "@heroicons/react@^1.0.5":
   version "1.0.6"
@@ -4675,66 +4675,6 @@
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@tinacms/sharedctx/-/sharedctx-0.1.2.tgz#c7568304868cf9da2412805e4559e5f80b425e1f"
   integrity sha512-AQr78yxUB67UFl4fWaxewxESaYJmpOwl3ZLDZtgMe3FC/f6lQy8ysknBExLRVJ5kiVXoDsLcptp2CgcOa0iKJQ==
-
-"@tinacms/toolkit@0.56.36":
-  version "0.56.36"
-  resolved "https://registry.yarnpkg.com/@tinacms/toolkit/-/toolkit-0.56.36.tgz#bd204320b9cda7edf098834badcabec5f7371b1e"
-  integrity sha512-khD+rB7GJTKUd4cWjEUjcfIQlZkDSym9xfaC4UVyHxTn8xoOS3KiNRyOWeMmDJr/I22+IwWAXjCovHw5S3WJwA==
-  dependencies:
-    "@floating-ui/dom" "^0.1.7"
-    "@floating-ui/react-dom" "^0.3.3"
-    "@headlessui/react" "^1.5.0"
-    "@heroicons/react" "^1.0.5"
-    "@react-aria/i18n" "^3.3.4"
-    "@react-aria/listbox" "3.3.0"
-    "@react-hook/window-size" "^3.0.7"
-    "@react-types/combobox" "^3.2.0"
-    "@react-types/shared" "^3.10.0"
-    "@sambego/storybook-styles" "^1.0.0"
-    "@tinacms/sharedctx" "0.1.2"
-    "@udecode/plate-autoformat" "^9.2.1"
-    "@udecode/plate-basic-elements" "^9.2.1"
-    "@udecode/plate-basic-marks" "^9.2.1"
-    "@udecode/plate-block-quote" "^9.2.1"
-    "@udecode/plate-break" "^9.2.1"
-    "@udecode/plate-code-block" "^9.2.1"
-    "@udecode/plate-common" "^7.0.2"
-    "@udecode/plate-core" "^9.2.1"
-    "@udecode/plate-heading" "^9.2.1"
-    "@udecode/plate-horizontal-rule" "^9.2.1"
-    "@udecode/plate-image" "^9.2.1"
-    "@udecode/plate-kbd" "^9.2.1"
-    "@udecode/plate-link" "^9.2.1"
-    "@udecode/plate-list" "^9.2.1"
-    "@udecode/plate-node-id" "^9.2.1"
-    "@udecode/plate-normalizers" "^9.2.1"
-    "@udecode/plate-paragraph" "^9.2.1"
-    "@udecode/plate-reset-node" "^9.2.1"
-    "@udecode/plate-select" "^9.2.1"
-    "@udecode/plate-table" "^9.2.1"
-    "@udecode/plate-trailing-block" "^9.2.1"
-    "@udecode/plate-ui-combobox" "^9.2.1"
-    atob "2.1.2"
-    color-string "^1.5.3"
-    final-form "^4.20.2"
-    final-form-arrays "^3.0.1"
-    final-form-set-field-data "^1.0.2"
-    is-hotkey "^0.2.0"
-    lodash.get "^4.4.2"
-    mime-types "^2.1.24"
-    moment ">=2 <=3"
-    prop-types "15.7.2"
-    react-beautiful-dnd "^13.1.0"
-    react-color "^2.17.3"
-    react-datetime "^2.16.3"
-    react-dropzone "10.1.8"
-    react-final-form "^6.3.0"
-    react-icons "^4.3.1"
-    slate "^0.66.0"
-    slate-history "^0.66.0"
-    slate-hyperscript "^0.66.0"
-    slate-react "^0.66.0"
-    webfontloader "1.6.28"
 
 "@tinacms/toolkit@0.56.37":
   version "0.56.37"
@@ -16493,29 +16433,6 @@ timers-browserify@2.0.12, timers-browserify@^2.0.4:
   integrity sha512-9phl76Cqm6FhSX9Xe1ZUAMLtm1BLkKj2Qd5ApyWkXzsMRaA7dgr81kf4wJmQf/hAvg8EEyJxDo3du/0KlhPiKQ==
   dependencies:
     setimmediate "^1.0.4"
-
-tinacms@^0.68.14:
-  version "0.68.14"
-  resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-0.68.14.tgz#877256843d37a177a43b7531afa966119737969c"
-  integrity sha512-o+jOEvzuVZ9FjL1O+vV/EgxypAfe03/gwn/hQWB0sCVpBkMzN0JUa7fwcTlGZrK+91wXPG4qQ0VaF2PnBTuThQ==
-  dependencies:
-    "@graphql-tools/relay-operation-optimizer" "^6.4.1"
-    "@headlessui/react" "^1.5.0"
-    "@heroicons/react" "^1.0.4"
-    "@react-hook/window-size" "^3.0.7"
-    "@tinacms/schema-tools" "0.0.9"
-    "@tinacms/sharedctx" "0.1.2"
-    "@tinacms/toolkit" "0.56.36"
-    crypto-js "^4.0.0"
-    fetch-ponyfill "^7.1.0"
-    final-form "4.20.1"
-    graphql "^15.1.0"
-    graphql-tag "^2.11.0"
-    lodash.set "^4.3.2"
-    react-icons "^4.3.1"
-    react-router-dom "6"
-    url-pattern "^1.0.3"
-    yup "^0.32.0"
 
 tinacms@^0.68.15:
   version "0.68.15"
