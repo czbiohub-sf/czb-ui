@@ -4,4 +4,4 @@
 "@czb-ui/tina-cms": patch
 ---
 
-Make Legacy Info Box component small variant actually be small.
+Add small and square variants/props to legacy info box
