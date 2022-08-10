@@ -1,5 +1,6 @@
 import type { TinaTemplate } from "tinacms";
 import { InfoBox } from "../InfoBox/InfoBox";
+import { LegacyInfoBox } from "../LegacyInfoBox/LegacyInfoBox";
 
 export const Grid: TinaTemplate = {
   name: "Grid",
@@ -10,7 +11,7 @@ export const Grid: TinaTemplate = {
       list: true,
       name: "blocks",
       label: "Sections",
-      templates: [InfoBox],
+      templates: [InfoBox, LegacyInfoBox],
     },
   ],
 };
