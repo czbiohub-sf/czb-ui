@@ -71,6 +71,16 @@ appTheme.typography.styles.header = headingStyles;
 // only way I thought of fixing it for now...
 export const biohubTheme = createTheme({
   ...makeThemeOptions(appTheme),
+  palette: {
+    ...makeThemeOptions(appTheme).palette,
+    // temp way of getting contrastText to mui theme
+    // types are saying that this is wrong also...
+    // @ts-ignore
+    primary: {
+      ...makeThemeOptions(appTheme).palette?.primary,
+      contrastText: "white",
+    },
+  },
   components: {
     ...makeThemeOptions(appTheme).components,
     MuiContainer: {
