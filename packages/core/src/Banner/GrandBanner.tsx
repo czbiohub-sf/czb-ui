@@ -36,7 +36,7 @@ export const GrandBanner = ({
             }}
           >
             <Typography
-              variant="h1"
+              variant="ultimateHeading"
               fontSize="2.5rem"
               component="div"
               gutterBottom={false}
@@ -44,7 +44,7 @@ export const GrandBanner = ({
               {title}
             </Typography>
             <Typography
-              variant="h2"
+              variant="h3"
               component="div"
               gutterBottom={false}
               marginTop="0.5rem"
