@@ -26,7 +26,7 @@ export const GrandBanner = ({
           spacing={{ xs: 1, lg: 8 }}
           sx={{ height: "100%", justifyContent: "center" }}
         >
-          <Box sx={{ flex: 2, display: "flex" }}>{image}</Box>
+          <Box sx={{ flex: 1.5, display: "flex" }}>{image}</Box>
           <Box
             sx={{
               display: "inherit",
