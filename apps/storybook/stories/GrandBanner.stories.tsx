@@ -29,7 +29,7 @@ const BannerTemplate = (args: any) => (
 
 export const GrandBanner = BannerTemplate.bind({});
 GrandBanner.args = {
-  title: "TABULA SAPIENS",
+  title: "Tabula Sapiens",
   subtitle: "Human transcriptome reference at single cell resolution.",
   background: background,
 };
