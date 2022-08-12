@@ -67,6 +67,9 @@ appTheme.typography.fontFamily = fontFamily;
 appTheme.typography.styles.body["xs"] = xsFont;
 appTheme.typography.styles.header = headingStyles;
 
+// I do a lot of manual overrides... it might be
+// better just to use createTheme() from MUI
+
 // Container padding is too small... this is the
 // only way I thought of fixing it for now...
 export const biohubTheme = createTheme({
@@ -107,4 +110,34 @@ export const biohubTheme = createTheme({
       },
     },
   },
+  typography: {
+    ...makeThemeOptions(appTheme).typography,
+    // A custom typography variant
+    ultimateHeading: {
+      fontFamily:
+        "Butler, Barlow, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif",
+      fontWeight: "bold",
+      lineHeight: "normal",
+    },
+  },
 });
+
+// For "ultimateHeading" custom typography
+// https://mui.com/material-ui/customization/typography/#adding-amp-disabling-variants
+declare module "@mui/material/styles" {
+  interface TypographyVariants {
+    ultimateHeading: React.CSSProperties;
+  }
+
+  // allow configuration using `createTheme`
+  interface TypographyVariantsOptions {
+    ultimateHeading?: React.CSSProperties;
+  }
+}
+
+// Update the Typography's variant prop options
+declare module "@mui/material/Typography" {
+  interface TypographyPropsVariantOverrides {
+    ultimateHeading: true;
+  }
+}
