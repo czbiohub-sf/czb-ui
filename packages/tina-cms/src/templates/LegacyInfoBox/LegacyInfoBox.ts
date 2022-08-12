@@ -35,6 +35,11 @@ export const LegacyInfoBox: TinaTemplate = {
       name: "image",
     },
     {
+      type: "string",
+      label: "Image alt",
+      name: "imageAlt",
+    },
+    {
       type: "image",
       label: "Hover Image",
       name: "hoverImage",

@@ -56,6 +56,7 @@ query PagesDocument($relativePath: String!) {
             linkTo
             outsideLink
             image
+            imageAlt
             hoverImage
           }
         }
@@ -72,6 +73,7 @@ query PagesDocument($relativePath: String!) {
         linkTo
         outsideLink
         image
+        imageAlt
         hoverImage
       }
       ... on PagesBlocksHeadingSeparator {

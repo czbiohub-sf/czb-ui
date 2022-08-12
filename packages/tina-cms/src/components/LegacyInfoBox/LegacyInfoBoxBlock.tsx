@@ -11,6 +11,7 @@ interface InfoBoxBlockProps {
   linkTo?: string;
   outsideLink?: boolean;
   image?: any;
+  imageAlt?: string;
   hoverImage?: any;
 }
 
@@ -24,11 +25,12 @@ interface InfoBoxProps {
 
 interface ImageComponentProps {
   src: string;
+  alt?: string;
   small?: boolean;
   zIndex?: number;
 }
 
-const ImageComponent = ({ src, small }: ImageComponentProps) => {
+const ImageComponent = ({ src, alt, small }: ImageComponentProps) => {
   if (!src) {
     return <div></div>;
   }
@@ -41,6 +43,7 @@ const ImageComponent = ({ src, small }: ImageComponentProps) => {
       width={small ? 200 : 250}
       height={small ? 105 : 159}
       src={src}
+      alt={alt}
     />
   );
 };
@@ -81,19 +84,28 @@ export const LegacyInfoBoxBlock = ({
             style={{ width: "100%", height: "100%", display: "flex" }}
           >
             {!block.hoverImage && (
-              <ImageComponent src={block.image} small={small} />
+              <ImageComponent
+                src={block.image}
+                alt={block.imageAlt}
+                small={small}
+              />
             )}
             {block.hoverImage && (
               <Box position="relative">
                 <Box visibility={hoveringOverImg ? "hidden" : "visible"}>
-                  <ImageComponent src={block.image} small={small} />
+                  <ImageComponent
+                    src={block.image}
+                    alt={block.imageAlt}
+                    small={small}
+                  />
                 </Box>
                 <Box
                   position="absolute"
                   top={0}
                   visibility={hoveringOverImg ? "visible" : "hidden"}
                 >
-                  <ImageComponent src={block.hoverImage} small={small} />
+                  {/* TODO: Either explicitly mark in CMS that the hover image should NOT be different, more of just a "decorative image" (https://www.w3.org/WAI/tutorials/images/decorative/), or somehow make the alt dynamic? (which will probably be confusing for screen readers?)*/}
+                  <ImageComponent src={block.hoverImage} alt="" small={small} />
                 </Box>
               </Box>
             )}

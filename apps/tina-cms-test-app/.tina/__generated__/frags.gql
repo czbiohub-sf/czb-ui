@@ -48,6 +48,7 @@ fragment PagesParts on Pages {
           linkTo
           outsideLink
           image
+          imageAlt
           hoverImage
         }
       }
@@ -62,6 +63,7 @@ fragment PagesParts on Pages {
       linkTo
       outsideLink
       image
+      imageAlt
       hoverImage
     }
     ... on PagesBlocksHeadingSeparator {
