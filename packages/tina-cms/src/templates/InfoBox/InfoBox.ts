@@ -35,6 +35,11 @@ export const InfoBox: TinaTemplate = {
       name: "image",
     },
     {
+      type: "string",
+      label: "Image alt",
+      name: "imageAlt",
+    },
+    {
       type: "boolean",
       label: "Image on right?",
       name: "right",

@@ -6,6 +6,7 @@ interface BannerBlockProps {
   subtitle?: string;
   image?: string;
   right?: boolean;
+  imageAlt?: string;
 }
 
 interface BannerProps {
@@ -19,7 +20,12 @@ export const GenericBannerBlock = ({ block }: BannerProps) => {
       subtitle={block.subtitle}
       background={
         block.image ? (
-          <Image src={block.image} layout="fill" objectFit="cover" />
+          <Image
+            src={block.image}
+            alt={block.imageAlt}
+            layout="fill"
+            objectFit="cover"
+          />
         ) : undefined
       }
     />
@@ -36,6 +42,7 @@ export const GrandBannerBlock = ({ block }: BannerProps) => {
         block.image ? (
           <Image
             src={block.image}
+            alt={block.imageAlt}
             width={1500}
             height={500}
             objectFit="scale-down"

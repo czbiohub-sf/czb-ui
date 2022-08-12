@@ -6,11 +6,13 @@ fragment PagesParts on Pages {
       title
       subtitle
       image
+      imageAlt
     }
     ... on PagesBlocksGrandBanner {
       title
       subtitle
       image
+      imageAlt
       right
     }
     ... on PagesBlocksText {
@@ -23,6 +25,7 @@ fragment PagesParts on Pages {
       linkTo
       outsideLink
       image
+      imageAlt
       right
     }
     ... on PagesBlocksGrid {
@@ -35,6 +38,7 @@ fragment PagesParts on Pages {
           linkTo
           outsideLink
           image
+          imageAlt
           right
         }
         ... on PagesBlocksGridBlocksLegacyInfoBox {
@@ -44,6 +48,7 @@ fragment PagesParts on Pages {
           linkTo
           outsideLink
           image
+          imageAlt
           hoverImage
         }
       }
@@ -58,6 +63,7 @@ fragment PagesParts on Pages {
       linkTo
       outsideLink
       image
+      imageAlt
       hoverImage
     }
     ... on PagesBlocksHeadingSeparator {

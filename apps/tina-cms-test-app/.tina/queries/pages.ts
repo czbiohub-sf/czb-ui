@@ -9,6 +9,7 @@ query PagesDocument($relativePath: String!) {
         title
         subtitle
         image
+        imageAlt
       }
       ... on PagesBlocksGrandBanner {
         __typename
@@ -16,6 +17,7 @@ query PagesDocument($relativePath: String!) {
         subtitle
         image
         right
+        imageAlt
       }
       ... on PagesBlocksInfoBox {
         __typename
@@ -26,6 +28,7 @@ query PagesDocument($relativePath: String!) {
         outsideLink
         image
         right
+        imageAlt
       }
       ... on PagesBlocksText {
         __typename
@@ -42,6 +45,7 @@ query PagesDocument($relativePath: String!) {
             linkTo
             outsideLink
             image
+            imageAlt
             right
           }
           ... on PagesBlocksGridBlocksLegacyInfoBox {
@@ -52,6 +56,7 @@ query PagesDocument($relativePath: String!) {
             linkTo
             outsideLink
             image
+            imageAlt
             hoverImage
           }
         }
@@ -68,6 +73,7 @@ query PagesDocument($relativePath: String!) {
         linkTo
         outsideLink
         image
+        imageAlt
         hoverImage
       }
       ... on PagesBlocksHeadingSeparator {
