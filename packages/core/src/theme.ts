@@ -116,6 +116,9 @@ export const biohubTheme = createTheme({
     ultimateHeading: {
       fontFamily:
         "Butler, Barlow, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif",
+      // Butler only has a "bold" variant,
+      // so we can't use the global "semi bold"
+      // font weights that the other headings use
       fontWeight: "bold",
       lineHeight: "normal",
     },
