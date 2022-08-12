@@ -25,6 +25,7 @@ fragment PagesParts on Pages {
       linkTo
       outsideLink
       image
+      imageAlt
       right
     }
     ... on PagesBlocksGrid {
@@ -37,6 +38,7 @@ fragment PagesParts on Pages {
           linkTo
           outsideLink
           image
+          imageAlt
           right
         }
         ... on PagesBlocksGridBlocksLegacyInfoBox {

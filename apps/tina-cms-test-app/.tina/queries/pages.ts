@@ -28,6 +28,7 @@ query PagesDocument($relativePath: String!) {
         outsideLink
         image
         right
+        imageAlt
       }
       ... on PagesBlocksText {
         __typename
@@ -44,6 +45,7 @@ query PagesDocument($relativePath: String!) {
             linkTo
             outsideLink
             image
+            imageAlt
             right
           }
           ... on PagesBlocksGridBlocksLegacyInfoBox {
