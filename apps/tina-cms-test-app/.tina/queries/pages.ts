@@ -9,6 +9,7 @@ query PagesDocument($relativePath: String!) {
         title
         subtitle
         image
+        imageAlt
       }
       ... on PagesBlocksGrandBanner {
         __typename
@@ -16,6 +17,7 @@ query PagesDocument($relativePath: String!) {
         subtitle
         image
         right
+        imageAlt
       }
       ... on PagesBlocksInfoBox {
         __typename

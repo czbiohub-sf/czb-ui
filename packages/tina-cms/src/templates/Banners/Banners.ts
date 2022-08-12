@@ -19,6 +19,11 @@ export const GenericBanner: TinaTemplate = {
       label: "Background",
       name: "image",
     },
+    {
+      type: "string",
+      label: "Background Image alt",
+      name: "imageAlt",
+    },
   ],
 };
 
@@ -40,6 +45,11 @@ export const GrandBanner: TinaTemplate = {
       type: "image",
       label: "Image",
       name: "image",
+    },
+    {
+      type: "string",
+      label: "Image alt",
+      name: "imageAlt",
     },
     {
       type: "boolean",

@@ -6,11 +6,13 @@ fragment PagesParts on Pages {
       title
       subtitle
       image
+      imageAlt
     }
     ... on PagesBlocksGrandBanner {
       title
       subtitle
       image
+      imageAlt
       right
     }
     ... on PagesBlocksText {
