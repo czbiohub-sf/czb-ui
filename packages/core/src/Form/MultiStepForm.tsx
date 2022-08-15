@@ -1,4 +1,7 @@
-import RJSFForm from "@rjsf/core";
+// TODO: this does not work:
+// https://github.com/rjsf-team/react-jsonschema-form/tree/master/packages/material-ui#typescript-configuration-adjustments-1
+// @ts-ignore
+import RJSFForm from "@rjsf/material-ui/v5";
 import { useState } from "react";
 import { schemaType } from "./Form";
 

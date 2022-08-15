@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "@rjsf/core": "^4.2.3",
+    "@rjsf/material-ui": "^4.2.3",
     "hamburger-react": "^2.5.0",
     "uuid": "^8.3.2"
   }
