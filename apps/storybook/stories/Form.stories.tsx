@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Form as CZBUIForm } from "@czb-ui/core/src";
+import CZBUIForm from "@czb-ui/forms/src";
 
 export default {
   title: "Form",

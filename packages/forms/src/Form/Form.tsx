@@ -10,7 +10,7 @@ interface FormProps {
   schema: schemaType | Array<schemaType>;
 }
 
-export const Form = ({ schema }: FormProps) => {
+const Form = ({ schema }: FormProps) => {
   if (Array.isArray(schema)) {
     return (
       <MultiStepForm schema={schema} onCompleteSubmit={(e) => console.log(e)} />
@@ -19,3 +19,5 @@ export const Form = ({ schema }: FormProps) => {
 
   return <RJSFForm schema={schema} />;
 };
+
+export default Form;

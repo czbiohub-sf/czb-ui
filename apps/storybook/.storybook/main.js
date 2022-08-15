@@ -27,6 +27,10 @@ module.exports = {
               "../../../packages/biohub-logos/"
             ),
           },
+          {
+            find: "@czb-ui/forms",
+            replacement: path.resolve(__dirname, "../../../packages/forms/"),
+          },
         ],
       },
     };
