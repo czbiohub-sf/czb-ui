@@ -122,7 +122,7 @@ export const biohubTheme = createTheme({
       fontWeight: "bold",
       lineHeight: "normal",
     },
-		latoHeading: {
+    latoHeading: {
       fontFamily:
         "Lato, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif",
       fontWeight: 600, // TODO: Use global semi bold value
@@ -136,7 +136,7 @@ export const biohubTheme = createTheme({
 declare module "@mui/material/styles" {
   interface TypographyVariants {
     ultimateHeading: React.CSSProperties;
-		latoHeading: React.CSSProperties;
+    latoHeading: React.CSSProperties;
   }
 
   // allow configuration using `createTheme`
@@ -150,6 +150,6 @@ declare module "@mui/material/styles" {
 declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     ultimateHeading: true;
-		latoHeading: true;
+    latoHeading: true;
   }
 }
