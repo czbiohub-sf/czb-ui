@@ -1,3 +1,4 @@
+// TODO: Update TinaCMS and query to use .gql
 export const query = `
 query PagesDocument($relativePath: String!) {
   pages(relativePath: $relativePath) {
@@ -18,6 +19,7 @@ query PagesDocument($relativePath: String!) {
         image
         right
         imageAlt
+        alternateFont
       }
       ... on PagesBlocksInfoBox {
         __typename
