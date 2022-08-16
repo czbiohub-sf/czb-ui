@@ -29,11 +29,13 @@ export const GrandBanner = ({
     <Box sx={{ height: height, position: "relative" }}>
       <Container sx={{ zIndex: 1, height: "100%" }}>
         <Stack
-          direction={{ xs: "column", lg: "row" }}
-          spacing={{ xs: 1, lg: 8 }}
+          direction={{ xs: "column", sm: "row" }}
+          spacing={{ xs: 1, sm: 8 }}
           sx={{ height: "100%", justifyContent: "center" }}
         >
-          <Box sx={{ flex: 1.5, display: "flex" }}>{image}</Box>
+          <Box sx={{ flex: 1.5, display: "flex", alignItems: "center" }}>
+            {image}
+          </Box>
           <Box
             sx={{
               display: "inherit",

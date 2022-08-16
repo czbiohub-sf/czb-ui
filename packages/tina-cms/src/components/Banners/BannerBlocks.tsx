@@ -48,7 +48,7 @@ export const GrandBannerBlock = ({ block }: BannerProps) => {
             src={block.image}
             alt={block.imageAlt}
             width={1500}
-            height={500}
+            height={1000}
             objectFit="scale-down"
           />
         ) : undefined
