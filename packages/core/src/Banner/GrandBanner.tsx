@@ -6,6 +6,7 @@ interface GrandBannerProps {
   subtitle?: string;
   direction?: "left" | "right";
   height?: string;
+  titleFont?: "Butler" | "Lato";
 }
 
 export const GrandBanner = ({
@@ -14,9 +15,15 @@ export const GrandBanner = ({
   subtitle,
   direction = "right",
   height = "500px",
+  titleFont = "Butler",
 }: GrandBannerProps) => {
   // If direction is left, return right, and vice versa
   const otherDirection = direction == "left" ? "right" : "left";
+
+  const titleHeadingVarMap = {
+    Butler: "ultimateHeading",
+    Lato: "latoHeading",
+  };
 
   return (
     <Box sx={{ height: height, position: "relative" }}>
@@ -36,7 +43,9 @@ export const GrandBanner = ({
             }}
           >
             <Typography
-              variant="ultimateHeading"
+              // TODO: Find out how to do map types or something
+              // @ts-ignore
+              variant={titleHeadingVarMap[titleFont]}
               fontSize="2.5rem"
               component="div"
               gutterBottom={false}

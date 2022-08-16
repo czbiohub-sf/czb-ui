@@ -112,7 +112,7 @@ export const biohubTheme = createTheme({
   },
   typography: {
     ...makeThemeOptions(appTheme).typography,
-    // A custom typography variant
+    // Custom typography variants
     ultimateHeading: {
       fontFamily:
         "Butler, Barlow, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif",
@@ -120,6 +120,12 @@ export const biohubTheme = createTheme({
       // so we can't use the global "semi bold"
       // font weights that the other headings use
       fontWeight: "bold",
+      lineHeight: "normal",
+    },
+		latoHeading: {
+      fontFamily:
+        "Lato, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif",
+      fontWeight: 600, // TODO: Use global semi bold value
       lineHeight: "normal",
     },
   },
@@ -130,11 +136,13 @@ export const biohubTheme = createTheme({
 declare module "@mui/material/styles" {
   interface TypographyVariants {
     ultimateHeading: React.CSSProperties;
+		latoHeading: React.CSSProperties;
   }
 
   // allow configuration using `createTheme`
   interface TypographyVariantsOptions {
     ultimateHeading?: React.CSSProperties;
+    latoHeading?: React.CSSProperties;
   }
 }
 
@@ -142,5 +150,6 @@ declare module "@mui/material/styles" {
 declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     ultimateHeading: true;
+		latoHeading: true;
   }
 }
