@@ -7,12 +7,15 @@ interface BannerBlockProps {
   image?: string;
   right?: boolean;
   imageAlt?: string;
+  alternateFont?: boolean;
 }
 
 interface BannerProps {
   block: BannerBlockProps;
 }
 
+// Note the Generic Banner block does not
+// have an alternate font
 export const GenericBannerBlock = ({ block }: BannerProps) => {
   return (
     <GenericBanner
@@ -38,13 +41,14 @@ export const GrandBannerBlock = ({ block }: BannerProps) => {
       title={block.title}
       subtitle={block.subtitle}
       direction={block.right ? "right" : "left"}
+      titleFont={block.alternateFont ? "Lato" : "Butler"}
       image={
         block.image ? (
           <Image
             src={block.image}
             alt={block.imageAlt}
             width={1500}
-            height={500}
+            height={1000}
             objectFit="scale-down"
           />
         ) : undefined

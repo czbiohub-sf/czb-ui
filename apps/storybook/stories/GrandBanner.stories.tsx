@@ -6,7 +6,12 @@ import background from "./assets/sapiens_banner.webp";
 export default {
   title: "Banners",
   component: CZBUIGrandBanner,
-  argTypes: {},
+  argTypes: {
+    titleFont: {
+      options: ["Butler", "Lato"],
+      control: { type: "radio" },
+    },
+  },
 };
 
 const BannerTemplate = (args: any) => (
@@ -24,6 +29,7 @@ const BannerTemplate = (args: any) => (
     }
     title={args.title}
     subtitle={args.subtitle}
+    titleFont={args.titleFont}
   />
 );
 
@@ -32,4 +38,5 @@ GrandBanner.args = {
   title: "Tabula Sapiens",
   subtitle: "Human transcriptome reference at single cell resolution.",
   background: background,
+  titleFont: "Butler",
 };

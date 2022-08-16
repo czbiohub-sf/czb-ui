@@ -56,5 +56,10 @@ export const GrandBanner: TinaTemplate = {
       label: "Right side?",
       name: "right",
     },
+    {
+      type: "boolean",
+      label: "Alternate title font",
+      name: "alternateFont",
+    },
   ],
 };
