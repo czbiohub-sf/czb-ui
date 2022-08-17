@@ -4,6 +4,7 @@ import { Container, useMediaQuery, useTheme } from "@mui/material";
 
 interface TableBlockProps {
   csvData: string;
+  inContainer?: boolean;
 }
 
 interface TableProps {
@@ -51,28 +52,40 @@ export const TableBlock = ({ block }: TableProps) => {
     };
   }) as GridColDef[];
 
-  return (
-    <div style={{ height: smallerScreen ? 500 : 750, width: "100%" }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        sx={{
-          borderColor: "divider",
-          borderRadius: 0,
-          "& .MuiDataGrid-cell": {
+  const TableComponent = () => {
+    return (
+      <div style={{ height: smallerScreen ? 500 : 750, width: "100%" }}>
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          sx={{
             borderColor: "divider",
-          },
-          "& .MuiDataGrid-columnHeaders": {
-            borderColor: "divider",
-          },
-          "& .MuiDataGrid-columnHeaderTitle": {
-            fontWeight: "fontWeightBold",
-          },
-          "& .MuiDataGrid-footerContainer": {
-            borderColor: "divider",
-          },
-        }}
-      />
-    </div>
-  );
+            borderRadius: 0,
+            "& .MuiDataGrid-cell": {
+              borderColor: "divider",
+            },
+            "& .MuiDataGrid-columnHeaders": {
+              borderColor: "divider",
+            },
+            "& .MuiDataGrid-columnHeaderTitle": {
+              fontWeight: "fontWeightBold",
+            },
+            "& .MuiDataGrid-footerContainer": {
+              borderColor: "divider",
+            },
+          }}
+        />
+      </div>
+    );
+  };
+
+  if (block.inContainer) {
+    return (
+      <Container>
+        <TableComponent />
+      </Container>
+    );
+  }
+
+  return <TableComponent />;
 };

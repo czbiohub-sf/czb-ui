@@ -24,5 +24,10 @@ export const Table: TinaTemplate = {
         },
       },
     },
+    {
+      type: "boolean",
+      label: "Use container",
+      name: "inContainer",
+    },
   ],
 };
