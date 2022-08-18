@@ -11,6 +11,7 @@ fragment PagesParts on Pages {
     ... on PagesBlocksGrandBanner {
       title
       subtitle
+      smaller
       image
       imageAlt
       right

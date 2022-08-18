@@ -8,6 +8,7 @@ interface BannerBlockProps {
   right?: boolean;
   imageAlt?: string;
   alternateFont?: boolean;
+  smaller?: boolean;
 }
 
 interface BannerProps {
@@ -42,6 +43,7 @@ export const GrandBannerBlock = ({ block }: BannerProps) => {
       subtitle={block.subtitle}
       direction={block.right ? "right" : "left"}
       titleFont={block.alternateFont ? "Lato" : "Butler"}
+      height={block.smaller ? "400px" : undefined}
       image={
         block.image ? (
           <Image

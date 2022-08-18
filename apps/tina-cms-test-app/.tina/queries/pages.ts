@@ -20,6 +20,7 @@ query PagesDocument($relativePath: String!) {
         right
         imageAlt
         alternateFont
+        smaller
       }
       ... on PagesBlocksInfoBox {
         __typename

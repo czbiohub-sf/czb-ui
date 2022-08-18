@@ -42,6 +42,11 @@ export const GrandBanner: TinaTemplate = {
       name: "subtitle",
     },
     {
+      type: "boolean",
+      label: "Smaller",
+      name: "smaller",
+    },
+    {
       type: "image",
       label: "Image",
       name: "image",

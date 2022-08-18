@@ -25,16 +25,30 @@ export const GrandBanner = ({
     Lato: "latoHeading",
   };
 
+  // TODO: This styling is a huge mess
   return (
-    <Box sx={{ height: height, position: "relative" }}>
+    <Box
+      sx={{
+        height: height,
+        position: "relative",
+        my: { xs: "40px", sm: "0px" },
+      }}
+    >
       <Container sx={{ zIndex: 1, height: "100%" }}>
         <Stack
           direction={{ xs: "column", sm: "row" }}
-          spacing={{ xs: 1, sm: 8 }}
+          spacing={{ xs: 6, sm: 8 }}
           sx={{ height: "100%", justifyContent: "center" }}
           mt={{ xs: "40px", sm: "0px" }}
         >
-          <Box sx={{ flex: 1.5, display: "flex", alignItems: "center" }}>
+          <Box
+            sx={{
+              flex: 1.5,
+              display: "flex",
+              alignItems: "center",
+              mx: "40px",
+            }}
+          >
             {image}
           </Box>
           <Box
