@@ -4,7 +4,6 @@ import {
   GridRowsProp,
   GridColDef,
   GridToolbarExport,
-  GridToolbar,
   GridToolbarContainer,
 } from "@mui/x-data-grid";
 import { Container, useMediaQuery, useTheme } from "@mui/material";
@@ -30,7 +29,7 @@ const TableIsInvalid = () => {
 function CustomToolbar() {
   return (
     <GridToolbarContainer>
-      <GridToolbarExport />
+      <GridToolbarExport printOptions={{ disableToolbarButton: true }} />
     </GridToolbarContainer>
   );
 }
