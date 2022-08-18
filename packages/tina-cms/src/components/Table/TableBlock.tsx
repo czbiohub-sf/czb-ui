@@ -1,10 +1,18 @@
 import { csvParse } from "d3-dsv";
-import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
+import {
+  DataGrid,
+  GridRowsProp,
+  GridColDef,
+  GridToolbarExport,
+  GridToolbar,
+  GridToolbarContainer,
+} from "@mui/x-data-grid";
 import { Container, useMediaQuery, useTheme } from "@mui/material";
 
 interface TableBlockProps {
   csvData: string;
   inContainer?: boolean;
+  allowDownload?: boolean;
 }
 
 interface TableProps {
@@ -18,6 +26,14 @@ const TableIsInvalid = () => {
     </Container>
   );
 };
+
+function CustomToolbar() {
+  return (
+    <GridToolbarContainer>
+      <GridToolbarExport />
+    </GridToolbarContainer>
+  );
+}
 
 export const TableBlock = ({ block }: TableProps) => {
   const theme = useTheme();
@@ -73,6 +89,9 @@ export const TableBlock = ({ block }: TableProps) => {
             "& .MuiDataGrid-footerContainer": {
               borderColor: "divider",
             },
+          }}
+          components={{
+            Toolbar: block.allowDownload ? CustomToolbar : undefined,
           }}
         />
       </div>

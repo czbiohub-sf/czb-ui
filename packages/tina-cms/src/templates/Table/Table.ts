@@ -29,5 +29,10 @@ export const Table: TinaTemplate = {
       label: "Use container",
       name: "inContainer",
     },
+    {
+      type: "boolean",
+      label: "Allow CSV Download",
+      name: "allowDownload",
+    },
   ],
 };

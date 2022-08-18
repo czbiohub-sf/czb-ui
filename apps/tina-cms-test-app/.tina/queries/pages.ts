@@ -68,6 +68,7 @@ query PagesDocument($relativePath: String!) {
         __typename
         csvData
         inContainer
+        allowDownload
       }
       ... on PagesBlocksLegacyInfoBox {
         __typename

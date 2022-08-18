@@ -58,6 +58,7 @@ fragment PagesParts on Pages {
     ... on PagesBlocksTable {
       csvData
       inContainer
+      allowDownload
     }
     ... on PagesBlocksLegacyInfoBox {
       title
