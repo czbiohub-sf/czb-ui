@@ -32,6 +32,7 @@ export const GrandBanner = ({
           direction={{ xs: "column", sm: "row" }}
           spacing={{ xs: 1, sm: 8 }}
           sx={{ height: "100%", justifyContent: "center" }}
+          mt={{ xs: "40px", sm: "0px" }}
         >
           <Box sx={{ flex: 1.5, display: "flex", alignItems: "center" }}>
             {image}
