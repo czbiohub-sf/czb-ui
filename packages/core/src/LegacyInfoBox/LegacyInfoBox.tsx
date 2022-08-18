@@ -21,6 +21,9 @@ interface InfoBoxLinkProps {
   withButton: boolean;
 }
 
+// TODO: Simplify this component
+// if pagesComponent is not passed, its an external link
+// in this case for now
 const InfoBoxLink = ({
   page,
   pagesComponent,
@@ -39,7 +42,12 @@ const InfoBoxLink = ({
   }
   if (!pagesComponent && !withButton) {
     return (
-      <Link sx={{ marginTop: "1rem", fontWeight: "bold" }} href={page?.to}>
+      <Link
+        sx={{ marginTop: "1rem", fontWeight: "bold" }}
+        href={page?.to}
+        target={page?.newTab ? "_blank" : undefined}
+        rel="noopener"
+      >
         {page?.title}
       </Link>
     );
@@ -65,6 +73,8 @@ const InfoBoxLink = ({
       href={page?.to}
       sdsStyle="square"
       sdsType="primary"
+      target={page?.newTab ? "_blank" : undefined}
+      rel="noopener"
     >
       {page?.title}
     </Button>

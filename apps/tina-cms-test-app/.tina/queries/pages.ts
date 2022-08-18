@@ -57,6 +57,7 @@ query PagesDocument($relativePath: String!) {
             linkText
             linkTo
             outsideLink
+            newTab
             image
             imageAlt
             hoverImage
@@ -75,6 +76,7 @@ query PagesDocument($relativePath: String!) {
         linkText
         linkTo
         outsideLink
+        newTab
         image
         imageAlt
         hoverImage

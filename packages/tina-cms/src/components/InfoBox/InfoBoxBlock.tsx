@@ -22,6 +22,9 @@ interface InfoBoxProps {
   small?: boolean;
 }
 
+// TODO: Clean up link components (from
+// legacy info box) and use those components
+// here for these links
 export const InfoBoxBlock = ({
   block,
   disableContainerGutters,

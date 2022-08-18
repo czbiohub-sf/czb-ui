@@ -48,6 +48,7 @@ fragment PagesParts on Pages {
           linkText
           linkTo
           outsideLink
+          newTab
           image
           imageAlt
           hoverImage
@@ -64,6 +65,7 @@ fragment PagesParts on Pages {
       linkText
       linkTo
       outsideLink
+      newTab
       image
       imageAlt
       hoverImage
