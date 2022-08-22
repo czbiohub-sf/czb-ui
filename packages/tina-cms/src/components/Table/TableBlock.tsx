@@ -6,7 +6,7 @@ import {
   GridToolbarExport,
   GridToolbarContainer,
 } from "@mui/x-data-grid";
-import { Container, useMediaQuery, useTheme } from "@mui/material";
+import { Container, Box, useMediaQuery, useTheme } from "@mui/material";
 
 interface TableBlockProps {
   csvData: string;
@@ -69,7 +69,7 @@ export const TableBlock = ({ block }: TableProps) => {
 
   const TableComponent = () => {
     return (
-      <div style={{ height: smallerScreen ? 500 : 750, width: "100%" }}>
+      <Box sx={{ height: smallerScreen ? 500 : 750, width: "100%", my: 5 }}>
         <DataGrid
           rows={rows}
           columns={columns}
@@ -93,7 +93,7 @@ export const TableBlock = ({ block }: TableProps) => {
             Toolbar: block.allowDownload ? CustomToolbar : undefined,
           }}
         />
-      </div>
+      </Box>
     );
   };
 
