@@ -11,9 +11,11 @@ fragment PagesParts on Pages {
     ... on PagesBlocksGrandBanner {
       title
       subtitle
+      smaller
       image
       imageAlt
       right
+      alternateFont
     }
     ... on PagesBlocksText {
       text
@@ -47,6 +49,7 @@ fragment PagesParts on Pages {
           linkText
           linkTo
           outsideLink
+          newTab
           image
           imageAlt
           hoverImage
@@ -55,6 +58,8 @@ fragment PagesParts on Pages {
     }
     ... on PagesBlocksTable {
       csvData
+      inContainer
+      allowDownload
     }
     ... on PagesBlocksLegacyInfoBox {
       title
@@ -62,6 +67,7 @@ fragment PagesParts on Pages {
       linkText
       linkTo
       outsideLink
+      newTab
       image
       imageAlt
       hoverImage

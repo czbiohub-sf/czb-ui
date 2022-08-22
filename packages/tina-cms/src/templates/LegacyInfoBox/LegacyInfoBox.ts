@@ -30,6 +30,11 @@ export const LegacyInfoBox: TinaTemplate = {
       name: "outsideLink",
     },
     {
+      type: "boolean",
+      label: "Open in new tab (only outside links for now)",
+      name: "newTab",
+    },
+    {
       type: "image",
       label: "Image",
       name: "image",

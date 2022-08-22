@@ -1,9 +1,17 @@
 import { csvParse } from "d3-dsv";
-import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
-import { Container, useMediaQuery, useTheme } from "@mui/material";
+import {
+  DataGrid,
+  GridRowsProp,
+  GridColDef,
+  GridToolbarExport,
+  GridToolbarContainer,
+} from "@mui/x-data-grid";
+import { Container, Box, useMediaQuery, useTheme } from "@mui/material";
 
 interface TableBlockProps {
   csvData: string;
+  inContainer?: boolean;
+  allowDownload?: boolean;
 }
 
 interface TableProps {
@@ -17,6 +25,14 @@ const TableIsInvalid = () => {
     </Container>
   );
 };
+
+function CustomToolbar() {
+  return (
+    <GridToolbarContainer>
+      <GridToolbarExport printOptions={{ disableToolbarButton: true }} />
+    </GridToolbarContainer>
+  );
+}
 
 export const TableBlock = ({ block }: TableProps) => {
   const theme = useTheme();
@@ -51,28 +67,43 @@ export const TableBlock = ({ block }: TableProps) => {
     };
   }) as GridColDef[];
 
-  return (
-    <div style={{ height: smallerScreen ? 500 : 750, width: "100%" }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        sx={{
-          borderColor: "divider",
-          borderRadius: 0,
-          "& .MuiDataGrid-cell": {
+  const TableComponent = () => {
+    return (
+      <Box sx={{ height: smallerScreen ? 500 : 750, width: "100%", my: 5 }}>
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          sx={{
             borderColor: "divider",
-          },
-          "& .MuiDataGrid-columnHeaders": {
-            borderColor: "divider",
-          },
-          "& .MuiDataGrid-columnHeaderTitle": {
-            fontWeight: "fontWeightBold",
-          },
-          "& .MuiDataGrid-footerContainer": {
-            borderColor: "divider",
-          },
-        }}
-      />
-    </div>
-  );
+            borderRadius: 0,
+            "& .MuiDataGrid-cell": {
+              borderColor: "divider",
+            },
+            "& .MuiDataGrid-columnHeaders": {
+              borderColor: "divider",
+            },
+            "& .MuiDataGrid-columnHeaderTitle": {
+              fontWeight: "fontWeightBold",
+            },
+            "& .MuiDataGrid-footerContainer": {
+              borderColor: "divider",
+            },
+          }}
+          components={{
+            Toolbar: block.allowDownload ? CustomToolbar : undefined,
+          }}
+        />
+      </Box>
+    );
+  };
+
+  if (block.inContainer) {
+    return (
+      <Container>
+        <TableComponent />
+      </Container>
+    );
+  }
+
+  return <TableComponent />;
 };

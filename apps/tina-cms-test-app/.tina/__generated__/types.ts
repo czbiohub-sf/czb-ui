@@ -167,9 +167,11 @@ export type PagesBlocksGrandBanner = {
   __typename?: 'PagesBlocksGrandBanner';
   title?: Maybe<Scalars['String']>;
   subtitle?: Maybe<Scalars['String']>;
+  smaller?: Maybe<Scalars['Boolean']>;
   image?: Maybe<Scalars['String']>;
   imageAlt?: Maybe<Scalars['String']>;
   right?: Maybe<Scalars['Boolean']>;
+  alternateFont?: Maybe<Scalars['Boolean']>;
 };
 
 export type PagesBlocksText = {
@@ -208,6 +210,7 @@ export type PagesBlocksGridBlocksLegacyInfoBox = {
   linkText?: Maybe<Scalars['String']>;
   linkTo?: Maybe<Scalars['String']>;
   outsideLink?: Maybe<Scalars['Boolean']>;
+  newTab?: Maybe<Scalars['Boolean']>;
   image?: Maybe<Scalars['String']>;
   imageAlt?: Maybe<Scalars['String']>;
   hoverImage?: Maybe<Scalars['String']>;
@@ -223,6 +226,8 @@ export type PagesBlocksGrid = {
 export type PagesBlocksTable = {
   __typename?: 'PagesBlocksTable';
   csvData?: Maybe<Scalars['String']>;
+  inContainer?: Maybe<Scalars['Boolean']>;
+  allowDownload?: Maybe<Scalars['Boolean']>;
 };
 
 export type PagesBlocksLegacyInfoBox = {
@@ -232,6 +237,7 @@ export type PagesBlocksLegacyInfoBox = {
   linkText?: Maybe<Scalars['String']>;
   linkTo?: Maybe<Scalars['String']>;
   outsideLink?: Maybe<Scalars['Boolean']>;
+  newTab?: Maybe<Scalars['Boolean']>;
   image?: Maybe<Scalars['String']>;
   imageAlt?: Maybe<Scalars['String']>;
   hoverImage?: Maybe<Scalars['String']>;
@@ -282,9 +288,11 @@ export type BooleanFilter = {
 export type PagesBlocksGrandBannerFilter = {
   title?: InputMaybe<StringFilter>;
   subtitle?: InputMaybe<StringFilter>;
+  smaller?: InputMaybe<BooleanFilter>;
   image?: InputMaybe<ImageFilter>;
   imageAlt?: InputMaybe<StringFilter>;
   right?: InputMaybe<BooleanFilter>;
+  alternateFont?: InputMaybe<BooleanFilter>;
 };
 
 export type PagesBlocksTextTextInfoBoxFilter = {
@@ -334,6 +342,7 @@ export type PagesBlocksGridBlocksLegacyInfoBoxFilter = {
   linkText?: InputMaybe<StringFilter>;
   linkTo?: InputMaybe<StringFilter>;
   outsideLink?: InputMaybe<BooleanFilter>;
+  newTab?: InputMaybe<BooleanFilter>;
   image?: InputMaybe<ImageFilter>;
   imageAlt?: InputMaybe<StringFilter>;
   hoverImage?: InputMaybe<ImageFilter>;
@@ -350,6 +359,8 @@ export type PagesBlocksGridFilter = {
 
 export type PagesBlocksTableFilter = {
   csvData?: InputMaybe<StringFilter>;
+  inContainer?: InputMaybe<BooleanFilter>;
+  allowDownload?: InputMaybe<BooleanFilter>;
 };
 
 export type PagesBlocksLegacyInfoBoxFilter = {
@@ -358,6 +369,7 @@ export type PagesBlocksLegacyInfoBoxFilter = {
   linkText?: InputMaybe<StringFilter>;
   linkTo?: InputMaybe<StringFilter>;
   outsideLink?: InputMaybe<BooleanFilter>;
+  newTab?: InputMaybe<BooleanFilter>;
   image?: InputMaybe<ImageFilter>;
   imageAlt?: InputMaybe<StringFilter>;
   hoverImage?: InputMaybe<ImageFilter>;
@@ -459,9 +471,11 @@ export type PagesBlocksGenericBannerMutation = {
 export type PagesBlocksGrandBannerMutation = {
   title?: InputMaybe<Scalars['String']>;
   subtitle?: InputMaybe<Scalars['String']>;
+  smaller?: InputMaybe<Scalars['Boolean']>;
   image?: InputMaybe<Scalars['String']>;
   imageAlt?: InputMaybe<Scalars['String']>;
   right?: InputMaybe<Scalars['Boolean']>;
+  alternateFont?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type PagesBlocksTextMutation = {
@@ -496,6 +510,7 @@ export type PagesBlocksGridBlocksLegacyInfoBoxMutation = {
   linkText?: InputMaybe<Scalars['String']>;
   linkTo?: InputMaybe<Scalars['String']>;
   outsideLink?: InputMaybe<Scalars['Boolean']>;
+  newTab?: InputMaybe<Scalars['Boolean']>;
   image?: InputMaybe<Scalars['String']>;
   imageAlt?: InputMaybe<Scalars['String']>;
   hoverImage?: InputMaybe<Scalars['String']>;
@@ -512,6 +527,8 @@ export type PagesBlocksGridMutation = {
 
 export type PagesBlocksTableMutation = {
   csvData?: InputMaybe<Scalars['String']>;
+  inContainer?: InputMaybe<Scalars['Boolean']>;
+  allowDownload?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type PagesBlocksLegacyInfoBoxMutation = {
@@ -520,6 +537,7 @@ export type PagesBlocksLegacyInfoBoxMutation = {
   linkText?: InputMaybe<Scalars['String']>;
   linkTo?: InputMaybe<Scalars['String']>;
   outsideLink?: InputMaybe<Scalars['Boolean']>;
+  newTab?: InputMaybe<Scalars['Boolean']>;
   image?: InputMaybe<Scalars['String']>;
   imageAlt?: InputMaybe<Scalars['String']>;
   hoverImage?: InputMaybe<Scalars['String']>;
@@ -545,14 +563,14 @@ export type PagesMutation = {
   blocks?: InputMaybe<Array<InputMaybe<PagesBlocksMutation>>>;
 };
 
-export type PagesPartsFragment = { __typename?: 'Pages', title?: string | null, blocks?: Array<{ __typename: 'PagesBlocksGenericBanner', title?: string | null, subtitle?: string | null, image?: string | null, imageAlt?: string | null } | { __typename: 'PagesBlocksGrandBanner', title?: string | null, subtitle?: string | null, image?: string | null, imageAlt?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksText', text?: any | null } | { __typename: 'PagesBlocksInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, imageAlt?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksGrid', blocks?: Array<{ __typename: 'PagesBlocksGridBlocksInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, imageAlt?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksGridBlocksLegacyInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, imageAlt?: string | null, hoverImage?: string | null } | null> | null } | { __typename: 'PagesBlocksTable', csvData?: string | null } | { __typename: 'PagesBlocksLegacyInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, imageAlt?: string | null, hoverImage?: string | null } | { __typename: 'PagesBlocksHeadingSeparator', title?: string | null } | null> | null };
+export type PagesPartsFragment = { __typename?: 'Pages', title?: string | null, blocks?: Array<{ __typename: 'PagesBlocksGenericBanner', title?: string | null, subtitle?: string | null, image?: string | null, imageAlt?: string | null } | { __typename: 'PagesBlocksGrandBanner', title?: string | null, subtitle?: string | null, smaller?: boolean | null, image?: string | null, imageAlt?: string | null, right?: boolean | null, alternateFont?: boolean | null } | { __typename: 'PagesBlocksText', text?: any | null } | { __typename: 'PagesBlocksInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, imageAlt?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksGrid', blocks?: Array<{ __typename: 'PagesBlocksGridBlocksInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, imageAlt?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksGridBlocksLegacyInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, newTab?: boolean | null, image?: string | null, imageAlt?: string | null, hoverImage?: string | null } | null> | null } | { __typename: 'PagesBlocksTable', csvData?: string | null, inContainer?: boolean | null, allowDownload?: boolean | null } | { __typename: 'PagesBlocksLegacyInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, newTab?: boolean | null, image?: string | null, imageAlt?: string | null, hoverImage?: string | null } | { __typename: 'PagesBlocksHeadingSeparator', title?: string | null } | null> | null };
 
 export type PagesQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type PagesQuery = { __typename?: 'Query', pages: { __typename?: 'Pages', id: string, title?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PagesBlocksGenericBanner', title?: string | null, subtitle?: string | null, image?: string | null, imageAlt?: string | null } | { __typename: 'PagesBlocksGrandBanner', title?: string | null, subtitle?: string | null, image?: string | null, imageAlt?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksText', text?: any | null } | { __typename: 'PagesBlocksInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, imageAlt?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksGrid', blocks?: Array<{ __typename: 'PagesBlocksGridBlocksInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, imageAlt?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksGridBlocksLegacyInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, imageAlt?: string | null, hoverImage?: string | null } | null> | null } | { __typename: 'PagesBlocksTable', csvData?: string | null } | { __typename: 'PagesBlocksLegacyInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, imageAlt?: string | null, hoverImage?: string | null } | { __typename: 'PagesBlocksHeadingSeparator', title?: string | null } | null> | null } };
+export type PagesQuery = { __typename?: 'Query', pages: { __typename?: 'Pages', id: string, title?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PagesBlocksGenericBanner', title?: string | null, subtitle?: string | null, image?: string | null, imageAlt?: string | null } | { __typename: 'PagesBlocksGrandBanner', title?: string | null, subtitle?: string | null, smaller?: boolean | null, image?: string | null, imageAlt?: string | null, right?: boolean | null, alternateFont?: boolean | null } | { __typename: 'PagesBlocksText', text?: any | null } | { __typename: 'PagesBlocksInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, imageAlt?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksGrid', blocks?: Array<{ __typename: 'PagesBlocksGridBlocksInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, imageAlt?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksGridBlocksLegacyInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, newTab?: boolean | null, image?: string | null, imageAlt?: string | null, hoverImage?: string | null } | null> | null } | { __typename: 'PagesBlocksTable', csvData?: string | null, inContainer?: boolean | null, allowDownload?: boolean | null } | { __typename: 'PagesBlocksLegacyInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, newTab?: boolean | null, image?: string | null, imageAlt?: string | null, hoverImage?: string | null } | { __typename: 'PagesBlocksHeadingSeparator', title?: string | null } | null> | null } };
 
 export type PagesConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -564,7 +582,7 @@ export type PagesConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PagesConnectionQuery = { __typename?: 'Query', pagesConnection: { __typename?: 'PagesConnection', totalCount: number, edges?: Array<{ __typename?: 'PagesConnectionEdges', node?: { __typename?: 'Pages', id: string, title?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PagesBlocksGenericBanner', title?: string | null, subtitle?: string | null, image?: string | null, imageAlt?: string | null } | { __typename: 'PagesBlocksGrandBanner', title?: string | null, subtitle?: string | null, image?: string | null, imageAlt?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksText', text?: any | null } | { __typename: 'PagesBlocksInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, imageAlt?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksGrid', blocks?: Array<{ __typename: 'PagesBlocksGridBlocksInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, imageAlt?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksGridBlocksLegacyInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, imageAlt?: string | null, hoverImage?: string | null } | null> | null } | { __typename: 'PagesBlocksTable', csvData?: string | null } | { __typename: 'PagesBlocksLegacyInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, imageAlt?: string | null, hoverImage?: string | null } | { __typename: 'PagesBlocksHeadingSeparator', title?: string | null } | null> | null } | null } | null> | null } };
+export type PagesConnectionQuery = { __typename?: 'Query', pagesConnection: { __typename?: 'PagesConnection', totalCount: number, edges?: Array<{ __typename?: 'PagesConnectionEdges', node?: { __typename?: 'Pages', id: string, title?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PagesBlocksGenericBanner', title?: string | null, subtitle?: string | null, image?: string | null, imageAlt?: string | null } | { __typename: 'PagesBlocksGrandBanner', title?: string | null, subtitle?: string | null, smaller?: boolean | null, image?: string | null, imageAlt?: string | null, right?: boolean | null, alternateFont?: boolean | null } | { __typename: 'PagesBlocksText', text?: any | null } | { __typename: 'PagesBlocksInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, imageAlt?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksGrid', blocks?: Array<{ __typename: 'PagesBlocksGridBlocksInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, image?: string | null, imageAlt?: string | null, right?: boolean | null } | { __typename: 'PagesBlocksGridBlocksLegacyInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, newTab?: boolean | null, image?: string | null, imageAlt?: string | null, hoverImage?: string | null } | null> | null } | { __typename: 'PagesBlocksTable', csvData?: string | null, inContainer?: boolean | null, allowDownload?: boolean | null } | { __typename: 'PagesBlocksLegacyInfoBox', title?: string | null, subtitle?: string | null, linkText?: string | null, linkTo?: string | null, outsideLink?: boolean | null, newTab?: boolean | null, image?: string | null, imageAlt?: string | null, hoverImage?: string | null } | { __typename: 'PagesBlocksHeadingSeparator', title?: string | null } | null> | null } | null } | null> | null } };
 
 export const PagesPartsFragmentDoc = gql`
     fragment PagesParts on Pages {
@@ -580,9 +598,11 @@ export const PagesPartsFragmentDoc = gql`
     ... on PagesBlocksGrandBanner {
       title
       subtitle
+      smaller
       image
       imageAlt
       right
+      alternateFont
     }
     ... on PagesBlocksText {
       text
@@ -616,6 +636,7 @@ export const PagesPartsFragmentDoc = gql`
           linkText
           linkTo
           outsideLink
+          newTab
           image
           imageAlt
           hoverImage
@@ -624,6 +645,8 @@ export const PagesPartsFragmentDoc = gql`
     }
     ... on PagesBlocksTable {
       csvData
+      inContainer
+      allowDownload
     }
     ... on PagesBlocksLegacyInfoBox {
       title
@@ -631,6 +654,7 @@ export const PagesPartsFragmentDoc = gql`
       linkText
       linkTo
       outsideLink
+      newTab
       image
       imageAlt
       hoverImage

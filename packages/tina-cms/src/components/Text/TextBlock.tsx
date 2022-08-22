@@ -90,7 +90,7 @@ const imgComponent = (props: ImageProps) => {
           alt={props.alt}
           layout="fill"
           objectFit="contain"
-          sizes="30vw"
+          sizes="(min-width: 75em) 33vw, (min-width: 48em) 50vw, 100vw"
         />
       )}
       {!props.url && (

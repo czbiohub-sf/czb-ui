@@ -6,6 +6,7 @@ interface GrandBannerProps {
   subtitle?: string;
   direction?: "left" | "right";
   height?: string;
+  titleFont?: "Butler" | "Lato";
 }
 
 export const GrandBanner = ({
@@ -14,19 +15,42 @@ export const GrandBanner = ({
   subtitle,
   direction = "right",
   height = "500px",
+  titleFont = "Butler",
 }: GrandBannerProps) => {
   // If direction is left, return right, and vice versa
   const otherDirection = direction == "left" ? "right" : "left";
 
+  const titleHeadingVarMap = {
+    Butler: "ultimateHeading",
+    Lato: "latoHeading",
+  };
+
+  // TODO: This styling is a huge mess
   return (
-    <Box sx={{ height: height, position: "relative" }}>
+    <Box
+      sx={{
+        height: height,
+        position: "relative",
+        my: { xs: "40px", sm: "0px" },
+      }}
+    >
       <Container sx={{ zIndex: 1, height: "100%" }}>
         <Stack
-          direction={{ xs: "column", lg: "row" }}
-          spacing={{ xs: 1, lg: 8 }}
+          direction={{ xs: "column", sm: "row" }}
+          spacing={{ xs: 6, sm: 8 }}
           sx={{ height: "100%", justifyContent: "center" }}
+          mt={{ xs: "40px", sm: "0px" }}
         >
-          <Box sx={{ flex: 1.5, display: "flex" }}>{image}</Box>
+          <Box
+            sx={{
+              flex: 1.5,
+              display: "flex",
+              alignItems: "center",
+              mx: "40px",
+            }}
+          >
+            {image}
+          </Box>
           <Box
             sx={{
               display: "inherit",
@@ -36,7 +60,9 @@ export const GrandBanner = ({
             }}
           >
             <Typography
-              variant="ultimateHeading"
+              // TODO: Find out how to do map types or something
+              // @ts-ignore
+              variant={titleHeadingVarMap[titleFont]}
               fontSize="2.5rem"
               component="div"
               gutterBottom={false}

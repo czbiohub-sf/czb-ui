@@ -10,6 +10,7 @@ interface InfoBoxBlockProps {
   linkText?: string;
   linkTo?: string;
   outsideLink?: boolean;
+  newTab?: boolean;
   image?: any;
   imageAlt?: string;
   hoverImage?: any;
@@ -48,6 +49,9 @@ const ImageComponent = ({ src, alt, small }: ImageComponentProps) => {
   );
 };
 
+// TODO: Clean up link components (from
+// legacy info box) and use those components
+// here for these links
 export const LegacyInfoBoxBlock = ({
   block,
   disableContainerGutters,
@@ -59,7 +63,7 @@ export const LegacyInfoBoxBlock = ({
   let page;
 
   if (block.linkText && block.linkTo) {
-    page = { title: block.linkText, to: block.linkTo };
+    page = { title: block.linkText, to: block.linkTo, newTab: block.newTab };
   }
 
   return (

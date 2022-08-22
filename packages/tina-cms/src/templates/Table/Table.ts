@@ -24,5 +24,15 @@ export const Table: TinaTemplate = {
         },
       },
     },
+    {
+      type: "boolean",
+      label: "Use container",
+      name: "inContainer",
+    },
+    {
+      type: "boolean",
+      label: "Allow CSV Download",
+      name: "allowDownload",
+    },
   ],
 };

@@ -18,7 +18,7 @@ export const FooterPagesGroup = ({
     <Box
       sx={{
         display: "flex",
-        marginTop: "7px", // So it aligns with the title and logo (being centered in their div)
+        marginTop: "8px", // So it aligns with the title and logo (being centered in their div)
         gap: "40px",
         flexDirection: { xs: "column", md: "row" },
       }}
@@ -38,11 +38,12 @@ export const FooterPagesGroup = ({
                 listStyleType: "none",
                 padding: "0px",
                 marginBottom: "0px",
+                marginTop: 8,
               }}
             >
               {pageGroup.pages.map((page, j) => {
                 return (
-                  <li key={j}>
+                  <Box component="li" mb={5} key={j}>
                     {!page.externalLink && (
                       <Link
                         sx={{ marginTop: "1rem", color: "white" }}
@@ -61,7 +62,7 @@ export const FooterPagesGroup = ({
                         {page?.title}
                       </Link>
                     )}
-                  </li>
+                  </Box>
                 );
               })}
             </Box>
