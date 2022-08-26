@@ -8,12 +8,16 @@ export type schemaType = React.ComponentProps<typeof RJSFForm>["schema"];
 
 interface FormProps {
   schema: schemaType | Array<schemaType>;
+  onCompleteSubmit: (formData: any) => void;
 }
 
-const Form = ({ schema }: FormProps) => {
+const Form = ({ schema, onCompleteSubmit }: FormProps) => {
   if (Array.isArray(schema)) {
     return (
-      <MultiStepForm schema={schema} onCompleteSubmit={(e) => console.log(e)} />
+      <MultiStepForm
+        schema={schema}
+        onCompleteSubmit={(formData) => onCompleteSubmit(formData)}
+      />
     );
   }
 
