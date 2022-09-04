@@ -1,5 +1,28 @@
 # @czb-ui/core
 
+## 0.3.0
+
+### Minor Changes
+
+- 248e5f3: Add "Legacy Info Box" which is the info box component styled to look like the Info Box from czb-ui. It is also available through Tina CMS.
+- 1cf462d: Add Heading Separator component. It is available as a block in Tina CMS also.
+
+### Patch Changes
+
+- 85bd321: Fix legacy info box component overflowing over other elements in smaller breakpoints
+- db5a67a: Add new tab prop/option to legacy info box
+- ca03f3f: Add additional margin-top on grand banner on mobile
+- edee8d9: Text is now white on primary button (add explicit contrastText to primary color palette)
+- 7976260: Adjust footer menu items spacing
+- c5cddc8: Grand banner component: make image smaller, switch to column variant on smaller breakpoint
+- e3f3055: Change grand banner text styles
+- e3f3055: Add new "ultimateHeading" typography variant
+- 07f9433: Make footer cz biohub logo go to czbiohub.org (for now)
+- 68711db: Add small and square variants/props to legacy info box
+- 280e241: Shrink legacy info box a bit to better suit smaller mobile devices
+- c5cddc8: Add ability to switch title font on Grand Banner component between Butler and Lato
+- 95258f5: Add id prop to Heading Separator component
+
 ## 0.2.0
 
 ### Minor Changes
