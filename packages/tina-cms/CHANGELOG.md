@@ -1,5 +1,11 @@
 # @czb-ui/tina-cms
 
+## 0.2.1
+
+### Patch Changes
+
+- d931b55: Remove unneeded peer dependencies
+
 ## 0.2.0
 
 ### Minor Changes
