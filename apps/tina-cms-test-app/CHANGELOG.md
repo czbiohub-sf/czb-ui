@@ -4,7 +4,7 @@
 
 ### Minor Changes
 
-- 248e5f3: Add "Legacy Info Box" which is the info box component styled to look like the Info Box from czb-ui. It is also available through Tina CMS.
+- 248e5f3: Add "Legacy Info Box" which is the info box component styled to look like the Info Box from the previous UI library. It is also available through Tina CMS.
 - 1cf462d: Add Heading Separator component. It is available as a block in Tina CMS also.
 
 ### Patch Changes
