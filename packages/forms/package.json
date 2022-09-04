@@ -1,6 +1,6 @@
 {
-  "name": "@czb-ui/core",
-  "version": "0.2.0",
+  "name": "@czb-ui/forms",
+  "version": "0.0.0",
   "main": "./dist/index.js",
   "types": "./dist/src/index.d.ts",
   "license": "MIT",
@@ -9,42 +9,29 @@
     "dev": "rollup --config rollup.config.ts --watch"
   },
   "devDependencies": {
-    "@emotion/css": "^11.9.0",
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
-    "@mui/base": "^5.0.0-alpha.90",
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
     "@mui/icons-material": "^5.8.4",
-    "@mui/lab": "^5.0.0-alpha.91",
-    "@mui/material": "^5.9.1",
+    "@mui/material": "^5.10.0",
     "@rollup/plugin-typescript": "^8.3.2",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
-    "@types/uuid": "^8.3.4",
     "config": "*",
-    "czifui": "^7.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "rollup": "^2.70.2",
     "rollup-plugin-delete": "^2.0.0",
     "tsconfig": "*",
     "typescript": "^4.5.3"
   },
   "peerDependencies": {
-    "@emotion/css": "^11.9.0",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
-    "@mui/base": "^5.0.0-alpha.90",
+    "@mui/material": "^5.8.5",
     "@mui/icons-material": "^5.8.4",
-    "@mui/lab": "^5.0.0-alpha.91",
-    "@mui/material": "^5.9.1",
-    "czifui": "^7.0.0",
     "react": "^17.0.1 || ^18.0.0",
     "react-dom": "^17.0.1 || ^18.0.0"
   },
   "dependencies": {
     "@rjsf/core": "^4.2.3",
-    "@rjsf/material-ui": "^4.2.3",
-    "hamburger-react": "^2.5.0",
-    "uuid": "^8.3.2"
+    "@rjsf/material-ui": "^4.2.3"
   }
 }
