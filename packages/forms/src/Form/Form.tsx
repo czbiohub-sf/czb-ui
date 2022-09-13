@@ -1,7 +1,5 @@
-// TODO: this does not work:
-// https://github.com/rjsf-team/react-jsonschema-form/tree/master/packages/material-ui#typescript-configuration-adjustments-1
-// @ts-ignore
-import RJSFForm from "@rjsf/material-ui/v5";
+import RJSFForm from "@rjsf/mui";
+import validator from "@rjsf/validator-ajv6";
 import { MultiStepForm } from "./MultiStepForm";
 
 export type schemaType = React.ComponentProps<typeof RJSFForm>["schema"];
@@ -21,7 +19,7 @@ const Form = ({ schema, onCompleteSubmit }: FormProps) => {
     );
   }
 
-  return <RJSFForm schema={schema} />;
+  return <RJSFForm schema={schema} validator={validator} />;
 };
 
 export default Form;
