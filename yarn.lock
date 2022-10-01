@@ -3644,10 +3644,45 @@
     prop-types "^15.7.2"
     react-is "16.9.0"
 
+"@rjsf/core@^5.0.0-beta.10":
+  version "5.0.0-beta.10"
+  resolved "https://registry.yarnpkg.com/@rjsf/core/-/core-5.0.0-beta.10.tgz#ff8f5f7da2f8509ae4d169746efd5cc7633e78cf"
+  integrity sha512-L/ZqK3/3uXhRLcvfOX3uL3adiJ0i7deV/egUkwnJQvqv1bIn58vY4wfiJwqTc8seiAHtyPCvehWZtLthyVP9Rw==
+  dependencies:
+    lodash "^4.17.15"
+    lodash-es "^4.17.15"
+    nanoid "^3.3.4"
+    prop-types "^15.7.2"
+
 "@rjsf/material-ui@^4.2.3":
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/@rjsf/material-ui/-/material-ui-4.2.3.tgz#9d9974d3a827b20324fd55ffdd15e5052be8fefa"
   integrity sha512-BNlIxI730NWvb2ClYzM1jrzfns8FjPh46gvGSH80xzUwOY7l/RWoy+UcdwQeaDVFRfAmR5B+z1n7la7OT+PY4w==
+
+"@rjsf/mui@^5.0.0-beta.10":
+  version "5.0.0-beta.10"
+  resolved "https://registry.yarnpkg.com/@rjsf/mui/-/mui-5.0.0-beta.10.tgz#df1e1bbca83acafe45cc0610987ed4c839a54c20"
+  integrity sha512-FtbGizbfrnxQc+yKbHUbJmbFWqDLldEquvCnnv6KVe/beoxhP2+/vsBAPP628TjkFn8Qe596us9NFfVK5tWtVQ==
+
+"@rjsf/utils@^5.0.0-beta.10":
+  version "5.0.0-beta.10"
+  resolved "https://registry.yarnpkg.com/@rjsf/utils/-/utils-5.0.0-beta.10.tgz#61a32e1b085f756d00e35b72bfb84de2a0cbd1c9"
+  integrity sha512-cXXD9KHILJKk80ma69RN/53hxyPNxpJvyxEVXN1C9xg/VVhjrDTevTgvsfsVshqc8xTevbxVt6P8pm8ITG5QPw==
+  dependencies:
+    json-schema-merge-allof "^0.8.1"
+    jsonpointer "^5.0.1"
+    lodash "^4.17.15"
+    lodash-es "^4.17.15"
+    react-is "^18.2.0"
+
+"@rjsf/validator-ajv6@^5.0.0-beta.10":
+  version "5.0.0-beta.10"
+  resolved "https://registry.yarnpkg.com/@rjsf/validator-ajv6/-/validator-ajv6-5.0.0-beta.10.tgz#dfb50f7da21f4486fda620fb868f7f026d844eec"
+  integrity sha512-Uw7F8JNFK/sU84gv4gRdS1NYOoeK2s9Mue10vne+F1sVHWDD6T4UL4oT7f1AWo2I8pQQ+r2spWQK5cflRfCZ9w==
+  dependencies:
+    ajv "^6.7.0"
+    lodash "^4.17.15"
+    lodash-es "^4.17.15"
 
 "@rollup/plugin-node-resolve@^13.3.0":
   version "13.3.0"
@@ -7698,7 +7733,7 @@ compute-gcd@^1.2.1:
     validate.io-function "^1.0.2"
     validate.io-integer-array "^1.0.0"
 
-compute-lcm@^1.1.0:
+compute-lcm@^1.1.0, compute-lcm@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/compute-lcm/-/compute-lcm-1.1.2.tgz#9107c66b9dca28cefb22b4ab4545caac4034af23"
   integrity sha512-OFNPdQAXnQhDSKioX8/XYT6sdUlXwpeMjfd6ApxMJfyZ4GxmLR1xvMERctlYhlHwIiz6CSpBc2+qYKjHGZw4TQ==
@@ -11854,6 +11889,15 @@ json-schema-merge-allof@^0.6.0:
     json-schema-compare "^0.2.2"
     lodash "^4.17.4"
 
+json-schema-merge-allof@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/json-schema-merge-allof/-/json-schema-merge-allof-0.8.1.tgz#ed2828cdd958616ff74f932830a26291789eaaf2"
+  integrity sha512-CTUKmIlPJbsWfzRRnOXz+0MjIqvnleIXwFTzz+t9T86HnYX/Rozria6ZVGLktAU9e+NygNljveP+yxqtQp/Q4w==
+  dependencies:
+    compute-lcm "^1.1.2"
+    json-schema-compare "^0.2.2"
+    lodash "^4.17.20"
+
 json-schema-traverse@^0.4.1:
   version "0.4.1"
   resolved "https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-0.4.1.tgz"
@@ -11909,7 +11953,7 @@ jsonpath-plus@^6.0.1:
   resolved "https://registry.yarnpkg.com/jsonpath-plus/-/jsonpath-plus-6.0.1.tgz#9a3e16cedadfab07a3d8dc4e8cd5df4ed8f49c4d"
   integrity sha512-EvGovdvau6FyLexFH2OeXfIITlgIbgZoAZe3usiySeaIDm5QS+A10DKNpaPBBqqRSZr2HN6HVNXxtwUAr2apEw==
 
-jsonpointer@^5.0.0:
+jsonpointer@^5.0.0, jsonpointer@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/jsonpointer/-/jsonpointer-5.0.1.tgz#2110e0af0900fd37467b5907ecd13a7884a1b559"
   integrity sha512-p/nXbhSEcu3pZRdkW1OfJhpsVtW1gd4Wa1fnQc9YLiTfAjn0312eMKimbdIQzuZl9aa9xUGaRlP9T/CJE/ditQ==
