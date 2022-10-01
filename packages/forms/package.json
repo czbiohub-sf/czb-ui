@@ -20,7 +20,8 @@
     "rollup": "^2.70.2",
     "rollup-plugin-delete": "^2.0.0",
     "tsconfig": "*",
-    "typescript": "^4.5.3"
+    "typescript": "^4.5.3",
+    "czifui": "^7.16.2"
   },
   "peerDependencies": {
     "@emotion/react": "^11.9.3",
@@ -28,7 +29,8 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.5",
     "react": "^17.0.1 || ^18.0.0",
-    "react-dom": "^17.0.1 || ^18.0.0"
+    "react-dom": "^17.0.1 || ^18.0.0",
+    "czifui": "^7.16.2"
   },
   "dependencies": {
     "@rjsf/core": "^5.0.0-beta.10",

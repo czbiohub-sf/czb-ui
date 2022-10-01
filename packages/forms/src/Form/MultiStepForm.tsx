@@ -2,6 +2,7 @@ import RJSFForm from "@rjsf/mui";
 import validator from "@rjsf/validator-ajv6";
 import { useState } from "react";
 import { schemaType } from "./Form";
+import FormPageNav from "./FormPageNav/FormPageNav";
 
 interface MultiStepFormProps {
   schema: Array<schemaType>;
@@ -50,6 +51,12 @@ export const MultiStepForm = ({
       schema={schema[schema.length - remSteps]}
       validator={validator}
       onSubmit={onStepSubmit}
-    />
+    >
+      <FormPageNav
+        steps={steps}
+        remSteps={remSteps}
+        goBackOneStep={() => setRemSteps(remSteps + 1)}
+      />
+    </RJSFForm>
   );
 };
