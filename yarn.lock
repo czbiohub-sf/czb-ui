@@ -8162,10 +8162,10 @@ cyclist@^1.0.1:
   resolved "https://registry.npmjs.org/cyclist/-/cyclist-1.0.1.tgz"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
-czifui@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/czifui/-/czifui-7.0.0.tgz#13cb391c383019d9de59cf80acfbf0f32e8a58df"
-  integrity sha512-b8Wcu2hDpc5o/IJgb9gSfkykwQ4jBt10z66NBwvlFVz++CXS72TTdVE4fdm1A1qQ23hb3PhxcjIf4Euf6S3Jew==
+czifui@^7.16.2:
+  version "7.16.2"
+  resolved "https://registry.yarnpkg.com/czifui/-/czifui-7.16.2.tgz#cecdf1bd6feceadd0f24958705b86bed9e604bbc"
+  integrity sha512-HSgNkr9YKdoioImHhiVl4lDrX1pIyd0Q/EGoQO66aExSZRcY80CGMJhXcywBfEc8C6OjoO6f5/VEJFNbVh/R1A==
 
 d3-dsv@^3.0.1:
   version "3.0.1"
