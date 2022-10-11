@@ -1,5 +1,5 @@
 ---
-"@czb-ui/forms": patch
+"@czb-ui/forms": minor
 ---
 
 Add buttons to navigate through form pages
