@@ -1,6 +1,7 @@
 import RJSFForm from "@rjsf/mui";
 import validator from "@rjsf/validator-ajv6";
 import { MultiStepForm } from "./MultiStepForm";
+import FormPageNav from "./FormPageNav/FormPageNav";
 
 export type schemaType = React.ComponentProps<typeof RJSFForm>["schema"];
 
@@ -19,7 +20,23 @@ const Form = ({ schema, onCompleteSubmit }: FormProps) => {
     );
   }
 
-  return <RJSFForm schema={schema} validator={validator} />;
+  return (
+    <>
+      <RJSFForm
+        schema={schema}
+        validator={validator}
+        onSubmit={(formData: any) => onCompleteSubmit(formData.formData)}
+      >
+        <FormPageNav
+          steps={1}
+          remSteps={1}
+          goBackOneStep={() =>
+            console.error("Single page form should not have more than one page")
+          }
+        />
+      </RJSFForm>
+    </>
+  );
 };
 
 export default Form;
