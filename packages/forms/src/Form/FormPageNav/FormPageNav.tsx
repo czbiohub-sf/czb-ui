@@ -4,7 +4,7 @@ import { Button } from "czifui";
 interface FormPageNavProps {
   steps: number; // Number of steps the form has
   remSteps: number; // Remaining steps
-  goBackOneStep: () => void;
+  goBackOneStep?: () => void;
 }
 
 export default function FormPageNav({

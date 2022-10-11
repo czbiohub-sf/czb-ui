@@ -27,13 +27,7 @@ const Form = ({ schema, onCompleteSubmit }: FormProps) => {
         validator={validator}
         onSubmit={(formData: any) => onCompleteSubmit(formData.formData)}
       >
-        <FormPageNav
-          steps={1}
-          remSteps={1}
-          goBackOneStep={() =>
-            console.error("Single page form should not have more than one page")
-          }
-        />
+        <FormPageNav steps={1} remSteps={1} />
       </RJSFForm>
     </>
   );
