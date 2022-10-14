@@ -9,5 +9,5 @@ export default {
     format: "cjs",
   },
   plugins: [typescript(), del({ targets: "dist/*" })],
-  external: [/^@emotion\/.*/, /^@mui\/.*/, /^react\.*/, /^@rjsf\/.*/],
+  external: [/^@emotion\/.*/, /^@mui\/.*/, /^react\.*/, /^@rjsf\/.*/, "czifui"],
 };

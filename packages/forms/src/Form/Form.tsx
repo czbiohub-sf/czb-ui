@@ -1,6 +1,7 @@
 import RJSFForm from "@rjsf/mui";
 import validator from "@rjsf/validator-ajv6";
 import { MultiStepForm } from "./MultiStepForm";
+import FormPageNav from "./FormPageNav/FormPageNav";
 import { File } from "../CustomWidgets";
 
 export type schemaType = React.ComponentProps<typeof RJSFForm>["schema"];
@@ -25,7 +26,18 @@ const Form = ({ schema, onCompleteSubmit }: FormProps) => {
     );
   }
 
-  return <RJSFForm schema={schema} validator={validator} widgets={widgets} />;
+  return (
+    <>
+      <RJSFForm
+        schema={schema}
+        validator={validator}
+        onSubmit={(formData: any) => onCompleteSubmit(formData.formData)}
+        widgets={widgets}
+      >
+        <FormPageNav steps={1} remSteps={1} />
+      </RJSFForm>
+    </>
+  );
 };
 
 export default Form;

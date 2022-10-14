@@ -2,6 +2,7 @@ import RJSFForm from "@rjsf/mui";
 import validator from "@rjsf/validator-ajv6";
 import { useState } from "react";
 import { schemaType } from "./Form";
+import FormPageNav from "./FormPageNav/FormPageNav";
 
 interface MultiStepFormProps {
   schema: Array<schemaType>;
@@ -20,13 +21,14 @@ export const MultiStepForm = ({
     Array.from({ length: steps }, (_) => ({}))
   );
 
+  const currentStep = schema.length - remSteps;
+
   // TODO: Find type of submit event?
   const onStepSubmit = (e: any) => {
     // TODO: make sure there are no edge cases
     // with this setting formData thing...
     // (e.g. going back a step then going foward,
     // just dont want things to go out of bounds)
-    const currentStep = schema.length - remSteps;
     setFormData((copiedFormData) => {
       copiedFormData[currentStep] = e.formData;
       return copiedFormData;
@@ -47,9 +49,16 @@ export const MultiStepForm = ({
 
   return (
     <RJSFForm
-      schema={schema[schema.length - remSteps]}
+      schema={schema[currentStep]}
       validator={validator}
       onSubmit={onStepSubmit}
-    />
+      formData={formData[currentStep]}
+    >
+      <FormPageNav
+        steps={steps}
+        remSteps={remSteps}
+        goBackOneStep={() => setRemSteps(remSteps + 1)}
+      />
+    </RJSFForm>
   );
 };
