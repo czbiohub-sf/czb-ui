@@ -21,7 +21,7 @@ export const File = (props: any) => {
     <div>
       {/* TODO: Is this accessible? */}
       <Typography component="label" htmlFor={props.id}>
-        {props.label}
+        {props.title ?? props.label}
       </Typography>
       <Stack direction="row" alignItems="center" spacing={2}>
         <Box>
@@ -37,10 +37,10 @@ export const File = (props: any) => {
             Upload
             <input
               hidden
+              // TODO: Accept prop
               id={props.id}
-              accept="image/*"
-              multiple
               type="file"
+              multiple={props.multiple}
               onChange={onFileChange}
             />
           </Button>
