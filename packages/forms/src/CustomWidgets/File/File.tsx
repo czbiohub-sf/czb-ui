@@ -6,6 +6,7 @@ import { dataURItoBlob, WidgetProps } from "@rjsf/utils";
 
 // Most of the code is from the default FileWidget widget
 // https://github.com/rjsf-team/react-jsonschema-form/blob/main/packages/core/src/components/widgets/FileWidget.tsx
+// TODO: Put these functions in another file
 
 function addNameToDataURL(dataURL: string, name: string) {
   if (dataURL === null) {
