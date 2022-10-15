@@ -4,6 +4,9 @@ import { Button, Icon, TagFilter } from "czifui";
 import { Stack } from "@mui/material";
 import { dataURItoBlob, WidgetProps } from "@rjsf/utils";
 
+// Most of the code is from the default FileWidget widget
+// https://github.com/rjsf-team/react-jsonschema-form/blob/main/packages/core/src/components/widgets/FileWidget.tsx
+
 function addNameToDataURL(dataURL: string, name: string) {
   if (dataURL === null) {
     return null;
