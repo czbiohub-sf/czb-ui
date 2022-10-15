@@ -12,6 +12,8 @@ export const File = (props: any) => {
 
   // TODO: Find types for file change event
   const onFileChange = (e: any) => {
+    // FileList from the event is an object so make it
+    // an array so we can iterate through it
     const uploadedFilesInfo = Array.from(e.target.files);
 
     // Put only file names in the state
@@ -43,8 +45,8 @@ export const File = (props: any) => {
         </Button>
       </label>
       {fileNames &&
-        fileNames.map((fileName: string) => (
-          <TagFilter label={fileName} onDelete={(e) => console.log(e)} />
+        fileNames.map((fileName: string, i: number) => (
+          <TagFilter label={fileName} onDelete={(e) => console.log(e)} key={i}/>
         ))}
     </div>
   );
