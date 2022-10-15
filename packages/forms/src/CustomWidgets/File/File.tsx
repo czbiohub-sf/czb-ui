@@ -103,6 +103,17 @@ export const File = ({
     [multiple, onChange]
   );
 
+  const handleDelete = (index: number) => {
+    const copiedValueState = Array.from(value);
+    const copiedFilesInfoState = Array.from(filesInfo);
+
+    copiedValueState.splice(index, 1);
+    copiedFilesInfoState.splice(index, 1);
+
+    onChange(copiedValueState);
+    setFilesInfo(copiedFilesInfoState);
+  };
+
   return (
     <div>
       <Typography component="label">{title ?? label}</Typography>
@@ -135,11 +146,7 @@ export const File = ({
         </Box>
         <Box>
           {filesInfo.map((file: FileInfoType, i: number) => (
-            <TagFilter
-              label={file.name}
-              onDelete={(e) => console.log(e)}
-              key={i}
-            />
+            <TagFilter label={file.name} onDelete={handleDelete} key={i} />
           ))}
         </Box>
       </Stack>
