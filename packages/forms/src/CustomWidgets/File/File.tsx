@@ -1,10 +1,7 @@
 import { useState } from "React";
 import { Typography, Box, styled } from "@mui/material";
 import { Button, Icon, TagFilter } from "czifui";
-
-const Input = styled("input")({
-  display: "none",
-});
+import { Stack } from "@mui/material";
 
 // TODO: Find type of props for file widget
 export const File = (props: any) => {
@@ -22,32 +19,43 @@ export const File = (props: any) => {
 
   return (
     <div>
-      <Typography>{props.label}</Typography>
-      <label htmlFor="contained-button-file">
-        <Input
-          accept="image/*"
-          id="contained-button-file"
-          multiple
-          type="file"
-          onChange={onFileChange}
-        />
-        <Button
-          sdsType="secondary"
-          sdsStyle="square"
-          sx={{ my: 4 }}
-          component="span"
-        >
-          <Box mr={2}>
+      {/* TODO: Is this accessible? */}
+      <Typography component="label" htmlFor={props.id}>
+        {props.label}
+      </Typography>
+      <Stack direction="row" alignItems="center" spacing={2}>
+        <Box>
+          <Button
+            sdsType="secondary"
+            sdsStyle="square"
+            sx={{ my: 4 }}
+            component="label"
+            htmlFor={props.id}
+          >
             {/* TODO: Upload icon isn't there for some reason */}
             <Icon sdsIcon="grid" sdsSize="l" sdsType="button" />
-          </Box>
-          Upload
-        </Button>
-      </label>
-      {fileNames &&
-        fileNames.map((fileName: string, i: number) => (
-          <TagFilter label={fileName} onDelete={(e) => console.log(e)} key={i}/>
-        ))}
+            Upload
+            <input
+              hidden
+              id={props.id}
+              accept="image/*"
+              multiple
+              type="file"
+              onChange={onFileChange}
+            />
+          </Button>
+        </Box>
+        <Box>
+          {fileNames &&
+            fileNames.map((fileName: string, i: number) => (
+              <TagFilter
+                label={fileName}
+                onDelete={(e) => console.log(e)}
+                key={i}
+              />
+            ))}
+        </Box>
+      </Stack>
     </div>
   );
 };
