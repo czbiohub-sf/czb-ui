@@ -115,11 +115,15 @@ export const File = ({
             Upload
             <input
               hidden
-              // TODO: Accept prop
               id={id}
+              name={id}
               type="file"
-              multiple={multiple}
+              disabled={readonly || disabled}
               onChange={handleChange}
+              defaultValue=""
+              autoFocus={autofocus}
+              multiple={multiple}
+              accept={options.accept ? String(options.accept) : undefined}
             />
           </Button>
         </Box>
