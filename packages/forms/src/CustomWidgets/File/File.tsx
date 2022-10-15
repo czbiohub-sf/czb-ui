@@ -48,28 +48,6 @@ function processFiles(files: FileList) {
   return Promise.all(Array.from(files).map(processFile));
 }
 
-function FilesInfo({
-  filesInfo,
-}: {
-  filesInfo: { name: string; size: number; type: string }[];
-}) {
-  if (filesInfo.length === 0) {
-    return null;
-  }
-  return (
-    <ul className="file-info">
-      {filesInfo.map((fileInfo, key) => {
-        const { name, size, type } = fileInfo;
-        return (
-          <li key={key}>
-            <strong>{name}</strong> ({type}, {size} bytes)
-          </li>
-        );
-      })}
-    </ul>
-  );
-}
-
 function extractFileInfo(dataURLs: string[]) {
   return dataURLs
     .filter((dataURL) => typeof dataURL !== "undefined")
