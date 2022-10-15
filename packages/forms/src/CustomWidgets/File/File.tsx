@@ -1,5 +1,6 @@
+import { useState } from "React";
 import { Typography, Box, styled } from "@mui/material";
-import { Button, Icon } from "czifui";
+import { Button, Icon, TagFilter } from "czifui";
 
 const Input = styled("input")({
   display: "none",
@@ -7,7 +8,15 @@ const Input = styled("input")({
 
 // TODO: Find type of props for file widget
 export const File = (props: any) => {
-  console.log(props);
+  const [fileNames, setFileNames] = useState();
+
+  // TODO: Find types for file change event
+  const onFileChange = (e: any) => {
+    const uploadedFilesInfo = Array.from(e.target.files);
+
+    // Put only file names in the state
+    setFileNames(uploadedFilesInfo.map((file) => file.name));
+  };
 
   return (
     <div>
@@ -18,6 +27,7 @@ export const File = (props: any) => {
           id="contained-button-file"
           multiple
           type="file"
+          onChange={onFileChange}
         />
         <Button
           sdsType="secondary"
@@ -32,6 +42,10 @@ export const File = (props: any) => {
           Upload
         </Button>
       </label>
+      {fileNames &&
+        fileNames.map((fileName: string) => (
+          <TagFilter label={fileName} onDelete={(e) => console.log(e)} />
+        ))}
     </div>
   );
 };
