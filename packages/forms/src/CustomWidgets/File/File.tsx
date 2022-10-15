@@ -64,7 +64,6 @@ function extractFileInfo(dataURLs: string[]) {
     });
 }
 
-// TODO: Find type of props for file widget
 export const File = ({
   multiple,
   id,
