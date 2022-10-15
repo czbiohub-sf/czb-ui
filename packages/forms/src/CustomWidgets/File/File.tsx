@@ -74,6 +74,8 @@ export const File = ({
   value,
   autofocus = false,
   options,
+  title,
+  label,
 }: WidgetProps) => {
   const extractedFilesInfo = useMemo(
     () =>
@@ -103,6 +105,7 @@ export const File = ({
 
   return (
     <div>
+      <Typography component="label">{title ?? label}</Typography>
       {/* TODO: Is this accessible? */}
       <Stack direction="row" alignItems="center" spacing={2}>
         <Box>
