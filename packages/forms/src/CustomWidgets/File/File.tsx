@@ -1,28 +1,128 @@
-import { useState } from "React";
+import React, { ChangeEvent, useCallback, useMemo, useState } from "react";
 import { Typography, Box, styled } from "@mui/material";
 import { Button, Icon, TagFilter } from "czifui";
 import { Stack } from "@mui/material";
+import { dataURItoBlob, WidgetProps } from "@rjsf/utils";
+
+function addNameToDataURL(dataURL: string, name: string) {
+  if (dataURL === null) {
+    return null;
+  }
+  return dataURL.replace(";base64", `;name=${encodeURIComponent(name)};base64`);
+}
+
+type FileInfoType = {
+  dataURL?: string | null;
+  name: string;
+  size: number;
+  type: string;
+};
+
+function processFile(file: File): Promise<FileInfoType> {
+  const { name, size, type } = file;
+  return new Promise((resolve, reject) => {
+    const reader = new window.FileReader();
+    reader.onerror = reject;
+    reader.onload = (event) => {
+      if (typeof event.target?.result === "string") {
+        resolve({
+          dataURL: addNameToDataURL(event.target.result, name),
+          name,
+          size,
+          type,
+        });
+      } else {
+        resolve({
+          dataURL: null,
+          name,
+          size,
+          type,
+        });
+      }
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function processFiles(files: FileList) {
+  return Promise.all(Array.from(files).map(processFile));
+}
+
+function FilesInfo({
+  filesInfo,
+}: {
+  filesInfo: { name: string; size: number; type: string }[];
+}) {
+  if (filesInfo.length === 0) {
+    return null;
+  }
+  return (
+    <ul className="file-info">
+      {filesInfo.map((fileInfo, key) => {
+        const { name, size, type } = fileInfo;
+        return (
+          <li key={key}>
+            <strong>{name}</strong> ({type}, {size} bytes)
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+function extractFileInfo(dataURLs: string[]) {
+  return dataURLs
+    .filter((dataURL) => typeof dataURL !== "undefined")
+    .map((dataURL) => {
+      const { blob, name } = dataURItoBlob(dataURL);
+      return {
+        name: name,
+        size: blob.size,
+        type: blob.type,
+      };
+    });
+}
 
 // TODO: Find type of props for file widget
-export const File = (props: any) => {
-  const [fileNames, setFileNames] = useState();
+export const File = ({
+  multiple,
+  id,
+  readonly,
+  disabled,
+  onChange,
+  value,
+  autofocus = false,
+  options,
+}: WidgetProps) => {
+  const extractedFilesInfo = useMemo(
+    () =>
+      Array.isArray(value) ? extractFileInfo(value) : extractFileInfo([value]),
+    [value]
+  );
+  const [filesInfo, setFilesInfo] =
+    useState<FileInfoType[]>(extractedFilesInfo);
 
-  // TODO: Find types for file change event
-  const onFileChange = (e: any) => {
-    // FileList from the event is an object so make it
-    // an array so we can iterate through it
-    const uploadedFilesInfo = Array.from(e.target.files);
-
-    // Put only file names in the state
-    setFileNames(uploadedFilesInfo.map((file) => file.name));
-  };
+  const handleChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      if (!event.target.files) {
+        return;
+      }
+      processFiles(event.target.files).then((filesInfoEvent) => {
+        setFilesInfo(filesInfoEvent);
+        const newValue = filesInfoEvent.map((fileInfo) => fileInfo.dataURL);
+        if (multiple) {
+          onChange(newValue);
+        } else {
+          onChange(newValue[0]);
+        }
+      });
+    },
+    [multiple, onChange]
+  );
 
   return (
     <div>
       {/* TODO: Is this accessible? */}
-      <Typography component="label" htmlFor={props.id}>
-        {props.title ?? props.label}
-      </Typography>
       <Stack direction="row" alignItems="center" spacing={2}>
         <Box>
           <Button
@@ -30,7 +130,7 @@ export const File = (props: any) => {
             sdsStyle="square"
             sx={{ my: 4 }}
             component="label"
-            htmlFor={props.id}
+            htmlFor={id}
           >
             {/* TODO: Upload icon isn't there for some reason */}
             <Icon sdsIcon="grid" sdsSize="l" sdsType="button" />
@@ -38,22 +138,21 @@ export const File = (props: any) => {
             <input
               hidden
               // TODO: Accept prop
-              id={props.id}
+              id={id}
               type="file"
-              multiple={props.multiple}
-              onChange={onFileChange}
+              multiple={multiple}
+              onChange={handleChange}
             />
           </Button>
         </Box>
         <Box>
-          {fileNames &&
-            fileNames.map((fileName: string, i: number) => (
-              <TagFilter
-                label={fileName}
-                onDelete={(e) => console.log(e)}
-                key={i}
-              />
-            ))}
+          {filesInfo.map((file: FileInfoType, i: number) => (
+            <TagFilter
+              label={file.name}
+              onDelete={(e) => console.log(e)}
+              key={i}
+            />
+          ))}
         </Box>
       </Stack>
     </div>
