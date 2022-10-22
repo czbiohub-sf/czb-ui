@@ -27,7 +27,8 @@ function processFile(file: File): Promise<FileInfoType> {
   return new Promise((resolve, reject) => {
     const reader = new window.FileReader();
     reader.onerror = reject;
-    reader.onload = (event) => {
+    // TODO: Find event type
+    reader.onload = (event: any) => {
       if (typeof event.target?.result === "string") {
         resolve({
           dataURL: addNameToDataURL(event.target.result, name),
