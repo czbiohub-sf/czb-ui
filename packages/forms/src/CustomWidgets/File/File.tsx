@@ -1,4 +1,4 @@
-import { ChangeEvent, useCallback, useMemo, useState } from "react";
+import { ChangeEvent, useCallback, useMemo, useRef, useState } from "react";
 import { Typography, Box } from "@mui/material";
 import { Button, Icon, TagFilter } from "czifui";
 import { Stack } from "@mui/material";
@@ -86,6 +86,13 @@ export const File = ({
   const [filesInfo, setFilesInfo] =
     useState<FileInfoType[]>(extractedFilesInfo);
 
+  // Create a ref to allow us to reset the file input.
+  // Resetting is needed every time a file is uploaded
+  // as we cannot manually change the value of the file input.
+  // As we are tracking the actual file in a separate state,
+  // the HTML file input will become de-synced.
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       console.log("handleChange called", event.target.files);
@@ -101,6 +108,11 @@ export const File = ({
           onChange(newValue[0]);
         }
       });
+      if (inputRef.current) {
+        inputRef.current.value = "";
+      } else {
+        throw "File input ref does not exist";
+      }
     },
     [multiple, onChange]
   );
@@ -157,6 +169,7 @@ export const File = ({
               autoFocus={autofocus}
               multiple={multiple}
               accept={options.accept ? String(options.accept) : undefined}
+              ref={inputRef}
             />
           </Button>
         </Box>
