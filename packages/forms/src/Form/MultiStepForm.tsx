@@ -1,16 +1,18 @@
 import RJSFForm from "@rjsf/mui";
 import validator from "@rjsf/validator-ajv6";
 import { useState } from "react";
-import { schemaType } from "./Form";
+import { schemaType, uiSchemaType } from "./Form";
 import FormPageNav from "./FormPageNav/FormPageNav";
 
 interface MultiStepFormProps {
   schema: Array<schemaType>;
+  uiSchema: uiSchemaType;
   onCompleteSubmit: (completedFormEvent: any) => void; // TODO: Find type of submit event?
 }
 
 export const MultiStepForm = ({
   schema,
+  uiSchema,
   onCompleteSubmit,
 }: MultiStepFormProps) => {
   const steps = schema.length;
@@ -50,6 +52,7 @@ export const MultiStepForm = ({
   return (
     <RJSFForm
       schema={schema[currentStep]}
+      uiSchema={uiSchema}
       validator={validator}
       onSubmit={onStepSubmit}
       formData={formData[currentStep]}

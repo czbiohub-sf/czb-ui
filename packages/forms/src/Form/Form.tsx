@@ -5,9 +5,11 @@ import FormPageNav from "./FormPageNav/FormPageNav";
 import { File } from "../CustomWidgets";
 
 export type schemaType = React.ComponentProps<typeof RJSFForm>["schema"];
+export type uiSchemaType = React.ComponentProps<typeof RJSFForm>["uiSchema"];
 
 interface FormProps {
   schema: schemaType | Array<schemaType>;
+  uiSchema: uiSchemaType;
   onCompleteSubmit: (formData: any) => void;
 }
 
@@ -15,12 +17,13 @@ const widgets = {
   FileWidget: File,
 };
 
-const Form = ({ schema, onCompleteSubmit }: FormProps) => {
+const Form = ({ schema, uiSchema, onCompleteSubmit }: FormProps) => {
   if (Array.isArray(schema)) {
     return (
       // TODO: Add custom widgets here
       <MultiStepForm
         schema={schema}
+        uiSchema={uiSchema}
         onCompleteSubmit={(formData) => onCompleteSubmit(formData)}
       />
     );
@@ -30,6 +33,7 @@ const Form = ({ schema, onCompleteSubmit }: FormProps) => {
     <>
       <RJSFForm
         schema={schema}
+        uiSchema={uiSchema}
         validator={validator}
         onSubmit={(formData: any) => onCompleteSubmit(formData.formData)}
         widgets={widgets}
