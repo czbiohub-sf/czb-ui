@@ -16,12 +16,18 @@ FileUpload.args = {
     title: "Test form",
     type: "object",
     properties: {
-      name: {
-        type: "string",
-      },
-      files: {
+      file: {
         type: "string",
         format: "data-url",
+        title: "Single file",
+      },
+      files: {
+        type: "array",
+        title: "Multiple files",
+        items: {
+          type: "string",
+          format: "data-url",
+        },
       },
     },
   },
