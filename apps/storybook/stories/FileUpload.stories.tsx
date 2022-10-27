@@ -29,6 +29,18 @@ FileUpload.args = {
           format: "data-url",
         },
       },
+      filesAccept: {
+        type: "string",
+        format: "data-url",
+        title: "Single File with Accept attribute",
+      },
+    },
+  },
+  uiSchema: {
+    filesAccept: {
+      "ui:options": {
+        accept: ".pdf",
+      },
     },
   },
 };
