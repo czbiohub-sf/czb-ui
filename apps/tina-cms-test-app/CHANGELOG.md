@@ -1,5 +1,17 @@
 # tina-cms-test-app
 
+## 0.2.1-beta.0
+
+### Patch Changes
+
+- 1daafaf: Update czifui
+- 0ec5fcd: Update tinacms
+- Updated dependencies [1daafaf]
+- Updated dependencies [7694db7]
+- Updated dependencies [0ec5fcd]
+  - @czb-ui/core@0.3.1-beta.0
+  - @czb-ui/tina-cms@0.2.2-beta.0
+
 ## 0.2.0
 
 ### Minor Changes

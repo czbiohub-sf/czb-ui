@@ -1,5 +1,12 @@
 # @czb-ui/tina-cms
 
+## 0.2.2-beta.0
+
+### Patch Changes
+
+- 1daafaf: Update czifui
+- 0ec5fcd: Update tinacms
+
 ## 0.2.1
 
 ### Patch Changes
