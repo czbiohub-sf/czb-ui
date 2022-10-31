@@ -1,6 +1,6 @@
 {
   "name": "tina-cms-test-app",
-  "version": "0.2.1-beta.0",
+  "version": "0.2.1-beta.1",
   "private": true,
   "scripts": {
     "dev": "tinacms dev -c \"next dev -p 3001\"",
@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@czb-ui/biohub-logos": "*",
-    "@czb-ui/core": "0.3.1-beta.0",
+    "@czb-ui/core": "0.3.1-beta.1",
     "@czb-ui/tina-cms": "0.2.2-beta.0",
     "@emotion/css": "^11.9.0",
     "@emotion/react": "^11.9.3",

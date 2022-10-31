@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 0.3.1-beta.1
+
+### Patch Changes
+
+- 6c3efa5: Remove rjsf dependencies
+
 ## 0.3.1-beta.0
 
 ### Patch Changes

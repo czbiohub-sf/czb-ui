@@ -1,5 +1,12 @@
 # storybook
 
+## 0.4.0-beta.1
+
+### Patch Changes
+
+- Updated dependencies [6c3efa5]
+  - @czb-ui/core@0.3.1-beta.1
+
 ## 0.4.0-beta.0
 
 ### Minor Changes
