@@ -3653,22 +3653,6 @@
   resolved "https://registry.yarnpkg.com/@react-types/shared/-/shared-3.13.1.tgz#eda5e3744971606f753baf7879136bf8e3f707ab"
   integrity sha512-EHQqILDJeDvnloy5VV9lnnEjpCMwH1ghptCfa/lz9Ht9nwco3qGCvUABkWyND7yU1Adt3A/1oJxhpRUu3eTlyg==
 
-"@rjsf/core@^4.2.3":
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/@rjsf/core/-/core-4.2.3.tgz#7ff2fb593f0af20485dc267391a8971378eec655"
-  integrity sha512-dRXhd1Tac/9OcG0VDrYDF2boNTyKINEEITEtJ4L1Yce2iMVk66U52BhWKIFp/WXDM27vwnOfwQo4NwGiqeQeHw==
-  dependencies:
-    "@types/json-schema" "^7.0.7"
-    ajv "^6.7.0"
-    core-js-pure "^3.6.5"
-    json-schema-merge-allof "^0.6.0"
-    jsonpointer "^5.0.0"
-    lodash "^4.17.15"
-    lodash-es "^4.17.15"
-    nanoid "^3.1.23"
-    prop-types "^15.7.2"
-    react-is "16.9.0"
-
 "@rjsf/core@^5.0.0-beta.10":
   version "5.0.0-beta.10"
   resolved "https://registry.yarnpkg.com/@rjsf/core/-/core-5.0.0-beta.10.tgz#ff8f5f7da2f8509ae4d169746efd5cc7633e78cf"
@@ -3678,11 +3662,6 @@
     lodash-es "^4.17.15"
     nanoid "^3.3.4"
     prop-types "^15.7.2"
-
-"@rjsf/material-ui@^4.2.3":
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/@rjsf/material-ui/-/material-ui-4.2.3.tgz#9d9974d3a827b20324fd55ffdd15e5052be8fefa"
-  integrity sha512-BNlIxI730NWvb2ClYzM1jrzfns8FjPh46gvGSH80xzUwOY7l/RWoy+UcdwQeaDVFRfAmR5B+z1n7la7OT+PY4w==
 
 "@rjsf/mui@^5.0.0-beta.10":
   version "5.0.0-beta.10"
@@ -5150,7 +5129,7 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/json-schema@*", "@types/json-schema@^7.0.4", "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.7", "@types/json-schema@^7.0.8":
+"@types/json-schema@*", "@types/json-schema@^7.0.4", "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.8":
   version "7.0.11"
   resolved "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.11.tgz"
   integrity sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==
@@ -7859,7 +7838,7 @@ compute-gcd@^1.2.1:
     validate.io-function "^1.0.2"
     validate.io-integer-array "^1.0.0"
 
-compute-lcm@^1.1.0, compute-lcm@^1.1.2:
+compute-lcm@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/compute-lcm/-/compute-lcm-1.1.2.tgz#9107c66b9dca28cefb22b4ab4545caac4034af23"
   integrity sha512-OFNPdQAXnQhDSKioX8/XYT6sdUlXwpeMjfd6ApxMJfyZ4GxmLR1xvMERctlYhlHwIiz6CSpBc2+qYKjHGZw4TQ==
@@ -7983,11 +7962,6 @@ core-js-pure@^3.20.2, core-js-pure@^3.8.1:
   version "3.22.0"
   resolved "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.22.0.tgz"
   integrity sha512-ylOC9nVy0ak1N+fPIZj00umoZHgUVqmucklP5RT5N+vJof38klKn8Ze6KGyvchdClvEBr6LcQqJpI216LUMqYA==
-
-core-js-pure@^3.6.5:
-  version "3.24.1"
-  resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.24.1.tgz#8839dde5da545521bf282feb7dc6d0b425f39fd3"
-  integrity sha512-r1nJk41QLLPyozHUUPmILCEMtMw24NG4oWK6RbsDdjzQgg9ZvrUsPBj1MnG0wXXp1DCDU6j+wUvEmBSrtRbLXg==
 
 core-js@^3.0.4, core-js@^3.6.5, core-js@^3.8.2:
   version "3.22.0"
@@ -12001,15 +11975,6 @@ json-schema-compare@^0.2.2:
   dependencies:
     lodash "^4.17.4"
 
-json-schema-merge-allof@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/json-schema-merge-allof/-/json-schema-merge-allof-0.6.0.tgz#64d48820fec26b228db837475ce3338936bf59a5"
-  integrity sha512-LEw4VMQVRceOPLuGRWcxW5orTTiR9ZAtqTAe4rQUjNADTeR81bezBVFa0MqIwp0YmHIM1KkhSjZM7o+IQhaPbQ==
-  dependencies:
-    compute-lcm "^1.1.0"
-    json-schema-compare "^0.2.2"
-    lodash "^4.17.4"
-
 json-schema-merge-allof@^0.8.1:
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/json-schema-merge-allof/-/json-schema-merge-allof-0.8.1.tgz#ed2828cdd958616ff74f932830a26291789eaaf2"
@@ -12074,7 +12039,7 @@ jsonpath-plus@^6.0.1:
   resolved "https://registry.yarnpkg.com/jsonpath-plus/-/jsonpath-plus-6.0.1.tgz#9a3e16cedadfab07a3d8dc4e8cd5df4ed8f49c4d"
   integrity sha512-EvGovdvau6FyLexFH2OeXfIITlgIbgZoAZe3usiySeaIDm5QS+A10DKNpaPBBqqRSZr2HN6HVNXxtwUAr2apEw==
 
-jsonpointer@^5.0.0, jsonpointer@^5.0.1:
+jsonpointer@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/jsonpointer/-/jsonpointer-5.0.1.tgz#2110e0af0900fd37467b5907ecd13a7884a1b559"
   integrity sha512-p/nXbhSEcu3pZRdkW1OfJhpsVtW1gd4Wa1fnQc9YLiTfAjn0312eMKimbdIQzuZl9aa9xUGaRlP9T/CJE/ditQ==
@@ -15025,11 +14990,6 @@ react-inspector@^5.1.0:
     "@babel/runtime" "^7.0.0"
     is-dom "^1.0.0"
     prop-types "^15.0.0"
-
-react-is@16.9.0:
-  version "16.9.0"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
-  integrity sha512-tJBzzzIgnnRfEm046qRcURvwQnZVXmuCbscxUO5RWrGTXpon2d4c8mI0D8WE6ydVIm29JiLB6+RslkIvym9Rjw==
 
 react-is@17.0.2, react-is@^17.0.2:
   version "17.0.2"
