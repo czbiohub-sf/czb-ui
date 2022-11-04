@@ -1,6 +1,6 @@
 {
   "name": "storybook",
-  "version": "0.4.0-beta.1",
+  "version": "0.4.0-beta.2",
   "private": true,
   "scripts": {
     "dev": "start-storybook -p 6006",
@@ -9,7 +9,7 @@
   "dependencies": {
     "@czb-ui/biohub-logos": "*",
     "@czb-ui/core": "0.3.1-beta.1",
-    "@czb-ui/forms": "0.2.0-beta.0",
+    "@czb-ui/forms": "0.2.0-beta.1",
     "@emotion/css": "^11.9.0",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",

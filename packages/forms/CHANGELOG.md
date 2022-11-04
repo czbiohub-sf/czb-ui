@@ -1,5 +1,11 @@
 # @czb-ui/forms
 
+## 0.2.0-beta.1
+
+### Patch Changes
+
+- 6eb3e92: Add custom widgets to MultiStepForm
+
 ## 0.2.0-beta.0
 
 ### Minor Changes
