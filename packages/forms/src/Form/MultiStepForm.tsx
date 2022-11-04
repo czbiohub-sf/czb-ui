@@ -3,6 +3,7 @@ import validator from "@rjsf/validator-ajv6";
 import { useState } from "react";
 import { schemaType, uiSchemaType } from "./Form";
 import FormPageNav from "./FormPageNav/FormPageNav";
+import { widgets } from "./Form";
 
 interface MultiStepFormProps {
   schema: Array<schemaType>;
@@ -56,6 +57,7 @@ export const MultiStepForm = ({
       validator={validator}
       onSubmit={onStepSubmit}
       formData={formData[currentStep]}
+      widgets={widgets}
     >
       <FormPageNav
         steps={steps}

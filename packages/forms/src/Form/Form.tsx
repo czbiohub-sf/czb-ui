@@ -13,7 +13,7 @@ interface FormProps {
   onCompleteSubmit: (formData: any) => void;
 }
 
-const widgets = {
+export const widgets = {
   FileWidget: File,
 };
 
