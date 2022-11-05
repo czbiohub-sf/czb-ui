@@ -7,8 +7,8 @@ import { widgets } from "./Form";
 
 interface MultiStepFormProps {
   schema: Array<schemaType>;
-  uiSchema: uiSchemaType;
   onCompleteSubmit: (completedFormEvent: any) => void; // TODO: Find type of submit event?
+  uiSchema?: uiSchemaType;
 }
 
 export const MultiStepForm = ({

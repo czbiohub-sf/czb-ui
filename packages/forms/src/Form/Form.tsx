@@ -9,8 +9,8 @@ export type uiSchemaType = React.ComponentProps<typeof RJSFForm>["uiSchema"];
 
 interface FormProps {
   schema: schemaType | Array<schemaType>;
-  uiSchema: uiSchemaType;
   onCompleteSubmit: (formData: any) => void;
+  uiSchema?: uiSchemaType;
 }
 
 export const widgets = {
