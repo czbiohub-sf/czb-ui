@@ -1,5 +1,12 @@
 # @czb-ui/forms
 
+## 0.2.0-beta.2
+
+### Patch Changes
+
+- d956156: Make uiSchema prop optional
+- f17ea3a: Change saving form data behavior in between steps
+
 ## 0.2.0-beta.1
 
 ### Patch Changes
