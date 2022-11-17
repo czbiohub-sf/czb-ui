@@ -4,11 +4,20 @@ import del from "rollup-plugin-delete";
 
 export default {
   input: "src/index.tsx",
-  output: {
-    dir: "dist",
-    format: "cjs",
-  },
-  plugins: [typescript(), del({ targets: "dist/*", runOnce: true })],
+  output: [
+    {
+      file: "dist/index.cjs.js",
+      format: "cjs",
+    },
+    {
+      file: "dist/index.esm.js",
+      format: "esm",
+    },
+  ],
+  plugins: [
+    typescript({ tsconfig: "./tsconfig.json" }),
+    del({ targets: "dist/*", runOnce: true }),
+  ],
   external: [
     /^@emotion\/.*/,
     /^@mui\/.*/,

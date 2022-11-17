@@ -1,27 +1,13 @@
 {
   "name": "@czb-ui/forms",
   "version": "0.2.0-beta.2",
-  "main": "./dist/index.js",
-  "types": "./dist/src/index.d.ts",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
   "license": "MIT",
   "scripts": {
     "build": "rollup --config rollup.config.ts",
     "dev": "rollup --config rollup.config.ts --watch"
-  },
-  "devDependencies": {
-    "@emotion/react": "^11.10.0",
-    "@emotion/styled": "^11.10.0",
-    "@mui/icons-material": "^5.8.4",
-    "@mui/material": "^5.10.0",
-    "@rollup/plugin-typescript": "^8.3.2",
-    "@types/react": "^17.0.37",
-    "@types/react-dom": "^17.0.11",
-    "config": "*",
-    "rollup": "^2.70.2",
-    "rollup-plugin-delete": "^2.0.0",
-    "tsconfig": "*",
-    "typescript": "^4.5.3",
-    "czifui": "^7.16.2"
   },
   "peerDependencies": {
     "@emotion/react": "^11.9.3",
@@ -33,9 +19,7 @@
     "czifui": "^7.16.2"
   },
   "dependencies": {
-    "@rjsf/core": "^5.0.0-beta.10",
-    "@rjsf/mui": "^5.0.0-beta.10",
-    "@rjsf/utils": "^5.0.0-beta.10",
-    "@rjsf/validator-ajv6": "^5.0.0-beta.10"
+    "@rjsf/core": "^4.2.3",
+    "@rjsf/material-ui": "^4.2.3"
   }
 }
