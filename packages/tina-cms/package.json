@@ -11,8 +11,7 @@
   },
   "devDependencies": {
     "@czb-ui/core": "*",
-    "next": "^12.2.2",
-    "tinacms": "^0.69.14"
+    "next": "^12.2.2"
   },
   "peerDependencies": {
     "@emotion/css": "^11.9.0",

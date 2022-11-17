@@ -39,7 +39,9 @@
     "rollup-plugin-delete": "^2.0.0",
     "tsconfig": "*",
     "typescript": "^4.5.3",
-    "turbo": "latest"
+    "turbo": "latest",
+    "tinacms": "^0.69.14",
+    "@tinacms/cli": "^0.61.1"
   },
   "engines": {
     "npm": ">=7.0.0",
