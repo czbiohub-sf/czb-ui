@@ -9,27 +9,6 @@
     "build": "rollup --config rollup.config.ts",
     "dev": "rollup --config rollup.config.ts --watch"
   },
-  "devDependencies": {
-    "@emotion/css": "^11.9.0",
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
-    "@mui/base": "^5.0.0-alpha.90",
-    "@mui/icons-material": "^5.8.4",
-    "@mui/lab": "^5.0.0-alpha.91",
-    "@mui/material": "^5.9.1",
-    "@rollup/plugin-typescript": "^8.3.2",
-    "@types/react": "^17.0.37",
-    "@types/react-dom": "^17.0.11",
-    "@types/uuid": "^8.3.4",
-    "config": "*",
-    "czifui": "^7.16.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "rollup": "^2.70.2",
-    "rollup-plugin-delete": "^2.0.0",
-    "tsconfig": "*",
-    "typescript": "^4.5.3"
-  },
   "peerDependencies": {
     "@emotion/css": "^11.9.0",
     "@emotion/react": "^11.9.3",
