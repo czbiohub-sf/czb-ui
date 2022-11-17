@@ -26,9 +26,7 @@
     "tinacms": "^0.69.14"
   },
   "devDependencies": {
-    "@tinacms/cli": "^0.61.1",
-    "eslint": "7",
-    "eslint-config-next": "12.0.3"
+    "@tinacms/cli": "^0.61.1"
   },
   "resolutions": {
     "@headlessui/react": "1.4.1"
