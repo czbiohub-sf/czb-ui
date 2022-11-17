@@ -19,7 +19,9 @@
     "czifui": "^7.16.2"
   },
   "dependencies": {
-    "@rjsf/core": "^4.2.3",
-    "@rjsf/material-ui": "^4.2.3"
+    "@rjsf/core": "^5.0.0-beta.10",
+    "@rjsf/mui": "^5.0.0-beta.10",
+    "@rjsf/utils": "^5.0.0-beta.10",
+    "@rjsf/validator-ajv6": "^5.0.0-beta.10"
   }
 }
