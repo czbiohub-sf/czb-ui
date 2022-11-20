@@ -1,6 +1,7 @@
 // rollup.config.js
 import typescript from "@rollup/plugin-typescript";
 import del from "rollup-plugin-delete";
+import { babel } from "@rollup/plugin-babel";
 
 export default {
   input: "src/index.ts",
@@ -17,6 +18,7 @@ export default {
   plugins: [
     typescript({ tsconfig: "./tsconfig.json" }),
     del({ targets: "dist/*", runOnce: true }),
+    babel({ babelHelpers: "bundled" }),
   ],
   external: [/^@emotion\/.*/, /^@mui\/.*/, /^react\.*/, /^@rjsf\/.*/, "czifui"],
 };
