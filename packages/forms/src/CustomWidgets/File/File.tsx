@@ -95,7 +95,6 @@ export const File = ({
 
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
-      console.log("handleChange called", event.target.files);
       if (!event.target.files) {
         return;
       }
@@ -134,9 +133,6 @@ export const File = ({
     // multiple files checks
     const copiedFilesInfoState = Array.from(filesInfo);
     copiedFilesInfoState.splice(index, 1);
-
-    console.log(copiedValueState);
-    console.log(copiedFilesInfoState);
 
     onChange(copiedValueState);
     setFilesInfo(copiedFilesInfoState);
