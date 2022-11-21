@@ -3,7 +3,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Form from "../Form/Form";
 
-const sampleSchema = {
+const singlePageSampleSchema = {
   title: "Test form",
   type: "object",
   properties: {
@@ -18,7 +18,12 @@ const sampleSchema = {
 
 it("renders", () => {
   render(
-    <Form schema={sampleSchema} onCompleteSubmit={(e) => console.log(e)} />
+    <Form
+      schema={singlePageSampleSchema}
+      onCompleteSubmit={
+        () => 1 + 1 /* not needed here, maybe make this prop optional later */
+      }
+    />
   );
 });
 
