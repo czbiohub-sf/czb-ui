@@ -144,7 +144,9 @@ export const File = ({
 
   return (
     <div>
-      <Typography component="label">{title ?? label}</Typography>
+      <Typography component="label" htmlFor={id}>
+        {title ?? label}
+      </Typography>
       {/* TODO: Is this accessible? */}
       <Stack direction="row" alignItems="center" spacing={2}>
         <Box>
