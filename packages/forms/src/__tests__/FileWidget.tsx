@@ -64,3 +64,33 @@ describe("single file upload", () => {
   it.todo("file gets correctly deleted if it's deleted");
   it.todo("single file gets correctly replaced if user selects file again");
 });
+
+describe("multi file upload", () => {
+  it("works", async () => {
+    const { user, handleSubmit } = setup();
+    const files = [
+      new File(["hello"], "hello.png", { type: "image/png" }),
+      new File(["hello2"], "hello2.png", { type: "image/png" }),
+      new File(["hello3"], "hello3.png", { type: "image/png" }),
+    ];
+    const input = screen.getByLabelText(/multiple files/i);
+
+    await user.upload(input, files);
+
+    await user.click(screen.getByRole("button", { name: /submit/i }));
+
+    await waitFor(() =>
+      expect(handleSubmit).toHaveBeenCalledWith({
+        multiFiles: [
+          "data:image/png;name=hello.png;base64,aGVsbG8=",
+          "data:image/png;name=hello2.png;base64,aGVsbG8y",
+          "data:image/png;name=hello3.png;base64,aGVsbG8z",
+        ],
+      })
+    );
+  });
+
+  it.todo("shows labels of the files uploaded");
+  it.todo("files gets correctly deleted if it's deleted");
+  it.todo("files clear and get correctly replaced if user selects files again");
+});
