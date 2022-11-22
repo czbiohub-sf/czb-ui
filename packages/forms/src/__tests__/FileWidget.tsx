@@ -60,7 +60,21 @@ describe("single file upload", () => {
     );
   });
 
-  it.todo("shows a label of the file uploaded");
+  it("shows a label of the file uploaded", async () => {
+    const { user, handleSubmit } = setup();
+    const file = new File(["hello"], "hello.png", { type: "image/png" });
+    // Were not using regex here as there is multiple inputs
+    // containing the label text "Single file"
+    const input = screen.getByLabelText("Single file");
+
+    await user.upload(input, file);
+
+    await waitFor(() => {
+      // TODO: Make sure its in the right spot somehow?
+      expect(screen.getByText("hello.png").textContent).toBe("hello.png");
+    });
+  });
+
   it.todo("file gets correctly deleted if it's deleted");
   it.todo("single file gets correctly replaced if user selects file again");
 });
