@@ -42,7 +42,7 @@ const setup = () => {
 };
 
 describe("single file upload", () => {
-  it("single file upload works", async () => {
+  it("works", async () => {
     const { user, handleSubmit } = setup();
     const file = new File(["hello"], "hello.png", { type: "image/png" });
     // Were not using regex here as there is multiple inputs
