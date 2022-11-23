@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { within } from "@testing-library/dom";
 import Form from "../Form/Form";
 
 // Similar to FileUpload.stories.tsx
@@ -77,7 +78,25 @@ describe("single file upload", () => {
     });
   });
 
-  it.todo("file gets correctly deleted if it's deleted");
+  it("file gets correctly deleted if it's deleted", async () => {
+    const { user, handleSubmit, input, file } = setup();
+
+    await user.upload(input, file);
+
+    // Using findByText is like the same as using waitFor()
+    // https://testing-library.com/docs/guide-disappearance
+    const chipText = await screen.findByText("hello.png");
+    const chip = await chipText.parentElement!;
+
+    // TODO: Using getByTestId isn't recommended, is X button accessible?
+    const xButtonInChip = within(chip).getByTestId("ClearIcon");
+
+    await user.click(xButtonInChip);
+
+    await waitFor(() => {
+      expect(screen.queryByText("hello.png")).toBeNull();
+    });
+  });
   it.todo("single file gets correctly replaced if user selects file again");
 });
 
