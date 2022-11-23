@@ -55,6 +55,7 @@ describe("single file upload", () => {
 
     await waitFor(() =>
       expect(handleSubmit).toHaveBeenCalledWith({
+        // the base64 at the end is just "hello" (from the array when creating the file)
         file: "data:image/png;name=hello.png;base64,aGVsbG8=",
       })
     );
