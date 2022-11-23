@@ -79,6 +79,8 @@ describe("single file upload", () => {
   });
 
   it("file gets correctly deleted if it's deleted", async () => {
+    // Along with checking that the label was deleted, also check
+    // the handleSubmit function's output
     const { user, handleSubmit, input, file } = setup();
 
     await user.upload(input, file);
@@ -96,7 +98,12 @@ describe("single file upload", () => {
     await waitFor(() => {
       expect(screen.queryByText("hello.png")).toBeNull();
     });
+
+    await user.click(screen.getByRole("button", { name: /submit/i }));
+
+    await waitFor(() => expect(handleSubmit).toHaveBeenCalledWith({}));
   });
+
   it.todo("single file gets correctly replaced if user selects file again");
 });
 
