@@ -33,21 +33,27 @@ const setup = () => {
   const user = userEvent.setup();
   const handleSubmit = jest.fn();
 
+  // the base64 returned by the form library
+  // will just "hello" (from the array passed in when creating the File)
+  const file = new File(["hello"], "hello.png", { type: "image/png" });
+
   render(<Form schema={testSchema} onCompleteSubmit={handleSubmit} />);
+
+  // Were not using regex here as there is multiple input labels
+  // containing the label text "Single file"
+  const input = screen.getByLabelText("Single file");
 
   return {
     user,
     handleSubmit,
+    input,
+    file,
   };
 };
 
 describe("single file upload", () => {
   it("works", async () => {
-    const { user, handleSubmit } = setup();
-    const file = new File(["hello"], "hello.png", { type: "image/png" });
-    // Were not using regex here as there is multiple inputs
-    // containing the label text "Single file"
-    const input = screen.getByLabelText("Single file");
+    const { user, handleSubmit, input, file } = setup();
 
     await user.upload(input, file);
 
@@ -55,18 +61,13 @@ describe("single file upload", () => {
 
     await waitFor(() =>
       expect(handleSubmit).toHaveBeenCalledWith({
-        // the base64 at the end is just "hello" (from the array when creating the file)
         file: "data:image/png;name=hello.png;base64,aGVsbG8=",
       })
     );
   });
 
   it("shows a label of the file uploaded", async () => {
-    const { user, handleSubmit } = setup();
-    const file = new File(["hello"], "hello.png", { type: "image/png" });
-    // Were not using regex here as there is multiple inputs
-    // containing the label text "Single file"
-    const input = screen.getByLabelText("Single file");
+    const { user, handleSubmit, input, file } = setup();
 
     await user.upload(input, file);
 
