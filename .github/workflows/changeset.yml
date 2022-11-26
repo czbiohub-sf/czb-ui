@@ -1,5 +1,9 @@
 name: changeset Check
-on: [push]
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
 jobs:
   changeset:
     runs-on: ubuntu-latest
