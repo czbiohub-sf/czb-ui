@@ -42,6 +42,7 @@ const setup = () => {
     new File(["hello2"], "hello2.png", { type: "image/png" }),
     new File(["hello3"], "hello3.png", { type: "image/png" }),
   ];
+  // TODO: Add base64 truth value(s) here (what needs to be expected from handleSubmit func)
 
   render(<Form schema={testSchema} onCompleteSubmit={handleSubmit} />);
 
