@@ -150,6 +150,8 @@ describe("multi file upload", () => {
   });
 
   it("shows labels of the files uploaded", async () => {
+    // TODO: Delete all 3 files and check at each step, instead of just deleting
+    // the second file like how it is now
     const { user, multipleInput, multipleFiles } = setup();
 
     await user.upload(multipleInput, multipleFiles);
