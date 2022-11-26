@@ -130,15 +130,10 @@ describe("single file upload", () => {
 
 describe("multi file upload", () => {
   it("works", async () => {
-    const { user, handleSubmit } = setup();
-    const files = [
-      new File(["hello"], "hello.png", { type: "image/png" }),
-      new File(["hello2"], "hello2.png", { type: "image/png" }),
-      new File(["hello3"], "hello3.png", { type: "image/png" }),
-    ];
+    const { user, handleSubmit, multipleFiles } = setup();
     const input = screen.getByLabelText(/multiple files/i);
 
-    await user.upload(input, files);
+    await user.upload(input, multipleFiles);
 
     await user.click(screen.getByRole("button", { name: /submit/i }));
 
