@@ -148,7 +148,22 @@ describe("multi file upload", () => {
     );
   });
 
-  it.todo("shows labels of the files uploaded");
+  it("shows labels of the files uploaded", async () => {
+    const { user, handleSubmit, multipleFiles } = setup();
+    const input = screen.getByLabelText(/multiple files/i);
+
+    await user.upload(input, multipleFiles);
+
+    await user.click(screen.getByRole("button", { name: /submit/i }));
+
+    await waitFor(() => {
+      // TODO: Make sure its in the right spot somehow?
+      expect(screen.getByText("hello.png").textContent).toBe("hello.png");
+      expect(screen.getByText("hello2.png").textContent).toBe("hello2.png");
+      expect(screen.getByText("hello3.png").textContent).toBe("hello3.png");
+    });
+  });
+
   it.todo("files gets correctly deleted if it's deleted");
   it.todo("files clear and get correctly replaced if user selects files again");
 });
