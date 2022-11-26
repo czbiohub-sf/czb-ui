@@ -49,11 +49,13 @@ const setup = () => {
   // Were not using regex here as there is multiple input labels
   // containing the label text "Single file"
   const input = screen.getByLabelText("Single file");
+  const multipleInput = screen.getByLabelText(/multiple files/i);
 
   return {
     user,
     handleSubmit,
     input,
+    multipleInput,
     file,
     multipleFiles,
   };
@@ -130,10 +132,9 @@ describe("single file upload", () => {
 
 describe("multi file upload", () => {
   it("works", async () => {
-    const { user, handleSubmit, multipleFiles } = setup();
-    const input = screen.getByLabelText(/multiple files/i);
+    const { user, handleSubmit, multipleInput, multipleFiles } = setup();
 
-    await user.upload(input, multipleFiles);
+    await user.upload(multipleInput, multipleFiles);
 
     await user.click(screen.getByRole("button", { name: /submit/i }));
 
@@ -149,10 +150,9 @@ describe("multi file upload", () => {
   });
 
   it("shows labels of the files uploaded", async () => {
-    const { user, handleSubmit, multipleFiles } = setup();
-    const input = screen.getByLabelText(/multiple files/i);
+    const { user, multipleInput, multipleFiles } = setup();
 
-    await user.upload(input, multipleFiles);
+    await user.upload(multipleInput, multipleFiles);
 
     await user.click(screen.getByRole("button", { name: /submit/i }));
 
