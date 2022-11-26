@@ -37,6 +37,11 @@ const setup = () => {
   // the base64 returned by the form library
   // will just "hello" (from the array passed in when creating the File)
   const file = new File(["hello"], "hello.png", { type: "image/png" });
+  const multipleFiles = [
+    new File(["hello"], "hello.png", { type: "image/png" }),
+    new File(["hello2"], "hello2.png", { type: "image/png" }),
+    new File(["hello3"], "hello3.png", { type: "image/png" }),
+  ];
 
   render(<Form schema={testSchema} onCompleteSubmit={handleSubmit} />);
 
@@ -49,6 +54,7 @@ const setup = () => {
     handleSubmit,
     input,
     file,
+    multipleFiles,
   };
 };
 
@@ -104,7 +110,21 @@ describe("single file upload", () => {
     await waitFor(() => expect(handleSubmit).toHaveBeenCalledWith({}));
   });
 
-  it.todo("single file gets correctly replaced if user selects file again");
+  it("single file gets correctly replaced if user selects file again", async () => {
+    const { user, handleSubmit, input, multipleFiles } = setup();
+
+    await user.upload(input, multipleFiles[0]);
+
+    await user.upload(input, multipleFiles[1]);
+
+    await user.click(screen.getByRole("button", { name: /submit/i }));
+
+    await waitFor(() =>
+      expect(handleSubmit).toHaveBeenCalledWith({
+        file: "data:image/png;name=hello2.png;base64,aGVsbG8y",
+      })
+    );
+  });
 });
 
 describe("multi file upload", () => {
