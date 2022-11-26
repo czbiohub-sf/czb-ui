@@ -164,6 +164,38 @@ describe("multi file upload", () => {
     });
   });
 
-  it.todo("files gets correctly deleted if it's deleted");
+  it("files gets correctly deleted if it's deleted", async () => {
+    // Along with checking that the label was deleted, also check
+    // the handleSubmit function's output
+    const { user, handleSubmit, multipleInput, multipleFiles } = setup();
+
+    await user.upload(multipleInput, multipleFiles);
+
+    // Using findByText is like the same as using waitFor()
+    // https://testing-library.com/docs/guide-disappearance
+    const chipText = await screen.findByText("hello2.png");
+    const chip = await chipText.parentElement!;
+
+    // TODO: Using getByTestId isn't recommended, is X button accessible?
+    const xButtonInChip = within(chip).getByTestId("ClearIcon");
+
+    await user.click(xButtonInChip);
+
+    await waitFor(() => {
+      expect(screen.queryByText("hello2.png")).toBeNull();
+    });
+
+    await user.click(screen.getByRole("button", { name: /submit/i }));
+
+    await waitFor(() =>
+      expect(handleSubmit).toHaveBeenCalledWith({
+        multiFiles: [
+          "data:image/png;name=hello.png;base64,aGVsbG8=",
+          "data:image/png;name=hello3.png;base64,aGVsbG8z",
+        ],
+      })
+    );
+  });
+
   it.todo("files clear and get correctly replaced if user selects files again");
 });
