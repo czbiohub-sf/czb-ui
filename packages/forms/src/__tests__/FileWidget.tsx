@@ -199,5 +199,25 @@ describe("multi file upload", () => {
     );
   });
 
-  it.todo("files clear and get correctly replaced if user selects files again");
+  it("files clear and get correctly replaced if user selects files again", async () => {
+    const { user, handleSubmit, multipleInput, multipleFiles } = setup();
+
+    // Upload all three files
+    await user.upload(multipleInput, multipleFiles);
+
+    // Now upload "hello.png" and "hello3.png" only
+    const subset = [multipleFiles[0], multipleFiles[2]];
+    await user.upload(multipleInput, subset);
+
+    await user.click(screen.getByRole("button", { name: /submit/i }));
+
+    await waitFor(() =>
+      expect(handleSubmit).toHaveBeenCalledWith({
+        multiFiles: [
+          "data:image/png;name=hello.png;base64,aGVsbG8=",
+          "data:image/png;name=hello3.png;base64,aGVsbG8z",
+        ],
+      })
+    );
+  });
 });
