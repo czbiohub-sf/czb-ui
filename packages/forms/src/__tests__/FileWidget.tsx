@@ -30,6 +30,14 @@ const testSchema = {
   },
 };
 
+const testUiSchema = {
+  filesAccept: {
+    "ui:options": {
+      accept: ".pdf",
+    },
+  },
+};
+
 const setup = () => {
   const user = userEvent.setup();
   const handleSubmit = jest.fn();
@@ -44,18 +52,28 @@ const setup = () => {
   ];
   // TODO: Add base64 truth value(s) here (what needs to be expected from handleSubmit func)
 
-  render(<Form schema={testSchema} onCompleteSubmit={handleSubmit} />);
+  render(
+    <Form
+      schema={testSchema}
+      uiSchema={testUiSchema}
+      onCompleteSubmit={handleSubmit}
+    />
+  );
 
   // Were not using regex here as there is multiple input labels
   // containing the label text "Single file"
   const input = screen.getByLabelText("Single file");
   const multipleInput = screen.getByLabelText(/multiple files/i);
+  const acceptInput = screen.getByLabelText(
+    "Single File with Accept attribute"
+  );
 
   return {
     user,
     handleSubmit,
     input,
     multipleInput,
+    acceptInput,
     file,
     multipleFiles,
   };
@@ -219,5 +237,21 @@ describe("multi file upload", () => {
         ],
       })
     );
+  });
+});
+
+describe("accept attribute uploads", () => {
+  it("uiSchema ui:options accept works", async () => {
+    const { user, handleSubmit, acceptInput, file } = setup();
+
+    // "Files that don't match an accept property will be
+    // automatically discarded, unless applyAccept is set to false."
+    // Accept is set to pdfs but lets try uploading a png file.
+    // https://testing-library.com/docs/user-event/utility#upload
+    await user.upload(acceptInput, file);
+
+    await user.click(screen.getByRole("button", { name: /submit/i }));
+
+    await waitFor(() => expect(handleSubmit).toHaveBeenCalledWith({}));
   });
 });
