@@ -173,7 +173,11 @@ export const File = ({
         </Box>
         <Box>
           {filesInfo.map((file: FileInfoType, i: number) => (
-            <TagFilter label={file.name} onDelete={handleDelete} key={i} />
+            <TagFilter
+              label={file.name}
+              onDelete={() => handleDelete(i)}
+              key={i}
+            />
           ))}
         </Box>
       </Stack>
