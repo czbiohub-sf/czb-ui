@@ -2,9 +2,10 @@ import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Form from "../Form/Form";
+import { RJSFSchema } from "@rjsf/utils";
 
 // Shares the same example as in Form.stories.tsx
-const singlePageSampleSchema = {
+const singlePageSampleSchema: RJSFSchema = {
   title: "Test form",
   type: "object",
   properties: {
@@ -18,7 +19,7 @@ const singlePageSampleSchema = {
 };
 
 // Shares the same example as in MultiStepForms.stories.tsx
-const multiPageSampleSchema = [
+const multiPageSampleSchema: RJSFSchema[] = [
   {
     title: "Test form page 1",
     type: "object",
