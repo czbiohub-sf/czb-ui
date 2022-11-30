@@ -234,7 +234,9 @@ it("multi page forms submit the correct data, but user goes backwards and change
 
       const previousStep = stepToTestBackwards - 1;
       const previousActions = actionsOnEachPage[previousStep];
-      const textFieldToLookAt = screen.getByLabelText(previousActions[0].label);
+      const textFieldToLookAt = screen.getByLabelText(
+        previousActions[0].label
+      ) as HTMLInputElement;
 
       expect(textFieldToLookAt.value).toBe(previousActions[0].toType);
 
