@@ -20,7 +20,6 @@ export const widgets = {
 const Form = ({ schema, uiSchema, onCompleteSubmit }: FormProps) => {
   if (Array.isArray(schema)) {
     return (
-      // TODO: Add custom widgets here
       <MultiStepForm
         schema={schema}
         uiSchema={uiSchema}
