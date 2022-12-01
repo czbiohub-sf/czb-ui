@@ -8,7 +8,7 @@ import { widgets } from "./Form";
 interface MultiStepFormProps {
   schema: Array<schemaType>;
   onCompleteSubmit: (completedFormEvent: any) => void; // TODO: Find type of submit event?
-  uiSchema?: uiSchemaType;
+  uiSchema?: Array<uiSchemaType>;
 }
 
 export const MultiStepForm = ({
@@ -58,7 +58,7 @@ export const MultiStepForm = ({
   return (
     <RJSFForm
       schema={schema[currentStep]}
-      uiSchema={uiSchema}
+      uiSchema={uiSchema && uiSchema[currentStep]}
       validator={validator}
       onSubmit={onStepSubmit}
       formData={formData[currentStep]}

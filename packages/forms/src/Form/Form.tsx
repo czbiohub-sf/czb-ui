@@ -10,7 +10,7 @@ export type uiSchemaType = React.ComponentProps<typeof RJSFForm>["uiSchema"];
 interface FormProps {
   schema: schemaType | Array<schemaType>;
   onCompleteSubmit: (formData: any) => void;
-  uiSchema?: uiSchemaType;
+  uiSchema?: uiSchemaType | Array<uiSchemaType>;
 }
 
 export const widgets = {
@@ -19,12 +19,35 @@ export const widgets = {
 
 const Form = ({ schema, uiSchema, onCompleteSubmit }: FormProps) => {
   if (Array.isArray(schema)) {
+    // uiSchema checks
+    if (uiSchema) {
+      if (!Array.isArray(uiSchema)) {
+        // uiSchema is only a single object but the schema is multiple pages
+        throw new Error(
+          "uiSchema needs to be an array corresponding to each page in the schema."
+        );
+      }
+
+      if (uiSchema.length != schema.length) {
+        throw new Error(
+          "uiSchema does not match the number of pages the schema has"
+        );
+      }
+    }
+
     return (
       <MultiStepForm
         schema={schema}
         uiSchema={uiSchema}
         onCompleteSubmit={(formData) => onCompleteSubmit(formData)}
       />
+    );
+  }
+
+  if (uiSchema && Array.isArray(uiSchema)) {
+    // uiSchema is an array but the schema is only one page
+    throw new Error(
+      "uiSchema needs to be a single object corresponding to the single page schema."
     );
   }
 
