@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Form from "../Form/Form";
-import { RJSFSchema } from "@rjsf/utils";
+import { RJSFSchema, UiSchema } from "@rjsf/utils";
 
 // Shares the same example as in Form.stories.tsx
 const singlePageSampleSchema: RJSFSchema = {
@@ -57,6 +57,39 @@ const multiPageSampleSchema: RJSFSchema[] = [
     },
   },
 ];
+
+const numbersSchema: RJSFSchema = {
+  type: "object",
+  title: "Numbers",
+  properties: {
+    numberEnumRadio: {
+      type: "number",
+      title: "Number enum",
+      enum: [1, 2, 3],
+    },
+    integerRange: {
+      title: "Integer range",
+      type: "integer",
+      minimum: 42,
+      maximum: 100,
+    },
+  },
+};
+
+const numbersUiSchema: UiSchema = {
+  integer: {
+    "ui:widget": "updown",
+  },
+  numberEnumRadio: {
+    "ui:widget": "radio",
+    "ui:options": {
+      inline: true,
+    },
+  },
+  integerRange: {
+    "ui:widget": "range",
+  },
+};
 
 // TODO: Move actionsOnEachPage up here and rename it to "multiPageFormActionsOnEachPage" or something
 
@@ -275,4 +308,31 @@ it("multi page forms submit the correct data, but user goes backwards and change
       },
     ])
   );
+});
+
+describe("uiSchema", () => {
+  // This doesn't work as of now because the RJSF MUI label
+  // for the range widget does not have the for attribute
+  // TODO: Remove .skip and this comment when it is fixed
+  it.skip("works on single page form", async () => {
+    // Usually the numbersSchema would just be regular
+    // input text boxes. With numbersUiSchema, we can change
+    // them into sliders, radios, etc.
+
+    // So let's create a form using numbersSchema, and see
+    // if numbersUiSchema works by testing if the UI elements
+    // reflect whats in the uiSchema.
+    render(
+      <Form
+        schema={numbersSchema}
+        uiSchema={numbersUiSchema}
+        onCompleteSubmit={
+          () => 1 + 1 /* not needed here, maybe make this prop optional later */
+        }
+      />
+    );
+
+    const input = screen.getByLabelText(/integer range/i) as HTMLInputElement;
+    expect(input.type).toBe("range");
+  });
 });
