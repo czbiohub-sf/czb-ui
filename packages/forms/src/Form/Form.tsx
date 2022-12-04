@@ -57,7 +57,7 @@ const Form = ({ schema, uiSchema, onCompleteSubmit }: FormProps) => {
         schema={schema}
         uiSchema={uiSchema}
         validator={validator}
-        onSubmit={(formData: any) => onCompleteSubmit(formData.formData)}
+        onSubmit={(e: any) => onCompleteSubmit(e.formData)}
         widgets={widgets}
       >
         <FormPageNav steps={1} remSteps={1} />
