@@ -44,6 +44,7 @@ export const MultiStepForm = ({
     return (
       <ConfirmScreen
         formData={formData}
+        schema={schema}
         onConfirmation={() => onCompleteSubmit(formData)}
         onCancel={() => setConfirmScreenShow(false)}
       />
