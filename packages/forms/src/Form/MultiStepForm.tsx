@@ -5,6 +5,7 @@ import { schemaType, uiSchemaType } from "./Form";
 import FormPageNav from "./FormPageNav/FormPageNav";
 import { widgets } from "./Form";
 import ConfirmScreen from "./ConfirmScreen/ConfirmScreen";
+import SuccessfulSubmit from "./ConfirmScreen/SuccessfulSubmit";
 
 interface MultiStepFormProps {
   schema: Array<schemaType>;
@@ -20,35 +21,54 @@ export const MultiStepForm = ({
   showConfirmScreen = true,
 }: MultiStepFormProps) => {
   const steps = schema.length;
+
+  const initFormData = () => {
+    return Array.from({ length: steps }, (_) => ({}));
+  };
+
   // Remaining steps state
   const [remSteps, setRemSteps] = useState(steps);
   // Create an array with the amount of steps with empty objects
-  const [formData, setFormData] = useState(
-    Array.from({ length: steps }, (_) => ({}))
-  );
+  const [formData, setFormData] = useState(initFormData());
   // TODO: Maybe rename this state variable to avoid
   // confusion with showConfirmScreen
-  const [confirmScreenShow, setConfirmScreenShow] = useState(false);
+  // 0 is no show, 1 is confirm screen, 2 is successful screen
+  const [confirmScreenShow, setConfirmScreenShow] = useState(0);
 
   const currentStep = schema.length - remSteps;
 
+  const resetForm = () => {
+    setFormData(initFormData());
+    setRemSteps(steps);
+    setConfirmScreenShow(0);
+  };
+
   const beforeFinalSubmit = () => {
     if (showConfirmScreen) {
-      setConfirmScreenShow(true);
+      setConfirmScreenShow(1);
     } else {
       onCompleteSubmit(formData);
     }
   };
 
-  if (confirmScreenShow) {
+  const afterFinalSubmit = () => {
+    onCompleteSubmit(formData);
+    setConfirmScreenShow(2);
+  };
+
+  if (confirmScreenShow == 1) {
     return (
       <ConfirmScreen
         formData={formData}
         schema={schema}
-        onConfirmation={() => onCompleteSubmit(formData)}
-        onCancel={() => setConfirmScreenShow(false)}
+        onConfirmation={afterFinalSubmit}
+        onCancel={() => setConfirmScreenShow(2)}
       />
     );
+  }
+
+  if (confirmScreenShow == 2) {
+    return <SuccessfulSubmit onSubmitAnotherResponse={resetForm} />;
   }
 
   // Since we want to keep the form data at each step,
