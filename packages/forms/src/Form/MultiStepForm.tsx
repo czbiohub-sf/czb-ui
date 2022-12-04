@@ -4,17 +4,20 @@ import { useState } from "react";
 import { schemaType, uiSchemaType } from "./Form";
 import FormPageNav from "./FormPageNav/FormPageNav";
 import { widgets } from "./Form";
+import ConfirmScreen from "./ConfirmScreen/ConfirmScreen";
 
 interface MultiStepFormProps {
   schema: Array<schemaType>;
   onCompleteSubmit: (completedFormEvent: any) => void; // TODO: Find type of submit event?
   uiSchema?: Array<uiSchemaType>;
+  showConfirmScreen?: boolean;
 }
 
 export const MultiStepForm = ({
   schema,
   uiSchema,
   onCompleteSubmit,
+  showConfirmScreen = true,
 }: MultiStepFormProps) => {
   const steps = schema.length;
   // Remaining steps state
@@ -23,8 +26,29 @@ export const MultiStepForm = ({
   const [formData, setFormData] = useState(
     Array.from({ length: steps }, (_) => ({}))
   );
+  // TODO: Maybe rename this state variable to avoid
+  // confusion with showConfirmScreen
+  const [confirmScreenShow, setConfirmScreenShow] = useState(false);
 
   const currentStep = schema.length - remSteps;
+
+  const beforeFinalSubmit = () => {
+    if (showConfirmScreen) {
+      setConfirmScreenShow(true);
+    } else {
+      onCompleteSubmit(formData);
+    }
+  };
+
+  if (confirmScreenShow) {
+    return (
+      <ConfirmScreen
+        formData={formData}
+        onConfirmation={() => onCompleteSubmit(formData)}
+        onCancel={() => setConfirmScreenShow(false)}
+      />
+    );
+  }
 
   // Since we want to keep the form data at each step,
   // it's better to just handle the form's state manually
@@ -48,7 +72,7 @@ export const MultiStepForm = ({
     // form is completed), check if the next state would be
     // 0 steps reamining.
     if (remSteps - 1 == 0) {
-      onCompleteSubmit(formData);
+      beforeFinalSubmit();
       return;
     }
 
