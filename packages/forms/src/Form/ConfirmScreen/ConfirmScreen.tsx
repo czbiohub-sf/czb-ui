@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+import { HeadingSeparator } from "@czb-ui/core";
 import { Box } from "@mui/material";
 import { Button } from "czifui";
 
@@ -16,7 +17,7 @@ export default function ConfirmScreen({
 }: ConfirmScreenProps) {
   return (
     <div>
-      <Typography variant="h1">Please confirm the data filled</Typography>
+      <HeadingSeparator title="Please confirm the data filled" />
       <Typography>{JSON.stringify(formData)}</Typography>
       <Box my={4}>
         <Button
