@@ -62,7 +62,7 @@ export const MultiStepForm = ({
         formData={formData}
         schema={schema}
         onConfirmation={afterFinalSubmit}
-        onCancel={() => setConfirmScreenShow(2)}
+        onCancel={() => setConfirmScreenShow(0)}
       />
     );
   }
