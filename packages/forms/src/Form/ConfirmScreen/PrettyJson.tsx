@@ -10,11 +10,12 @@ interface PrettyJsonProps {
 
 // Modification of https://stackoverflow.com/a/14810722/10013136
 // Long story short, returns array instead of object in the original code
-// k is key, v is value, and i is the index number
+// k is key, v is value, and j is the index number (changed from i to not
+// interfere with formData.map)
 const objectMap = (
   obj: Record<string, any>,
   fn: (v: any, k: string, i: number) => any
-) => Object.entries(obj).map(([k, v], i) => fn(v, k, i));
+) => Object.entries(obj).map(([k, v], j) => fn(v, k, j));
 
 // Actual schema is needed so we can get the real label names
 // and also the form's page titles
@@ -26,20 +27,20 @@ export default function PrettyJson({ formData, schema }: PrettyJsonProps) {
         // "i" is the page/step of the form
         const schemaOnCurrentPage = schema[i];
         return (
-          <>
+          <div key={i}>
             <Typography variant="h2" my={4}>
               {schemaOnCurrentPage.title}
             </Typography>
-            {objectMap(step, (v, k) => {
+            {objectMap(step, (v, k, j) => {
               const labelToShow = k || schemaOnCurrentPage.properties?.title;
               return (
-                <Box mb={5}>
+                <Box mb={5} key={j}>
                   <Typography fontWeight="bold">{labelToShow}</Typography>
                   <Typography>{v}</Typography>
                 </Box>
               );
             })}
-          </>
+          </div>
         );
       })}
     </div>
