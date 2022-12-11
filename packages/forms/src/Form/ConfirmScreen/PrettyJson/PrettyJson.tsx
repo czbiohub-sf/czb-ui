@@ -1,5 +1,4 @@
-import { Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Typography, Box } from "@mui/material";
 import { RJSFSchema } from "@rjsf/utils";
 import React from "react";
 
@@ -16,6 +15,41 @@ const objectMap = (
   obj: Record<string, any>,
   fn: (v: any, k: string, i: number) => any
 ) => Object.entries(obj).map(([k, v], j) => fn(v, k, j));
+
+const LayoutJson = (prop: string | string[] | Record<string, any>) => {
+  if (typeof prop == "string") {
+    return <div>{prop}</div>;
+  }
+
+  if (Array.isArray(prop)) {
+    return (
+      <ol>
+        {prop.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
+      </ol>
+    );
+  }
+
+  if (typeof prop == "object") {
+    return (
+      <ul>
+        {objectMap(prop, (v, k, j) => {
+          return (
+            <Box mb={5} key={j}>
+              <Typography fontWeight="bold">{k}</Typography>
+              <Typography>{LayoutJson(v)}</Typography>
+            </Box>
+          );
+        })}
+      </ul>
+    );
+  }
+
+  // If the type is not coded here,
+  // just fallback to a JSON stringify
+  return <div>{JSON.stringify(prop)}</div>;
+};
 
 // Actual schema is needed so we can get the real label names
 // and also the form's page titles
@@ -36,7 +70,7 @@ export default function PrettyJson({ formData, schema }: PrettyJsonProps) {
               return (
                 <Box mb={5} key={j}>
                   <Typography fontWeight="bold">{labelToShow}</Typography>
-                  <Typography>{v}</Typography>
+                  {LayoutJson(v)}
                 </Box>
               );
             })}
