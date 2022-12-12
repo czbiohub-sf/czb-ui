@@ -3,7 +3,7 @@ import { HeadingSeparator } from "@czb-ui/core";
 import { Box } from "@mui/material";
 import { RJSFSchema } from "@rjsf/utils";
 import { Button } from "czifui";
-import PrettyJson from "./PrettyJson/PrettyJson";
+import PrettyJson from "./PrettyJson";
 
 interface ConfirmScreenProps {
   formData: any;
