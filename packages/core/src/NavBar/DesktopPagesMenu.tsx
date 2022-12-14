@@ -14,30 +14,15 @@ export const DesktopPagesMenu = ({
   return (
     <Box sx={{ mx: 5 }}>
       {pages.map((page, i) => (
-        <a>
-        {!page.externalLink && (
-                <Link
-                  color="inherit"
-                  component={pagesComponent}
-                  to={page.to}
-                  sx={{ mx: 5 }}
-                  key={i}
-                >
-                  {page.title}
-                </Link>
-        )}
-        {page.externalLink && (
-                <Link
-                  color="inherit"
-                  component={pagesComponent}
-                  href={page.to}
-                  sx={{ mx: 5 }}
-                  key={i}
-                >
-                  {page.title}
-                </Link>
-        )}
-        </a>
+        <Link
+          color="inherit"
+          component={pagesComponent}
+          to={page.to}
+          sx={{ mx: 5 }}
+          key={i}
+        >
+          {page.title}
+        </Link>
       ))}
     </Box>
   );
