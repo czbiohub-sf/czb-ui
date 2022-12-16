@@ -14,15 +14,25 @@ export const DesktopPagesMenu = ({
   return (
     <Box sx={{ mx: 5 }}>
       {pages.map((page, i) => (
-        <Link
-          color="inherit"
-          component={pagesComponent}
-          to={page.to}
-          sx={{ mx: 5 }}
-          key={i}
-        >
-          {page.title}
-        </Link>
+        <>
+          {!page.externalLink && (
+            <Link
+              color="inherit"
+              component={page?.to ? pagesComponent : undefined}
+              to={page?.to}
+              sx={{ mx: 5 }}
+              key={i}
+            >
+              {page?.title}
+            </Link>
+          )}
+          {/* If target="_blank" needs to be added also add rel="noopener" */}
+          {page.externalLink && (
+            <Link color="inherit" sx={{ mx: 5 }} key={i} href={page?.to}>
+              {page?.title}
+            </Link>
+          )}
+        </>
       ))}
     </Box>
   );
