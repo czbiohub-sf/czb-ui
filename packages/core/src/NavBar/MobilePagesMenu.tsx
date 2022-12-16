@@ -31,32 +31,32 @@ export const MobilePagesMenu = ({
           }}
         >
           {pages.map((page, i) => (
-            <a>
+            <>
               {!page.externalLink && (
-                    <Link
-                      color="inherit"
-                      component={pagesComponent}
-                      to={page.to}
-                      sx={{ mx: 5 }}
-                      onClick={() => setOpen(false)}
-                      key={i}
-                    >
-                      <ListItemButton>{page.title}</ListItemButton>
-                    </Link>
+                <Link
+                  color="inherit"
+                  component={page?.to ? pagesComponent : undefined}
+                  to={page?.to}
+                  sx={{ mx: 5 }}
+                  onClick={() => setOpen(false)}
+                  key={i}
+                >
+                  <ListItemButton>{page.title}</ListItemButton>
+                </Link>
               )}
+              {/* If target="_blank" needs to be added also add rel="noopener" */}
               {page.externalLink && (
-                    <Link
-                      color="inherit"
-                      component={pagesComponent}
-                      href={page.to}
-                      sx={{ mx: 5 }}
-                      onClick={() => setOpen(false)}
-                      key={i}
-                    >
-                      <ListItemButton>{page.title}</ListItemButton>
-                    </Link>
+                <Link
+                  color="inherit"
+                  sx={{ mx: 5 }}
+                  onClick={() => setOpen(false)}
+                  key={i}
+                  href={page?.to}
+                >
+                  <ListItemButton>{page.title}</ListItemButton>
+                </Link>
               )}
-            </a>
+            </>
           ))}
         </Drawer>
       </Box>
