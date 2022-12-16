@@ -1,5 +1,16 @@
 # @czb-ui/core
 
+## 0.4.0-beta.2
+
+### Minor Changes
+
+- 066d4af: Add external link feature to nav bar (https://github.com/czbiohub/czb-ui/pull/30)
+
+### Patch Changes
+
+- 121d01b: Use ESM and CJS
+- 04e9810: Move common devDependencies to root package.json
+
 ## 0.3.1-beta.1
 
 ### Patch Changes

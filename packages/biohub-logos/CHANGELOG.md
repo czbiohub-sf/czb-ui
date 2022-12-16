@@ -1,5 +1,12 @@
 # @czb-ui/biohub-logos
 
+## 0.2.1-beta.0
+
+### Patch Changes
+
+- 121d01b: Use ESM and CJS
+- 04e9810: Move common devDependencies to root package.json
+
 ## 0.2.0
 
 ### Minor Changes

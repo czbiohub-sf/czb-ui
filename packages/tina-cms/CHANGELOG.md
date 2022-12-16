@@ -1,5 +1,16 @@
 # @czb-ui/tina-cms
 
+## 0.2.2-beta.1
+
+### Patch Changes
+
+- 04e9810: Move common devDependencies to root package.json
+- 89b8c63: Edit dev/peer dependencies
+- Updated dependencies [121d01b]
+- Updated dependencies [04e9810]
+- Updated dependencies [066d4af]
+  - @czb-ui/core@0.4.0-beta.2
+
 ## 0.2.2-beta.0
 
 ### Patch Changes

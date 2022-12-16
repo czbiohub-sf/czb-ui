@@ -1,5 +1,16 @@
 # test-app
 
+## 0.1.2-beta.2
+
+### Patch Changes
+
+- 04e9810: Move common devDependencies to root package.json
+- Updated dependencies [121d01b]
+- Updated dependencies [04e9810]
+- Updated dependencies [066d4af]
+  - @czb-ui/biohub-logos@0.2.1-beta.0
+  - @czb-ui/core@0.4.0-beta.2
+
 ## 0.1.2-beta.1
 
 ### Patch Changes

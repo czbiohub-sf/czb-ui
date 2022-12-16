@@ -1,5 +1,21 @@
 # storybook
 
+## 0.4.0-beta.4
+
+### Patch Changes
+
+- 04e9810: Move common devDependencies to root package.json
+- 902cbe9: Simplify multi-step form story
+- Updated dependencies [121d01b]
+- Updated dependencies [fe25bb0]
+- Updated dependencies [04e9810]
+- Updated dependencies [fe25bb0]
+- Updated dependencies [fe25bb0]
+- Updated dependencies [066d4af]
+  - @czb-ui/biohub-logos@0.2.1-beta.0
+  - @czb-ui/core@0.4.0-beta.2
+  - @czb-ui/forms@0.2.0-beta.3
+
 ## 0.4.0-beta.3
 
 ### Patch Changes
