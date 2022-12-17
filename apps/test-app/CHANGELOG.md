@@ -1,21 +1,5 @@
 # test-app
 
-## 0.1.2-beta.1
-
-### Patch Changes
-
-- Updated dependencies [6c3efa5]
-  - @czb-ui/core@0.3.1-beta.1
-
-## 0.1.2-beta.0
-
-### Patch Changes
-
-- 1daafaf: Update czifui
-- Updated dependencies [1daafaf]
-- Updated dependencies [7694db7]
-  - @czb-ui/core@0.3.1-beta.0
-
 ## 0.1.1
 
 ### Patch Changes

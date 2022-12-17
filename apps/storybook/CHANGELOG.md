@@ -1,49 +1,5 @@
 # storybook
 
-## 0.4.0-beta.3
-
-### Patch Changes
-
-- Updated dependencies [d956156]
-- Updated dependencies [f17ea3a]
-  - @czb-ui/forms@0.2.0-beta.2
-
-## 0.4.0-beta.2
-
-### Patch Changes
-
-- Updated dependencies [6eb3e92]
-  - @czb-ui/forms@0.2.0-beta.1
-
-## 0.4.0-beta.1
-
-### Patch Changes
-
-- Updated dependencies [6c3efa5]
-  - @czb-ui/core@0.3.1-beta.1
-
-## 0.4.0-beta.0
-
-### Minor Changes
-
-- f5a39f5: Create custom FileWidget
-- de2438f: Add File Upload forms storybook
-- a4d2337: Add uiSchema prop
-
-### Patch Changes
-
-- 1daafaf: Update czifui
-- f4d45fc: Update storybook
-- Updated dependencies [f40c52f]
-- Updated dependencies [f5a39f5]
-- Updated dependencies [1daafaf]
-- Updated dependencies [fbe0682]
-- Updated dependencies [7694db7]
-- Updated dependencies [8be3465]
-- Updated dependencies [a4d2337]
-  - @czb-ui/forms@0.2.0-beta.0
-  - @czb-ui/core@0.3.1-beta.0
-
 ## 0.3.0
 
 ### Minor Changes

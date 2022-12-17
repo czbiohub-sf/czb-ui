@@ -1,18 +1,5 @@
 # @czb-ui/core
 
-## 0.3.1-beta.1
-
-### Patch Changes
-
-- 6c3efa5: Remove rjsf dependencies
-
-## 0.3.1-beta.0
-
-### Patch Changes
-
-- 1daafaf: Update czifui
-- 7694db7: Use hex in contrastText to avoid bugs with other components not parsing color string
-
 ## 0.3.0
 
 ### Minor Changes
