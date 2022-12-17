@@ -16,7 +16,16 @@ const objectMap = (
   fn: (v: any, k: string, i: number) => any
 ) => Object.entries(obj).map(([k, v], j) => fn(v, k, j));
 
+const isDataURL = (s: string) => {
+  return /^data:text\/plain;name=\w+\.\w+;base64,[A-Za-z0-9+/]+=*$/.test(s);
+};
+
 const LayoutJson = (prop: string | string[] | Record<string, any>) => {
+  if (typeof prop == "string" && isDataURL(prop)) {
+    // It's a data url (from the file widget)
+    return <div>test</div>;
+  }
+
   if (typeof prop == "string") {
     return <div>{prop}</div>;
   }
