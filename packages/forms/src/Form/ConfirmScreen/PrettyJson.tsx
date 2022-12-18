@@ -23,7 +23,7 @@ const isDataURL = (s: string) => {
 const LayoutJson = (prop: string | string[] | Record<string, any>) => {
   if (typeof prop == "string" && isDataURL(prop)) {
     // It's a data url (from the file widget)
-    return <div>test</div>;
+    return <div>File</div>;
   }
 
   if (typeof prop == "string") {
