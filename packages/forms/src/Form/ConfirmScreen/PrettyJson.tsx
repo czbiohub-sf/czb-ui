@@ -34,7 +34,7 @@ const LayoutJson = (prop: string | string[] | Record<string, any>) => {
     return (
       <ol>
         {prop.map((item, i) => (
-          <li key={i}>{item}</li>
+          <li key={i}>{LayoutJson(item)}</li>
         ))}
       </ol>
     );
@@ -47,7 +47,7 @@ const LayoutJson = (prop: string | string[] | Record<string, any>) => {
           return (
             <Box mb={5} key={j}>
               <Typography fontWeight="bold">{k}</Typography>
-              <Typography>{LayoutJson(v)}</Typography>
+              {LayoutJson(v)}
             </Box>
           );
         })}
