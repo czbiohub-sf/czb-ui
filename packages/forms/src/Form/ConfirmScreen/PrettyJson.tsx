@@ -17,7 +17,9 @@ const objectMap = (
 ) => Object.entries(obj).map(([k, v], j) => fn(v, k, j));
 
 const isDataURL = (s: string) => {
-  return /^data:text\/plain;name=\w+\.\w+;base64,[A-Za-z0-9+/]+=*$/.test(s);
+  // Regex to detect something like this: data:text/plain;name=<filename>;base64,<base64>
+  const regex = /^data:.+\/(.+);base64,(.*)$/;
+  return regex.test(s);
 };
 
 const LayoutJson = (prop: string | string[] | Record<string, any>) => {
