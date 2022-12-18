@@ -97,4 +97,15 @@ ComplexForm.args = {
       },
     },
   ],
+  uiSchema: [
+    {},
+    {},
+    {
+      filesAccept: {
+        "ui:options": {
+          accept: ".pdf",
+        },
+      },
+    },
+  ],
 };
