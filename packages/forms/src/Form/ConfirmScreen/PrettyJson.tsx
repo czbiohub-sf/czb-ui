@@ -22,6 +22,7 @@ const isDataURL = (s: string) => {
   return regex.test(s);
 };
 
+// TODO: Running this function with a huge data url causes the browser to freeze
 const LayoutJson = (prop: string | string[] | Record<string, any>) => {
   if (typeof prop == "string" && isDataURL(prop)) {
     // It's a data url (from the file widget)
