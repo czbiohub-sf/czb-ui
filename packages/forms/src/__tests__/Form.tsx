@@ -188,6 +188,9 @@ it("multi page forms submit the correct data", async () => {
     }
   }
 
+  // Confirm screen submit
+  await user.click(screen.getByRole("button", { name: /submit/i }));
+
   await waitFor(() =>
     expect(handleSubmit).toHaveBeenCalledWith([
       {
@@ -291,6 +294,9 @@ it("multi page forms submit the correct data, but user goes backwards and change
       await user.click(screen.getByRole("button", { name: /next/i }));
     }
   }
+
+  // Confirm screen submit
+  await user.click(screen.getByRole("button", { name: /submit/i }));
 
   await waitFor(() =>
     expect(handleSubmit).toHaveBeenCalledWith([
