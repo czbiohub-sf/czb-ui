@@ -3,6 +3,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { within } from "@testing-library/dom";
 import Form from "../Form/Form";
+import { RJSFSchema, UiSchema } from "@rjsf/utils";
 
 // Similar to FileUpload.stories.tsx
 const testSchema = {
@@ -28,7 +29,7 @@ const testSchema = {
       title: "Single File with Accept attribute",
     },
   },
-};
+} as RJSFSchema;
 
 const testUiSchema = {
   filesAccept: {
@@ -36,7 +37,7 @@ const testUiSchema = {
       accept: ".pdf",
     },
   },
-};
+} as UiSchema;
 
 const setup = () => {
   const user = userEvent.setup();
