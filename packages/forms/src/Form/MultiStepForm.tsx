@@ -6,10 +6,11 @@ import FormPageNav from "./FormPageNav/FormPageNav";
 import { widgets } from "./Form";
 import ConfirmScreen from "./ConfirmScreen/ConfirmScreen";
 import SuccessfulSubmit from "./ConfirmScreen/SuccessfulSubmit";
+import LoadingSubmit from "./ConfirmScreen/LoadingSubmit";
 
 interface MultiStepFormProps {
   schema: Array<schemaType>;
-  onCompleteSubmit: (completedFormEvent: any) => void; // TODO: Find type of submit event?
+  onCompleteSubmit: (completedFormEvent: any) => void; // TODO: Find type of submit event? And handle async type somehow?
   uiSchema?: Array<uiSchemaType>;
   showConfirmScreen?: boolean;
 }
@@ -32,7 +33,7 @@ export const MultiStepForm = ({
   const [formData, setFormData] = useState(initFormData());
   // TODO: Maybe rename this state variable to avoid
   // confusion with showConfirmScreen
-  // 0 is no show, 1 is confirm screen, 2 is successful screen
+  // 0 is no show, 1 is confirm screen, 2 is successful screen, 3 is loading screen
   const [confirmScreenShow, setConfirmScreenShow] = useState(0);
 
   const currentStep = schema.length - remSteps;
@@ -51,8 +52,11 @@ export const MultiStepForm = ({
     }
   };
 
-  const afterFinalSubmit = () => {
-    onCompleteSubmit(formData);
+  const afterFinalSubmit = async () => {
+    // When the async promise is resolved (e.g. sending a request
+    // to a database), the form will move on to the successful screen
+    setConfirmScreenShow(3);
+    await onCompleteSubmit(formData);
     setConfirmScreenShow(2);
   };
 
@@ -69,6 +73,10 @@ export const MultiStepForm = ({
 
   if (confirmScreenShow == 2) {
     return <SuccessfulSubmit onSubmitAnotherResponse={resetForm} />;
+  }
+
+  if (confirmScreenShow == 3) {
+    return <LoadingSubmit />;
   }
 
   // Since we want to keep the form data at each step,
