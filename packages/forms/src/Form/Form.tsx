@@ -1,9 +1,8 @@
 import RJSFForm from "@rjsf/mui";
-import validator from "@rjsf/validator-ajv6";
 import { MultiStepForm } from "./MultiStepForm";
-import FormPageNav from "./FormPageNav/FormPageNav";
 import { File } from "../CustomWidgets";
 
+// TODO: Use types from @rjsf/utils
 export type schemaType = React.ComponentProps<typeof RJSFForm>["schema"];
 export type uiSchemaType = React.ComponentProps<typeof RJSFForm>["uiSchema"];
 
@@ -51,18 +50,13 @@ const Form = ({ schema, uiSchema, onCompleteSubmit }: FormProps) => {
     );
   }
 
+  // Use multi step form to simplify code between single and multi page forms
   return (
-    <>
-      <RJSFForm
-        schema={schema}
-        uiSchema={uiSchema}
-        validator={validator}
-        onSubmit={(e: any) => onCompleteSubmit(e.formData)}
-        widgets={widgets}
-      >
-        <FormPageNav steps={1} remSteps={1} />
-      </RJSFForm>
-    </>
+    <MultiStepForm
+      schema={[schema]}
+      uiSchema={[uiSchema]}
+      onCompleteSubmit={(formData) => onCompleteSubmit(formData)}
+    />
   );
 };
 
