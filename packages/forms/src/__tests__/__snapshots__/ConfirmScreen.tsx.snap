@@ -233,6 +233,11 @@ exports[`renders form data correctly 1`] = `
               2Untitled_copy - weird file name.txt
             </div>
           </li>
+          <li>
+            <div>
+              2Untitled_copy - i am a really long file nameeeeeeeeeeeeeeeeeee...
+            </div>
+          </li>
         </ol>
       </div>
       <div

@@ -34,6 +34,7 @@ const completedFormProps = {
       files: [
         "data:text/plain;name=1Untitled.txt;base64,SSdtIGEgc21hbGwgdGV4dCBmaWxlLg==",
         "data:text/plain;name=2Untitled_copy%20-%20weird%20file%20name.txt;base64,SSdtIGFub3RoZXIgc21hbGwgdGV4dCBmaWxlLg==",
+        "data:text/plain;name=2Untitled_copy%20-%20i%20am%20a%20really%20long%20file%20nameeeeeeeeeeeeeeeeeee.txt;base64,SSdtIGFub3RoZXIgc21hbGwgdGV4dCBmaWxlLg==",
       ],
       file: "data:text/plain;name=1Untitled.txt;base64,SSdtIGEgc21hbGwgdGV4dCBmaWxlLg==",
     },
