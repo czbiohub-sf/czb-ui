@@ -23,7 +23,28 @@ const isDataURL = (s: string) => {
   return regex.test(s);
 };
 
-// TODO: Running this function with a huge data url causes the browser to freeze
+const getFileNameFromDataURL = (s: string) => {
+  // Regex to detect something like this: data:text/plain;name=<filename>;base64,<base64>
+  // Extract the filename from the string; however the filename may be incomplete (and also
+  // may not get to the ";base64" part) because we are only sampling the first 30 characters of the string
+  const regex = /name=([^;]+)(;?)/;
+  const match = s.match(regex);
+
+  if (match) {
+    const filename = match[1];
+
+    // If the filename is incomplete, add "..." at the end
+    // The filename is incomplete when the regex does not match the
+    // semicolon in the ";base64" part
+    if (match[2] != ";") {
+      return filename + "...";
+    }
+
+    return filename;
+  }
+};
+
+// TODO: Running this function with a huge data url causes the browser to freeze for a bit
 const LayoutJson = (prop: string | string[] | Record<string, any>) => {
   if (Array.isArray(prop)) {
     return (
@@ -55,16 +76,16 @@ const LayoutJson = (prop: string | string[] | Record<string, any>) => {
 
   // Ok so now we know it's a string. However it could be a data url.
   // Data urls can be very long strings and can freeze the browser parsing them in a whole.
-  // So lets take only the first 30 characters of the string and from there we can determine
+  // So lets take only the first 100 characters of the string and from there we can determine
   // whether it's a data url or not.
 
   if (typeof prop == "string") {
-    const first30Chars = prop.slice(0, 30);
+    const first30Chars = prop.slice(0, 100);
     const isDataUrl = isDataURL(first30Chars);
 
     if (isDataUrl) {
       // It's a data url (from the file widget)
-      return <div>File</div>;
+      return <div>{getFileNameFromDataURL(first30Chars)}</div>;
     }
 
     return <div>{prop}</div>;
