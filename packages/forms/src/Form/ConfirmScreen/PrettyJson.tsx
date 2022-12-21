@@ -17,22 +17,14 @@ const objectMap = (
 ) => Object.entries(obj).map(([k, v], j) => fn(v, k, j));
 
 const isDataURL = (s: string) => {
-  // Regex to detect something like this: data:text/plain;name=<filename>;base64,<base64>
-  const regex = /^data:.+\/(.+);base64,(.*)$/;
+  // Regex to detect something like this: data:text/plain;name=<filename>
+  // Note that we are only sampling the first 30 characters of the string
+  const regex = /^data:.+\/(.+);/;
   return regex.test(s);
 };
 
 // TODO: Running this function with a huge data url causes the browser to freeze
 const LayoutJson = (prop: string | string[] | Record<string, any>) => {
-  if (typeof prop == "string" && isDataURL(prop)) {
-    // It's a data url (from the file widget)
-    return <div>File</div>;
-  }
-
-  if (typeof prop == "string") {
-    return <div>{prop}</div>;
-  }
-
   if (Array.isArray(prop)) {
     return (
       <ol>
@@ -58,8 +50,29 @@ const LayoutJson = (prop: string | string[] | Record<string, any>) => {
     );
   }
 
+  // TODO: Boolean
+  // TODO: Number
+
+  // Ok so now we know it's a string. However it could be a data url.
+  // Data urls can be very long strings and can freeze the browser parsing them in a whole.
+  // So lets take only the first 30 characters of the string and from there we can determine
+  // whether it's a data url or not.
+
+  if (typeof prop == "string") {
+    const first30Chars = prop.slice(0, 30);
+    const isDataUrl = isDataURL(first30Chars);
+
+    if (isDataUrl) {
+      // It's a data url (from the file widget)
+      return <div>File</div>;
+    }
+
+    return <div>{prop}</div>;
+  }
+
   // If the type is not coded here,
   // just fallback to a JSON stringify
+  // TODO: Maybe limit the number of characters shown to avoid freezing issues?
   return <div>{JSON.stringify(prop)}</div>;
 };
 
