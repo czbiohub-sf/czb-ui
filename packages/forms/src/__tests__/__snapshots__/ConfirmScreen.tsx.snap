@@ -225,12 +225,12 @@ exports[`renders form data correctly 1`] = `
         <ol>
           <li>
             <div>
-              File
+              1Untitled.txt
             </div>
           </li>
           <li>
             <div>
-              File
+              2Untitled_copy - weird file name.txt
             </div>
           </li>
         </ol>
@@ -244,7 +244,7 @@ exports[`renders form data correctly 1`] = `
           file
         </p>
         <div>
-          File
+          1Untitled.txt
         </div>
       </div>
     </div>
