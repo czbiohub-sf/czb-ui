@@ -31,7 +31,8 @@ const getFileNameFromDataURL = (s: string) => {
   const match = s.match(regex);
 
   if (match) {
-    const filename = match[1];
+    // Data urls are encoded when they are in the formData state
+    const filename = decodeURI(match[1]);
 
     // If the filename is incomplete, add "..." at the end
     // The filename is incomplete when the regex does not match the

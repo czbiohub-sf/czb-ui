@@ -59,7 +59,10 @@ function extractFileInfo(dataURLs: string[]) {
     .map((dataURL) => {
       const { blob, name } = dataURItoBlob(dataURL);
       return {
-        name: name,
+        // Decode URI because the name is encoded when it is added to the data URL.
+        // If the user comes back to the step afterwards, the form data state will
+        // fill the form with an encoded URI
+        name: decodeURI(name),
         size: blob.size,
         type: blob.type,
       };
