@@ -58,6 +58,7 @@ const setup = () => {
       schema={testSchema}
       uiSchema={testUiSchema}
       onCompleteSubmit={handleSubmit}
+      showConfirmScreen={false}
     />
   );
 
