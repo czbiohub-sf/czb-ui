@@ -23,7 +23,7 @@
     "@mui/x-data-grid": "^5.15.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.2",
-    "@tinacms/cli": "^0.61.1",
+    "@tinacms/cli": "^1.0.5",
     "@types/d3-dsv": "^3.0.0",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
@@ -39,7 +39,7 @@
     "react-dom": "^18.2.0",
     "rollup": "^2.77.0",
     "rollup-plugin-delete": "^2.0.0",
-    "tinacms": "^0.69.14",
+    "tinacms": "^1.1.2",
     "tsconfig": "*",
     "turbo": "latest",
     "typescript": "^4.5.3"
