@@ -7929,10 +7929,10 @@ cyclist@^1.0.1:
   resolved "https://registry.npmjs.org/cyclist/-/cyclist-1.0.1.tgz"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
-czifui@^7.16.2:
-  version "7.16.2"
-  resolved "https://registry.yarnpkg.com/czifui/-/czifui-7.16.2.tgz#cecdf1bd6feceadd0f24958705b86bed9e604bbc"
-  integrity sha512-HSgNkr9YKdoioImHhiVl4lDrX1pIyd0Q/EGoQO66aExSZRcY80CGMJhXcywBfEc8C6OjoO6f5/VEJFNbVh/R1A==
+czifui@^13.1.1:
+  version "13.1.1"
+  resolved "https://registry.yarnpkg.com/czifui/-/czifui-13.1.1.tgz#22263a29047f02c318656191fbcb1cb9f0ff3a2d"
+  integrity sha512-8NR4Z8y9YRHtgNwlZJDukHmVLNjH3BISoisGNViXLBgagepW3TEA9qgZttklyk+fNV4AcSZKoH1CtE/7mmZdWw==
 
 d3-dsv@^3.0.1:
   version "3.0.1"
