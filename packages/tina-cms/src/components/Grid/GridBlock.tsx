@@ -34,14 +34,6 @@ export const GridBlock = ({ block }: GridProps) => {
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 8 }}>
         {blocks &&
           blocks.map((nestedBlock, i) => {
-            // Since nested lists get their typename changed,
-            // pass the right one for the block switcher component
-            const newBlockTypeName = nestedBlock.__typename.replace(
-              /GridBlocks/,
-              ""
-            );
-            nestedBlock.__typename = newBlockTypeName;
-
             return (
               <Grid item xs={2} sm={4} md={4} key={i}>
                 <BlockSwitcher
