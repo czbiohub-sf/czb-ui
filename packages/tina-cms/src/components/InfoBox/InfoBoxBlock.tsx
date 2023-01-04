@@ -19,7 +19,7 @@ interface InfoBoxProps {
   block: InfoBoxBlockProps;
   disableContainerGutters?: boolean;
   disableYMargins?: boolean;
-  small?: boolean;
+  smallVariants?: boolean;
 }
 
 // TODO: Clean up link components (from

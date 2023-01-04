@@ -23,38 +23,36 @@ export const BlockSwitcher = (props: BlockSwitcher) => {
     <>
       {blocks
         ? blocks.map((block, i) => {
-            switch (block.__typename) {
-              case "PagesBlocksGenericBanner":
-                return <GenericBannerBlock block={block} key={i} />;
-              case "PagesBlocksGrandBanner":
-                return <GrandBannerBlock block={block} key={i} />;
-              case "PagesBlocksText":
-                return <TextBlock block={block} key={i} />;
-              case "PagesBlocksInfoBox":
+            // Regex to remove all the collection name prefixes and the "Blocks" suffixes
+            // Example block names: "PagesBlocksGenericBanner", "PagesBlocksGridBlocksInfoBox"
+            // Outputs for those examples: "GenericBanner", "InfoBox"
+            const blockToLookFor = block.__typename
+              .replace(/(([A-Z][a-z0-9]+)+)Blocks/g, "")
+              .replace(/Blocks/g, "");
+
+            switch (blockToLookFor) {
+              case "GenericBanner":
+                return <GenericBannerBlock block={block} key={i} {...props} />;
+              case "GrandBanner":
+                return <GrandBannerBlock block={block} key={i} {...props} />;
+              case "Text":
+                return <TextBlock block={block} key={i} {...props} />;
+              case "InfoBox":
+                return <InfoBoxBlock block={block} key={i} {...props} />;
+              case "Grid":
+                return <GridBlock block={block} key={i} {...props} />;
+              case "Table":
+                return <TableBlock block={block} key={i} {...props} />;
+              case "LegacyInfoBox":
+                return <LegacyInfoBoxBlock block={block} key={i} {...props} />;
+              case "HeadingSeparator":
                 return (
-                  <InfoBoxBlock
-                    block={block}
-                    disableContainerGutters={props.disableContainerGutters}
-                    disableYMargins={props.disableYMargins}
-                    small={props.smallVariants}
-                    key={i}
-                  />
+                  <HeadingSeparatorBlock block={block} key={i} {...props} />
                 );
-              case "PagesBlocksGrid":
-                return <GridBlock block={block} key={i} />;
-              case "PagesBlocksTable":
-                return <TableBlock block={block} key={i} />;
-              case "PagesBlocksLegacyInfoBox":
-                return (
-                  <LegacyInfoBoxBlock
-                    block={block}
-                    disableContainerGutters={props.disableContainerGutters}
-                    small={props.smallVariants}
-                    key={i}
-                  />
+              default:
+                console.warn(
+                  `@czb-ui/tina-cms: No component found for block ${block.__typename}. Calcuated block name: ${blockToLookFor}`
                 );
-              case "PagesBlocksHeadingSeparator":
-                return <HeadingSeparatorBlock block={block} key={i} />;
             }
           })
         : null}
