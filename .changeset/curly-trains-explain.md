@@ -1,5 +1,5 @@
 ---
-"@czb-ui/tina-cms": patch
+"@czb-ui/tina-cms": minor
 ---
 
 Allow for custom collection names
