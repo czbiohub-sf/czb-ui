@@ -39,7 +39,6 @@ export const GridBlock = ({ block }: GridProps) => {
                 <BlockSwitcher
                   blocks={[nestedBlock]}
                   disableContainerGutters
-                  disableYMargins
                   smallVariants
                 />
               </Grid>
