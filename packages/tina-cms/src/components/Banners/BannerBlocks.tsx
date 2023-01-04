@@ -8,7 +8,7 @@ interface BannerBlockProps {
   right?: boolean;
   imageAlt?: string;
   alternateFont?: boolean;
-  smaller?: boolean;
+  smallVariants?: boolean;
 }
 
 interface BannerProps {
