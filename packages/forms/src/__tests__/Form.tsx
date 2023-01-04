@@ -109,7 +109,11 @@ it("single page forms submit the correct data", async () => {
   const handleSubmit = jest.fn();
 
   render(
-    <Form schema={singlePageSampleSchema} onCompleteSubmit={handleSubmit} />
+    <Form
+      schema={singlePageSampleSchema}
+      onCompleteSubmit={handleSubmit}
+      showConfirmScreen={false}
+    />
   );
 
   await user.type(screen.getByLabelText(/name/i), "abcdef");
@@ -125,12 +129,44 @@ it("single page forms submit the correct data", async () => {
   );
 });
 
+it("form with confirm screen submits data correctly", async () => {
+  const user = userEvent.setup();
+  const handleSubmit = jest.fn();
+
+  render(
+    <Form
+      schema={singlePageSampleSchema}
+      onCompleteSubmit={handleSubmit}
+      showConfirmScreen={true}
+    />
+  );
+
+  await user.type(screen.getByLabelText(/name/i), "abcdef");
+  await user.type(screen.getByLabelText(/age/i), "324829034");
+
+  await user.click(screen.getByRole("button", { name: /submit/i }));
+
+  // Confirm screen submit
+  await user.click(screen.getByRole("button", { name: /submit/i }));
+
+  await waitFor(() =>
+    expect(handleSubmit).toHaveBeenCalledWith({
+      name: "abcdef",
+      age: 324829034,
+    })
+  );
+});
+
 it("multi page forms submit the correct data", async () => {
   const user = userEvent.setup();
   const handleSubmit = jest.fn();
 
   render(
-    <Form schema={multiPageSampleSchema} onCompleteSubmit={handleSubmit} />
+    <Form
+      schema={multiPageSampleSchema}
+      onCompleteSubmit={handleSubmit}
+      showConfirmScreen={false}
+    />
   );
 
   const actionsOnEachPage = [
@@ -211,7 +247,11 @@ it("multi page forms submit the correct data, but user goes backwards and change
   const handleSubmit = jest.fn();
 
   render(
-    <Form schema={multiPageSampleSchema} onCompleteSubmit={handleSubmit} />
+    <Form
+      schema={multiPageSampleSchema}
+      onCompleteSubmit={handleSubmit}
+      showConfirmScreen={false}
+    />
   );
 
   const actionsOnEachPage = [

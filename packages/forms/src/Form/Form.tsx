@@ -1,9 +1,8 @@
 import RJSFForm from "@rjsf/mui";
-import validator from "@rjsf/validator-ajv6";
 import { MultiStepForm } from "./MultiStepForm";
-import FormPageNav from "./FormPageNav/FormPageNav";
 import { File } from "../CustomWidgets";
 
+// TODO: Use types from @rjsf/utils
 export type schemaType = React.ComponentProps<typeof RJSFForm>["schema"];
 export type uiSchemaType = React.ComponentProps<typeof RJSFForm>["uiSchema"];
 
@@ -11,13 +10,19 @@ interface FormProps {
   schema: schemaType | Array<schemaType>;
   onCompleteSubmit: (formData: any) => void;
   uiSchema?: uiSchemaType | Array<uiSchemaType>;
+  showConfirmScreen?: boolean;
 }
 
 export const widgets = {
   FileWidget: File,
 };
 
-const Form = ({ schema, uiSchema, onCompleteSubmit }: FormProps) => {
+const Form = ({
+  schema,
+  uiSchema,
+  onCompleteSubmit,
+  showConfirmScreen,
+}: FormProps) => {
   if (Array.isArray(schema)) {
     // uiSchema checks
     if (uiSchema) {
@@ -40,6 +45,7 @@ const Form = ({ schema, uiSchema, onCompleteSubmit }: FormProps) => {
         schema={schema}
         uiSchema={uiSchema}
         onCompleteSubmit={(formData) => onCompleteSubmit(formData)}
+        showConfirmScreen={showConfirmScreen}
       />
     );
   }
@@ -51,18 +57,16 @@ const Form = ({ schema, uiSchema, onCompleteSubmit }: FormProps) => {
     );
   }
 
+  // Use multi step form to simplify code between single and multi page forms
+  // Since we're just using one step here, we can also just run the onCompleteSubmit
+  // function with the first element of the formData array
   return (
-    <>
-      <RJSFForm
-        schema={schema}
-        uiSchema={uiSchema}
-        validator={validator}
-        onSubmit={(formData: any) => onCompleteSubmit(formData.formData)}
-        widgets={widgets}
-      >
-        <FormPageNav steps={1} remSteps={1} />
-      </RJSFForm>
-    </>
+    <MultiStepForm
+      schema={[schema]}
+      uiSchema={[uiSchema]}
+      onCompleteSubmit={(formData) => onCompleteSubmit(formData[0])}
+      showConfirmScreen={showConfirmScreen}
+    />
   );
 };
 

@@ -11,13 +11,14 @@
     "test": "jest"
   },
   "peerDependencies": {
+    "@czb-ui/core": "*",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.5",
     "react": "^17.0.1 || ^18.0.0",
     "react-dom": "^17.0.1 || ^18.0.0",
-    "czifui": "^7.16.2"
+    "czifui": "^13.1.1"
   },
   "dependencies": {
     "@rjsf/core": "^5.0.0-beta.10",
