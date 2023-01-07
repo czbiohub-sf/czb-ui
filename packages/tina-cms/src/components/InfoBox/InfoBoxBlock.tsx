@@ -29,7 +29,7 @@ export const InfoBoxBlock = ({
   block,
   disableContainerGutters,
   disableYMargins,
-  small,
+  smallVariants,
 }: InfoBoxProps) => {
   let page;
 
@@ -46,7 +46,7 @@ export const InfoBoxBlock = ({
         title={block.title}
         subtitle={block.subtitle}
         page={page}
-        small={small}
+        small={smallVariants}
         image={
           block.image ? (
             <Box position="relative" height="100%">
