@@ -2108,6 +2108,19 @@
   resolved "https://registry.npmjs.org/@colors/colors/-/colors-1.5.0.tgz"
   integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
 
+"@czb-ui/core@0.4.0-beta.3":
+  version "0.4.0-beta.3"
+  resolved "https://registry.yarnpkg.com/@czb-ui/core/-/core-0.4.0-beta.3.tgz#bde11b9c9e9d0704c646f1a0076a87b612b922b6"
+  integrity sha512-/sgmgBKG38suwfN2ggSAKMp85CWuXoFMbEY8xjo8zAf2C0MDEbe/YTLPPU3Kpr+rKZK4k31rS/t/jF8HShoZOQ==
+  dependencies:
+    hamburger-react "^2.5.0"
+    uuid "^8.3.2"
+
+"@czb-ui/tina-cms@0.3.0-beta.2":
+  version "0.3.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@czb-ui/tina-cms/-/tina-cms-0.3.0-beta.2.tgz#bff616dccedef9148d1bc94bf4176b1b9e881b8e"
+  integrity sha512-6P8K5rafXrWItP9SIVBKEWFT1vat2Mm4q1fa62CI7qWe9kjs5imZ5SrFzhA19s17U1B2uDRMR6n+MQgKw0uR4A==
+
 "@discoveryjs/json-ext@^0.5.3":
   version "0.5.7"
   resolved "https://registry.npmjs.org/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz"
