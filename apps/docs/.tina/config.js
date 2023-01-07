@@ -22,36 +22,41 @@ const templates = [
   HeadingSeparator,
 ];
 
+// routePath has to end in "/"
+const blockCollection = (name, label, path, routePath) => ({
+  label: label,
+  name: name,
+  path: path,
+  format: "mdx",
+  fields: [
+    {
+      name: "title",
+      label: "Title",
+      type: "string",
+    },
+    {
+      type: "object",
+      list: true,
+      name: "blocks",
+      label: "Sections",
+      templates: templates,
+    },
+  ],
+  ui: {
+    router: ({ document }) => {
+      if (document._sys.filename == "home" && !routePath) {
+        // Only for non-nested routes, this will be the index page
+        return "/";
+      }
+      return `/${routePath}${document._sys.filename}`;
+    },
+  },
+});
+
 const schema = defineSchema({
   collections: [
-    {
-      label: "Page Content",
-      name: "page",
-      path: "content/page",
-      format: "mdx",
-      fields: [
-        {
-          name: "title",
-          label: "Title",
-          type: "string",
-        },
-        {
-          type: "object",
-          list: true,
-          name: "blocks",
-          label: "Sections",
-          templates: templates,
-        },
-      ],
-      ui: {
-        router: ({ document }) => {
-          if (document._sys.filename == "home") {
-            return "/";
-          }
-          return `/${document._sys.filename}`;
-        },
-      },
-    },
+    blockCollection("page", "Page Content", "content/page"),
+    blockCollection("docs", "Documentation", "content/docs", "docs/"),
   ],
 });
 
