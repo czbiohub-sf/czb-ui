@@ -43,7 +43,7 @@ export const GrandBannerBlock = ({ block }: BannerProps) => {
       subtitle={block.subtitle}
       direction={block.right ? "right" : "left"}
       titleFont={block.alternateFont ? "Lato" : "Butler"}
-      height={block.smaller ? "400px" : undefined}
+      height={block.smallVariants ? "400px" : undefined}
       image={
         block.image ? (
           <Image
