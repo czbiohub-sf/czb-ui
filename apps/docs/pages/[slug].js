@@ -19,6 +19,8 @@ export default function DynamicPage(props) {
 }
 
 // TODO: Make these fetching variables more dynamic, reflect changes in docs/[slug].js
+// Look at commit 93a768a7c43914e5ae7fb8ad7f2a63b118908488 for barebones version of docs/[slug].js
+// without the additional documentation layouts and stuff
 export const getStaticPaths = async () => {
   const pageListData = await client.queries.pageConnection();
 
