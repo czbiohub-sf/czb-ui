@@ -46,8 +46,6 @@ export const getStaticProps = async (ctx) => {
     relativePath: ctx.params.slug + ".mdx",
   };
 
-  console.log(variables);
-
   let pageResponse = {};
   try {
     // Change function name, e.g. client.queries.page, client.queries.docs
