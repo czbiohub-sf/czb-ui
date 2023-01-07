@@ -2,6 +2,9 @@ import { client } from "../../.tina/__generated__/client";
 import { useTina } from "tinacms/dist/react";
 import { BlockSwitcher } from "@czb-ui/tina-cms";
 
+import DocsPageLayout from "../../components/DocsPageLayout/DocsPageLayout";
+import DocsMenu from "../../components/DocsMenu/DocsMenu";
+
 export default function DocsPage(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
@@ -13,8 +16,9 @@ export default function DocsPage(props) {
   return (
     <>
       {/* <Seo title={data.page.title} /> */}
-      {/* Change function name, e.g. data.page, data.docs depending on collection name */}
-      <BlockSwitcher {...data.docs} />
+      <DocsPageLayout sidebar={<DocsMenu />}>
+        <BlockSwitcher {...data.docs} />
+      </DocsPageLayout>
     </>
   );
 }
