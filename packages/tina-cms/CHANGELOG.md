@@ -1,5 +1,18 @@
 # @czb-ui/tina-cms
 
+## 0.3.0-beta.2
+
+### Minor Changes
+
+- 5756672: Allow for custom collection names
+
+### Patch Changes
+
+- ad956d2: Update czifui
+- ad956d2: Update tinacms
+- Updated dependencies [ad956d2]
+  - @czb-ui/core@0.4.0-beta.3
+
 ## 0.2.2-beta.1
 
 ### Patch Changes

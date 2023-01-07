@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 0.4.0-beta.3
+
+### Patch Changes
+
+- ad956d2: Update czifui
+
 ## 0.4.0-beta.2
 
 ### Minor Changes

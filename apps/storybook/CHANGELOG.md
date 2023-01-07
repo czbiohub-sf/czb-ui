@@ -1,5 +1,14 @@
 # storybook
 
+## 0.4.0-beta.5
+
+### Patch Changes
+
+- ad956d2: Update Storybook
+- ad956d2: Update czifui
+- Updated dependencies [ad956d2]
+  - @czb-ui/core@0.4.0-beta.3
+
 ## 0.4.0-beta.4
 
 ### Patch Changes
