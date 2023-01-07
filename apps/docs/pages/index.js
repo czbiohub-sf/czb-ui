@@ -13,8 +13,6 @@ export default function DynamicPage(props) {
     data: props.data,
   });
 
-  console.log(data);
-
   return (
     <>
       {/* <Seo title="" /> */}
