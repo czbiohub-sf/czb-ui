@@ -27,7 +27,7 @@ export default function DocsMenu() {
       <List>
         {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton>
+            <ListItemButton sx={{ paddingY: 3 }}>
               <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
