@@ -12,6 +12,9 @@ import "@fontsource/barlow/700.css";
 import "@fontsource/lato/400.css";
 import "@fontsource/lato/700.css";
 
+// Import Butler font
+import "../public/fonts/Butler.css";
+
 const App = ({ Component, pageProps }) => {
   return (
     <ThemeProvider>
