@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "czifui";
+import styled from "@emotion/styled";
+import { fontCapsXxs } from "czifui";
 import {
   Box,
   Drawer,
@@ -7,9 +8,46 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
+  Typography,
 } from "@mui/material";
 
 const drawerWidth = 240;
+
+const docsMenu = [
+  {
+    title: "Getting Started",
+    items: [
+      {
+        title: "Introduction",
+        slug: "introduction",
+      },
+      {
+        title: "Installation",
+        slug: "installation",
+      },
+    ],
+  },
+  {
+    title: "Components",
+    items: [
+      {
+        title: "NavBarAndFooterPlacer",
+        slug: "navbarandfooterplacer",
+      },
+      {
+        title: "InfoBox",
+        slug: "infobox",
+      },
+    ],
+  },
+];
+
+export const CategoryTitle = styled(Typography)`
+  ${fontCapsXxs}
+  padding-left: 16px; /* To match ListItemButton padding */
+  padding-right: 16px; /* To match ListItemButton padding */
+  margin-top: 16px;
+`;
 
 export default function DocsMenu() {
   return (
@@ -25,11 +63,20 @@ export default function DocsMenu() {
       }}
     >
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton sx={{ paddingY: 3 }}>
-              <ListItemText primary={text} />
-            </ListItemButton>
+        {docsMenu.map((category, i) => (
+          <ListItem key={i} disablePadding sx={{ display: "block" }}>
+            <CategoryTitle component="div">{category.title}</CategoryTitle>
+            <Box>
+              <List>
+                {category.items.map((item, j) => (
+                  <ListItem key={j} disablePadding>
+                    <ListItemButton sx={{ paddingY: 3 }}>
+                      <ListItemText primary={item.title} />
+                    </ListItemButton>
+                  </ListItem>
+                ))}
+              </List>
+            </Box>
           </ListItem>
         ))}
       </List>
