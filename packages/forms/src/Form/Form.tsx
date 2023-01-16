@@ -3,10 +3,10 @@ import { MultiStepForm } from "./MultiStepForm";
 import { File } from "../CustomWidgets";
 
 // TODO: Use types from @rjsf/utils
-export type schemaType = React.ComponentProps<typeof RJSFForm>["schema"];
-export type uiSchemaType = React.ComponentProps<typeof RJSFForm>["uiSchema"];
+type schemaType = React.ComponentProps<typeof RJSFForm>["schema"];
+type uiSchemaType = React.ComponentProps<typeof RJSFForm>["uiSchema"];
 
-interface FormProps {
+export interface FormProps {
   schema: schemaType | Array<schemaType>;
   onCompleteSubmit: (formData: any) => void;
   uiSchema?: uiSchemaType | Array<uiSchemaType>;
