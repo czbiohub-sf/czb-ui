@@ -11,6 +11,7 @@ export interface FormProps {
   onCompleteSubmit: (formData: any) => void;
   uiSchema?: uiSchemaType | Array<uiSchemaType>;
   showConfirmScreen?: boolean;
+  confirmScreenSuccessMessage?: string;
 }
 
 export const widgets = {
@@ -22,6 +23,7 @@ const Form = ({
   uiSchema,
   onCompleteSubmit,
   showConfirmScreen,
+  confirmScreenSuccessMessage,
 }: FormProps) => {
   if (Array.isArray(schema)) {
     // uiSchema checks
@@ -46,6 +48,7 @@ const Form = ({
         uiSchema={uiSchema}
         onCompleteSubmit={(formData) => onCompleteSubmit(formData)}
         showConfirmScreen={showConfirmScreen}
+        confirmScreenSuccessMessage={confirmScreenSuccessMessage}
       />
     );
   }
@@ -66,6 +69,7 @@ const Form = ({
       uiSchema={[uiSchema]}
       onCompleteSubmit={(formData) => onCompleteSubmit(formData[0])}
       showConfirmScreen={showConfirmScreen}
+      confirmScreenSuccessMessage={confirmScreenSuccessMessage}
     />
   );
 };

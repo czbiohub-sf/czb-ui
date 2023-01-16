@@ -22,6 +22,7 @@ export const MultiStepForm = ({
   uiSchema,
   onCompleteSubmit,
   showConfirmScreen = true,
+  confirmScreenSuccessMessage,
 }: MultiStepFormProps) => {
   const steps = schema.length;
 
@@ -74,7 +75,12 @@ export const MultiStepForm = ({
   }
 
   if (confirmScreenShow == 2) {
-    return <SuccessfulSubmit onSubmitAnotherResponse={resetForm} />;
+    return (
+      <SuccessfulSubmit
+        onSubmitAnotherResponse={resetForm}
+        successMessage={confirmScreenSuccessMessage}
+      />
+    );
   }
 
   if (confirmScreenShow == 3) {
