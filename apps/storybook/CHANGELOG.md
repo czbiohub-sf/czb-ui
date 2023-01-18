@@ -1,5 +1,12 @@
 # storybook
 
+## 0.4.0-beta.6
+
+### Patch Changes
+
+- Updated dependencies [38b2bf7]
+  - @czb-ui/forms@0.2.0-beta.4
+
 ## 0.4.0-beta.5
 
 ### Patch Changes

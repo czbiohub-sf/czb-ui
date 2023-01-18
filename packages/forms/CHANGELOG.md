@@ -1,5 +1,11 @@
 # @czb-ui/forms
 
+## 0.2.0-beta.4
+
+### Minor Changes
+
+- 38b2bf7: Add confirm screen
+
 ## 0.2.0-beta.3
 
 ### Patch Changes
