@@ -144,7 +144,7 @@ it("form with confirm screen submits data correctly", async () => {
   await user.type(screen.getByLabelText(/name/i), "abcdef");
   await user.type(screen.getByLabelText(/age/i), "324829034");
 
-  await user.click(screen.getByRole("button", { name: /submit/i }));
+  await user.click(screen.getByRole("button", { name: /next/i }));
 
   // Confirm screen submit
   await user.click(screen.getByRole("button", { name: /submit/i }));

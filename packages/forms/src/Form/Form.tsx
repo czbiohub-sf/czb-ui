@@ -49,6 +49,10 @@ const Form = ({
         onCompleteSubmit={(formData) => onCompleteSubmit(formData)}
         showConfirmScreen={showConfirmScreen}
         confirmScreenSuccessMessage={confirmScreenSuccessMessage}
+        // "key" is here to force a re-render of the
+        // whole component when the schema or uiSchema changes.
+        // This is to avoid any stale state in MultiStepForm.
+        key={new Date().getTime()}
       />
     );
   }
@@ -70,6 +74,7 @@ const Form = ({
       onCompleteSubmit={(formData) => onCompleteSubmit(formData[0])}
       showConfirmScreen={showConfirmScreen}
       confirmScreenSuccessMessage={confirmScreenSuccessMessage}
+      key={new Date().getTime()}
     />
   );
 };
