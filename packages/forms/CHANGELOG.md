@@ -1,5 +1,12 @@
 # @czb-ui/forms
 
+## 0.2.0-beta.5
+
+### Patch Changes
+
+- 6090876: Force re-render of form component when schema or uiSchema changes
+- 6090876: Fix form page navigation buttons not working correctly when confirm screen is enabled
+
 ## 0.2.0-beta.4
 
 ### Minor Changes
