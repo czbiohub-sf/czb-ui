@@ -131,7 +131,8 @@ export const MultiStepForm = ({
         // If confirm screen is shown, set remSteps to a constant
         // so the button never shows "Submit" (since they would have
         // to go to the confirm screen anyway to submit)
-        remSteps={showConfirmScreen ? 2 : remSteps}
+        remSteps={remSteps}
+        showSubmitAtLastStep={!showConfirmScreen}
         goBackOneStep={() => setRemSteps(remSteps + 1)}
       />
     </RJSFForm>
