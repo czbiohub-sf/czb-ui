@@ -5,7 +5,7 @@ import { NextLinkComposed } from "@czb-ui/tina-cms";
 const pages = [
   {
     title: "Docs",
-    to: "/docs",
+    to: "/docs/introduction",
   },
 ];
 

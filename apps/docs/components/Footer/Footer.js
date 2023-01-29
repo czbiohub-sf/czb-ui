@@ -8,7 +8,7 @@ const pages = [
     pages: [
       {
         title: "Documentation",
-        to: "/docs",
+        to: "/docs/introduction",
       },
       {
         title: "GitHub",
