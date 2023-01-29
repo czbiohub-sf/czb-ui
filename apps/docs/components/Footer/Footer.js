@@ -1,5 +1,6 @@
 import { Footer as CZBUIFooter } from "@czb-ui/core";
 import { BiohubLogo } from "@czb-ui/biohub-logos";
+import { NextLinkComposed } from "@czb-ui/tina-cms";
 
 const pages = [
   {
@@ -36,6 +37,7 @@ export default function Footer() {
       title="CZ BIOHUB"
       logo={<BiohubLogo sx={{ fonSize: "2rem" }} />}
       pages={pages}
+      pagesComponent={NextLinkComposed}
     />
   );
 }
