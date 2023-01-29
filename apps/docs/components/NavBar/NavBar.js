@@ -1,6 +1,6 @@
 import { NavBar as CZBUINavBar } from "@czb-ui/core";
 import { BiohubLogo } from "@czb-ui/biohub-logos";
-import { NextLinkComposed } from "../NextLinkComposed/NextLinkComposed";
+import { NextLinkComposed } from "@czb-ui/tina-cms";
 
 const pages = [
   {
