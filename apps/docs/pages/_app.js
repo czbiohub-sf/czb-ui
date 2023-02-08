@@ -5,6 +5,7 @@ import { NavBarAndFooterPlacer } from "@czb-ui/core";
 
 import NavBar from "../components/NavBar/NavBar";
 import Footer from "../components/Footer/Footer";
+import DocsMenu from "../components/DocsMenu/DocsMenu";
 
 // Import fonts at their various weights
 // 400 is normal, 700 is bold
@@ -18,7 +19,11 @@ import "../public/fonts/Butler.css";
 const App = ({ Component, pageProps }) => {
   return (
     <ThemeProvider>
-      <NavBarAndFooterPlacer topBar={<NavBar />} bottomBar={<Footer />}>
+      <NavBarAndFooterPlacer
+        topBar={<NavBar />}
+        bottomBar={<Footer />}
+        leftSidebar={<DocsMenu />}
+      >
         <Component {...pageProps} />
       </NavBarAndFooterPlacer>
     </ThemeProvider>

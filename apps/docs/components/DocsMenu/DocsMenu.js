@@ -56,6 +56,7 @@ export default function DocsMenu() {
       variant="permanent"
       sx={{
         width: drawerWidth,
+        height: "100%",
         [`& .MuiDrawer-paper`]: {
           width: drawerWidth,
           boxSizing: "border-box",

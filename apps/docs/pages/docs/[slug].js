@@ -16,9 +16,7 @@ export default function DocsPage(props) {
   return (
     <>
       {/* <Seo title={data.page.title} /> */}
-      <DocsPageLayout sidebar={<DocsMenu />}>
-        <BlockSwitcher {...data.docs} />
-      </DocsPageLayout>
+      <BlockSwitcher {...data.docs} />
     </>
   );
 }
