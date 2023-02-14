@@ -23,7 +23,7 @@
     "@mui/x-data-grid": "^5.15.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.2",
-    "@tinacms/cli": "^1.0.5",
+    "@tinacms/cli": "^1.0.9",
     "@types/d3-dsv": "^3.0.0",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
