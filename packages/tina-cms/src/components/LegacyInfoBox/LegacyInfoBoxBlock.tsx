@@ -21,7 +21,7 @@ interface InfoBoxProps {
   block: InfoBoxBlockProps;
   disableContainerGutters?: boolean;
   disableYMargins?: boolean;
-  small?: boolean;
+  smallVariants?: boolean;
 }
 
 interface ImageComponentProps {
@@ -56,7 +56,7 @@ export const LegacyInfoBoxBlock = ({
   block,
   disableContainerGutters,
   disableYMargins,
-  small,
+  smallVariants,
 }: InfoBoxProps) => {
   const [hoveringOverImg, setHoveringOverImg] = useState(false);
 
@@ -70,7 +70,7 @@ export const LegacyInfoBoxBlock = ({
     <Container
       sx={{
         my: disableYMargins ? undefined : 5,
-        mb: small ? undefined : "30px",
+        mb: smallVariants ? undefined : "30px",
       }}
       disableGutters={disableContainerGutters}
     >
@@ -78,7 +78,7 @@ export const LegacyInfoBoxBlock = ({
         title={block.title}
         subtitle={block.subtitle}
         page={page}
-        small={small}
+        small={smallVariants}
         image={
           <span
             onMouseEnter={() => setHoveringOverImg(true)}
@@ -91,7 +91,7 @@ export const LegacyInfoBoxBlock = ({
               <ImageComponent
                 src={block.image}
                 alt={block.imageAlt}
-                small={small}
+                small={smallVariants}
               />
             )}
             {block.hoverImage && (
@@ -100,7 +100,7 @@ export const LegacyInfoBoxBlock = ({
                   <ImageComponent
                     src={block.image}
                     alt={block.imageAlt}
-                    small={small}
+                    small={smallVariants}
                   />
                 </Box>
                 <Box
@@ -109,7 +109,11 @@ export const LegacyInfoBoxBlock = ({
                   visibility={hoveringOverImg ? "visible" : "hidden"}
                 >
                   {/* TODO: Either explicitly mark in CMS that the hover image should NOT be different, more of just a "decorative image" (https://www.w3.org/WAI/tutorials/images/decorative/), or somehow make the alt dynamic? (which will probably be confusing for screen readers?)*/}
-                  <ImageComponent src={block.hoverImage} alt="" small={small} />
+                  <ImageComponent
+                    src={block.hoverImage}
+                    alt=""
+                    small={smallVariants}
+                  />
                 </Box>
               </Box>
             )}
