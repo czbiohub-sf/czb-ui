@@ -70,7 +70,7 @@ const NvBrAFoPlTemplate = (args: any) => {
         <Footer logo={logo} title={args.title} pages={args.footerPages} />
       }
     >
-      content
+      <main>content</main>
     </CZBUINavAndFootPlacer>
   );
 };
