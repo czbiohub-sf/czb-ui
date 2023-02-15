@@ -3,7 +3,7 @@
 import { client } from "../.tina/__generated__/client";
 import { useTina } from "tinacms/dist/react";
 import { BlockSwitcher } from "@czb-ui/tina-cms";
-// import Seo from "../components/Seo/Seo";
+import Head from "next/head";
 
 export default function DynamicPage(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
@@ -15,7 +15,9 @@ export default function DynamicPage(props) {
 
   return (
     <>
-      {/* <Seo title="" /> */}
+      <Head>
+        <title>czb-ui</title>
+      </Head>
       <BlockSwitcher {...data.page} />
     </>
   );
