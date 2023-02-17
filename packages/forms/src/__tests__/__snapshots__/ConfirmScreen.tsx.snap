@@ -1,0 +1,304 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders form data correctly 1`] = `
+<div>
+  <div
+    className="MuiBox-root css-0"
+  >
+    <h1
+      className="MuiTypography-root MuiTypography-h1 css-l4yn1p-MuiTypography-root"
+    >
+      Please confirm the data filled
+    </h1>
+    <div
+      className="MuiBox-root css-168lvkp"
+    />
+  </div>
+  <div>
+    <div>
+      <h2
+        className="MuiTypography-root MuiTypography-h2 css-errr64-MuiTypography-root"
+      >
+        A registration form
+      </h2>
+      <div
+        className="MuiBox-root css-10ib5jr"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-ndaqpv-MuiTypography-root"
+        >
+          firstName
+        </p>
+        <div>
+          Test
+        </div>
+      </div>
+      <div
+        className="MuiBox-root css-10ib5jr"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-ndaqpv-MuiTypography-root"
+        >
+          lastName
+        </p>
+        <div>
+          Name
+        </div>
+      </div>
+      <div
+        className="MuiBox-root css-10ib5jr"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-ndaqpv-MuiTypography-root"
+        >
+          telephone
+        </p>
+        <div>
+          1234567890
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2
+        className="MuiTypography-root MuiTypography-h2 css-errr64-MuiTypography-root"
+      >
+        A list of tasks
+      </h2>
+      <div
+        className="MuiBox-root css-10ib5jr"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-ndaqpv-MuiTypography-root"
+        >
+          tasks
+        </p>
+        <ol>
+          <li>
+            <ul>
+              <div
+                className="MuiBox-root css-10ib5jr"
+              >
+                <p
+                  className="MuiTypography-root MuiTypography-body1 css-ndaqpv-MuiTypography-root"
+                >
+                  done
+                </p>
+                <div>
+                  false
+                </div>
+              </div>
+              <div
+                className="MuiBox-root css-10ib5jr"
+              >
+                <p
+                  className="MuiTypography-root MuiTypography-body1 css-ndaqpv-MuiTypography-root"
+                >
+                  title
+                </p>
+                <div>
+                  Task 0
+                </div>
+              </div>
+              <div
+                className="MuiBox-root css-10ib5jr"
+              >
+                <p
+                  className="MuiTypography-root MuiTypography-body1 css-ndaqpv-MuiTypography-root"
+                >
+                  details
+                </p>
+                <div>
+                  I am task 0.
+                </div>
+              </div>
+            </ul>
+          </li>
+          <li>
+            <ul>
+              <div
+                className="MuiBox-root css-10ib5jr"
+              >
+                <p
+                  className="MuiTypography-root MuiTypography-body1 css-ndaqpv-MuiTypography-root"
+                >
+                  done
+                </p>
+                <div>
+                  true
+                </div>
+              </div>
+              <div
+                className="MuiBox-root css-10ib5jr"
+              >
+                <p
+                  className="MuiTypography-root MuiTypography-body1 css-ndaqpv-MuiTypography-root"
+                >
+                  title
+                </p>
+                <div>
+                  Task 1
+                </div>
+              </div>
+              <div
+                className="MuiBox-root css-10ib5jr"
+              >
+                <p
+                  className="MuiTypography-root MuiTypography-body1 css-ndaqpv-MuiTypography-root"
+                >
+                  details
+                </p>
+                <div>
+                  I am task 1.
+                </div>
+              </div>
+            </ul>
+          </li>
+          <li>
+            <ul>
+              <div
+                className="MuiBox-root css-10ib5jr"
+              >
+                <p
+                  className="MuiTypography-root MuiTypography-body1 css-ndaqpv-MuiTypography-root"
+                >
+                  done
+                </p>
+                <div>
+                  false
+                </div>
+              </div>
+              <div
+                className="MuiBox-root css-10ib5jr"
+              >
+                <p
+                  className="MuiTypography-root MuiTypography-body1 css-ndaqpv-MuiTypography-root"
+                >
+                  title
+                </p>
+                <div>
+                  Task 2
+                </div>
+              </div>
+              <div
+                className="MuiBox-root css-10ib5jr"
+              >
+                <p
+                  className="MuiTypography-root MuiTypography-body1 css-ndaqpv-MuiTypography-root"
+                >
+                  details
+                </p>
+                <div>
+                  I am task 2.
+                </div>
+              </div>
+            </ul>
+          </li>
+        </ol>
+      </div>
+      <div
+        className="MuiBox-root css-10ib5jr"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-ndaqpv-MuiTypography-root"
+        >
+          title
+        </p>
+        <div>
+          Task Title
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2
+        className="MuiTypography-root MuiTypography-h2 css-errr64-MuiTypography-root"
+      >
+        Test form
+      </h2>
+      <div
+        className="MuiBox-root css-10ib5jr"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-ndaqpv-MuiTypography-root"
+        >
+          files
+        </p>
+        <ol>
+          <li>
+            <div>
+              1Untitled.txt
+            </div>
+          </li>
+          <li>
+            <div>
+              2Untitled_copy - weird file name.txt
+            </div>
+          </li>
+          <li>
+            <div>
+              2Untitled_copy - i am a really long file nameeeeeeeeeeeeeeeeeee...
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div
+        className="MuiBox-root css-10ib5jr"
+      >
+        <p
+          className="MuiTypography-root MuiTypography-body1 css-ndaqpv-MuiTypography-root"
+        >
+          file
+        </p>
+        <div>
+          1Untitled.txt
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="MuiBox-root css-z727b5"
+  >
+    <button
+      className="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButtonBase-root css-hxp9em-MuiButtonBase-root-MuiButton-root"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      Cancel
+    </button>
+    <button
+      className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root css-18vxxcj-MuiButtonBase-root-MuiButton-root"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      Submit
+    </button>
+  </div>
+</div>
+`;

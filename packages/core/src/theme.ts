@@ -81,7 +81,7 @@ export const biohubTheme = createTheme({
     // @ts-ignore
     primary: {
       ...makeThemeOptions(appTheme).palette?.primary,
-      contrastText: "white",
+      contrastText: "#ffffff",
     },
   },
   components: {
