@@ -3,8 +3,10 @@ import styled from "@emotion/styled";
 
 interface NavBarAndFooterPlacerProps {
   children: React.ReactNode;
-  topBar: React.ReactNode;
-  bottomBar: React.ReactNode;
+  topBar?: React.ReactNode;
+  bottomBar?: React.ReactNode;
+  leftSidebar?: React.ReactNode;
+  rightSidebar?: React.ReactNode;
 }
 
 // https://1linelayouts.glitch.me/
@@ -42,11 +44,15 @@ export const NavBarAndFooterPlacer = ({
   children,
   topBar,
   bottomBar,
+  leftSidebar,
+  rightSidebar,
 }: NavBarAndFooterPlacerProps) => {
   return (
     <Ex5Parent>
       <Ex5Header>{topBar}</Ex5Header>
+      <Ex5LeftSide>{leftSidebar}</Ex5LeftSide>
       <Ex5Main>{children}</Ex5Main>
+      <Ex5RightSide>{rightSidebar}</Ex5RightSide>
       <Ex5Footer>{bottomBar}</Ex5Footer>
     </Ex5Parent>
   );

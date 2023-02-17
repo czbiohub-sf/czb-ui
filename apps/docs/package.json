@@ -1,0 +1,35 @@
+{
+  "name": "docs",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tinacms dev -c \"next dev\"",
+    "build": "tinacms dev -c \"next build\"",
+    "start": "tinacms dev -c \"next start\"",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@czb-ui/biohub-logos": "*",
+    "@czb-ui/core": "*",
+    "@czb-ui/tina-cms": "*",
+    "@emotion/css": "^11.9.0",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@fontsource/barlow": "^4.5.9",
+    "@fontsource/lato": "^4.5.10",
+    "@mui/base": "^5.0.0-alpha.90",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/lab": "^5.0.0-alpha.91",
+    "@mui/material": "^5.9.1",
+    "czifui": "^13.1.1",
+    "next": "^12.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-is": "^18.2.0",
+    "styled-components": "^5.1.3",
+    "tinacms": "^1.1.2"
+  },
+  "resolutions": {
+    "@headlessui/react": "1.7.7"
+  }
+}
