@@ -1,18 +1,20 @@
 import RJSFForm from "@rjsf/mui";
 import validator from "@rjsf/validator-ajv6";
 import { useState } from "react";
-import { schemaType, uiSchemaType } from "./Form";
+import { FormProps } from "./Form";
 import FormPageNav from "./FormPageNav/FormPageNav";
 import { widgets } from "./Form";
 import ConfirmScreen from "./ConfirmScreen/ConfirmScreen";
 import SuccessfulSubmit from "./ConfirmScreen/SuccessfulSubmit";
 import LoadingSubmit from "./ConfirmScreen/LoadingSubmit";
 
-interface MultiStepFormProps {
-  schema: Array<schemaType>;
-  onCompleteSubmit: (completedFormEvent: any) => void; // TODO: Find type of submit event? And handle async type somehow?
-  uiSchema?: Array<uiSchemaType>;
-  showConfirmScreen?: boolean;
+// This will take the props from FormProps,
+// but override the schema and uiSchema prop
+// to only accept an array
+interface MultiStepFormProps extends Omit<FormProps, "schema"> {
+  // TODO: Use types from @rjsf/utils
+  schema: Array<React.ComponentProps<typeof RJSFForm>["schema"]>;
+  uiSchema?: Array<React.ComponentProps<typeof RJSFForm>["uiSchema"]>;
 }
 
 export const MultiStepForm = ({
@@ -20,6 +22,7 @@ export const MultiStepForm = ({
   uiSchema,
   onCompleteSubmit,
   showConfirmScreen = true,
+  confirmScreenSuccessMessage,
 }: MultiStepFormProps) => {
   const steps = schema.length;
 
@@ -72,7 +75,12 @@ export const MultiStepForm = ({
   }
 
   if (confirmScreenShow == 2) {
-    return <SuccessfulSubmit onSubmitAnotherResponse={resetForm} />;
+    return (
+      <SuccessfulSubmit
+        onSubmitAnotherResponse={resetForm}
+        successMessage={confirmScreenSuccessMessage}
+      />
+    );
   }
 
   if (confirmScreenShow == 3) {
@@ -123,7 +131,8 @@ export const MultiStepForm = ({
         // If confirm screen is shown, set remSteps to a constant
         // so the button never shows "Submit" (since they would have
         // to go to the confirm screen anyway to submit)
-        remSteps={showConfirmScreen ? 2 : remSteps}
+        remSteps={remSteps}
+        showSubmitAtLastStep={!showConfirmScreen}
         goBackOneStep={() => setRemSteps(remSteps + 1)}
       />
     </RJSFForm>

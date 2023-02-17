@@ -3,14 +3,15 @@ import { MultiStepForm } from "./MultiStepForm";
 import { File } from "../CustomWidgets";
 
 // TODO: Use types from @rjsf/utils
-export type schemaType = React.ComponentProps<typeof RJSFForm>["schema"];
-export type uiSchemaType = React.ComponentProps<typeof RJSFForm>["uiSchema"];
+type schemaType = React.ComponentProps<typeof RJSFForm>["schema"];
+type uiSchemaType = React.ComponentProps<typeof RJSFForm>["uiSchema"];
 
-interface FormProps {
+export interface FormProps {
   schema: schemaType | Array<schemaType>;
   onCompleteSubmit: (formData: any) => void;
   uiSchema?: uiSchemaType | Array<uiSchemaType>;
   showConfirmScreen?: boolean;
+  confirmScreenSuccessMessage?: string;
 }
 
 export const widgets = {
@@ -22,6 +23,7 @@ const Form = ({
   uiSchema,
   onCompleteSubmit,
   showConfirmScreen,
+  confirmScreenSuccessMessage,
 }: FormProps) => {
   if (Array.isArray(schema)) {
     // uiSchema checks
@@ -46,6 +48,11 @@ const Form = ({
         uiSchema={uiSchema}
         onCompleteSubmit={(formData) => onCompleteSubmit(formData)}
         showConfirmScreen={showConfirmScreen}
+        confirmScreenSuccessMessage={confirmScreenSuccessMessage}
+        // "key" is here to force a re-render of the
+        // whole component when the schema or uiSchema changes.
+        // This is to avoid any stale state in MultiStepForm.
+        key={new Date().getTime()}
       />
     );
   }
@@ -66,6 +73,8 @@ const Form = ({
       uiSchema={[uiSchema]}
       onCompleteSubmit={(formData) => onCompleteSubmit(formData[0])}
       showConfirmScreen={showConfirmScreen}
+      confirmScreenSuccessMessage={confirmScreenSuccessMessage}
+      key={new Date().getTime()}
     />
   );
 };

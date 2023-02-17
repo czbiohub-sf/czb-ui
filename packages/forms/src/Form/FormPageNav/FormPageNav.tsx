@@ -5,12 +5,14 @@ interface FormPageNavProps {
   steps: number; // Number of steps the form has
   remSteps: number; // Remaining steps
   goBackOneStep?: () => void;
+  showSubmitAtLastStep?: boolean;
 }
 
 export default function FormPageNav({
   steps,
   remSteps,
   goBackOneStep,
+  showSubmitAtLastStep,
 }: FormPageNavProps) {
   return (
     <Box my={4}>
@@ -39,8 +41,21 @@ export default function FormPageNav({
           Next
         </Button>
       )}
-      {remSteps == 1 && (
+      {remSteps == 1 && !showSubmitAtLastStep && (
         // On the last step of the form,
+        // and the confirm screen is enabled.
+        // We don't want to show the submit button because
+        // the confirm screen has yet to show.
+        // Show "Next" button
+        <Button sdsType="secondary" sdsStyle="square" type="submit">
+          Next
+        </Button>
+      )}
+      {remSteps == 1 && showSubmitAtLastStep && (
+        // On the last step of the form,
+        // and the confirm screen is disabled.
+        // The confirm screen is disabled,
+        // so this is the last page of the form.
         // show primary "Submit" button
         <Button sdsType="primary" sdsStyle="square" type="submit">
           Submit
