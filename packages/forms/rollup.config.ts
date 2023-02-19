@@ -20,5 +20,12 @@ export default {
     del({ targets: "dist/*", runOnce: true }),
     babel({ babelHelpers: "bundled" }),
   ],
-  external: [/^@emotion\/.*/, /^@mui\/.*/, /^react\.*/, /^@rjsf\/.*/, "czifui"],
+  external: [
+    /^@emotion\/.*/,
+    /^@mui\/.*/,
+    /^react\.*/,
+    /^@rjsf\/.*/,
+    /^@czb-ui\/.*/,
+    "czifui",
+  ],
 };
