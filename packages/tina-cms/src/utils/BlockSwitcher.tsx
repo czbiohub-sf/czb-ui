@@ -1,3 +1,4 @@
+import React from "react";
 import {
   GenericBannerBlock,
   GrandBannerBlock,
@@ -9,8 +10,10 @@ import {
   HeadingSeparatorBlock,
 } from "../components";
 
+// TODO: Fix types
 interface BlockSwitcher {
   blocks: Array<any>;
+  additionalBlocks?: any;
   disableContainerGutters?: boolean;
   disableYMargins?: boolean;
   smallVariants?: boolean;
@@ -18,6 +21,18 @@ interface BlockSwitcher {
 
 export const BlockSwitcher = (props: BlockSwitcher) => {
   const blocks = props.blocks;
+
+  const usableBlocks = {
+    GenericBanner: GenericBannerBlock,
+    GrandBanner: GrandBannerBlock,
+    Text: TextBlock,
+    InfoBox: InfoBoxBlock,
+    Grid: GridBlock,
+    Table: TableBlock,
+    LegacyInfoBox: LegacyInfoBoxBlock,
+    HeadingSeparator: HeadingSeparatorBlock,
+    ...props.additionalBlocks,
+  };
 
   return (
     <>
@@ -30,29 +45,14 @@ export const BlockSwitcher = (props: BlockSwitcher) => {
               .replace(/(([A-Z][a-z0-9]+)+)Blocks/g, "")
               .replace(/Blocks/g, "");
 
-            switch (blockToLookFor) {
-              case "GenericBanner":
-                return <GenericBannerBlock block={block} key={i} {...props} />;
-              case "GrandBanner":
-                return <GrandBannerBlock block={block} key={i} {...props} />;
-              case "Text":
-                return <TextBlock block={block} key={i} {...props} />;
-              case "InfoBox":
-                return <InfoBoxBlock block={block} key={i} {...props} />;
-              case "Grid":
-                return <GridBlock block={block} key={i} {...props} />;
-              case "Table":
-                return <TableBlock block={block} key={i} {...props} />;
-              case "LegacyInfoBox":
-                return <LegacyInfoBoxBlock block={block} key={i} {...props} />;
-              case "HeadingSeparator":
-                return (
-                  <HeadingSeparatorBlock block={block} key={i} {...props} />
-                );
-              default:
-                console.warn(
-                  `@czb-ui/tina-cms: No component found for block ${block.__typename}. Calcuated block name: ${blockToLookFor}`
-                );
+            try {
+              return React.createElement(usableBlocks[blockToLookFor], {
+                block,
+                key: i,
+                ...props,
+              });
+            } catch (e) {
+              console.error(e);
             }
           })
         : null}
