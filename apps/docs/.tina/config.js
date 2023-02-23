@@ -9,6 +9,7 @@ import {
   Table,
   LegacyInfoBox,
   HeadingSeparator,
+  Video,
 } from "@czb-ui/tina-cms";
 
 const templates = [
@@ -20,6 +21,7 @@ const templates = [
   Table,
   LegacyInfoBox,
   HeadingSeparator,
+  Video,
 ];
 
 // routePath has to end in "/"

@@ -8,6 +8,7 @@ import {
   TableBlock,
   LegacyInfoBoxBlock,
   HeadingSeparatorBlock,
+  VideoBlock,
 } from "../components";
 
 // TODO: Fix types
@@ -31,6 +32,7 @@ export const BlockSwitcher = (props: BlockSwitcher) => {
     Table: TableBlock,
     LegacyInfoBox: LegacyInfoBoxBlock,
     HeadingSeparator: HeadingSeparatorBlock,
+    Video: VideoBlock,
     ...props.additionalBlocks,
   };
 

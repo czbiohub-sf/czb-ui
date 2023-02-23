@@ -5,3 +5,4 @@ export * from "./Grid/Grid";
 export * from "./Table/Table";
 export * from "./LegacyInfoBox/LegacyInfoBox";
 export * from "./HeadingSeparator/HeadingSeparator";
+export * from "./Video/Video";
