@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Container from "@mui/material/Container";
 import type { VideoProps } from "../../templates/Video/Video";
+import dynamic from "next/dynamic";
 
 // Temp fix for broken types(?) in react-player
 // https://github.com/cookpete/react-player/issues/1436#issuecomment-1098551225
-import { default as _ReactPlayer } from "react-player";
+const _ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 import { ReactPlayerProps } from "react-player/types/lib";
 const ReactPlayer = _ReactPlayer as unknown as React.FC<ReactPlayerProps>;
 
