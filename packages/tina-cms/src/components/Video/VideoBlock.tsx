@@ -28,6 +28,7 @@ export const VideoBlock = ({ block }: VideoBlockProps) => {
         onError={(e) => setError("Error loading video.")}
         onReady={() => setError("")}
         controls={!block.hideControls}
+        width="100%"
       />
     </Container>
   );
