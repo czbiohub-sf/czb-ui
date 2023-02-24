@@ -3,8 +3,7 @@ import type { Template } from "tinacms";
 // Types for component props
 export type VideoProps = {
   url: string;
-  controls: boolean;
-  mute: boolean;
+  hideControls: boolean;
 };
 
 export const Video: Template = {
@@ -20,13 +19,8 @@ export const Video: Template = {
     },
     {
       type: "boolean",
-      label: "Show controls",
-      name: "controls",
-    },
-    {
-      type: "boolean",
-      label: "Mute",
-      name: "mute",
+      label: "Hide controls",
+      name: "hideControls",
     },
   ],
 };
