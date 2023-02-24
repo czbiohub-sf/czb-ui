@@ -1,4 +1,28 @@
 ---
 title: TinaCMS Video
+blocks:
+  - text: |
+      # Video Block
+
+      The video block can be used standalone or inline with the Text block.
+    _template: text
+  - title: Standalone demo
+    _template: HeadingSeparator
+  - url: 'https://www.youtube.com/watch?v=g9DqSWKOwF0'
+    hideControls: false
+    _template: Video
+  - title: Inline demo
+    _template: HeadingSeparator
+  - text: >
+      # Heading 1
+
+
+      Here is a demo of the video component inline.
+
+
+      <video url="https://www.youtube.com/watch?v=g9DqSWKOwF0"
+      hideControls={false} />
+    _template: text
 ---
+
 
