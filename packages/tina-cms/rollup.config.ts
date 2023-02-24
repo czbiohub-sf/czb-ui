@@ -18,7 +18,7 @@ export default {
   plugins: [
     typescript({ tsconfig: "./tsconfig.json" }),
     del({ targets: "dist/*", runOnce: true }),
-    resolve(),
+    resolve({ resolveOnly: ["d3-dsv"] }), // d3-dsv is built weirdly (cjs only or something?). building it w/o this breaks
   ],
   external: [
     /^@emotion\/.*/,
