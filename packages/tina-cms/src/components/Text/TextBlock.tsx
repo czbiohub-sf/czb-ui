@@ -1,7 +1,9 @@
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { Box, Container, Typography } from "@mui/material";
 import Image from "next/image";
+
 import { InfoBoxBlock } from "../InfoBox/InfoBoxBlock";
+import { VideoBlock } from "../Video/VideoBlock";
 
 // TODO: Possible to get actual types from tinacms library?
 interface HeadingProps {
@@ -118,6 +120,10 @@ const InfoBox = (props: any) => {
   return <InfoBoxBlock block={props} disableContainerGutters />;
 };
 
+const Video = (props: any) => {
+  return <VideoBlock block={props} />;
+};
+
 const components = {
   h1: h1Component,
   h2: h2Component,
@@ -127,6 +133,7 @@ const components = {
   h6: h6Component,
   img: imgComponent,
   infoBox: InfoBox,
+  video: Video,
 };
 
 export const TextBlock = ({ block }: TextBlockProps) => {

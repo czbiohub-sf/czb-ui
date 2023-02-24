@@ -1,5 +1,6 @@
 import type { TinaTemplate } from "tinacms";
 import { InfoBox } from "../InfoBox/InfoBox";
+import { Video } from "../Video/Video";
 
 export const Text: TinaTemplate = {
   name: "text",
@@ -14,6 +15,11 @@ export const Text: TinaTemplate = {
           name: "infoBox",
           label: "Info Box",
           fields: InfoBox.fields,
+        },
+        {
+          name: "video",
+          label: "Online Video",
+          fields: Video.fields,
         },
       ],
     },
