@@ -41,6 +41,15 @@ const docsMenu = [
       },
     ],
   },
+  {
+    title: "TinaCMS",
+    items: [
+      {
+        title: "Video",
+        slug: "cms-video",
+      },
+    ],
+  },
 ];
 
 export const CategoryTitle = styled(Typography)`
