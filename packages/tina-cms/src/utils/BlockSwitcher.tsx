@@ -47,6 +47,13 @@ export const BlockSwitcher = (props: BlockSwitcher) => {
               .replace(/(([A-Z][a-z0-9]+)+)Blocks/g, "")
               .replace(/Blocks/g, "");
 
+            if (!usableBlocks[blockToLookFor]) {
+              console.error(
+                `BlockSwitcher: No block found for ${blockToLookFor}`
+              );
+              return <p>BlockSwitcher: No block found for {blockToLookFor}</p>;
+            }
+
             try {
               return React.createElement(usableBlocks[blockToLookFor], {
                 block,
