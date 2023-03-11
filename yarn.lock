@@ -2834,7 +2834,7 @@
   resolved "https://registry.yarnpkg.com/@remix-run/router/-/router-1.4.0.tgz#74935d538e4df8893e47831a7aea362f295bcd39"
   integrity sha512-BJ9SxXux8zAg991UmT8slpwpsd31K1dHHbD3Ba4VzD+liLQ4WAMSxQp2d2ZPRPfN0jN2NPRowcSSoM7lCaF08Q==
 
-"@rjsf/core@^5.0.0-beta.10":
+"@rjsf/core@^5.2.1":
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/@rjsf/core/-/core-5.2.1.tgz#38a366ee37d1ef4f727c768ad416ce6bf9cc7687"
   integrity sha512-r/yY/7IOPKYQNkZj73wyH+AuBNIauygJr/CNXumFctra50y+Cd5zS9H4XJ4TRtKAHOjz29s6nsA1nTaH1fPHDw==
@@ -2845,12 +2845,12 @@
     nanoid "^3.3.4"
     prop-types "^15.7.2"
 
-"@rjsf/mui@^5.0.0-beta.10":
+"@rjsf/mui@^5.2.1":
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/@rjsf/mui/-/mui-5.2.1.tgz#b350d683394f6170f8c86fef3917c81672726551"
   integrity sha512-1cPiaxUfLHXhOupEJDeJZfVTqnCBhcpbqc+nLOe0XCoI6qhkfvbPpOJQ8NUeMkkH5svPJJQCbeo9ixJZ4FV8PQ==
 
-"@rjsf/utils@^5.0.0-beta.10":
+"@rjsf/utils@^5.2.1":
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/@rjsf/utils/-/utils-5.2.1.tgz#b8903304625d38eff0ba06437bb41f4e34294434"
   integrity sha512-+Evan0KDj0t0NtOAxOFtV+/kPDUWz2NyG9zl9X7LLiOlNY2zOdDeUtYEOklbpu1APOqIkwCQc6z1VefQJNKH8Q==
@@ -2861,7 +2861,7 @@
     lodash-es "^4.17.15"
     react-is "^18.2.0"
 
-"@rjsf/validator-ajv6@^5.0.0-beta.10":
+"@rjsf/validator-ajv6@^5.2.1":
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/@rjsf/validator-ajv6/-/validator-ajv6-5.2.1.tgz#4b1ca496592cd72e45f3c7003afefa929d2e9eba"
   integrity sha512-rw/uECD8sFOb3OqZR9h8EldzzXSVklOLUm21f6PtcYAmBBIf7xP2/BOsImnkDhJkh56I00qu5uDk6rWWgnNbEQ==
