@@ -31,6 +31,10 @@ module.exports = {
             find: "@czb-ui/forms",
             replacement: path.resolve(__dirname, "../../../packages/forms/"),
           },
+          {
+            find: "@czb-ui/viz",
+            replacement: path.resolve(__dirname, "../../../packages/viz/"),
+          },
         ],
       },
     };
