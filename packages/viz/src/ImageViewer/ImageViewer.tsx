@@ -1,11 +1,10 @@
-import React from 'react'
+import React from "react";
+import Image from "./Image";
 
 export interface ImageViewerProps {
-    testProp: string
+  imageUrl: string;
 }
 
-export const ImageViewer = ({testProp}: ImageViewerProps) => {
-  return (
-    <div>ImageViewer {testProp}</div>
-  )
-}
+export const ImageViewer = ({ imageUrl }: ImageViewerProps) => {
+  return <Image imageUrl={imageUrl} />;
+};
