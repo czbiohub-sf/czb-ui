@@ -1,22 +1,5 @@
-import RJSFForm from "@rjsf/mui";
 import { MultiStepForm } from "./MultiStepForm";
-import { File } from "../CustomWidgets";
-
-// TODO: Use types from @rjsf/utils
-type schemaType = React.ComponentProps<typeof RJSFForm>["schema"];
-type uiSchemaType = React.ComponentProps<typeof RJSFForm>["uiSchema"];
-
-export interface FormProps {
-  schema: schemaType | Array<schemaType>;
-  onCompleteSubmit: (formData: any) => void;
-  uiSchema?: uiSchemaType | Array<uiSchemaType>;
-  showConfirmScreen?: boolean;
-  confirmScreenSuccessMessage?: string;
-}
-
-export const widgets = {
-  FileWidget: File,
-};
+import type { FormProps } from "../types/FormTypes";
 
 const Form = ({
   schema,

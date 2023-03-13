@@ -1,9 +1,9 @@
 import RJSFForm from "@rjsf/mui";
 import validator from "@rjsf/validator-ajv6";
 import { useState } from "react";
-import { FormProps } from "./Form";
+import { FormProps } from "../types/FormTypes";
 import FormPageNav from "./FormPageNav/FormPageNav";
-import { widgets } from "./Form";
+import { widgets } from "../CustomWidgets/widgets";
 import ConfirmScreen from "./ConfirmScreen/ConfirmScreen";
 import SuccessfulSubmit from "./ConfirmScreen/SuccessfulSubmit";
 import LoadingSubmit from "./ConfirmScreen/LoadingSubmit";
