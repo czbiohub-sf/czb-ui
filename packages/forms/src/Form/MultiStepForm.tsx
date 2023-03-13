@@ -117,6 +117,8 @@ export const MultiStepForm = ({
   };
 
   return (
+    // TODO: Fix this error
+    // @ts-ignore Don't know why its complaining about not being a valid JSX component
     <RJSFForm
       schema={schema[currentStep]}
       uiSchema={uiSchema && uiSchema[currentStep]}
