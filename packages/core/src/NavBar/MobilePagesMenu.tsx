@@ -31,7 +31,7 @@ export const MobilePagesMenu = ({
           }}
         >
           {pages.map((page, i) => (
-            <>
+            <div key={i}>
               {!page.externalLink && (
                 <Link
                   color="inherit"
@@ -39,7 +39,6 @@ export const MobilePagesMenu = ({
                   to={page?.to}
                   sx={{ mx: 5 }}
                   onClick={() => setOpen(false)}
-                  key={i}
                 >
                   <ListItemButton>{page.title}</ListItemButton>
                 </Link>
@@ -50,13 +49,12 @@ export const MobilePagesMenu = ({
                   color="inherit"
                   sx={{ mx: 5 }}
                   onClick={() => setOpen(false)}
-                  key={i}
                   href={page?.to}
                 >
                   <ListItemButton>{page.title}</ListItemButton>
                 </Link>
               )}
-            </>
+            </div>
           ))}
         </Drawer>
       </Box>
