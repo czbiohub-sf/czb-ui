@@ -11,10 +11,12 @@ export default function DocsPage(props) {
     data: props.data,
   });
 
+  const pageTitle = `${data.docs.title} - czb-ui`;
+
   return (
     <>
       <Head>
-        <title>{data.docs.title} - czb-ui</title>
+        <title>{pageTitle}</title>
       </Head>
       <BlockSwitcher {...data.docs} />
     </>
