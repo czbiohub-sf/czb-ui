@@ -2,4 +2,4 @@
 "@czb-ui/core": patch
 ---
 
-Fix key error with mobile nav bar
+Use lists correctly for nav bars, fix key errors

@@ -1,5 +1,12 @@
 import { PageLink } from "../UniversalTypes/links";
-import { Box, Drawer, ListItemButton, ClickAwayListener } from "@mui/material";
+import {
+  Box,
+  Drawer,
+  ListItemButton,
+  ClickAwayListener,
+  ListItem,
+  List,
+} from "@mui/material";
 import Hamburger from "hamburger-react";
 import { useState } from "react";
 import { Link } from "czifui";
@@ -30,32 +37,34 @@ export const MobilePagesMenu = ({
             },
           }}
         >
-          {pages.map((page, i) => (
-            <div key={i}>
-              {!page.externalLink && (
-                <Link
-                  color="inherit"
-                  component={page?.to ? pagesComponent : undefined}
-                  to={page?.to}
-                  sx={{ mx: 5 }}
-                  onClick={() => setOpen(false)}
-                >
-                  <ListItemButton>{page.title}</ListItemButton>
-                </Link>
-              )}
-              {/* If target="_blank" needs to be added also add rel="noopener" */}
-              {page.externalLink && (
-                <Link
-                  color="inherit"
-                  sx={{ mx: 5 }}
-                  onClick={() => setOpen(false)}
-                  href={page?.to}
-                >
-                  <ListItemButton>{page.title}</ListItemButton>
-                </Link>
-              )}
-            </div>
-          ))}
+          <List>
+            {pages.map((page, i) => (
+              <ListItem disableGutters key={i}>
+                {!page.externalLink && (
+                  <Link
+                    color="inherit"
+                    component={page?.to ? pagesComponent : undefined}
+                    to={page?.to}
+                    sx={{ mx: 5 }}
+                    onClick={() => setOpen(false)}
+                  >
+                    <ListItemButton>{page.title}</ListItemButton>
+                  </Link>
+                )}
+                {/* If target="_blank" needs to be added also add rel="noopener" */}
+                {page.externalLink && (
+                  <Link
+                    color="inherit"
+                    sx={{ mx: 5 }}
+                    onClick={() => setOpen(false)}
+                    href={page?.to}
+                  >
+                    <ListItemButton>{page.title}</ListItemButton>
+                  </Link>
+                )}
+              </ListItem>
+            ))}
+          </List>
         </Drawer>
       </Box>
     </ClickAwayListener>
