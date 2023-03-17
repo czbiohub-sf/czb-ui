@@ -152,12 +152,11 @@ export const File = ({
           <Button
             sdsType="secondary"
             sdsStyle="square"
+            startIcon={<Icon sdsIcon="upload" sdsSize="l" sdsType="button" />}
             sx={{ my: 4 }}
             component="label"
             htmlFor={id}
           >
-            {/* TODO: Upload icon isn't there for some reason */}
-            <Icon sdsIcon="grid" sdsSize="l" sdsType="button" />
             Upload
             <input
               hidden

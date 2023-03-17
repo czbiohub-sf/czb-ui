@@ -11,14 +11,24 @@ interface FooterProps {
   title?: string;
   pages?: Array<PageGroup>;
   pagesComponent?: any; // TODO: Find type of mui button component prop
+  small?: boolean;
 }
 
-export const Footer = ({ logo, title, pages, pagesComponent }: FooterProps) => {
+export const Footer = ({
+  logo,
+  title,
+  pages,
+  pagesComponent,
+  small,
+}: FooterProps) => {
   const theme = useTheme();
   const onDesktop = useMediaQuery(theme.breakpoints.up("sm"));
 
   return (
-    <FooterBar position="relative" sx={{ top: "auto", bottom: 0 }}>
+    <FooterBar
+      position="relative"
+      sx={{ top: "auto", bottom: 0, minHeight: small ? "100px" : "200px" }}
+    >
       <Box display="flex" alignItems="center">
         <Link
           sx={{ display: "flex", alignItems: "center", color: "inherit" }}
@@ -38,7 +48,11 @@ export const Footer = ({ logo, title, pages, pagesComponent }: FooterProps) => {
         </Link>
       </Box>
       {pages && (
-        <FooterPagesGroup pages={pages} pagesComponent={pagesComponent} />
+        <FooterPagesGroup
+          pages={pages}
+          pagesComponent={pagesComponent}
+          small={small}
+        />
       )}
     </FooterBar>
   );
