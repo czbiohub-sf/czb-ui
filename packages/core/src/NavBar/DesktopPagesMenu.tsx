@@ -22,14 +22,13 @@ export const DesktopPagesMenu = ({
                 component={page?.to ? pagesComponent : undefined}
                 to={page?.to}
                 sx={{ mx: 5 }}
-                key={i}
               >
                 {page?.title}
               </Link>
             )}
             {/* If target="_blank" needs to be added also add rel="noopener" */}
             {page.externalLink && (
-              <Link color="inherit" sx={{ mx: 5 }} key={i} href={page?.to}>
+              <Link color="inherit" sx={{ mx: 5 }} href={page?.to}>
                 {page?.title}
               </Link>
             )}
