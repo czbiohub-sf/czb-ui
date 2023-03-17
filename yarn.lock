@@ -3905,7 +3905,7 @@
     webfontloader "1.6.28"
     xstate "4.32.1"
 
-"@tinacms/cli@^1.2.1":
+"@tinacms/cli@^1.3.3":
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/@tinacms/cli/-/cli-1.3.3.tgz#401fb64ae1f1a10f650bf9e018ee26a8c0405f12"
   integrity sha512-va33fYMntLWdRh3qjpA4F5+q8CIMZ4nscLwNkJrt4yipwC2toN27gL0/VNLmIumB6DERNg76nFX2Y7Vh6x5ZUw==
