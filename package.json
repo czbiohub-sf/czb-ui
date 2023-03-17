@@ -63,6 +63,6 @@
   },
   "packageManager": "yarn@1.22.17",
   "dependencies": {
-    "@changesets/cli": "^2.23.1"
+    "@changesets/cli": "^2.26.0"
   }
 }
