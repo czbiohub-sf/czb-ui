@@ -1,16 +1,19 @@
+import React from "react";
 import {
   GenericBannerBlock,
   GrandBannerBlock,
   TextBlock,
   InfoBoxBlock,
-  GridBlock,
   TableBlock,
   LegacyInfoBoxBlock,
   HeadingSeparatorBlock,
 } from "../components";
+import { Grid, Container } from "@mui/material";
 
+// TODO: Fix types
 interface BlockSwitcher {
   blocks: Array<any>;
+  additionalBlocks?: any;
   disableContainerGutters?: boolean;
   disableYMargins?: boolean;
   smallVariants?: boolean;
@@ -18,6 +21,18 @@ interface BlockSwitcher {
 
 export const BlockSwitcher = (props: BlockSwitcher) => {
   const blocks = props.blocks;
+
+  const usableBlocks = {
+    GenericBanner: GenericBannerBlock,
+    GrandBanner: GrandBannerBlock,
+    Text: TextBlock,
+    InfoBox: InfoBoxBlock,
+    Grid: GridBlock,
+    Table: TableBlock,
+    LegacyInfoBox: LegacyInfoBoxBlock,
+    HeadingSeparator: HeadingSeparatorBlock,
+    ...props.additionalBlocks,
+  };
 
   return (
     <>
@@ -30,32 +45,65 @@ export const BlockSwitcher = (props: BlockSwitcher) => {
               .replace(/(([A-Z][a-z0-9]+)+)Blocks/g, "")
               .replace(/Blocks/g, "");
 
-            switch (blockToLookFor) {
-              case "GenericBanner":
-                return <GenericBannerBlock block={block} key={i} {...props} />;
-              case "GrandBanner":
-                return <GrandBannerBlock block={block} key={i} {...props} />;
-              case "Text":
-                return <TextBlock block={block} key={i} {...props} />;
-              case "InfoBox":
-                return <InfoBoxBlock block={block} key={i} {...props} />;
-              case "Grid":
-                return <GridBlock block={block} key={i} {...props} />;
-              case "Table":
-                return <TableBlock block={block} key={i} {...props} />;
-              case "LegacyInfoBox":
-                return <LegacyInfoBoxBlock block={block} key={i} {...props} />;
-              case "HeadingSeparator":
-                return (
-                  <HeadingSeparatorBlock block={block} key={i} {...props} />
-                );
-              default:
-                console.warn(
-                  `@czb-ui/tina-cms: No component found for block ${block.__typename}. Calcuated block name: ${blockToLookFor}`
-                );
+            try {
+              return React.createElement(usableBlocks[blockToLookFor], {
+                block,
+                key: i,
+                ...props,
+              });
+            } catch (e) {
+              console.error(e);
             }
           })
         : null}
     </>
+  );
+};
+
+/*
+ * Sample response
+ * (what will be in the "block" prop of the GridBlock component)
+ * {
+ *	  "__typename": "PagesBlocksGrid",
+ *	  "blocks": [
+ *		  {
+ *			  "__typename": "PagesBlocksGridBlocksInfoBox",
+ *			  "title": "why tina cms is cool",
+ *			  "subtitle": null,
+ *			  ...
+ *		  }
+ *	  ]
+ *	}
+ */
+
+interface GridBlockProps {
+  __typename: string;
+  blocks: Array<any>;
+}
+
+interface GridProps {
+  block: GridBlockProps;
+}
+
+export const GridBlock = ({ block }: GridProps) => {
+  const blocks = block.blocks;
+
+  return (
+    <Container sx={{ my: 5 }}>
+      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 8 }}>
+        {blocks &&
+          blocks.map((nestedBlock, i) => {
+            return (
+              <Grid item xs={2} sm={4} md={4} key={i}>
+                <BlockSwitcher
+                  blocks={[nestedBlock]}
+                  disableContainerGutters
+                  smallVariants
+                />
+              </Grid>
+            );
+          })}
+      </Grid>
+    </Container>
   );
 };

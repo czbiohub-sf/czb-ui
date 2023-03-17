@@ -52,7 +52,7 @@ export const InfoBoxBlock = ({
             <Box position="relative" height="100%">
               <Image
                 objectFit="cover"
-                alt={block.imageAlt}
+                alt={block.imageAlt ?? ""}
                 width={300}
                 height={300}
                 src={block.image}

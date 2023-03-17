@@ -26,7 +26,7 @@ export const GenericBannerBlock = ({ block }: BannerProps) => {
         block.image ? (
           <Image
             src={block.image}
-            alt={block.imageAlt}
+            alt={block.imageAlt ?? ""}
             layout="fill"
             objectFit="cover"
           />
@@ -48,7 +48,7 @@ export const GrandBannerBlock = ({ block }: BannerProps) => {
         block.image ? (
           <Image
             src={block.image}
-            alt={block.imageAlt}
+            alt={block.imageAlt ?? ""}
             width={1500}
             height={1000}
             objectFit="scale-down"

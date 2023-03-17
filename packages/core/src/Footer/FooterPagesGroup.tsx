@@ -5,6 +5,7 @@ import { PageGroup } from "../UniversalTypes/links";
 interface FooterPagesGroupProps {
   pages: Array<PageGroup>;
   pagesComponent?: any;
+  small?: boolean;
 }
 
 // TODO: Create component for link
@@ -13,13 +14,14 @@ interface FooterPagesGroupProps {
 export const FooterPagesGroup = ({
   pages,
   pagesComponent,
+  small,
 }: FooterPagesGroupProps) => {
   return (
     <Box
       sx={{
         display: "flex",
         marginTop: "8px", // So it aligns with the title and logo (being centered in their div)
-        gap: "40px",
+        gap: "80px",
         flexDirection: { xs: "column", md: "row" },
       }}
     >
@@ -39,6 +41,8 @@ export const FooterPagesGroup = ({
                 padding: "0px",
                 marginBottom: "0px",
                 marginTop: 8,
+                display: small ? { xs: "block", md: "flex" } : "block",
+                gap: small ? "30px" : "",
               }}
             >
               {pageGroup.pages.map((page, j) => {

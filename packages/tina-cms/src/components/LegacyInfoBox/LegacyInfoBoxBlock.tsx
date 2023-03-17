@@ -44,7 +44,7 @@ const ImageComponent = ({ src, alt, small }: ImageComponentProps) => {
       width={small ? 200 : 250}
       height={small ? 105 : 159}
       src={src}
-      alt={alt}
+      alt={alt ?? ""}
     />
   );
 };
