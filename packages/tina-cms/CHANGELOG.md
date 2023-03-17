@@ -1,5 +1,26 @@
 # @czb-ui/tina-cms
 
+## 0.3.0-beta.3
+
+### Minor Changes
+
+- 89afcaf: Improve block switcher logic and allow for custom blocks
+
+### Patch Changes
+
+- c951b69: Update czifui
+- 5dff5da: Only resolve d3-dsv
+- cf78187: Make next/image alt blank if not defined in CMS
+- a8d4a19: Re-structure code to avoid circular dep
+- Updated dependencies [c951b69]
+- Updated dependencies [3fe423a]
+- Updated dependencies [52ee322]
+- Updated dependencies [ce5c610]
+- Updated dependencies [a8d4a19]
+- Updated dependencies [22a3acb]
+- Updated dependencies [a8d4a19]
+  - @czb-ui/core@0.4.0-beta.4
+
 ## 0.3.0-beta.2
 
 ### Minor Changes

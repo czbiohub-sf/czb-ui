@@ -1,6 +1,6 @@
 {
   "name": "@czb-ui/tina-cms",
-  "version": "0.3.0-beta.2",
+  "version": "0.3.0-beta.3",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
@@ -10,7 +10,7 @@
     "dev": "rollup --config rollup.config.ts --watch"
   },
   "peerDependencies": {
-    "@czb-ui/core": "^0.4.0-beta.3",
+    "@czb-ui/core": "^0.4.0-beta.4",
     "@emotion/css": "^11.9.0",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",

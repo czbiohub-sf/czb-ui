@@ -1,5 +1,27 @@
 # storybook
 
+## 0.4.0-beta.8
+
+### Patch Changes
+
+- c951b69: Update czifui
+- 3fe423a: Use Classic Holy Grail Layout on NavBarAndFooterPlacer
+- 80078df: Use all args in footer storybook
+- a8d4a19: Remove unused textinput component
+- Updated dependencies [c951b69]
+- Updated dependencies [3fe423a]
+- Updated dependencies [52ee322]
+- Updated dependencies [ce5c610]
+- Updated dependencies [36c61d7]
+- Updated dependencies [cc012da]
+- Updated dependencies [a8d4a19]
+- Updated dependencies [22a3acb]
+- Updated dependencies [57db092]
+- Updated dependencies [a8d4a19]
+- Updated dependencies [a8d4a19]
+  - @czb-ui/forms@0.2.0-beta.6
+  - @czb-ui/core@0.4.0-beta.4
+
 ## 0.4.0-beta.7
 
 ### Patch Changes

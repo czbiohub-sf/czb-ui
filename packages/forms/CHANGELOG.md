@@ -1,5 +1,26 @@
 # @czb-ui/forms
 
+## 0.2.0-beta.6
+
+### Minor Changes
+
+- 36c61d7: Change confirm and successful submit text
+
+### Patch Changes
+
+- c951b69: Update czifui
+- cc012da: Update RJSF
+- 57db092: Use upload icon
+- a8d4a19: Re-structure code to avoid circular dep
+- Updated dependencies [c951b69]
+- Updated dependencies [3fe423a]
+- Updated dependencies [52ee322]
+- Updated dependencies [ce5c610]
+- Updated dependencies [a8d4a19]
+- Updated dependencies [22a3acb]
+- Updated dependencies [a8d4a19]
+  - @czb-ui/core@0.4.0-beta.4
+
 ## 0.2.0-beta.5
 
 ### Patch Changes

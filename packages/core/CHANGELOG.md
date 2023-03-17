@@ -1,5 +1,20 @@
 # @czb-ui/core
 
+## 0.4.0-beta.4
+
+### Minor Changes
+
+- ce5c610: Add small footer variant
+- 22a3acb: If there's more than 7 pages, switch to mobile menu at md breakpoint instead of sm breakpoint
+
+### Patch Changes
+
+- c951b69: Update czifui
+- 3fe423a: Use Classic Holy Grail Layout on NavBarAndFooterPlacer
+- 52ee322: Adjust footer spacings
+- a8d4a19: Remove unused textinput component
+- a8d4a19: Use lists correctly for nav bars, fix key errors
+
 ## 0.4.0-beta.3
 
 ### Patch Changes
