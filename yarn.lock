@@ -16617,7 +16617,7 @@ timers-browserify@^2.0.4:
   dependencies:
     setimmediate "^1.0.4"
 
-tinacms@^1.2.1:
+tinacms@^1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-1.3.3.tgz#7888cd6ccd08f7d0f1146cf51809bd125690d276"
   integrity sha512-aj++/azTiSWNIgAJ68EfHuY5FSoUt3stzuoVQmV/tp22iDYz0RA6Btv2di3anf/+FMrtkn+B5KfPYB998zt8YA==
