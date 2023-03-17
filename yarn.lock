@@ -7464,10 +7464,10 @@ cyclist@^1.0.1:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha512-NJGVKPS81XejHcLhaLJS7plab0fK3slPh11mESeeDq2W4ZI5kUKK/LRRdVDvjJseojbPB7ZwjnyOybg3Igea/A==
 
-czifui@^13.1.1:
-  version "13.4.2"
-  resolved "https://registry.yarnpkg.com/czifui/-/czifui-13.4.2.tgz#d1cbefce8df5725d884bb0328e627b5faba30dfb"
-  integrity sha512-InBW542laqDRarMbnUiI4+PxJbevbq77LuPQr2RNMpLaa0izDimj6Qq4t3uRZ7PchHGzfJuppS5FFQDru8+b3Q==
+czifui@^14.4.0:
+  version "14.4.0"
+  resolved "https://registry.yarnpkg.com/czifui/-/czifui-14.4.0.tgz#a1bda4b2352b074c623eb0acc8fd42ddf3ed580e"
+  integrity sha512-5TtlcHalhyhgpMnYLi5c6jgwLSidzxpehmMtnjraO5e1bAcBeRly/mnicOgK0KxOIZK/fqecGzzwX8/xoCcbbw==
 
 d3-dsv@^3.0.1:
   version "3.0.1"
