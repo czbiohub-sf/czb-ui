@@ -8,17 +8,12 @@ const AppBarComponent = styled(MaterialAppBar)<AppBarProps>(({ theme }) => ({
   boxShadow: "none",
 })) as typeof MaterialAppBar;
 
-const minAppBarHeight = "200px";
-
 const ToolbarComponent = styled(Toolbar)<ToolbarProps>(({ theme }) => ({
-  minHeight: minAppBarHeight,
   [theme.breakpoints.down("sm")]: {
-    minHeight: minAppBarHeight,
     paddingLeft: theme.spacing(6),
     paddingRight: theme.spacing(6),
   },
   [theme.breakpoints.up("sm")]: {
-    minHeight: minAppBarHeight,
     paddingLeft: theme.spacing(7),
     paddingRight: theme.spacing(7),
   },

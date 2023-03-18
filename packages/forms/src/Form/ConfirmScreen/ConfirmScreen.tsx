@@ -21,7 +21,7 @@ export default function ConfirmScreen({
 }: ConfirmScreenProps) {
   return (
     <div>
-      <HeadingSeparator title="Please confirm the data filled" />
+      <HeadingSeparator title="Please Review Your Submission Summary below before Clicking the Submit" />
       <PrettyJson formData={formData} schema={schema} />
       <Box my={8}>
         <Button

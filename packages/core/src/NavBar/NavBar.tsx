@@ -17,7 +17,13 @@ interface NavBarProps {
 // TODO: Make props for home logo link
 export const NavBar = ({ logo, title, pages, pagesComponent }: NavBarProps) => {
   const theme = useTheme();
-  const onDesktop = useMediaQuery(theme.breakpoints.up("sm"));
+
+  const numberOfPages = pages?.length ?? 0;
+  // If there's more than 7 pages, switch to mobile menu
+  // at md breakpoint instead of sm breakpoint
+  const onDesktop = useMediaQuery(
+    theme.breakpoints.up(numberOfPages > 7 ? "md" : "sm")
+  );
 
   return (
     <AppBar position="relative">

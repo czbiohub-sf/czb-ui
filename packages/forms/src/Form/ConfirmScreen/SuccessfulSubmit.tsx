@@ -15,7 +15,7 @@ export default function SuccessfulSubmit({
   // TODO: Add prop to customize text?
   return (
     <div>
-      <HeadingSeparator title="Sample submitted successfully!" />
+      <HeadingSeparator title="Sample Submission Completed Successfully!" />
       <Typography my={4}>{successMessage}</Typography>
       <Box my={4}>
         <Button

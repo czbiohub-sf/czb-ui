@@ -39,11 +39,7 @@ const pageGroups = [
 ];
 
 const FooterTemplate = (args: any) => (
-  <CZBUIFooter
-    logo={<DnaMark sx={{ fontSize: "2rem" }} />}
-    title={args.title}
-    pages={args.pages}
-  />
+  <CZBUIFooter {...args} logo={<DnaMark />} />
 );
 
 export const Footer = FooterTemplate.bind({});

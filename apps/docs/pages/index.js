@@ -13,10 +13,12 @@ export default function DynamicPage(props) {
     data: props.data,
   });
 
+  const pageTitle = "czb-ui";
+
   return (
     <>
       <Head>
-        <title>czb-ui</title>
+        <title>{pageTitle}</title>
       </Head>
       <BlockSwitcher {...data.page} />
     </>
