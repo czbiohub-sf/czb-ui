@@ -3,7 +3,7 @@ import typescript from "@rollup/plugin-typescript";
 import del from "rollup-plugin-delete";
 
 export default {
-  input: "src/index.tsx",
+  input: "src/index.ts",
   output: [
     {
       file: "dist/index.cjs.js",
@@ -18,10 +18,5 @@ export default {
     typescript({ tsconfig: "./tsconfig.json" }),
     del({ targets: "dist/*", runOnce: true }),
   ],
-  external: [
-    /^@emotion\/.*/,
-    /^@mui\/.*/,
-    /^react\.*/,
-    "czifui",
-  ],
+  external: [/^@emotion\/.*/, /^@mui\/.*/, /^react\.*/, "czifui"],
 };
