@@ -1,2 +1,2 @@
-export { default as BiohubLogo } from "./BiohubLogo";
-export { default as DnaMark } from "./DnaMark";
+export { default as BiohubLogo } from "./SFColor";
+export { default as SFColor } from "./SFColor";
