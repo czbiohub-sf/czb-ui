@@ -1,6 +1,6 @@
 import SvgIcon, { SvgIconProps } from "@mui/material/SvgIcon";
 
-const BiohubLogo = (props: SvgIconProps) => {
+const SFColor = (props: SvgIconProps) => {
   return (
     <SvgIcon
       viewBox="0 0 241 42"
@@ -143,4 +143,4 @@ const BiohubLogo = (props: SvgIconProps) => {
   );
 };
 
-export default BiohubLogo;
+export default SFColor;
