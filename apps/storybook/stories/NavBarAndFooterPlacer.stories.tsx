@@ -5,7 +5,7 @@ import {
   NavBar,
   Footer,
 } from "@czb-ui/core/src";
-import { DnaMark } from "@czb-ui/biohub-logos/src";
+import { SFColor, SFColorReverse } from "@czb-ui/biohub-logos/src";
 
 export default {
   title: "NavBarAndFooterPlacer",
@@ -60,15 +60,13 @@ const pageGroups = [
   },
 ];
 
-const logo = <DnaMark sx={{ fontSize: "2rem" }} />;
-
 const NvBrAFoPlTemplate = (args: any) => {
   return (
     <CZBUINavAndFootPlacer
-      topBar={<NavBar logo={logo} title={args.title} pages={args.pages} />}
-      bottomBar={
-        <Footer logo={logo} title={args.title} pages={args.footerPages} />
+      topBar={
+        <NavBar logo={<SFColor />} title={args.title} pages={args.pages} />
       }
+      bottomBar={<Footer logo={<SFColorReverse />} pages={args.footerPages} />}
     >
       <main>content</main>
     </CZBUINavAndFootPlacer>

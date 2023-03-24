@@ -1,7 +1,7 @@
 import React from "react";
 
 import { NavBar as CZBUINavBar } from "@czb-ui/core/src";
-import { DnaMark } from "@czb-ui/biohub-logos/src";
+import { SFColor } from "@czb-ui/biohub-logos/src";
 
 export default {
   title: "NavBar",
@@ -27,11 +27,7 @@ const pages = [
 ];
 
 const NavBarTemplate = (args: any) => (
-  <CZBUINavBar
-    logo={<DnaMark sx={{ fontSize: "2rem" }} />}
-    title={args.title}
-    pages={args.pages}
-  />
+  <CZBUINavBar logo={<SFColor />} title={args.title} pages={args.pages} />
 );
 
 export const NavBar = NavBarTemplate.bind({});

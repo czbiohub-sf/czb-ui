@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Footer as CZBUIFooter } from "@czb-ui/core/src";
-import { DnaMark } from "@czb-ui/biohub-logos/src";
+import { SFColorReverse } from "@czb-ui/biohub-logos/src";
 
 export default {
   title: "Footer",
@@ -39,11 +39,10 @@ const pageGroups = [
 ];
 
 const FooterTemplate = (args: any) => (
-  <CZBUIFooter {...args} logo={<DnaMark />} />
+  <CZBUIFooter {...args} logo={<SFColorReverse />} />
 );
 
 export const Footer = FooterTemplate.bind({});
 Footer.args = {
-  title: "CZ BIOHUB",
   pages: pageGroups,
 };
