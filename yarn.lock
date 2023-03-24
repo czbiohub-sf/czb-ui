@@ -1570,10 +1570,20 @@
   resolved "https://registry.yarnpkg.com/@fontsource/barlow/-/barlow-4.5.9.tgz#e3b18084e839c1c0a5ac30f7fef6737cd720f6df"
   integrity sha512-Nzg7bpw6raZtNdHwvLIt6ue/Gas/tpsNyf7zrRvVdV38iOrtOip2aabO3lexEyiYkKjKrlqAjEyAtTrC2XfkRg==
 
+"@fontsource/hanken-grotesk@^4.5.2":
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/hanken-grotesk/-/hanken-grotesk-4.5.2.tgz#6e3a6d7abaf9267205d0a5338daf2242fd8e7643"
+  integrity sha512-1pe6B4LByvRd5jG+C95zEVo0MdOT8tsz/Vn8NsCtCXaw615AV2Y3J+EmNc/l80CESOc+m0apPhM4/gVyCBGMLg==
+
 "@fontsource/lato@^4.5.10":
   version "4.5.10"
   resolved "https://registry.yarnpkg.com/@fontsource/lato/-/lato-4.5.10.tgz#1ab3d33282e605886e4a8b4c32b1f230a4cb5ea6"
   integrity sha512-2hYR6r661Cq9B8zugtu6yxuOKqrVhAgfOSaPSq8XoxbC4ebsl0KOTy/vPoP+9U7JuQVLfrmikirW4a9Z0nDUug==
+
+"@fontsource/stix-two-text@^4.5.16":
+  version "4.5.16"
+  resolved "https://registry.yarnpkg.com/@fontsource/stix-two-text/-/stix-two-text-4.5.16.tgz#98f7a4a42009e3a7b823642f3c244da21a7b23de"
+  integrity sha512-7Asll2j2GOQKGWewJ0DwoVL9oX1fmiK36YFUIN5rteeGr4sU/HWsxpG0eKLtoPfBSGyI7slhk0aWu66rWlaYuQ==
 
 "@formatjs/ecma402-abstract@1.14.3":
   version "1.14.3"
@@ -1831,15 +1841,10 @@
   resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.1.2.tgz#6fc464307cbe3c8ca5064549b806360d84457b04"
   integrity sha512-9anpBMM9mEgZN4wr2v8wHJI2/u5TnnggewRN6OlvXTTnuVyoY19X6rOv9XTqKRw6dcGKwZsBi8n0kDE2I5i4VA==
 
-"@headlessui/react@1.6.6":
-  version "1.6.6"
-  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.6.6.tgz#3073c066b85535c9d28783da0a4d9288b5354d0c"
-  integrity sha512-MFJtmj9Xh/hhBMhLccGbBoSk+sk61BlP6sJe4uQcVMtXZhCgGqd2GyIQzzmsdPdTEWGSF434CBi8mnhR6um46Q==
-
-"@headlessui/react@^1.5.0":
-  version "1.7.13"
-  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.13.tgz#fd150b394954e9f1d86ed2340cffd1217d6e7628"
-  integrity sha512-9n+EQKRtD9266xIHXdY5MfiXPDfYwl7zBM7KOx2Ae3Gdgxy8QML1FkCMjq6AsOf0l6N9uvI4HcFtuFlenaldKg==
+"@headlessui/react@1.6.6", "@headlessui/react@1.7.7", "@headlessui/react@^1.5.0":
+  version "1.7.7"
+  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.7.tgz#d6f8708d8943ae8ebb1a6929108234e4515ac7e8"
+  integrity sha512-BqDOd/tB9u2tA0T3Z0fn18ktw+KbVwMnkxxsGPIH2hzssrQhKB5n/6StZOyvLYP/FsYtvuXfi9I0YowKPv2c1w==
   dependencies:
     client-only "^0.0.1"
 

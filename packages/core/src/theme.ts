@@ -31,8 +31,10 @@ const warningColors = {
   "400": "#E0A90B",
 };
 
-// Two fonts we need
-const fontFamily = ["Lato", "Barlow"].join(",");
+// Four fonts we need
+const fontFamily = ["Hanken Grotesk", "Barlow", "Lato", "STIX Two Text"].join(
+  ","
+);
 
 // Change xs size to 16px
 const xsFont = {
@@ -115,7 +117,7 @@ export const biohubTheme = createTheme({
     // Custom typography variants
     ultimateHeading: {
       fontFamily:
-        "Butler, Barlow, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif",
+        "STIX Two Text, Barlow, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif",
       // Butler only has a "bold" variant,
       // so we can't use the global "semi bold"
       // font weights that the other headings use
