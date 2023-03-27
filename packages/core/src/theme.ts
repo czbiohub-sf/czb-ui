@@ -15,7 +15,7 @@ const mainFont = "Hanken Grotesk";
 appTheme.typography.fontFamily = mainFont;
 
 // Change our app's "body.xs" font styles to the SDS's "fontBodyM" styles
-// (SDS uses the "xs" styles for MUI's "body1". "body1" is the default font style for MUI)
+// (SDS uses the "body.xs" styles for MUI's "body1". "body1" is the default font style for MUI)
 // https://github.com/chanzuckerberg/sci-components/blob/d607e6d8c38bf8da367844f706b314b33ab83012/src/core/styles/common/defaultTheme.ts#L399
 const fontBodyM = defaultAppTheme.typography.styles.body.m;
 appTheme.typography.styles.body["xs"] = fontBodyM;
