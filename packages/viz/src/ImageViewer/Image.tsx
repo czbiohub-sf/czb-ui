@@ -5,12 +5,14 @@ import { BitmapLayer } from "@deck.gl/layers/typed";
 
 interface ImageProps {
   imageUrl: string;
+  width: number;
+  height: number;
 }
 
-export default function Image({ imageUrl }: ImageProps) {
+export default function Image({ imageUrl, width, height }: ImageProps) {
   const layer = new BitmapLayer({
     id: "bitmap-layer",
-    bounds: [0, 100, 100, 0],
+    bounds: [0, height, width, 0],
     image: imageUrl,
   });
 
