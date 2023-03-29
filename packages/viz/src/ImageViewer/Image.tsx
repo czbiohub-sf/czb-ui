@@ -57,7 +57,7 @@ export default function Image({ imageUrl, imageDimensions }: ImageProps) {
       views={[new OrthographicView({ id: "ortho" })]}
       controller={true}
       initialViewState={{
-        target: [imageDimensions.height / 2, imageDimensions.width / 2, 0], // Start at the center of the image
+        target: [imageDimensions.width / 2, imageDimensions.height / 2, 0], // Start at the center of the image
         zoom: startingZoomLevel,
       }}
       layers={[layer]}
