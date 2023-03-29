@@ -8,5 +8,5 @@ export interface ImageViewerProps {
 }
 
 export const ImageViewer = ({ imageUrl, width, height }: ImageViewerProps) => {
-  return <Image imageUrl={imageUrl} width={width} height={height} />;
+  return <Image imageUrl={imageUrl} imageDimensions={{ width, height }} />;
 };
