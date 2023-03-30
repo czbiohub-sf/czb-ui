@@ -21,9 +21,7 @@ export default function DynamicPage(props) {
       <Head>
         <title>{pageTitle}</title>
       </Head>
-      <Box sx={{ mx: 6 }}>
-        <BlockSwitcher {...data.page} />
-      </Box>
+      <BlockSwitcher {...data.page} />
     </>
   );
 }
