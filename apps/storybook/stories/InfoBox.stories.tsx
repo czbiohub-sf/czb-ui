@@ -4,7 +4,6 @@ import { InfoBox as CZBUIInfoBox } from "@czb-ui/core/src";
 import sampleImage from "./assets/sapiens_banner.webp";
 
 export default {
-  title: "Big Buttons",
   component: CZBUIInfoBox,
   argTypes: {
     type: {

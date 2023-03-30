@@ -1,5 +1,8 @@
 import type { TinaTemplate } from "tinacms";
 
+/**
+ * @deprecated Please use the `Banner` template instead.
+ */
 export const GenericBanner: TinaTemplate = {
   name: "GenericBanner",
   label: "Generic Banner",
@@ -27,6 +30,9 @@ export const GenericBanner: TinaTemplate = {
   ],
 };
 
+/**
+ * @deprecated Please use the `Banner` template instead.
+ */
 export const GrandBanner: TinaTemplate = {
   name: "GrandBanner",
   label: "Grand Banner",

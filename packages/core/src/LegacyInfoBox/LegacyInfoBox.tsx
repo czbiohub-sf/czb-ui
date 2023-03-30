@@ -81,6 +81,9 @@ const InfoBoxLink = ({
   );
 };
 
+/**
+ * @deprecated Please use the `InfoBox` component instead.
+ */
 export const LegacyInfoBox = ({
   title,
   subtitle,
