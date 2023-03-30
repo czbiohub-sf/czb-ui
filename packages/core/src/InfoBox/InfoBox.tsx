@@ -1,4 +1,3 @@
-import { Box } from "@mui/material";
 import { PageLink } from "../UniversalTypes/links";
 import BackgroundInfoBox from "./BackgroundInfoBox";
 import NormalInfoBox from "./NormalInfoBox";
@@ -29,12 +28,7 @@ export const InfoBox = ({
   type = "normal",
 }: InfoBoxContainerProps) => {
   return (
-    <Box
-      sx={{
-        border: "1px solid",
-        borderColor: "divider",
-      }}
-    >
+    <>
       {type == "normal" && (
         <NormalInfoBox
           title={title}
@@ -57,6 +51,6 @@ export const InfoBox = ({
           imageOnRight={imageOnRight}
         />
       )}
-    </Box>
+    </>
   );
 };
