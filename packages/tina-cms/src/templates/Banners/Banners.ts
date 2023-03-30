@@ -1,4 +1,26 @@
-import type { TinaTemplate } from "tinacms";
+import type { Template, TinaTemplate } from "tinacms";
+
+export const Banner: Template = {
+  name: "Banner",
+  label: "Banner",
+  fields: [
+    {
+      type: "string",
+      label: "Title",
+      name: "title",
+    },
+    {
+      type: "image",
+      label: "Background",
+      name: "image",
+    },
+    {
+      type: "string",
+      label: "Background Image alt",
+      name: "imageAlt",
+    },
+  ],
+};
 
 /**
  * @deprecated Please use the `Banner` template instead.

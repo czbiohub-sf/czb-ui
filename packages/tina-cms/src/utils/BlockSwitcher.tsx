@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  BannerBlock,
   GenericBannerBlock,
   GrandBannerBlock,
   TextBlock,
@@ -23,6 +24,7 @@ export const BlockSwitcher = (props: BlockSwitcher) => {
   const blocks = props.blocks;
 
   const usableBlocks = {
+    Banner: BannerBlock,
     GenericBanner: GenericBannerBlock,
     GrandBanner: GrandBannerBlock,
     Text: TextBlock,

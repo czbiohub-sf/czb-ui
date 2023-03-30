@@ -1,6 +1,7 @@
 import { defineConfig, defineSchema } from "tinacms";
 
 import {
+  Banner,
   GenericBanner,
   GrandBanner,
   Text,
@@ -12,6 +13,7 @@ import {
 } from "@czb-ui/tina-cms";
 
 const templates = [
+  Banner,
   GenericBanner,
   GrandBanner,
   Text,

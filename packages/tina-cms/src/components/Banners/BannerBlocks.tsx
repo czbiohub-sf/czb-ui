@@ -1,4 +1,5 @@
 import { GenericBanner, GrandBanner } from "@czb-ui/core";
+import { Banner as CZBUIBanner } from "@czb-ui/core";
 import Image from "next/image";
 
 interface BannerBlockProps {
@@ -14,6 +15,24 @@ interface BannerBlockProps {
 interface BannerProps {
   block: BannerBlockProps;
 }
+
+export const BannerBlock = ({ block }: BannerProps) => {
+  return (
+    <CZBUIBanner
+      headline={block.title}
+      image={
+        block.image ? (
+          <Image
+            src={block.image}
+            alt={block.imageAlt ?? ""}
+            layout="fill"
+            objectFit="cover"
+          />
+        ) : undefined
+      }
+    />
+  );
+};
 
 // Note the Generic Banner block does not
 // have an alternate font
