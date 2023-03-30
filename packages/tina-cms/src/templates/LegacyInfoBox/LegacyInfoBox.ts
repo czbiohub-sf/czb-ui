@@ -5,7 +5,7 @@ import type { TinaTemplate } from "tinacms";
  */
 export const LegacyInfoBox: TinaTemplate = {
   name: "LegacyInfoBox",
-  label: "Legacy Info Box",
+  label: "Legacy Info Box (deprecated)",
   fields: [
     {
       type: "string",

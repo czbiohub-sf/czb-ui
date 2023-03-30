@@ -5,7 +5,7 @@ import type { TinaTemplate } from "tinacms";
  */
 export const GenericBanner: TinaTemplate = {
   name: "GenericBanner",
-  label: "Generic Banner",
+  label: "Generic Banner (deprecated)",
   fields: [
     {
       type: "string",
@@ -35,7 +35,7 @@ export const GenericBanner: TinaTemplate = {
  */
 export const GrandBanner: TinaTemplate = {
   name: "GrandBanner",
-  label: "Grand Banner",
+  label: "Grand Banner (deprecated)",
   fields: [
     {
       type: "string",
