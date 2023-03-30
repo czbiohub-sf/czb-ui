@@ -46,6 +46,7 @@ export const InfoBox = ({
           small={small}
         />
       )}
+      {/* BackgroundInfoBox is deprecated */}
       {type == "background" && (
         <BackgroundInfoBox
           title={title}

@@ -7,8 +7,14 @@ export default {
   component: CZBUIInfoBox,
   argTypes: {
     type: {
-      options: ["normal", "background"],
-      control: { type: "radio" },
+      table: {
+        disable: true,
+      },
+    },
+    imageOnRight: {
+      table: {
+        disable: true,
+      },
     },
   },
 };
