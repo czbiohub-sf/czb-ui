@@ -7,6 +7,7 @@ export * from "./Card/Card";
 
 export * from "./NavBar/NavBar";
 export * from "./Footer/Footer";
+export * from "./Banner/Banner";
 export * from "./Banner/GenericBanner";
 export * from "./Banner/GrandBanner";
 export * from "./NavBarAndFooterPlacer/NavBarAndFooterPlacer";
