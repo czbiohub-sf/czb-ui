@@ -30,8 +30,7 @@ const Template = (args: any) => (
         src={args.image}
       />
     }
-    type={args.type}
-    imageOnRight={args.imageOnRight}
+    small={args.small}
   />
 );
 
