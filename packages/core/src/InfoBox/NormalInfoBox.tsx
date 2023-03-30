@@ -83,7 +83,7 @@ export default function NormalInfoBox({
       <Box
         sx={{
           width: "100%",
-          height: "50%",
+          height: "100%",
           border: "1px solid",
           borderColor: "grey.200",
           maxWidth: "100%",
