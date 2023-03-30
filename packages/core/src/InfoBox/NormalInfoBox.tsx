@@ -13,7 +13,8 @@ const NormalInfoBoxContainer = styled(Box, {
   shouldForwardProp: (prop) => !["small"].includes(prop.toString()),
 })<NormalInfoBoxContainerProps>(({ small, theme }) => ({
   zIndex: 1,
-  width: "350px",
+  width: "100%",
+  maxWidth: "350px",
   height: "450px",
   padding: "10px",
   border: "1px solid",
