@@ -33,15 +33,19 @@ export const Banner = ({
           sx={{
             display: "flex",
             justifyContent: "left",
-            alignItems: "center",
+            alignItems: { xs: "top", md: "center" },
             height: "100%",
-            padding: 8,
+            padding: { xs: 7, md: 8 },
             color: "white",
           }}
         >
           <Typography
             variant="h1"
-            sx={{ fontSize: "2.5rem", lineHeight: "120%", maxWidth: "60%" }}
+            sx={{
+              fontSize: { xs: "2rem", md: "2.5rem" },
+              lineHeight: "120%",
+              maxWidth: { xs: "100%", md: "60%" },
+            }}
           >
             {headline}
           </Typography>
@@ -54,9 +58,11 @@ export const Banner = ({
           top: 0,
           left: 0,
           height: "100%",
-          width: "90%",
-          backgroundImage:
-            "linear-gradient(to left, rgba(0,0,0,0), rgba(0,0,0,1))",
+          width: "100%",
+          backgroundImage: {
+            xs: "linear-gradient(0deg, rgba(0,0,0,0), rgba(0,0,0,1))",
+            md: "linear-gradient(270deg, rgba(0,0,0,0), rgba(0,0,0,1))",
+          },
           zIndex: 1,
         }}
       />
