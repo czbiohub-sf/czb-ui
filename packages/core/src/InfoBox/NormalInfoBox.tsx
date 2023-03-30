@@ -12,10 +12,13 @@ interface NormalInfoBoxContainerProps extends BoxProps {
 const NormalInfoBoxContainer = styled(Box, {
   shouldForwardProp: (prop) => !["small"].includes(prop.toString()),
 })<NormalInfoBoxContainerProps>(({ small, theme }) => ({
+  // For now the small prop will make the box take up
+  // full width. Small prop is true when placed into a Grid
+  // on TinaCMS
   zIndex: 1,
   width: "100%",
-  maxWidth: "350px",
-  height: "450px",
+  maxWidth: small ? "100%" : "350px",
+  height: small ? "350px" : "450px",
   padding: "10px",
   border: "1px solid",
   borderColor: theme.palette.grey[200],
