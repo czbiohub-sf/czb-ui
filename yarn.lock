@@ -1841,7 +1841,12 @@
   resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.1.2.tgz#6fc464307cbe3c8ca5064549b806360d84457b04"
   integrity sha512-9anpBMM9mEgZN4wr2v8wHJI2/u5TnnggewRN6OlvXTTnuVyoY19X6rOv9XTqKRw6dcGKwZsBi8n0kDE2I5i4VA==
 
-"@headlessui/react@1.6.6", "@headlessui/react@1.7.7", "@headlessui/react@^1.5.0":
+"@headlessui/react@1.6.6":
+  version "1.6.6"
+  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.6.6.tgz#3073c066b85535c9d28783da0a4d9288b5354d0c"
+  integrity sha512-MFJtmj9Xh/hhBMhLccGbBoSk+sk61BlP6sJe4uQcVMtXZhCgGqd2GyIQzzmsdPdTEWGSF434CBi8mnhR6um46Q==
+
+"@headlessui/react@^1.5.0":
   version "1.7.7"
   resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.7.tgz#d6f8708d8943ae8ebb1a6929108234e4515ac7e8"
   integrity sha512-BqDOd/tB9u2tA0T3Z0fn18ktw+KbVwMnkxxsGPIH2hzssrQhKB5n/6StZOyvLYP/FsYtvuXfi9I0YowKPv2c1w==
