@@ -13,6 +13,7 @@ interface NavBarProps {
   pages?: Array<PageLink>;
   pagesComponent?: any; // TODO: Find type of mui button component prop
   legacyLook?: boolean;
+  useLogoWithTitleVariant?: boolean;
 }
 
 // TODO: Make props for home logo link
@@ -22,6 +23,7 @@ export const NavBar = ({
   pages,
   pagesComponent,
   legacyLook,
+  useLogoWithTitleVariant,
 }: NavBarProps) => {
   const theme = useTheme();
 
@@ -43,7 +45,20 @@ export const NavBar = ({
           to="/"
         >
           <Box sx={{ mr: 6, display: "inherit" }}>{logo}</Box>
-          {!legacyLook && (
+          {useLogoWithTitleVariant && (
+            <Typography
+              sx={{
+                position: "absolute",
+                fontWeight: "bold",
+                left: { xs: "75px", sm: "100px" },
+                top: "15px",
+                fontSize: "20px",
+              }}
+            >
+              {title}
+            </Typography>
+          )}
+          {!legacyLook && !useLogoWithTitleVariant && (
             <>
               <Divider orientation="vertical" flexItem sx={{ mr: 6 }} />
               <Typography
@@ -56,7 +71,7 @@ export const NavBar = ({
               </Typography>
             </>
           )}
-          {legacyLook && (
+          {legacyLook && !useLogoWithTitleVariant && (
             <Typography
               fontWeight={700}
               fontSize="1rem"
