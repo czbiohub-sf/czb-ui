@@ -47,4 +47,33 @@ const newFontHeaderL = {
 };
 appTheme.typography.styles.header.l = newFontHeaderL;
 
-export const biohubTheme = createTheme(makeThemeOptions(appTheme));
+export const biohubTheme = createTheme({
+  ...makeThemeOptions(appTheme),
+  components: {
+    ...makeThemeOptions(appTheme).components,
+    MuiContainer: {
+      defaultProps: {
+        maxWidth: "md",
+      },
+      styleOverrides: {
+        // Change default padding for MuiContainer
+        root: ({ theme }) => ({
+          [theme.breakpoints.up("sm")]: {
+            paddingLeft: theme.spacing(6),
+            paddingRight: theme.spacing(6),
+          },
+          paddingLeft: theme.spacing(6),
+          paddingRight: theme.spacing(6),
+        }),
+        disableGutters: ({ theme }) => ({
+          [theme.breakpoints.up("sm")]: {
+            paddingLeft: 0,
+            paddingRight: 0,
+          },
+          paddingLeft: 0,
+          paddingRight: 0,
+        }),
+      },
+    },
+  },
+});
