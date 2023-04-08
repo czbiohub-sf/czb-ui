@@ -131,7 +131,7 @@ const components = {
 
 export const TextBlock = ({ block }: TextBlockProps) => {
   return (
-    <Container sx={{ my: "20px" }}>
+    <Container sx={{ my: 8 }}>
       {/* TODO: Find why the components prop is erroring
 				@ts-ignore */}
       <TinaMarkdown components={components} content={block.text} />
