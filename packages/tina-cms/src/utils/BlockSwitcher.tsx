@@ -94,7 +94,7 @@ export const GridBlock = ({ block }: GridProps) => {
     <Container sx={{ my: 8 }}>
       <Grid
         container
-        spacing={{ xs: 2, md: 3 }}
+        spacing={7}
         columns={{ xs: 2, sm: 8, md: blocks.length > 2 ? 12 : 8 }}
       >
         {blocks &&
