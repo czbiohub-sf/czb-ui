@@ -45,4 +45,9 @@ export const InfoBox: TinaTemplate = {
       name: "right",
     },
   ],
+  ui: {
+    itemProps: (item) => {
+      return { label: item?.title };
+    },
+  },
 };

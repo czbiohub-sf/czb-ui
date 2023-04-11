@@ -20,6 +20,11 @@ export const Banner: Template = {
       name: "imageAlt",
     },
   ],
+  ui: {
+    itemProps: (item) => {
+      return { label: item?.title };
+    },
+  },
 };
 
 /**

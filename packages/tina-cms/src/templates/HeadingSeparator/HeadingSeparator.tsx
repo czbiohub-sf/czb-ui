@@ -10,4 +10,9 @@ export const HeadingSeparator: TinaTemplate = {
       name: "title",
     },
   ],
+  ui: {
+    itemProps: (item) => {
+      return { label: item?.title };
+    },
+  },
 };

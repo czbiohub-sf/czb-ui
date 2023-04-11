@@ -35,7 +35,7 @@ export const Banner = ({
             justifyContent: "left",
             alignItems: { xs: "top", md: "center" },
             height: "100%",
-            padding: { xs: 7, md: 8 },
+            paddingTop: { xs: 7, md: 0 },
             color: "white",
           }}
         >
