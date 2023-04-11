@@ -83,18 +83,20 @@ export default function NormalInfoBox({
 }: InfoBoxProps) {
   return (
     <NormalInfoBoxContainer small={small}>
-      <Box
-        sx={{
-          width: "100%",
-          height: "100%",
-          border: "1px solid",
-          borderColor: "grey.200",
-          maxWidth: "100%",
-          maxHeight: "50%",
-        }}
-      >
-        {image}
-      </Box>
+      {image && (
+        <Box
+          sx={{
+            width: "100%",
+            height: "100%",
+            border: "1px solid",
+            borderColor: "grey.200",
+            maxWidth: "100%",
+            maxHeight: "50%",
+          }}
+        >
+          {image}
+        </Box>
+      )}
       <Box
         sx={{
           display: "flex",

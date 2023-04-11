@@ -1,7 +1,6 @@
 import React from "react";
 
 import { InfoBox as CZBUIInfoBox } from "@czb-ui/core/src";
-import sampleImage from "./assets/sapiens_banner.webp";
 
 export default {
   title: "Info Box",
@@ -25,19 +24,12 @@ const Template = (args: any) => (
     title={args.title}
     subtitle={args.subtitle}
     page={args.page}
-    image={
-      <img
-        style={{ objectFit: "cover", height: "100%", width: "100%", zIndex: 0 }}
-        src={args.image}
-      />
-    }
     small={args.small}
   />
 );
 
-export const RegularInfoBox = Template.bind({});
-RegularInfoBox.args = {
-  image: sampleImage,
+export const WithoutImage = Template.bind({});
+WithoutImage.args = {
   type: "normal",
   title: "Tools",
   subtitle: "tools",
