@@ -20,8 +20,8 @@ const Template = (args: any) => (
   />
 );
 
-export const HeadingSeparator = Template.bind({});
-HeadingSeparator.args = {
+export const Banner = Template.bind({});
+Banner.args = {
   headline:
     "Developing Technology to Push the Boundaries of What We Can See and Measure",
   image: "https://source.unsplash.com/random",
