@@ -42,6 +42,21 @@ const InfoBoxLink = ({
   pagesComponent,
   withButton,
 }: InfoBoxLinkProps) => {
+  // Page title is given, but no link. Disable button
+  if (!page?.to) {
+    return (
+      <Button
+        sx={{ marginTop: { xs: "0.5rem", md: "1rem" } }}
+        sdsStyle={withButton ? "square" : "minimal"}
+        sdsType="primary"
+        startIcon={<Icon sdsIcon="plusCircle" sdsSize="s" sdsType="button" />}
+        disabled={true}
+      >
+        {page?.title}
+      </Button>
+    );
+  }
+
   if (pagesComponent && withButton) {
     return (
       <Button

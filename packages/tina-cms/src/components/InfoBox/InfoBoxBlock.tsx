@@ -33,9 +33,7 @@ export const InfoBoxBlock = ({
 }: InfoBoxProps) => {
   let page;
 
-  if (block.linkText && block.linkTo) {
-    page = { title: block.linkText, to: block.linkTo };
-  }
+  page = { title: block.linkText, to: block.linkTo };
 
   return (
     <Container
