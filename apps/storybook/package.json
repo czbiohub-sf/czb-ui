@@ -1,5 +1,5 @@
 {
-  "name": "storybook",
+  "name": "czb-ui-storybook",
   "version": "0.3.0",
   "private": true,
   "scripts": {
