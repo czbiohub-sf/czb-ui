@@ -11,7 +11,7 @@ interface HeadingSeparatorProps {
 
 export const HeadingSeparatorBlock = ({ block }: HeadingSeparatorProps) => {
   return (
-    <Container sx={{ my: 5 }}>
+    <Container sx={{ my: 8 }}>
       <HeadingSeparator title={block.title} id={block.title} />
     </Container>
   );
