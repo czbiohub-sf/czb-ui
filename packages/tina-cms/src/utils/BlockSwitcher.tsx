@@ -95,7 +95,7 @@ export const GridBlock = ({ block }: GridProps) => {
       <Grid
         container
         spacing={7}
-        columns={{ xs: 2, sm: 8, md: blocks.length > 2 ? 12 : 8 }}
+        columns={{ xs: 2, sm: 8, md: blocks?.length > 2 ? 12 : 8 }}
       >
         {blocks &&
           blocks.map((nestedBlock, i) => {
