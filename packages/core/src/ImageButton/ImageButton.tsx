@@ -23,6 +23,9 @@ const ImageButtonCard = styled(Card)<React.ComponentProps<typeof Card>>(
   })
 );
 
+/**
+ * @deprecated This component will be removed.
+ */
 export const ImageButton = ({
   title,
   subtitle,

@@ -1,8 +1,11 @@
 import type { TinaTemplate } from "tinacms";
 
+/**
+ * @deprecated Please use the `InfoBox` template instead.
+ */
 export const LegacyInfoBox: TinaTemplate = {
   name: "LegacyInfoBox",
-  label: "Legacy Info Box",
+  label: "Legacy Info Box (deprecated)",
   fields: [
     {
       type: "string",

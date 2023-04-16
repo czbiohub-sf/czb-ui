@@ -9,6 +9,9 @@ interface GrandBannerProps {
   titleFont?: "Butler" | "Lato";
 }
 
+/**
+ * @deprecated Please use the `Banner` component instead.
+ */
 export const GrandBanner = ({
   image,
   title,

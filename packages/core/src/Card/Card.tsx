@@ -26,6 +26,9 @@ const CardInner = styled(Box, {
   padding: disablePadding ? "0px" : "20px",
 })) as React.FunctionComponent<CardProps>;
 
+/**
+ * @deprecated This component will be removed.
+ */
 export const Card = (props: CardProps) => {
   return (
     <CardOuter {...props}>

@@ -1,8 +1,38 @@
-import type { TinaTemplate } from "tinacms";
+import type { Template, TinaTemplate } from "tinacms";
 
+export const Banner: Template = {
+  name: "Banner",
+  label: "Banner",
+  fields: [
+    {
+      type: "string",
+      label: "Title",
+      name: "title",
+    },
+    {
+      type: "image",
+      label: "Background",
+      name: "image",
+    },
+    {
+      type: "string",
+      label: "Background Image alt",
+      name: "imageAlt",
+    },
+  ],
+  ui: {
+    itemProps: (item) => {
+      return { label: item?.title };
+    },
+  },
+};
+
+/**
+ * @deprecated Please use the `Banner` template instead.
+ */
 export const GenericBanner: TinaTemplate = {
   name: "GenericBanner",
-  label: "Generic Banner",
+  label: "Generic Banner (deprecated)",
   fields: [
     {
       type: "string",
@@ -27,9 +57,12 @@ export const GenericBanner: TinaTemplate = {
   ],
 };
 
+/**
+ * @deprecated Please use the `Banner` template instead.
+ */
 export const GrandBanner: TinaTemplate = {
   name: "GrandBanner",
-  label: "Grand Banner",
+  label: "Grand Banner (deprecated)",
   fields: [
     {
       type: "string",

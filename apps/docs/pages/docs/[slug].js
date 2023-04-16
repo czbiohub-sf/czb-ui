@@ -2,6 +2,7 @@ import { client } from "../../.tina/__generated__/client";
 import { useTina } from "tinacms/dist/react";
 import { BlockSwitcher } from "@czb-ui/tina-cms";
 import Head from "next/head";
+import { Box } from "@mui/material";
 
 export default function DocsPage(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
@@ -18,7 +19,9 @@ export default function DocsPage(props) {
       <Head>
         <title>{pageTitle}</title>
       </Head>
-      <BlockSwitcher {...data.docs} />
+      <Box sx={{ mx: 6 }}>
+        <BlockSwitcher {...data.docs} />
+      </Box>
     </>
   );
 }

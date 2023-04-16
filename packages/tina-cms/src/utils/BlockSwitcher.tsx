@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  BannerBlock,
   GenericBannerBlock,
   GrandBannerBlock,
   TextBlock,
@@ -23,6 +24,7 @@ export const BlockSwitcher = (props: BlockSwitcher) => {
   const blocks = props.blocks;
 
   const usableBlocks = {
+    Banner: BannerBlock,
     GenericBanner: GenericBannerBlock,
     GrandBanner: GrandBannerBlock,
     Text: TextBlock,
@@ -89,8 +91,12 @@ export const GridBlock = ({ block }: GridProps) => {
   const blocks = block.blocks;
 
   return (
-    <Container sx={{ my: 5 }}>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 8 }}>
+    <Container sx={{ my: 8 }}>
+      <Grid
+        container
+        spacing={7}
+        columns={{ xs: 2, sm: 8, md: blocks?.length > 2 ? 12 : 8 }}
+      >
         {blocks &&
           blocks.map((nestedBlock, i) => {
             return (
@@ -98,6 +104,7 @@ export const GridBlock = ({ block }: GridProps) => {
                 <BlockSwitcher
                   blocks={[nestedBlock]}
                   disableContainerGutters
+                  disableYMargins
                   smallVariants
                 />
               </Grid>

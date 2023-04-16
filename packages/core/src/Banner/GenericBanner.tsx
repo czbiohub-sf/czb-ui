@@ -9,6 +9,9 @@ interface GenericBannerProps {
   height?: string;
 }
 
+/**
+ * @deprecated Please use the `Banner` component instead.
+ */
 export const GenericBanner = ({
   background,
   backgroundOpacity = 0.5,
