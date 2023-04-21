@@ -1,12 +1,15 @@
 {
   "name": "czb-ui-storybook",
-  "version": "0.3.0",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build": "storybook build --docs"
+    "build": "storybook build"
   },
   "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "@czb-ui/biohub-logos": "*",
     "@czb-ui/core": "*",
     "@czb-ui/forms": "*",
@@ -20,21 +23,28 @@
     "@mui/base": "^5.0.0-alpha.90",
     "@mui/icons-material": "^5.8.4",
     "@mui/lab": "^5.0.0-alpha.91",
-    "@mui/material": "^5.9.1",
-    "czifui": "^14.4.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "storybook": "^7.0.6"
+    "@mui/material": "^5.9.1"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^7.0.6",
-    "@storybook/addon-docs": "^7.0.6",
     "@storybook/addon-essentials": "^7.0.6",
+    "@storybook/addon-interactions": "^7.0.6",
     "@storybook/addon-links": "^7.0.6",
+    "@storybook/blocks": "^7.0.6",
     "@storybook/react": "^7.0.6",
     "@storybook/react-vite": "^7.0.6",
-    "@vitejs/plugin-react": "^1.3.2",
-    "eslint-config-acme": "*",
-    "vite": "^3.0.4"
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "@vitejs/plugin-react": "^4.0.0-beta.0",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "eslint-plugin-storybook": "^0.6.11",
+    "prop-types": "^15.8.1",
+    "storybook": "^7.0.6",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.0"
   }
 }
