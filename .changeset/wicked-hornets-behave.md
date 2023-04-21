@@ -1,5 +1,5 @@
 ---
-"@czb-ui/tina-cms": patch
+"@czb-ui/tinacms": patch
 ---
 
 Update tinacms

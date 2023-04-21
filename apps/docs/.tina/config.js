@@ -10,7 +10,7 @@ import {
   Table,
   LegacyInfoBox,
   HeadingSeparator,
-} from "@czb-ui/tina-cms";
+} from "@czb-ui/tinacms";
 
 const templates = [
   Banner,
