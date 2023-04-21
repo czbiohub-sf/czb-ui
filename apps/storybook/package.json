@@ -1,10 +1,10 @@
 {
-  "name": "storybook",
+  "name": "czb-ui-storybook",
   "version": "0.3.0",
   "private": true,
   "scripts": {
-    "dev": "start-storybook -p 6006",
-    "build": "build-storybook --docs"
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build --docs"
   },
   "dependencies": {
     "@czb-ui/biohub-logos": "*",
@@ -23,15 +23,16 @@
     "@mui/material": "^5.9.1",
     "czifui": "^14.4.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "storybook": "^7.0.6"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.5.15",
-    "@storybook/addon-docs": "^6.5.15",
-    "@storybook/addon-essentials": "^6.5.15",
-    "@storybook/addon-links": "^6.5.15",
-    "@storybook/builder-vite": "^0.2.6",
-    "@storybook/react": "^6.5.15",
+    "@storybook/addon-actions": "^7.0.6",
+    "@storybook/addon-docs": "^7.0.6",
+    "@storybook/addon-essentials": "^7.0.6",
+    "@storybook/addon-links": "^7.0.6",
+    "@storybook/react": "^7.0.6",
+    "@storybook/react-vite": "^7.0.6",
     "@vitejs/plugin-react": "^1.3.2",
     "eslint-config-acme": "*",
     "vite": "^3.0.4"
