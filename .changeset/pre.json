@@ -8,7 +8,7 @@
     "config": "0.0.0",
     "@czb-ui/core": "0.3.0",
     "@czb-ui/forms": "0.1.0",
-    "@czb-ui/tina-cms": "0.2.1",
+    "@czb-ui/tinacms": "0.2.1",
     "tsconfig": "0.0.0"
   },
   "changesets": [
