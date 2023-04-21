@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    <>
+      <h1>Vite + React</h1>
+      <h2>This Vite template is for use with Storybook</h2>
+    </>
   </React.StrictMode>,
 )
