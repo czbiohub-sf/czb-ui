@@ -1,5 +1,11 @@
 # @czb-ui/tinacms
 
+## 1.0.0-alpha.1
+
+### Patch Changes
+
+- cdaf01d: Rename package to @czb-ui/tinacms
+
 ## 1.0.0-alpha.0
 
 ### Major Changes
