@@ -10,7 +10,7 @@
     "dev": "rollup --config rollup.config.ts --watch"
   },
   "peerDependencies": {
-    "@czb-ui/core": "^0.3.0",
+    "@czb-ui/core": "*",
     "@emotion/css": "^11.9.0",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
