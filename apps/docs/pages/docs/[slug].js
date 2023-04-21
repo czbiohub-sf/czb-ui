@@ -1,6 +1,6 @@
 import { client } from "../../.tina/__generated__/client";
 import { useTina } from "tinacms/dist/react";
-import { BlockSwitcher } from "@czb-ui/tina-cms";
+import { BlockSwitcher } from "@czb-ui/tinacms";
 import Head from "next/head";
 import { Box } from "@mui/material";
 

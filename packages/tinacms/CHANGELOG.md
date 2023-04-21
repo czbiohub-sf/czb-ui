@@ -1,4 +1,4 @@
-# @czb-ui/tina-cms
+# @czb-ui/tinacms
 
 ## 1.0.0-alpha.0
 
