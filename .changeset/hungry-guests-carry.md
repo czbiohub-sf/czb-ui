@@ -1,5 +1,5 @@
 ---
-"storybook": patch
+"czb-ui-storybook": patch
 "@czb-ui/core": patch
 "@czb-ui/tina-cms": patch
 ---

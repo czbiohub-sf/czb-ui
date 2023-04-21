@@ -1,5 +1,5 @@
 ---
-"storybook": patch
+"czb-ui-storybook": patch
 "test-app": patch
 "tina-cms-test-app": patch
 "@czb-ui/biohub-logos": patch

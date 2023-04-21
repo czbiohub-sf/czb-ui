@@ -1,5 +1,5 @@
 ---
-"storybook": minor
+"czb-ui-storybook": minor
 "@czb-ui/forms": minor
 ---
 
