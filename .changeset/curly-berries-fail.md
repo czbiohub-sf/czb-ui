@@ -1,7 +1,5 @@
 ---
 "czb-ui-storybook": patch
-"test-app": patch
-"tina-cms-test-app": patch
 "@czb-ui/biohub-logos": patch
 "@czb-ui/core": patch
 "@czb-ui/forms": patch
