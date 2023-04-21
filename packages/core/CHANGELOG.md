@@ -1,5 +1,31 @@
 # @czb-ui/core
 
+## 1.0.0-alpha.0
+
+### Major Changes
+
+- b066109: Rebrand 2023
+
+### Minor Changes
+
+- 066d4af: Add external link feature to nav bar (https://github.com/czbiohub/czb-ui/pull/30)
+- ce5c610: Add small footer variant
+- 22a3acb: If there's more than 7 pages, switch to mobile menu at md breakpoint instead of sm breakpoint
+
+### Patch Changes
+
+- 121d01b: Use ESM and CJS
+- c951b69: Update czifui
+- 04e9810: Move common devDependencies to root package.json
+- 3fe423a: Use Classic Holy Grail Layout on NavBarAndFooterPlacer
+- 52ee322: Adjust footer spacings
+- ad956d2: Update czifui
+- 1daafaf: Update czifui
+- a8d4a19: Remove unused textinput component
+- 7694db7: Use hex in contrastText to avoid bugs with other components not parsing color string
+- a8d4a19: Use lists correctly for nav bars, fix key errors
+- 6c3efa5: Remove rjsf dependencies
+
 ## 0.3.0
 
 ### Minor Changes

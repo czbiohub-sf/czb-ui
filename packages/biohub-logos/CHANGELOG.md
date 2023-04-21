@@ -1,5 +1,16 @@
 # @czb-ui/biohub-logos
 
+## 1.0.0-alpha.0
+
+### Major Changes
+
+- b066109: Rebrand 2023
+
+### Patch Changes
+
+- 121d01b: Use ESM and CJS
+- 04e9810: Move common devDependencies to root package.json
+
 ## 0.2.0
 
 ### Minor Changes
