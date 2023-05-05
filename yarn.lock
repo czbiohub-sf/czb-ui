@@ -15655,10 +15655,36 @@ through2@^2.0.3:
     readable-stream "~2.3.6"
     xtend "~4.0.1"
 
-tinacms@1.5.2, tinacms@^1.5.2:
+tinacms@1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-1.5.2.tgz#6960c4aa59916f72a93ae9174b1de56493050112"
   integrity sha512-JZs62yEPlokotm7nMgjDrbb73KHzhZO2kgNPT5E0eAMtjIooizPgnr2NfcsaE4wD/72yGuobkuONS3mbw0oq9A==
+  dependencies:
+    "@graphql-inspector/core" "^4.0.0"
+    "@graphql-tools/relay-operation-optimizer" "^6.4.1"
+    "@headlessui/react" "^1.5.0"
+    "@heroicons/react" "^1.0.4"
+    "@react-hook/window-size" "^3.0.7"
+    "@tinacms/schema-tools" "1.4.3"
+    "@tinacms/sharedctx" "1.0.1"
+    "@tinacms/toolkit" "1.7.1"
+    crypto-js "^4.0.0"
+    encoding "0.1.13"
+    fetch-ponyfill "^7.1.0"
+    final-form "4.20.1"
+    graphql "15.8.0"
+    graphql-tag "^2.11.0"
+    lodash.set "^4.3.2"
+    prism-react-renderer "^1.3.5"
+    react-icons "^4.3.1"
+    react-router-dom "6"
+    yup "^0.32.0"
+    zod "^3.14.3"
+
+tinacms@^1.5.4:
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-1.5.4.tgz#e11894bad5721f8499d43966a2b3a8fcea19e304"
+  integrity sha512-Q5Qi53ydEk+VJ+402xi1qFUOUc23E89OX1q/0cOp79Ct67rs+uBF1Qg/mXMbuzb9CSdXlsfmjsuU1HtxenHSOg==
   dependencies:
     "@graphql-inspector/core" "^4.0.0"
     "@graphql-tools/relay-operation-optimizer" "^6.4.1"
