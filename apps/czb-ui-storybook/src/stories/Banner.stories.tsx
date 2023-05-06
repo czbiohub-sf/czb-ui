@@ -17,6 +17,7 @@ const Template = (args: any) => (
         src={args.image}
       />
     }
+    type={args.type}
   />
 );
 
