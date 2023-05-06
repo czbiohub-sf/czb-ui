@@ -1,5 +1,18 @@
 # @czb-ui/tinacms
 
+## 1.0.0-alpha.2
+
+### Minor Changes
+
+- a9db0ac: Add nobackground banner type
+- 6a31310: Text block: open links in new tab and use czifui Link
+
+### Patch Changes
+
+- 3c39cc9: Update TinaCMS
+- Updated dependencies [a9db0ac]
+  - @czb-ui/core@1.0.0-alpha.1
+
 ## 1.0.0-alpha.1
 
 ### Patch Changes

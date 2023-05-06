@@ -1,5 +1,17 @@
 # czb-ui-storybook
 
+## 1.0.0-alpha.1
+
+### Minor Changes
+
+- a9db0ac: Add nobackground banner type
+
+### Patch Changes
+
+- Updated dependencies [a9db0ac]
+  - @czb-ui/core@1.0.0-alpha.1
+  - @czb-ui/forms@1.0.0-alpha.1
+
 ## 1.0.0-alpha.0
 
 ### Major Changes

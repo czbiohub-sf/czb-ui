@@ -1,5 +1,12 @@
 # @czb-ui/forms
 
+## 1.0.0-alpha.1
+
+### Patch Changes
+
+- Updated dependencies [a9db0ac]
+  - @czb-ui/core@1.0.0-alpha.1
+
 ## 1.0.0-alpha.0
 
 ### Minor Changes

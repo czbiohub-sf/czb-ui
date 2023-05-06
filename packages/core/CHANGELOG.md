@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 1.0.0-alpha.1
+
+### Minor Changes
+
+- a9db0ac: Add nobackground banner type
+
 ## 1.0.0-alpha.0
 
 ### Major Changes

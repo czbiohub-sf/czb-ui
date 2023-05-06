@@ -1,5 +1,16 @@
 # docs
 
+## 0.1.0-alpha.1
+
+### Patch Changes
+
+- 3c39cc9: Update TinaCMS
+- Updated dependencies [a9db0ac]
+- Updated dependencies [3c39cc9]
+- Updated dependencies [6a31310]
+  - @czb-ui/tinacms@1.0.0-alpha.2
+  - @czb-ui/core@1.0.0-alpha.1
+
 ## 0.1.0-alpha.0
 
 ### Minor Changes
