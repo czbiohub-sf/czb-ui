@@ -20,6 +20,7 @@ export const BannerBlock = ({ block }: BannerProps) => {
   return (
     <CZBUIBanner
       headline={block.title}
+      type={block.image ? "background" : "nobackground"}
       image={
         block.image ? (
           <Image

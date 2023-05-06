@@ -2,6 +2,7 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { Box, Container, Typography } from "@mui/material";
 import Image from "next/image";
 import { InfoBoxBlock } from "../InfoBox/InfoBoxBlock";
+import { Link } from "czifui";
 
 // TODO: Possible to get actual types from tinacms library?
 interface HeadingProps {
@@ -75,6 +76,25 @@ const h6Component = ({ children }: HeadingProps) => {
   );
 };
 
+// TODO: Find "props" type
+const aComponent = (props: any) => {
+  const text = props.children.props.content[0].text;
+  const urlTitle = props.title;
+  const href = props.url;
+
+  return (
+    <Link
+      sdsStyle="default"
+      href={href}
+      title={urlTitle}
+      target="_blank"
+      rel="noopener"
+    >
+      {text}
+    </Link>
+  );
+};
+
 const imgComponent = (props: ImageProps) => {
   // TODO: Caption, props.caption
   // TODO: Get image resolution somehow or
@@ -125,6 +145,7 @@ const components = {
   h4: h4Component,
   h5: h5Component,
   h6: h6Component,
+  a: aComponent,
   img: imgComponent,
   infoBox: InfoBox,
 };

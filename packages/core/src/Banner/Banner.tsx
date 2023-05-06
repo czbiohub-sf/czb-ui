@@ -7,7 +7,7 @@ interface BannerProps {
   page?: PageLink;
   pagesComponent?: any; // TODO: Find type of mui link component prop
   image?: React.ReactNode;
-  type?: "background";
+  type?: "background" | "nobackground";
 }
 
 const maxHeight = "500px";
@@ -17,7 +17,7 @@ export const Banner = ({
   page,
   pagesComponent,
   image,
-  type,
+  type = "nobackground",
 }: BannerProps) => {
   return (
     <Box
@@ -46,6 +46,7 @@ export const Banner = ({
               lineHeight: "120%",
               maxWidth: { xs: "100%", md: "60%" },
             }}
+            color={type === "background" ? "white" : "black"}
           >
             {headline}
           </Typography>
@@ -59,10 +60,15 @@ export const Banner = ({
           left: 0,
           height: "100%",
           width: "100%",
-          backgroundImage: {
-            xs: "linear-gradient(0deg, rgba(0,0,0,0), rgba(0,0,0,1))",
-            md: "linear-gradient(270deg, rgba(0,0,0,0), rgba(0,0,0,1))",
-          },
+          backgroundImage:
+            type === "background"
+              ? {
+                  xs: "linear-gradient(0deg, rgba(0,0,0,0), rgba(0,0,0,1))",
+                  md: "linear-gradient(270deg, rgba(0,0,0,0), rgba(0,0,0,1))",
+                }
+              : type === "nobackground"
+              ? "linear-gradient(0deg, rgba(255,255,255,1), rgba(255,255,255,1))"
+              : "none",
           zIndex: 1,
         }}
       />
@@ -73,7 +79,9 @@ export const Banner = ({
           width: "100%",
         }}
       >
-        <Box sx={{ height: maxHeight }}>{image}</Box>
+        {type !== "nobackground" && (
+          <Box sx={{ height: maxHeight }}>{image}</Box>
+        )}
       </Box>
     </Box>
   );
