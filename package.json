@@ -32,7 +32,7 @@
     "@rollup/plugin-typescript": "^8.3.2",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
-    "@tinacms/cli": "^1.5.9",
+    "@tinacms/cli": "^1.5.12",
     "@types/d3-dsv": "^3.0.0",
     "@types/jest": "^29.2.3",
     "@types/react": "^17.0.37",
