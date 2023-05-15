@@ -2,6 +2,9 @@ import { Box, Typography } from "@mui/material";
 import { Link } from "czifui";
 import { InfoBoxProps } from "./InfoBox";
 
+/**
+ * @deprecated This component will not be worked on.
+ */
 export default function BackgroundInfoBox({
   title,
   subtitle,

@@ -10,7 +10,7 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import { NextLinkComposed } from "@czb-ui/tina-cms";
+import { NextLinkComposed } from "@czb-ui/tinacms";
 
 const drawerWidth = 240;
 

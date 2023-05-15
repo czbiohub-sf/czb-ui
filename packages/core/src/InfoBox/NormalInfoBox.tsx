@@ -1,7 +1,8 @@
-import { Typography, styled, useTheme } from "@mui/material";
+import { Typography, styled, useTheme, Stack } from "@mui/material";
 import Box, { BoxProps } from "@mui/material/Box";
-import { Link } from "czifui";
 import { InfoBoxProps } from "./InfoBox";
+import { Button, Icon } from "czifui";
+import { PageLink } from "../UniversalTypes/links";
 
 interface NormalInfoBoxContainerProps extends BoxProps {
   imageOnRight?: boolean;
@@ -9,22 +10,83 @@ interface NormalInfoBoxContainerProps extends BoxProps {
 }
 
 const NormalInfoBoxContainer = styled(Box, {
-  shouldForwardProp: (prop) =>
-    !["imageOnRight", "small"].includes(prop.toString()),
-})<NormalInfoBoxContainerProps>(({ imageOnRight, small, theme }) => ({
+  shouldForwardProp: (prop) => !["small"].includes(prop.toString()),
+})<NormalInfoBoxContainerProps>(({ small, theme }) => ({
+  // For now the small prop will make the box take up
+  // full width. Small prop is true when placed into a Grid
+  // on TinaCMS
   zIndex: 1,
-  height: "100%",
+  width: "100%",
+  maxWidth: small ? "100%" : "350px",
+  height: small ? "350px" : "450px",
+  padding: "10px",
+  border: "1px solid",
+  borderColor: theme.palette.grey[200],
   display: "flex",
-  gap: "40px",
-  margin: "20px",
-  [theme.breakpoints.down("sm")]: {
-    flexDirection: "column",
-    gap: "10px",
-  },
-  [theme.breakpoints.up("sm")]: {
-    flexDirection: small ? "column" : imageOnRight ? "row-reverse" : "row",
-  },
+  flexDirection: "column",
 }));
+
+// TODO: Make this into a component itself,
+// for all the other components to use also
+interface InfoBoxLinkProps {
+  page?: PageLink;
+  pagesComponent?: any; // TODO: Find type of mui link component prop
+  withButton: boolean;
+}
+
+// TODO: Simplify this component
+// if pagesComponent is not passed, its an external link
+// in this case for now
+const InfoBoxLink = ({
+  page,
+  pagesComponent,
+  withButton,
+}: InfoBoxLinkProps) => {
+  // Page title is given, but no link. Disable button
+  if (!page?.to) {
+    return (
+      <Button
+        sx={{ marginTop: { xs: "0.5rem", md: "1rem" } }}
+        sdsStyle={withButton ? "square" : "minimal"}
+        sdsType="primary"
+        startIcon={<Icon sdsIcon="plusCircle" sdsSize="s" sdsType="button" />}
+        disabled={true}
+      >
+        {page?.title}
+      </Button>
+    );
+  }
+
+  if (pagesComponent && withButton) {
+    return (
+      <Button
+        sx={{ marginTop: { xs: "0.5rem", md: "1rem" } }}
+        to={page?.to}
+        component={page?.to ? pagesComponent : undefined}
+        sdsStyle={withButton ? "square" : "minimal"}
+        sdsType="primary"
+        startIcon={<Icon sdsIcon="plusCircle" sdsSize="s" sdsType="button" />}
+      >
+        {page?.title}
+      </Button>
+    );
+  }
+
+  // if (!pagesComponent && withButton)
+  return (
+    <Button
+      sx={{ marginTop: { xs: "0.5rem", md: "1rem" }, fontWeight: "bold" }}
+      href={page?.to}
+      sdsStyle={withButton ? "square" : "minimal"}
+      sdsType="primary"
+      target={page?.newTab ? "_blank" : undefined}
+      rel="noopener"
+      startIcon={<Icon sdsIcon="plusCircle" sdsSize="s" sdsType="button" />}
+    >
+      {page?.title}
+    </Button>
+  );
+};
 
 export default function NormalInfoBox({
   title,
@@ -32,41 +94,50 @@ export default function NormalInfoBox({
   page,
   pagesComponent,
   image,
-  imageOnRight,
   small,
 }: InfoBoxProps) {
   return (
-    <NormalInfoBoxContainer imageOnRight={imageOnRight} small={small}>
-      <Box maxWidth="300px" flex={3}>
-        {image}
-      </Box>
+    <NormalInfoBoxContainer small={small}>
+      {image && (
+        <Box
+          sx={{
+            width: "100%",
+            height: "100%",
+            border: "1px solid",
+            borderColor: "grey.200",
+            maxWidth: "100%",
+            maxHeight: "50%",
+          }}
+        >
+          {image}
+        </Box>
+      )}
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
+          padding: 7,
+          height: "100%",
         }}
-        flex={2}
       >
-        <Typography variant="h2" component="div">
+        {/* Using a box with display flex instead of Stack so I can adjust margins per element */}
+        <Typography
+          variant="h2"
+          component="span"
+          sx={{ fontFamily: "Hanken Grotesk" }}
+        >
           {title}
         </Typography>
-        <Typography>{subtitle}</Typography>
-        {pagesComponent && (
-          <Link
-            sx={{ marginTop: "1rem" }}
-            to={page?.to}
-            component={page?.to ? pagesComponent : undefined}
-          >
-            {page?.title}
-          </Link>
-        )}
-        {/* If target="_blank" needs to be added also add rel="noopener" */}
-        {!pagesComponent && (
-          <Link sx={{ marginTop: "1rem", fontWeight: "bold" }} href={page?.to}>
-            {page?.title}
-          </Link>
-        )}
+        <Typography variant="body2" sx={{ color: "grey", my: 2 }}>
+          {subtitle}
+        </Typography>
+        <Box marginTop="auto">
+          <InfoBoxLink
+            page={page}
+            pagesComponent={pagesComponent}
+            withButton={false}
+          />
+        </Box>
       </Box>
     </NormalInfoBoxContainer>
   );

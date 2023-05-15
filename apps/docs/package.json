@@ -11,12 +11,14 @@
   "dependencies": {
     "@czb-ui/biohub-logos": "*",
     "@czb-ui/core": "*",
-    "@czb-ui/tina-cms": "*",
+    "@czb-ui/tinacms": "*",
     "@emotion/css": "^11.9.0",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@fontsource/barlow": "^4.5.9",
+    "@fontsource/hanken-grotesk": "^4.5.2",
     "@fontsource/lato": "^4.5.10",
+    "@fontsource/stix-two-text": "^4.5.16",
     "@mui/base": "^5.0.0-alpha.90",
     "@mui/icons-material": "^5.8.4",
     "@mui/lab": "^5.0.0-alpha.91",
@@ -27,7 +29,7 @@
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
     "styled-components": "^5.1.3",
-    "tinacms": "^1.3.3"
+    "tinacms": "^1.5.2"
   },
   "resolutions": {
     "@headlessui/react": "1.7.7"

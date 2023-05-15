@@ -1,6 +1,7 @@
 import { defineConfig, defineSchema } from "tinacms";
 
 import {
+  Banner,
   GenericBanner,
   GrandBanner,
   Text,
@@ -9,9 +10,10 @@ import {
   Table,
   LegacyInfoBox,
   HeadingSeparator,
-} from "@czb-ui/tina-cms";
+} from "@czb-ui/tinacms";
 
 const templates = [
+  Banner,
   GenericBanner,
   GrandBanner,
   Text,

@@ -1,89 +1,54 @@
 import { createTheme } from "@mui/material/styles";
 import { defaultAppTheme, makeThemeOptions } from "czifui";
 
-const primaryColors = {
-  "100": "#0076A1", // I can't find a 100 color to choose
-  "200": "#0076A1",
-  "300": "#004761",
-  "400": "#00A3E0",
-  "500": "#00AEED",
-  "600": "#0092C7",
-};
-
-// There's only two grey colors I need to apply
-// btw when getting these colors, its
-// themes.palette.grey, grey with E
-const grayColors = {
-  ...defaultAppTheme.colors.gray,
-  "300": "#3E484C",
-  "400": "#888B8D",
-};
-
-// Error color
-const errorColors = {
-  ...defaultAppTheme.colors.error,
-  "400": "#E03B0B",
-};
-
-// Warning color
-const warningColors = {
-  ...defaultAppTheme.colors.warning,
-  "400": "#E0A90B",
-};
-
-// Two fonts we need
-const fontFamily = ["Lato", "Barlow"].join(",");
-
-// Change xs size to 16px
-const xsFont = {
-  ...defaultAppTheme.typography.styles.body.xs,
-  fontSize: 16,
-};
-
-// xxl is used on the h1, font change is needed
-const headingStyles = {
-  ...defaultAppTheme.typography.styles.header,
-  xxl: {
-    ...defaultAppTheme.typography.styles.header.xxl,
-    // Also stick the other body fonts too since
-    // overriding this font doesn't include the fallback
-    // body fonts with it
-    // (hardcoded for now since the actual body fonts
-    // are added programmatically after this)
-    fontFamily:
-      "Barlow, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif",
-    // https://github.com/mui/material-ui/issues/16307
-    textTransform: "uppercase" as const,
-  },
-};
-
 const appTheme = { ...defaultAppTheme };
 
+const primaryColors = {
+  "300": "#00A0DD",
+  "400": "#0D7CB5",
+  "500": "#065B86",
+  "600": "#003A57",
+};
 appTheme.colors.primary = primaryColors;
-appTheme.colors.gray = grayColors;
-appTheme.colors.error = errorColors;
-appTheme.colors.warning = warningColors;
-appTheme.typography.fontFamily = fontFamily;
-appTheme.typography.styles.body["xs"] = xsFont;
-appTheme.typography.styles.header = headingStyles;
 
-// I do a lot of manual overrides... it might be
-// better just to use createTheme() from MUI
+const mainFont = "Hanken Grotesk";
+appTheme.typography.fontFamily = mainFont;
 
-// Container padding is too small... this is the
-// only way I thought of fixing it for now...
+// Change our app's "body.xs" font styles to the SDS's "fontBodyM" styles
+// (SDS uses the "body.xs" styles for MUI's "body1". "body1" is the default font style for MUI)
+// https://github.com/chanzuckerberg/sci-components/blob/d607e6d8c38bf8da367844f706b314b33ab83012/src/core/styles/common/defaultTheme.ts#L399
+const fontBodyM = defaultAppTheme.typography.styles.body.m;
+appTheme.typography.styles.body["xs"] = fontBodyM;
+
+// Change h1 font
+// (SDS uses "header.xxl" for MUI's "h1")
+// https://github.com/chanzuckerberg/sci-components/blob/d607e6d8c38bf8da367844f706b314b33ab83012/src/core/styles/common/defaultTheme.ts#L404
+const newFontHeaderXxl = {
+  ...defaultAppTheme.typography.styles.header.xxl,
+  fontFamily: "STIX Two Text",
+};
+appTheme.typography.styles.header.xxl = newFontHeaderXxl;
+
+// Change h2 font
+// (SDS uses "header.xl" for MUI's "h2")
+// (https://github.com/chanzuckerberg/sci-components/blob/d607e6d8c38bf8da367844f706b314b33ab83012/src/core/styles/common/defaultTheme.ts#L405)
+const newFontHeaderXl = {
+  ...defaultAppTheme.typography.styles.header.xl,
+  fontFamily: "STIX Two Text",
+};
+appTheme.typography.styles.header.xl = newFontHeaderXl;
+
+// Change h3 font
+// (SDS uses "header.l" for MUI's "h3")
+// (https://github.com/chanzuckerberg/sci-components/blob/d607e6d8c38bf8da367844f706b314b33ab83012/src/core/styles/common/defaultTheme.ts#L406)
+const newFontHeaderL = {
+  ...defaultAppTheme.typography.styles.header.l,
+  fontFamily: "Lato",
+};
+appTheme.typography.styles.header.l = newFontHeaderL;
+
 export const biohubTheme = createTheme({
   ...makeThemeOptions(appTheme),
-  palette: {
-    ...makeThemeOptions(appTheme).palette,
-    // temp way of getting contrastText to mui theme
-    // types are saying that this is wrong also...
-    // @ts-ignore
-    primary: {
-      ...makeThemeOptions(appTheme).palette?.primary,
-      contrastText: "#ffffff",
-    },
-  },
   components: {
     ...makeThemeOptions(appTheme).components,
     MuiContainer: {
@@ -91,65 +56,24 @@ export const biohubTheme = createTheme({
         maxWidth: "md",
       },
       styleOverrides: {
+        // Change default padding for MuiContainer
         root: ({ theme }) => ({
           [theme.breakpoints.up("sm")]: {
-            paddingLeft: "24px",
-            paddingRight: "24px",
+            paddingLeft: theme.spacing(6),
+            paddingRight: theme.spacing(6),
           },
-          paddingLeft: "24px",
-          paddingRight: "24px",
+          paddingLeft: theme.spacing(6),
+          paddingRight: theme.spacing(6),
         }),
         disableGutters: ({ theme }) => ({
           [theme.breakpoints.up("sm")]: {
-            paddingLeft: "0px",
-            paddingRight: "0px",
+            paddingLeft: 0,
+            paddingRight: 0,
           },
-          paddingLeft: "0px",
-          paddingRight: "0px",
+          paddingLeft: 0,
+          paddingRight: 0,
         }),
       },
     },
   },
-  typography: {
-    ...makeThemeOptions(appTheme).typography,
-    // Custom typography variants
-    ultimateHeading: {
-      fontFamily:
-        "Butler, Barlow, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif",
-      // Butler only has a "bold" variant,
-      // so we can't use the global "semi bold"
-      // font weights that the other headings use
-      fontWeight: "bold",
-      lineHeight: "normal",
-    },
-    latoHeading: {
-      fontFamily:
-        "Lato, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif",
-      fontWeight: 600, // TODO: Use global semi bold value
-      lineHeight: "normal",
-    },
-  },
 });
-
-// For "ultimateHeading" custom typography
-// https://mui.com/material-ui/customization/typography/#adding-amp-disabling-variants
-declare module "@mui/material/styles" {
-  interface TypographyVariants {
-    ultimateHeading: React.CSSProperties;
-    latoHeading: React.CSSProperties;
-  }
-
-  // allow configuration using `createTheme`
-  interface TypographyVariantsOptions {
-    ultimateHeading?: React.CSSProperties;
-    latoHeading?: React.CSSProperties;
-  }
-}
-
-// Update the Typography's variant prop options
-declare module "@mui/material/Typography" {
-  interface TypographyPropsVariantOverrides {
-    ultimateHeading: true;
-    latoHeading: true;
-  }
-}

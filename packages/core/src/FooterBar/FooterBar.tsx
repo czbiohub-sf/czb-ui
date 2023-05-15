@@ -3,7 +3,7 @@ import Toolbar, { ToolbarProps } from "@mui/material/Toolbar";
 import { styled } from "@mui/material/styles";
 
 const AppBarComponent = styled(MaterialAppBar)<AppBarProps>(({ theme }) => ({
-  backgroundColor: theme.palette.grey[300],
+  backgroundColor: theme.palette.primary.dark,
   color: "white",
   boxShadow: "none",
 })) as typeof MaterialAppBar;

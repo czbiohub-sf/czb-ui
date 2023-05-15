@@ -1,6 +1,6 @@
 import { NavBar as CZBUINavBar } from "@czb-ui/core";
-import { BiohubLogo } from "@czb-ui/biohub-logos";
-import { NextLinkComposed } from "@czb-ui/tina-cms";
+import { WithTitle } from "@czb-ui/biohub-logos";
+import { NextLinkComposed } from "@czb-ui/tinacms";
 
 const pages = [
   {
@@ -13,7 +13,8 @@ export default function NavBar() {
   return (
     <CZBUINavBar
       title="czb-ui"
-      logo={<BiohubLogo sx={{ fonSize: "2rem" }} />}
+      logo={<WithTitle />}
+      useLogoWithTitleVariant={true}
       pages={pages}
       pagesComponent={NextLinkComposed}
     />

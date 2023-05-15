@@ -16,7 +16,9 @@ interface BoxCenterProps extends BoxProps {
     | "left"
     | "right";
 }
-
+/**
+ * @deprecated This component will be removed.
+ */
 export const Center = (props: BoxCenterProps) => {
   const CenterComponent = styled(Box)<BoxProps>(() => ({
     display: "flex",

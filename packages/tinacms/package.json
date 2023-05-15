@@ -1,0 +1,27 @@
+{
+  "name": "@czb-ui/tinacms",
+  "version": "0.2.1",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup --config rollup.config.ts",
+    "dev": "rollup --config rollup.config.ts --watch"
+  },
+  "peerDependencies": {
+    "@czb-ui/core": "*",
+    "@emotion/css": "^11.9.0",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/base": "^5.0.0-alpha.90",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/lab": "^5.0.0-alpha.91",
+    "@mui/material": "^5.9.1",
+    "@mui/x-data-grid": "^5.15.0",
+    "czifui": "^14.4.0",
+    "react": "^17.0.1 || ^18.0.0",
+    "react-dom": "^17.0.1 || ^18.0.0",
+    "tinacms": "^1.5.2"
+  }
+}

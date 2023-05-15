@@ -33,7 +33,7 @@ export const MobilePagesMenu = ({
           onClose={() => setOpen(false)}
           sx={{
             "& .MuiDrawer-paper": {
-              top: "50px",
+              top: "80px",
             },
           }}
         >

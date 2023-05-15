@@ -1,5 +1,5 @@
 ---
-"@czb-ui/tina-cms": patch
+"@czb-ui/tinacms": patch
 ---
 
 Only resolve d3-dsv

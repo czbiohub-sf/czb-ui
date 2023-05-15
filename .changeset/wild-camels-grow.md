@@ -1,5 +1,5 @@
 ---
-"storybook": patch
+"czb-ui-storybook": patch
 ---
 
 Update storybook
