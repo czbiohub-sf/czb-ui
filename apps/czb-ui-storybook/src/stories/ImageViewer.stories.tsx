@@ -5,6 +5,9 @@ import { ImageViewer as CZBUIImageViewer } from "@czb-ui/viz/src";
 export default {
   title: "Image Viewer",
   component: CZBUIImageViewer,
+  parameters: {
+    layout: "fullscreen",
+  },
 };
 
 const Template = (args: any) => <CZBUIImageViewer {...args} />;
