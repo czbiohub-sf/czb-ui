@@ -15,7 +15,7 @@ export const DesktopPagesMenu = ({
     <Box sx={{ mx: 5 }}>
       <List sx={{ display: "flex", flexDirection: "row" }}>
         {pages.map((page, i) => (
-          <ListItem disableGutters key={i}>
+          <ListItem disableGutters key={i} sx={{ flexBasis: "content" }}>
             {!page.externalLink && (
               <Link
                 color="inherit"
