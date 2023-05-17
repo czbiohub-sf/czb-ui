@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import DeckGL from "@deck.gl/react/typed";
 import { OrthographicView } from "@deck.gl/core/typed";
 import { BitmapLayer } from "@deck.gl/layers/typed";
+import LoadingComponent from "../LoadingComponent/LoadingComponent";
 
 interface imageDimensions {
   width: number;
@@ -18,6 +19,7 @@ export default function Image({ imageUrl, imageDimensions }: ImageProps) {
     width: 1000,
     height: 1000,
   });
+  const [loading, setLoading] = useState(true);
 
   // Get the viewport width on mount
   // so we can adjust the starting zoom accordingly
@@ -33,10 +35,19 @@ export default function Image({ imageUrl, imageDimensions }: ImageProps) {
     }
   }, []);
 
+  // If new imageUrl is passed in, reset the loading state
+  useEffect(() => {
+    setLoading(true);
+  }, [imageUrl]);
+
   const layer = new BitmapLayer({
     id: "bitmap-layer",
     bounds: [0, imageDimensions.height, imageDimensions.width, 0],
     image: imageUrl,
+    onDataLoad: () => {
+      console.log("done");
+      setLoading(false);
+    },
   });
 
   // Based on the viewport and image width, determine a zoom percentage that will **fit** the image to the viewport.
@@ -53,14 +64,17 @@ export default function Image({ imageUrl, imageDimensions }: ImageProps) {
   const startingZoomLevel = Math.min(zoomLevelToFitWidth, zoomLevelToFitHeight);
 
   return (
-    <DeckGL
-      views={[new OrthographicView({ id: "ortho" })]}
-      controller={true}
-      initialViewState={{
-        target: [imageDimensions.width / 2, imageDimensions.height / 2, 0], // Start at the center of the image
-        zoom: startingZoomLevel,
-      }}
-      layers={[layer]}
-    />
+    <>
+      {loading && <LoadingComponent />}
+      <DeckGL
+        views={[new OrthographicView({ id: "ortho" })]}
+        controller={true}
+        initialViewState={{
+          target: [imageDimensions.width / 2, imageDimensions.height / 2, 0], // Start at the center of the image
+          zoom: startingZoomLevel,
+        }}
+        layers={[layer]}
+      />
+    </>
   );
 }
