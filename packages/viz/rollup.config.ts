@@ -18,5 +18,12 @@ export default {
     typescript({ tsconfig: "./tsconfig.json" }),
     del({ targets: "dist/*", runOnce: true }),
   ],
-  external: [/^@emotion\/.*/, /^@mui\/.*/, /^react\.*/, "czifui"],
+  external: [
+    /^@emotion\/.*/,
+    /^@mui\/.*/,
+    /^react\.*/,
+    /^@deck.gl\/.*/,
+    /^@loaders.gl\/.*/,
+    "czifui",
+  ],
 };
