@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import DeckGL from "@deck.gl/react/typed";
 import { OrthographicView } from "@deck.gl/core/typed";
 import { BitmapLayer } from "@deck.gl/layers/typed";
+import { ImageLoader } from "@loaders.gl/images";
+import { load } from "@loaders.gl/core";
 import LoadingComponent from "../LoadingComponent/LoadingComponent";
 
 interface imageDimensions {
@@ -14,12 +16,42 @@ interface ImageProps {
   imageDimensions: imageDimensions;
 }
 
+// TODO: Address "any" type
+const imageCache: Record<string, any> = {};
+
+// Hook to load an image and cache it
+function useCachedImage(imageUrl: string) {
+  // TODO: Address "any" type
+  const [image, setImage] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (imageUrl in imageCache) {
+      setImage(imageCache[imageUrl]);
+      setIsLoading(false);
+    } else {
+      setImage(null);
+      if (imageUrl) {
+        setIsLoading(true);
+        load(imageUrl, ImageLoader).then((res) => {
+          imageCache[imageUrl] = res;
+          setImage(res);
+          setIsLoading(false);
+        });
+      } else {
+        setIsLoading(false);
+      }
+    }
+  }, [imageUrl]);
+
+  return { image, isLoading };
+}
 export default function Image({ imageUrl, imageDimensions }: ImageProps) {
   const [viewportDimensions, setViewportDimensions] = useState({
     width: 1000,
     height: 1000,
   });
-  const [loading, setLoading] = useState(true);
+  const { image, isLoading } = useCachedImage(imageUrl);
 
   // Get the viewport width on mount
   // so we can adjust the starting zoom accordingly
@@ -35,19 +67,10 @@ export default function Image({ imageUrl, imageDimensions }: ImageProps) {
     }
   }, []);
 
-  // If new imageUrl is passed in, reset the loading state
-  useEffect(() => {
-    setLoading(true);
-  }, [imageUrl]);
-
   const layer = new BitmapLayer({
     id: "bitmap-layer",
     bounds: [0, imageDimensions.height, imageDimensions.width, 0],
-    image: imageUrl,
-    onDataLoad: () => {
-      console.log("done");
-      setLoading(false);
-    },
+    image: image,
   });
 
   // Based on the viewport and image width, determine a zoom percentage that will **fit** the image to the viewport.
@@ -65,7 +88,7 @@ export default function Image({ imageUrl, imageDimensions }: ImageProps) {
 
   return (
     <>
-      {loading && <LoadingComponent />}
+      {isLoading && <LoadingComponent />}
       <DeckGL
         views={[new OrthographicView({ id: "ortho" })]}
         controller={true}

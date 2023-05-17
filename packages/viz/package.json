@@ -22,6 +22,8 @@
     "react-dom": "^17.0.1 || ^18.0.0"
   },
   "dependencies": {
+    "@loaders.gl/core": "^3.4.1",
+    "@loaders.gl/images": "^3.4.1",
     "deck.gl": "^8.9.1"
   }
 }

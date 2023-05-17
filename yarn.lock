@@ -2879,6 +2879,16 @@
     "@loaders.gl/worker-utils" "3.3.1"
     "@probe.gl/log" "^3.5.0"
 
+"@loaders.gl/core@^3.4.1":
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/@loaders.gl/core/-/core-3.4.1.tgz#ccdbd9c057b68d000445be06ce5b5acaf1c9594b"
+  integrity sha512-bj2h19AVoaRAcwt51wQpzvPI1e9iBUyVbJ3mIb+RrKBDYypzfKGdNS8YgoFltR5ijM5y0UG0NlZVMQYIhzmF5g==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    "@loaders.gl/loader-utils" "3.4.1"
+    "@loaders.gl/worker-utils" "3.4.1"
+    "@probe.gl/log" "^4.0.1"
+
 "@loaders.gl/draco@3.3.1":
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@loaders.gl/draco/-/draco-3.3.1.tgz#534f79074c3685350b1a61b1c6bf46ece40a5a8e"
@@ -2919,6 +2929,13 @@
   dependencies:
     "@loaders.gl/loader-utils" "3.3.1"
 
+"@loaders.gl/images@^3.4.1":
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/@loaders.gl/images/-/images-3.4.1.tgz#64b120ed3f85f23ad604bebad5ac9370339a3743"
+  integrity sha512-1GyAEvpXKvOq8QXuG+xtiyOTXSxcue27b3bvXE9nQS9M4mCDlEEkO4Bau+l01LU3ll8JsK8NiZl2PtHSMv1+iQ==
+  dependencies:
+    "@loaders.gl/loader-utils" "3.4.1"
+
 "@loaders.gl/loader-utils@3.3.1", "@loaders.gl/loader-utils@^3.3.1":
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@loaders.gl/loader-utils/-/loader-utils-3.3.1.tgz#32db4a943389897b833d78f3f652225072dfdc5e"
@@ -2927,6 +2944,15 @@
     "@babel/runtime" "^7.3.1"
     "@loaders.gl/worker-utils" "3.3.1"
     "@probe.gl/stats" "^3.5.0"
+
+"@loaders.gl/loader-utils@3.4.1":
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/@loaders.gl/loader-utils/-/loader-utils-3.4.1.tgz#65ed0d7c5e61c59ade00f24b505c3161e28d9493"
+  integrity sha512-N7XihvbAeB+XSsFgV9Vj5tslV3M1YbMqpyb0lEhsj1zRQXid7F86teVXLxDw+ZhhDPj/wrRSvFqq3QWF3QhBBQ==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    "@loaders.gl/worker-utils" "3.4.1"
+    "@probe.gl/stats" "^4.0.1"
 
 "@loaders.gl/math@3.3.1":
   version "3.3.1"
@@ -3008,6 +3034,13 @@
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@loaders.gl/worker-utils/-/worker-utils-3.3.1.tgz#7c81a7888a3398f0d8b627d7f8a5cc915198392e"
   integrity sha512-r1u358xZEMKUsv7gOabmc6fA6knWArYU0BqeWOaJHyN/72ESuDZrzjtk+Adux9rIJLlxrMHLq/o/WCsO1tmrYw==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+
+"@loaders.gl/worker-utils@3.4.1":
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/@loaders.gl/worker-utils/-/worker-utils-3.4.1.tgz#c87ef376bb64dd09c5fcf2ae0403dfe0f1b2c6e6"
+  integrity sha512-ezlj+l1JXmhhXn5cDAkwA2nf0Bk2WvOHOYO+q7eqiKz0VfKzGd0pfEeHrncBkzq1sdAeQspgUbNnRyp6vOnnfg==
   dependencies:
     "@babel/runtime" "^7.3.1"
 
@@ -3554,6 +3587,13 @@
   dependencies:
     "@babel/runtime" "^7.0.0"
 
+"@probe.gl/env@4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@probe.gl/env/-/env-4.0.3.tgz#c437b139953ceda9c1a13bad2be9c14d3ff3ba03"
+  integrity sha512-Iz2/xPHMa5adDBw/m7nyQ0bKgLXZqMauPfV2ePU9ZOfkt6NnWMzQAjBeeXufujE6vndJUAALgpweO/YjYkKo+Q==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+
 "@probe.gl/log@^3.5.0":
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/@probe.gl/log/-/log-3.6.0.tgz#c645bfd22b4769dc65161caa17f13bd2b231e413"
@@ -3562,10 +3602,25 @@
     "@babel/runtime" "^7.0.0"
     "@probe.gl/env" "3.6.0"
 
+"@probe.gl/log@^4.0.1":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@probe.gl/log/-/log-4.0.3.tgz#69c57aac4394f21e7786285028403fa7504bc4f4"
+  integrity sha512-GAvGo87nYAcS/sLs00qts+thzlYPXLzkAG1xdtY3NxeI9oJAo+EU/sw+qcnfews4HO/u60QLMHrQJgSSbCGmjQ==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    "@probe.gl/env" "4.0.3"
+
 "@probe.gl/stats@^3.5.0":
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/@probe.gl/stats/-/stats-3.6.0.tgz#a1bb12860fa6f40b9c028f9eb575d7ada0b4dbdd"
   integrity sha512-JdALQXB44OP4kUBN/UrQgzbJe4qokbVF4Y8lkIA8iVCFnjVowWIgkD/z/0QO65yELT54tTrtepw1jScjKB+rhQ==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+
+"@probe.gl/stats@^4.0.1":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@probe.gl/stats/-/stats-4.0.3.tgz#a17ea752eb3d7540d0a5c92d8c9cea268a48930a"
+  integrity sha512-8BNKDmgwNqvcBNEcsIavtEWQp1WvBfryLodAv1YX8/Swg60Ky3ElDNNpSDuIVMnFDvI/De0zXiuXXydtn86/vA==
   dependencies:
     "@babel/runtime" "^7.0.0"
 
