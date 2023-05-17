@@ -1,5 +1,18 @@
 # czb-ui-storybook
 
+## 1.0.0-alpha.2
+
+### Minor Changes
+
+- 6e00168: Add Image Viewer
+
+### Patch Changes
+
+- 413105b: Use fullscreen layout in image viewer story
+- Updated dependencies [350a232]
+  - @czb-ui/core@1.0.0-alpha.2
+  - @czb-ui/forms@1.0.0-alpha.2
+
 ## 1.0.0-alpha.1
 
 ### Minor Changes

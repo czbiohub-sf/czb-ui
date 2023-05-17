@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 1.0.0-alpha.2
+
+### Patch Changes
+
+- 350a232: Fix NavBar long menu titles taking two lines
+
 ## 1.0.0-alpha.1
 
 ### Minor Changes

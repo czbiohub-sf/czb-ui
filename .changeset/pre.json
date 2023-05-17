@@ -9,7 +9,8 @@
     "@czb-ui/core": "0.3.0",
     "@czb-ui/forms": "0.1.0",
     "@czb-ui/tinacms": "0.2.1",
-    "tsconfig": "0.0.0"
+    "tsconfig": "0.0.0",
+    "@czb-ui/viz": "0.0.0"
   },
   "changesets": [
     "angry-hounds-hammer",
@@ -24,6 +25,7 @@
     "empty-flowers-do",
     "famous-pumas-switch",
     "few-colts-pretend",
+    "fifty-tables-dream",
     "fluffy-mails-draw",
     "forty-kiwis-fail",
     "friendly-brooms-drum",
@@ -46,9 +48,11 @@
     "light-rocks-jam",
     "loud-goats-invent",
     "metal-jars-reflect",
+    "olive-walls-beg",
     "olive-wombats-cheat",
     "pink-kids-search",
     "pink-rockets-doubt",
+    "pretty-maps-whisper",
     "rich-goats-behave",
     "rotten-laws-flow",
     "seven-trees-do",
