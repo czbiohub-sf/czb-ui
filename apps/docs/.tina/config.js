@@ -55,10 +55,40 @@ const blockCollection = (name, label, path, routePath) => ({
   },
 });
 
+const markdownCollection = (name, label, path, routePath) => ({
+  label: label,
+  name: name,
+  path: path,
+  format: "md",
+  fields: [
+    {
+      name: "title",
+      label: "Title",
+      type: "string",
+    },
+    {
+      type: "rich-text",
+      name: "body",
+      label: "Body",
+      isBody: true,
+    },
+  ],
+  ui: {
+    router: ({ document }) => {
+      if (document._sys.filename == "home" && !routePath) {
+        // Only for non-nested routes, this will be the index page
+        return "/";
+      }
+      return `/${routePath}${document._sys.filename}`;
+    },
+  },
+});
+
 const schema = defineSchema({
   collections: [
     blockCollection("page", "Page Content", "content/page"),
-    blockCollection("docs", "Documentation", "content/docs", "docs/"),
+    // Use md for docs so it can also be easily viewed elsewhere (GitHub, etc.)
+    markdownCollection("docs", "Documentation", "content/docs", "docs/"),
   ],
 });
 
