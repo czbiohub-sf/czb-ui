@@ -1,5 +1,17 @@
 # czb-ui-storybook
 
+## 1.0.0-alpha.3
+
+### Minor Changes
+
+- d384253: Add more pages NavBar story
+
+### Patch Changes
+
+- Updated dependencies [d384253]
+  - @czb-ui/core@1.0.0-alpha.3
+  - @czb-ui/forms@1.0.0-alpha.3
+
 ## 1.0.0-alpha.2
 
 ### Minor Changes
