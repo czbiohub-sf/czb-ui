@@ -28,10 +28,10 @@ export const NavBar = ({
   const theme = useTheme();
 
   const numberOfPages = pages?.length ?? 0;
-  // If there's more than 7 pages, switch to mobile menu
+  // If there's more than 4 pages, switch to mobile menu
   // at md breakpoint instead of sm breakpoint
   const onDesktop = useMediaQuery(
-    theme.breakpoints.up(numberOfPages > 7 ? "md" : "sm")
+    theme.breakpoints.up(numberOfPages > 4 ? "md" : "sm")
   );
 
   return (
