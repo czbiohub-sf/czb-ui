@@ -30,7 +30,7 @@ export const NavBar = ({
   const numberOfPages = pages?.length ?? 0;
   // If there's more than 4 pages, switch to mobile menu
   // at md breakpoint instead of sm breakpoint
-  const onDesktop = useMediaQuery(
+  const showHamburger = useMediaQuery(
     theme.breakpoints.up(numberOfPages > 4 ? "md" : "sm")
   );
 
@@ -38,7 +38,7 @@ export const NavBar = ({
     <AppBar position="relative">
       {/* flexGrow so it menu to the right */}
       {/* With legacyLook, only hamburger menu is to the right */}
-      <Box flexGrow={legacyLook ? (onDesktop ? 0 : 1) : 1} display="flex">
+      <Box flexGrow={legacyLook ? (showHamburger ? 0 : 1) : 1} display="flex">
         <Link
           sx={{ display: "flex", alignItems: "center", color: "inherit" }}
           component={pagesComponent}
@@ -84,10 +84,10 @@ export const NavBar = ({
           )}
         </Link>
       </Box>
-      {pages && onDesktop && (
+      {pages && showHamburger && (
         <DesktopPagesMenu pages={pages} pagesComponent={pagesComponent} />
       )}
-      {pages && !onDesktop && (
+      {pages && !showHamburger && (
         <MobilePagesMenu pages={pages} pagesComponent={pagesComponent} />
       )}
     </AppBar>
