@@ -28,10 +28,10 @@ export const NavBar = ({
   const theme = useTheme();
 
   const numberOfPages = pages?.length ?? 0;
-  // If there's more than 4 pages, switch to mobile menu
+  // If there's 4 or more pages, switch to mobile menu
   // at md breakpoint instead of sm breakpoint
   const showHamburger = useMediaQuery(
-    theme.breakpoints.up(numberOfPages > 4 ? "md" : "sm")
+    theme.breakpoints.up(numberOfPages >= 4 ? "lg" : "sm")
   );
 
   return (
