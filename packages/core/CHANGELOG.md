@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 1.0.0-alpha.4
+
+### Minor Changes
+
+- af3d8aa: Change settings when hamburger menu shows, to avoid squished/two columns of text in NavBar
+
 ## 1.0.0-alpha.3
 
 ### Minor Changes

@@ -1,5 +1,13 @@
 # docs
 
+## 0.1.0-alpha.4
+
+### Patch Changes
+
+- Updated dependencies [af3d8aa]
+  - @czb-ui/core@1.0.0-alpha.4
+  - @czb-ui/tinacms@1.0.0-alpha.5
+
 ## 0.1.0-alpha.3
 
 ### Patch Changes

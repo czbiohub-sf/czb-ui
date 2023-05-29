@@ -1,5 +1,13 @@
 # czb-ui-storybook
 
+## 1.0.0-alpha.4
+
+### Patch Changes
+
+- Updated dependencies [af3d8aa]
+  - @czb-ui/core@1.0.0-alpha.4
+  - @czb-ui/forms@1.0.0-alpha.4
+
 ## 1.0.0-alpha.3
 
 ### Minor Changes
