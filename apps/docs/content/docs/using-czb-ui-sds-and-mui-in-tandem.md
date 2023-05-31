@@ -10,6 +10,8 @@ to import and use the styles.
 
 As long as the `ThemeProvider` was set up (see "Installation"), any Material UI or SDS component will inherit the Biohub style.
 
+Using the styles are strongly recommended as it allows for consistency (colors, spacing, etc.) with other applications.
+
 ## Which components from each UI library should I use?
 
 It is recommended to start seeing if any of the components in czb-ui will
