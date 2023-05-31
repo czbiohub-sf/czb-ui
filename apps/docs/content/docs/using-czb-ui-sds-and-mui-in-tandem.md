@@ -8,28 +8,7 @@ If a new, app-specific component needs to be made or you would not like to
 use czb-ui's higher level components, it is still possible to use czb-ui
 to import and use the styles.
 
-## Using the Styles with Material UI
-
-The czb-ui made styles are compatible with Material UI. To use the Biohub
-styles with Material UI, install @czb-ui/core and supply the theme to
-MUI's ThemeProvider:
-
-```javascript
-// Example with Next.js
-import * as React from "react";
-import { ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import { biohubTheme } from "@czb-ui/core/theme???";
-
-export default function MyApp(props) {
-  return (
-    <ThemeProvider theme={biohubTheme}>
-      <CssBaseline />
-      <Component {...pageProps} />
-    </ThemeProvider>
-  );
-}
-```
+As long as the `ThemeProvider` was set up (see "Installation"), any Material UI or SDS component will inherit the Biohub style.
 
 ## Which components from each UI library should I use?
 
