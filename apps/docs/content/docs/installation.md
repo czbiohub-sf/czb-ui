@@ -14,11 +14,11 @@ npm install @czb-ui/core czifui @emotion/css @emotion/react
 
 ```
 
-Additionally, install the needed fonts:
+Additionally, install the needed fonts using [Fontsource](https://github.com/fontsource/fontsource):
 
 ```shell
 
-npm install @fontsource/barlow @fontsource/lato
+npm install @fontsource/hanken-grotesk @fontsource/stix-two-text @fontsource/barlow @fontsource/lato
 
 ```
 
@@ -28,11 +28,10 @@ Additionally import the fonts installed.
 ```javascript
 import { ThemeProvider } from "@czb-ui/core";
 
-// Import fonts at their various weights
-// 400 is normal, 700 is bold
-import "@fontsource/barlow/700.css";
-import "@fontsource/lato/400.css";
-import "@fontsource/lato/700.css";
+import "@fontsource/barlow/700.css"; // We only need bold weight
+import "@fontsource/lato/700.css"; // We only need bold weight
+import "@fontsource/hanken-grotesk";
+import "@fontsource/stix-two-text";
 
 function MyApp({ Component, pageProps }) {
   return (
