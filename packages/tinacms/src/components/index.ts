@@ -4,3 +4,4 @@ export * from "./InfoBox/InfoBoxBlock";
 export * from "./Table/TableBlock";
 export * from "./LegacyInfoBox/LegacyInfoBoxBlock";
 export * from "./HeadingSeparator/HeadingSeparatorBlock";
+export * from "./ImageGallery/ImageGalleryBlock";
