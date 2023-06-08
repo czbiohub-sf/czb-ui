@@ -45,6 +45,15 @@ const docsMenu = [
       },
     ],
   },
+  {
+    title: "Development",
+    items: [
+      {
+        title: "Updating Libraries",
+        slug: "updating-libraries",
+      },
+    ],
+  },
 ];
 
 export const CategoryTitle = styled(Typography)`
