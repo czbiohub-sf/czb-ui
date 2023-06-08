@@ -14,13 +14,22 @@ export default function DocsPage(props) {
 
   const pageTitle = `${data.docs.title} - czb-ui`;
 
+  // Since BlockSwitcher expects an array of TinaCMS templates,
+  // just create a "virtual" template to render the text
+  // This is here because we are using the ".md" format for
+  // the docs, and we only have a body field
+  const virtualTextBlock = {
+    __typename: "BlocksText",
+    text: data.docs.body,
+  };
+
   return (
     <>
       <Head>
         <title>{pageTitle}</title>
       </Head>
       <Box sx={{ mx: 6 }}>
-        <BlockSwitcher {...data.docs} />
+        <BlockSwitcher blocks={[virtualTextBlock]} />
       </Box>
     </>
   );
@@ -46,7 +55,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (ctx) => {
   const variables = {
-    relativePath: ctx.params.slug + ".mdx",
+    relativePath: ctx.params.slug + ".md",
   };
 
   let pageResponse = {};
