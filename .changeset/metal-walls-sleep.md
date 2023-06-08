@@ -1,0 +1,5 @@
+---
+"docs": minor
+---
+
+Use .md
