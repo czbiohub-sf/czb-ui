@@ -8,6 +8,7 @@ import {
   TableBlock,
   LegacyInfoBoxBlock,
   HeadingSeparatorBlock,
+  ImageGalleryBlock,
 } from "../components";
 import { Grid, Container } from "@mui/material";
 
@@ -33,6 +34,7 @@ export const BlockSwitcher = (props: BlockSwitcher) => {
     Table: TableBlock,
     LegacyInfoBox: LegacyInfoBoxBlock,
     HeadingSeparator: HeadingSeparatorBlock,
+    ImageGallery: ImageGalleryBlock,
     ...props.additionalBlocks,
   };
 
