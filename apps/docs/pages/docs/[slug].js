@@ -16,6 +16,8 @@ export default function DocsPage(props) {
 
   // Since BlockSwitcher expects an array of TinaCMS templates,
   // just create a "virtual" template to render the text
+  // This is here because we are using the ".md" format for
+  // the docs, and we only have a body field
   const virtualTextBlock = {
     __typename: "BlocksText",
     text: data.docs.body,
