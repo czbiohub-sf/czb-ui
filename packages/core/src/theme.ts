@@ -1,5 +1,7 @@
 import { createTheme } from "@mui/material/styles";
 import { defaultAppTheme, makeThemeOptions } from "czifui";
+// defaultAppTheme settings:
+// https://github.com/chanzuckerberg/sci-components/blob/main/packages/components/src/core/styles/common/defaultTheme.ts
 
 const appTheme = { ...defaultAppTheme };
 
@@ -46,6 +48,14 @@ const newFontHeaderL = {
   fontFamily: "Lato",
 };
 appTheme.typography.styles.header.l = newFontHeaderL;
+
+// Change button text style
+const newButtonStyle = {
+  ...defaultAppTheme.typography.styles.body.button,
+  fontFamily: "Barlow",
+  textTransform: "uppercase" as React.CSSProperties["textTransform"], // Type workaround
+};
+appTheme.typography.styles.body.button = newButtonStyle;
 
 export const biohubTheme = createTheme({
   ...makeThemeOptions(appTheme),

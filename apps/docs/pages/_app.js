@@ -8,8 +8,8 @@ import Footer from "../components/Footer/Footer";
 import DocsMenu from "../components/DocsMenu/DocsMenu";
 import TogglesContext from "../utils/TogglesContext";
 
-import "@fontsource/barlow/700.css"; // We only need bold weight
-import "@fontsource/lato/700.css"; // We only need bold weight
+import "@fontsource/barlow";
+import "@fontsource/lato";
 import "@fontsource/hanken-grotesk";
 import "@fontsource/stix-two-text";
 
