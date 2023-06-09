@@ -1,8 +1,8 @@
 import React from "react";
 import { ThemeProvider } from "@czb-ui/core/src";
 
-import "@fontsource/barlow/700.css"; // We only need bold weight
-import "@fontsource/lato/700.css"; // We only need bold weight
+import "@fontsource/barlow";
+import "@fontsource/lato";
 import "@fontsource/hanken-grotesk";
 import "@fontsource/stix-two-text";
 
