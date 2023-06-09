@@ -1,5 +1,19 @@
 # docs
 
+## 0.1.0-alpha.5
+
+### Minor Changes
+
+- fb6d81d: Use .md
+- 39fd98a: Update Barlow and Lato imports
+
+### Patch Changes
+
+- Updated dependencies [b278974]
+- Updated dependencies [39fd98a]
+  - @czb-ui/tinacms@1.0.0-alpha.6
+  - @czb-ui/core@1.0.0-alpha.5
+
 ## 0.1.0-alpha.4
 
 ### Patch Changes

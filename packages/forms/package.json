@@ -1,6 +1,6 @@
 {
   "name": "@czb-ui/forms",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
@@ -11,7 +11,7 @@
     "test": "jest"
   },
   "peerDependencies": {
-    "@czb-ui/core": "1.0.0-alpha.4",
+    "@czb-ui/core": "1.0.0-alpha.5",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@mui/icons-material": "^5.8.4",

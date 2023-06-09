@@ -1,5 +1,17 @@
 # czb-ui-storybook
 
+## 1.0.0-alpha.5
+
+### Minor Changes
+
+- 39fd98a: Update Barlow and Lato imports
+
+### Patch Changes
+
+- Updated dependencies [39fd98a]
+  - @czb-ui/core@1.0.0-alpha.5
+  - @czb-ui/forms@1.0.0-alpha.5
+
 ## 1.0.0-alpha.4
 
 ### Patch Changes

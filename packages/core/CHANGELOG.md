@@ -1,5 +1,19 @@
 # @czb-ui/core
 
+## 1.0.0-alpha.5
+
+### Minor Changes
+
+- 39fd98a: Use Barlow font in buttons, **breaking change**: Please update the font imports:
+
+  ```js
+  import "@fontsource/hanken-grotesk/400.css";
+  import "@fontsource/hanken-grotesk/700.css";
+  import "@fontsource/stix-two-text/600.css";
+  import "@fontsource/lato/700.css";
+  import "@fontsource/barlow/600.css";
+  ```
+
 ## 1.0.0-alpha.4
 
 ### Minor Changes

@@ -1,5 +1,16 @@
 # @czb-ui/tinacms
 
+## 1.0.0-alpha.6
+
+### Minor Changes
+
+- b278974: New image gallery block
+
+### Patch Changes
+
+- Updated dependencies [39fd98a]
+  - @czb-ui/core@1.0.0-alpha.5
+
 ## 1.0.0-alpha.5
 
 ### Patch Changes
