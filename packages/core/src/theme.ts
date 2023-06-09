@@ -46,6 +46,8 @@ appTheme.typography.styles.header.xl = newFontHeaderXl;
 const newFontHeaderL = {
   ...defaultAppTheme.typography.styles.header.l,
   fontFamily: "Lato",
+  fontWeight: 700, // There's only a 700 weight for Lato,
+  // not 600 which is what the defaultAppTheme uses
 };
 appTheme.typography.styles.header.l = newFontHeaderL;
 

@@ -8,10 +8,11 @@ import Footer from "../components/Footer/Footer";
 import DocsMenu from "../components/DocsMenu/DocsMenu";
 import TogglesContext from "../utils/TogglesContext";
 
-import "@fontsource/barlow";
-import "@fontsource/lato";
-import "@fontsource/hanken-grotesk";
-import "@fontsource/stix-two-text";
+import "@fontsource/hanken-grotesk/400.css";
+import "@fontsource/hanken-grotesk/700.css";
+import "@fontsource/stix-two-text/600.css";
+import "@fontsource/lato/700.css";
+import "@fontsource/barlow/600.css";
 
 // Import Butler font
 import "../public/fonts/Butler.css";

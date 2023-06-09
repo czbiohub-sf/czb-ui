@@ -1,10 +1,11 @@
 import React from "react";
 import { ThemeProvider } from "@czb-ui/core/src";
 
-import "@fontsource/barlow";
-import "@fontsource/lato";
-import "@fontsource/hanken-grotesk";
-import "@fontsource/stix-two-text";
+import "@fontsource/hanken-grotesk/400.css";
+import "@fontsource/hanken-grotesk/700.css";
+import "@fontsource/stix-two-text/600.css";
+import "@fontsource/lato/700.css";
+import "@fontsource/barlow/600.css";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
