@@ -95,6 +95,7 @@ export default function Image({ imageUrl, imageDimensions }: ImageProps) {
         initialViewState={{
           target: [imageDimensions.width / 2, imageDimensions.height / 2, 0], // Start at the center of the image
           zoom: startingZoomLevel,
+          minZoom: startingZoomLevel - 1,
         }}
         layers={[layer]}
       />
