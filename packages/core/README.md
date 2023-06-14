@@ -21,10 +21,12 @@ Wrap the `ThemeProvider` in your main `app.js` file and import the fonts at thei
 ```jsx
 import { ThemeProvider } from "@czb-ui/core";
 
-import "@fontsource/barlow/700.css"; // We only need bold weight
-import "@fontsource/lato/700.css"; // We only need bold weight
-import "@fontsource/hanken-grotesk";
-import "@fontsource/stix-two-text";
+import "@fontsource/hanken-grotesk/400.css";
+import "@fontsource/hanken-grotesk/700.css";
+import "@fontsource/stix-two-text/600.css";
+import "@fontsource/lato/700.css";
+import "@fontsource/barlow/600.css";
+import "@fontsource/barlow/400.css";
 
 function MyApp({ Component, pageProps }) {
   return (
