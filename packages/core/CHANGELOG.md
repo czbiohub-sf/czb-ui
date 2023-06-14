@@ -12,6 +12,7 @@
   import "@fontsource/stix-two-text/600.css";
   import "@fontsource/lato/700.css";
   import "@fontsource/barlow/600.css";
+  import "@fontsource/barlow/400.css";
   ```
 
 ## 1.0.0-alpha.4
