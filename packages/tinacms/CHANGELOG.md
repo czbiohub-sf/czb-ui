@@ -1,5 +1,11 @@
 # @czb-ui/tinacms
 
+## 1.0.0-alpha.7
+
+### Patch Changes
+
+- 96b99ed: Fix crash in BlockSwitcher when passing in a custom template for additionalBlocks
+
 ## 1.0.0-alpha.6
 
 ### Minor Changes
