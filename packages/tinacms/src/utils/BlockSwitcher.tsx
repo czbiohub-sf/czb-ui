@@ -50,13 +50,24 @@ export const BlockSwitcher = (props: BlockSwitcher) => {
               .replace(/Blocks/g, "");
 
             try {
+              if (usableBlocks[blockToLookFor] === undefined) {
+                throw new Error(
+                  "Block not found. Is it supplied in the additionalBlocks prop?"
+                );
+              }
               return React.createElement(usableBlocks[blockToLookFor], {
                 block,
                 key: i,
                 ...props,
               });
-            } catch (e) {
+            } catch (e: any) {
               console.error(e);
+              return (
+                <div>
+                  Something went wrong rendering the {blockToLookFor} block:{" "}
+                  {e.message}
+                </div>
+              );
             }
           })
         : null}
