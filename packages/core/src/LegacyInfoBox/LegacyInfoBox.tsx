@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { PageLink } from "../UniversalTypes/links";
 import { Link, Button } from "czifui";
 
@@ -19,6 +19,7 @@ interface InfoBoxLinkProps {
   page?: PageLink;
   pagesComponent?: any; // TODO: Find type of mui link component prop
   withButton: boolean;
+  putButtonOnBottom?: boolean;
 }
 
 // TODO: Simplify this component
@@ -28,11 +29,12 @@ const InfoBoxLink = ({
   page,
   pagesComponent,
   withButton,
+  putButtonOnBottom,
 }: InfoBoxLinkProps) => {
   if (pagesComponent && !withButton) {
     return (
       <Link
-        sx={{ marginTop: "1rem" }}
+        sx={{ marginTop: putButtonOnBottom ? "auto" : 5 }}
         to={page?.to}
         component={page?.to ? pagesComponent : undefined}
       >
@@ -43,7 +45,7 @@ const InfoBoxLink = ({
   if (!pagesComponent && !withButton) {
     return (
       <Link
-        sx={{ marginTop: "1rem", fontWeight: "bold" }}
+        sx={{ marginTop: putButtonOnBottom ? "auto" : 5, fontWeight: "bold" }}
         href={page?.to}
         target={page?.newTab ? "_blank" : undefined}
         rel="noopener"
@@ -55,7 +57,10 @@ const InfoBoxLink = ({
   if (pagesComponent && withButton) {
     return (
       <Button
-        sx={{ marginTop: { xs: "0.5rem", md: "1rem" } }}
+        sx={{
+          marginTop: { xs: 2, md: putButtonOnBottom ? "auto" : 5 },
+          width: "120px",
+        }}
         to={page?.to}
         component={page?.to ? pagesComponent : undefined}
         sdsStyle="square"
@@ -69,7 +74,11 @@ const InfoBoxLink = ({
   // if (!pagesComponent && withButton)
   return (
     <Button
-      sx={{ marginTop: { xs: "0.5rem", md: "1rem" }, fontWeight: "bold" }}
+      sx={{
+        marginTop: { xs: 2, md: putButtonOnBottom ? "auto" : 5 },
+        fontWeight: "bold",
+        width: "120px",
+      }}
       href={page?.to}
       sdsStyle="square"
       sdsType="primary"
@@ -99,40 +108,43 @@ export const LegacyInfoBox = ({
 
   const currentDim = small ? smallerDim : defaultDim;
 
+  const hasSubtitle =
+    subtitle !== "" && subtitle !== undefined && subtitle !== null;
+
   return (
     <Box
       display="flex"
       gap={small ? { xs: "5px", md: "20px" } : { xs: "10px", sm: "30px" }}
-      alignItems={
-        small
-          ? { xs: "flex-start", md: "center" }
-          : { xs: "flex-start", sm: "center" }
-      }
+      alignItems={small ? "stretch" : { xs: "flex-start", sm: "center" }}
       flexDirection={
         small
           ? { xs: "column", md: "row" }
           : { xs: "column", sm: small ? "column" : "row" }
       }
+      height="100%"
     >
       <Box
         border="1px solid"
         borderColor="divider"
         width={currentDim}
-        height={square ? currentDim : small ? 106 : 160}
+        height={square ? currentDim : small ? "inherit" : 160}
       >
         {image}
       </Box>
-      <Box>
-        <Typography variant="h2" mb={2}>
-          {title}
-        </Typography>
-        <Typography mb={variant != "withButton" ? 5 : 1}>{subtitle}</Typography>
+      <Stack justifyContent={!hasSubtitle ? "center" : ""}>
+        <div>
+          <Typography variant="h2">{title}</Typography>
+          <Typography mb={hasSubtitle ? { xs: "0px", md: 5 } : "0px"}>
+            {subtitle}
+          </Typography>
+        </div>
         <InfoBoxLink
           page={page}
           pagesComponent={pagesComponent}
           withButton={variant == "withButton"}
+          putButtonOnBottom={hasSubtitle}
         />
-      </Box>
+      </Stack>
     </Box>
   );
 };
