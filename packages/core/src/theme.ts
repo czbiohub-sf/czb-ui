@@ -1,9 +1,11 @@
-import { createTheme } from "@mui/material/styles";
+import { ThemeOptions, createTheme } from "@mui/material/styles";
+import { deepmerge } from "@mui/utils";
 import { defaultAppTheme, makeThemeOptions } from "czifui";
 // defaultAppTheme settings:
 // https://github.com/chanzuckerberg/sci-components/blob/main/packages/components/src/core/styles/common/defaultTheme.ts
 
 const appTheme = { ...defaultAppTheme };
+type AppTheme = typeof appTheme;
 
 const primaryColors = {
   "300": "#00A0DD",
@@ -59,10 +61,10 @@ const newButtonStyle = {
 };
 appTheme.typography.styles.body.button = newButtonStyle;
 
-export const biohubTheme = createTheme({
-  ...makeThemeOptions(appTheme),
+const createFinalTheme = (czifuiAppTheme: AppTheme): ThemeOptions => ({
+  ...makeThemeOptions(czifuiAppTheme),
   components: {
-    ...makeThemeOptions(appTheme).components,
+    ...makeThemeOptions(czifuiAppTheme).components,
     MuiContainer: {
       defaultProps: {
         maxWidth: "md",
@@ -89,3 +91,10 @@ export const biohubTheme = createTheme({
     },
   },
 });
+
+export const biohubTheme = createTheme(createFinalTheme(appTheme));
+
+export const createCustomAppTheme = (overrides: AppTheme) => {
+  const merged = deepmerge(appTheme, overrides);
+  return createTheme(createFinalTheme(merged));
+};
