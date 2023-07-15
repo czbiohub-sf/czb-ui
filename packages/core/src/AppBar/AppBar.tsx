@@ -10,27 +10,44 @@ const AppBarComponent = styled(MaterialAppBar)<AppBarProps>(({ theme }) => ({
   borderColor: theme.palette.divider,
 })) as typeof MaterialAppBar;
 
-const minAppBarHeight = "80px";
+interface ToolbarComponentProps extends ToolbarProps {
+  minHeight?: string;
+}
 
-const ToolbarComponent = styled(Toolbar)<ToolbarProps>(({ theme }) => ({
-  minHeight: minAppBarHeight,
+const ToolbarComponent = styled(Toolbar, {
+  shouldForwardProp: (prop) => prop !== "minHeight",
+})<ToolbarComponentProps>(({ minHeight, theme }) => ({
+  minHeight: minHeight,
   [theme.breakpoints.down("sm")]: {
-    minHeight: minAppBarHeight,
+    minHeight: minHeight,
     paddingLeft: theme.spacing(6),
     paddingRight: theme.spacing(6),
   },
   [theme.breakpoints.up("sm")]: {
-    minHeight: minAppBarHeight,
+    minHeight: minHeight,
     paddingLeft: theme.spacing(8),
     paddingRight: theme.spacing(8),
   },
 })) as typeof Toolbar;
 
+interface CzbuiAppBarProps {
+  children?: React.ReactNode;
+  appBarProps?: AppBarProps;
+  minHeight?: string;
+}
+
 // TODO: Make nav component prop/option for this AppBar component
-export const AppBar = (props: AppBarProps) => {
+export const AppBar = ({
+  children,
+  appBarProps,
+  minHeight = "80px",
+}: CzbuiAppBarProps) => {
   return (
-    <AppBarComponent {...props}>
-      <ToolbarComponent component="nav">{props.children}</ToolbarComponent>
+    <AppBarComponent {...appBarProps}>
+      {/* @ts-ignore, ToolbarComponent has minHeight prop */}
+      <ToolbarComponent component="nav" minHeight={minHeight}>
+        {children}
+      </ToolbarComponent>
     </AppBarComponent>
   );
 };

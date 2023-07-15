@@ -30,6 +30,10 @@ const docsMenu = [
         title: "Using czb-ui, SDS, and Material UI in Tandem",
         slug: "using-czb-ui-sds-and-mui-in-tandem",
       },
+      {
+        title: "Customizing Theme",
+        slug: "customizing-theme",
+      },
     ],
   },
   {

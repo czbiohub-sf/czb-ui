@@ -13,11 +13,13 @@ import { Link } from "czifui";
 
 interface MobilePagesMenuProps {
   pages: Array<PageLink>;
+  offsetHeight: string;
   pagesComponent?: any; // TODO: Find type of mui button component prop
 }
 
 export const MobilePagesMenu = ({
   pages,
+  offsetHeight,
   pagesComponent,
 }: MobilePagesMenuProps) => {
   const [open, setOpen] = useState(false);
@@ -33,7 +35,7 @@ export const MobilePagesMenu = ({
           onClose={() => setOpen(false)}
           sx={{
             "& .MuiDrawer-paper": {
-              top: "80px",
+              top: offsetHeight,
             },
           }}
         >
