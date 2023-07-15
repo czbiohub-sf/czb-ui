@@ -45,3 +45,9 @@ Please **do not** follow these steps in the `main` branch.
    If `.changeset/pre.json` does not exist, pre-releases are not configured. Please see the [changesets pre-releases documentation](https://github.com/changesets/changesets/blob/main/docs/prereleases.md).
 3. Merge `main` into the `prerelease` branch.
 4. Run the regular steps under ["Publishing a version to npm"](#publishing-a-version-to-npm).
+
+If you get warnings like this running `yarn changeset version`:
+```
+Package "docs" must depend on the current version of "@czb-ui/biohub-logos": "1.0.0-alpha.0" vs "*"
+```
+These can be ignored. Since the apps are built using whatever is in the monorepo, and are also not published to npm, they don't need to stick to a specific version.
