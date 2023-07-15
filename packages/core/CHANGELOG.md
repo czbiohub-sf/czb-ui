@@ -1,5 +1,16 @@
 # @czb-ui/core
 
+## 1.0.0-alpha.6
+
+### Minor Changes
+
+- 8827c68: Make navbar height adjustable
+- 8827c68: Add functions to customize Biohub theme
+
+### Patch Changes
+
+- 8827c68: More responsive legacy info boxes. Titles and subtitles taking up multiple lines will expand the whole box now instead of overflowing
+
 ## 1.0.0-alpha.5
 
 ### Minor Changes

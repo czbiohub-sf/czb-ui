@@ -1,5 +1,16 @@
 # docs
 
+## 0.1.0-alpha.7
+
+### Patch Changes
+
+- Updated dependencies [8827c68]
+- Updated dependencies [8827c68]
+- Updated dependencies [8827c68]
+- Updated dependencies [8827c68]
+  - @czb-ui/tinacms@1.0.0-alpha.8
+  - @czb-ui/core@1.0.0-alpha.6
+
 ## 0.1.0-alpha.6
 
 ### Patch Changes

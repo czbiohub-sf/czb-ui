@@ -1,5 +1,19 @@
 # @czb-ui/tinacms
 
+## 1.0.0-alpha.8
+
+### Minor Changes
+
+- 8827c68: Increase grid spacing
+
+### Patch Changes
+
+- 8827c68: More responsive legacy info boxes. Titles and subtitles taking up multiple lines will expand the whole box now instead of overflowing
+- Updated dependencies [8827c68]
+- Updated dependencies [8827c68]
+- Updated dependencies [8827c68]
+  - @czb-ui/core@1.0.0-alpha.6
+
 ## 1.0.0-alpha.7
 
 ### Patch Changes
