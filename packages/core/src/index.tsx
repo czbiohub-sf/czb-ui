@@ -15,3 +15,5 @@ export * from "./ImageButton/ImageButton";
 export * from "./InfoBox/InfoBox";
 export * from "./LegacyInfoBox/LegacyInfoBox";
 export * from "./HeadingSeparator/HeadingSeparator";
+
+export * from "./theme";

@@ -38,7 +38,7 @@ const ImageComponent = ({ src, alt, small }: ImageComponentProps) => {
 
   return (
     <Image
-      objectFit="contain"
+      objectFit="cover"
       // Subtract 1 or 2 because of the
       // border around the image
       width={small ? 200 : 250}
@@ -71,6 +71,7 @@ export const LegacyInfoBoxBlock = ({
       sx={{
         my: disableYMargins ? undefined : 5,
         mb: smallVariants ? undefined : "30px",
+        height: "100%",
       }}
       disableGutters={disableContainerGutters}
     >

@@ -14,6 +14,7 @@ interface NavBarProps {
   pagesComponent?: any; // TODO: Find type of mui button component prop
   legacyLook?: boolean;
   useLogoWithTitleVariant?: boolean;
+  minHeight?: string;
 }
 
 // TODO: Make props for home logo link
@@ -24,6 +25,7 @@ export const NavBar = ({
   pagesComponent,
   legacyLook,
   useLogoWithTitleVariant,
+  minHeight = "80px",
 }: NavBarProps) => {
   const theme = useTheme();
 
@@ -35,7 +37,7 @@ export const NavBar = ({
   );
 
   return (
-    <AppBar position="relative">
+    <AppBar appBarProps={{ position: "relative" }} minHeight={minHeight}>
       {/* flexGrow so it menu to the right */}
       {/* With legacyLook, only hamburger menu is to the right */}
       <Box flexGrow={legacyLook ? (showHamburger ? 0 : 1) : 1} display="flex">
@@ -88,7 +90,11 @@ export const NavBar = ({
         <DesktopPagesMenu pages={pages} pagesComponent={pagesComponent} />
       )}
       {pages && !showHamburger && (
-        <MobilePagesMenu pages={pages} pagesComponent={pagesComponent} />
+        <MobilePagesMenu
+          pages={pages}
+          pagesComponent={pagesComponent}
+          offsetHeight={minHeight}
+        />
       )}
     </AppBar>
   );
