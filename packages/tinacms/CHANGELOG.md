@@ -1,5 +1,11 @@
 # @czb-ui/tinacms
 
+## 1.0.0-alpha.9
+
+### Patch Changes
+
+- 03e421a: use legacyBehavior for NextLinkComposed for support for Next.js 13
+
 ## 1.0.0-alpha.8
 
 ### Minor Changes
