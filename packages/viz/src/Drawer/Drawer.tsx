@@ -3,9 +3,12 @@ import * as React from "react";
 import { Global } from "@emotion/react";
 import { styled } from "@mui/material/styles";
 import { grey } from "@mui/material/colors";
+import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 
 const drawerBleeding = 34;
 
@@ -52,6 +55,19 @@ export default function SwipeableEdgeDrawer({
           },
         }}
       />
+      <Box
+        sx={{
+          position: "absolute",
+          textAlign: "center",
+          pt: 1,
+          zIndex: 5,
+          p: 6,
+        }}
+      >
+        <Button onClick={toggleDrawer(true)} variant="contained">
+          Open Options
+        </Button>
+      </Box>
       {/* @ts-ignore not sure why its saying it cant be used as a JSX component */}
       <SwipeableDrawer
         anchor="bottom"
@@ -76,6 +92,7 @@ export default function SwipeableEdgeDrawer({
           }}
         >
           <Puller />
+
           <Typography sx={{ p: 2, color: "text.secondary" }}>
             Options
           </Typography>
@@ -88,6 +105,18 @@ export default function SwipeableEdgeDrawer({
             overflow: "auto",
           }}
         >
+          <IconButton
+            aria-label="close"
+            onClick={toggleDrawer(false)}
+            sx={{
+              position: "absolute",
+              right: 8,
+              top: 8,
+              color: (theme) => theme.palette.grey[500],
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
           {children}
         </StyledBox>
       </SwipeableDrawer>
