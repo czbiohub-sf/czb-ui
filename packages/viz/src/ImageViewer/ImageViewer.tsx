@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "./Image";
 import HUD from "./HUD";
+import SwipeableEdgeDrawer from "../Drawer/Drawer";
+import { useMediaQuery } from "@mui/material";
 
 export interface ImageViewerProps {
   imageUrl: string;
@@ -15,9 +17,19 @@ export const ImageViewer = ({
   height,
   hudComponent,
 }: ImageViewerProps) => {
+  const onMobile = useMediaQuery("(max-width:600px)");
+
   return (
     <>
-      {hudComponent && <HUD>{hudComponent}</HUD>}
+      {hudComponent && (
+        <>
+          {onMobile ? (
+            <SwipeableEdgeDrawer>{hudComponent}</SwipeableEdgeDrawer>
+          ) : (
+            <HUD>{hudComponent}</HUD>
+          )}
+        </>
+      )}
       <Image imageUrl={imageUrl} imageDimensions={{ width, height }} />
     </>
   );
