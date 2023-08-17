@@ -16,6 +16,12 @@ const pages = [
         externalLink: true,
         newTab: true, // newTab doesn't work as of now
       },
+      {
+        title: "Portal Template (Internal)",
+        to: "https://github.com/czbiohub-sf/portal-template",
+        externalLink: true,
+        newTab: true, // newTab doesn't work as of now
+      },
     ],
   },
   {

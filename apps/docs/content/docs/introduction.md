@@ -34,17 +34,18 @@ available also using TinaCMS.
 
 czb-ui currently consists of four separate packages:
 
-- **@czb-ui/core**: The core package that includes the essential higher
+* **@czb-ui/core**: The core package that includes the essential higher
   level components, such as the navigation bar and the footer.
-
-- **@czb-ui/tina-cms**: A toolkit to use czb-ui with the
+* **@czb-ui/tina-cms**: A toolkit to use czb-ui with the
   [TinaCMS](https://tina.io "TinaCMS website") content management system.
-
-- **@czb-ui/forms**: A wrapper around
+* **@czb-ui/forms**: A wrapper around
   [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form "react-jsonschema-form GitHub repo"), a library to generate forms with
   JSON, using the czb-ui style.
-
-- **@czb-ui/biohub-logos**: The Biohub logos as React components.
+* **@czb-ui/biohub-logos**: The Biohub logos as React components.
 
 Each package is published on npm and can be installed normally with `npm
 install`. Additionally, using the yarn package manager works also.
+
+## Portal Template
+
+Internal use only. Please see the [Portal Template GitHub repository](https://github.com/czbiohub-sf/portal-template).
