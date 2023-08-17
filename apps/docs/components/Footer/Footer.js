@@ -7,8 +7,10 @@ const pages = [
     title: "czb-ui",
     pages: [
       {
-        title: "Documentation",
-        to: "/docs/introduction",
+        title: "Storybook",
+        to: "https://czb-ui.vercel.app/",
+        externalLink: true,
+        newTab: true, // newTab doesn't work as of now
       },
       {
         title: "GitHub",
