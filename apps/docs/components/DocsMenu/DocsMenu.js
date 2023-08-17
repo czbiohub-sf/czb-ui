@@ -34,21 +34,25 @@ const docsMenu = [
         title: "Customizing Theme",
         slug: "customizing-theme",
       },
-    ],
-  },
-  {
-    title: "Components",
-    items: [
       {
-        title: "NavBarAndFooterPlacer",
-        slug: "navbarandfooterplacer",
-      },
-      {
-        title: "InfoBox",
-        slug: "infobox",
+        title: "TinaCMS: Custom Blocks",
+        slug: "tinacms-custom-blocks",
       },
     ],
   },
+  // {
+  //   title: "Components",
+  //   items: [
+  //     {
+  //       title: "NavBarAndFooterPlacer",
+  //       slug: "navbarandfooterplacer",
+  //     },
+  //     {
+  //       title: "InfoBox",
+  //       slug: "infobox",
+  //     },
+  //   ],
+  // },
 ];
 
 export const CategoryTitle = styled(Typography)`

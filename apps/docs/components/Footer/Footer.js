@@ -7,12 +7,20 @@ const pages = [
     title: "czb-ui",
     pages: [
       {
-        title: "Documentation",
-        to: "/docs/introduction",
+        title: "Storybook",
+        to: "https://czb-ui.vercel.app/",
+        externalLink: true,
+        newTab: true, // newTab doesn't work as of now
       },
       {
         title: "GitHub",
         to: "https://github.com/czbiohub/czb-ui",
+        externalLink: true,
+        newTab: true, // newTab doesn't work as of now
+      },
+      {
+        title: "Portal Template (Internal)",
+        to: "https://github.com/czbiohub-sf/portal-template",
         externalLink: true,
         newTab: true, // newTab doesn't work as of now
       },

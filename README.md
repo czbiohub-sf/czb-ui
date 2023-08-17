@@ -6,7 +6,11 @@ To get started, visit the [introduction documentation](https://czb-ui-docs.verce
 
 ## Develop
 
-Run storybook with live refresh: `yarn dev` from project root
+On the first time cloning this repo, run `yarn build` first.
+
+Run storybook with live refresh: `yarn dev` from project root.
+
+If there are any build errors, try running `yarn build` again as it may fix some issues.
 
 ## Before making a PR
 
@@ -47,7 +51,9 @@ Please **do not** follow these steps in the `main` branch.
 4. Run the regular steps under ["Publishing a version to npm"](#publishing-a-version-to-npm).
 
 If you get warnings like this running `yarn changeset version`:
+
 ```
 Package "docs" must depend on the current version of "@czb-ui/biohub-logos": "1.0.0-alpha.0" vs "*"
 ```
+
 These can be ignored. Since the apps are built using whatever is in the monorepo, and are also not published to npm, they don't need to stick to a specific version.
