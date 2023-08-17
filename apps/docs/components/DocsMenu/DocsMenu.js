@@ -34,6 +34,10 @@ const docsMenu = [
         title: "Customizing Theme",
         slug: "customizing-theme",
       },
+      {
+        title: "TinaCMS: Custom Blocks",
+        slug: "tinacms-custom-blocks",
+      },
     ],
   },
   // {
