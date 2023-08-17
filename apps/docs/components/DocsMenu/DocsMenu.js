@@ -36,19 +36,19 @@ const docsMenu = [
       },
     ],
   },
-  {
-    title: "Components",
-    items: [
-      {
-        title: "NavBarAndFooterPlacer",
-        slug: "navbarandfooterplacer",
-      },
-      {
-        title: "InfoBox",
-        slug: "infobox",
-      },
-    ],
-  },
+  // {
+  //   title: "Components",
+  //   items: [
+  //     {
+  //       title: "NavBarAndFooterPlacer",
+  //       slug: "navbarandfooterplacer",
+  //     },
+  //     {
+  //       title: "InfoBox",
+  //       slug: "infobox",
+  //     },
+  //   ],
+  // },
 ];
 
 export const CategoryTitle = styled(Typography)`
