@@ -7,11 +7,12 @@ const LoadingComponent = () => {
     <Box
       sx={{
         position: "absolute",
+        top: 0,
         display: "flex",
         justifyContent: "center",
         width: "100%",
         zIndex: 2,
-        margin: 6,
+        padding: 6,
       }}
     >
       <LoadingIndicator sdsStyle="tag" />
