@@ -38,7 +38,7 @@ const ImageComponent = ({ src, alt, small }: ImageComponentProps) => {
 
   return (
     <Image
-      objectFit="cover"
+      style={{ objectFit: "cover" }}
       // Subtract 1 or 2 because of the
       // border around the image
       width={small ? 200 : 250}

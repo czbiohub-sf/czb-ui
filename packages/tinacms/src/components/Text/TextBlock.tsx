@@ -108,8 +108,8 @@ const imgComponent = (props: ImageProps) => {
         <Image
           src={props.url}
           alt={props.alt}
-          layout="fill"
-          objectFit="contain"
+          fill
+          style={{ objectFit: "contain" }}
           sizes="(min-width: 75em) 33vw, (min-width: 48em) 50vw, 100vw"
         />
       )}
