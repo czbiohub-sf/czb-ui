@@ -29,7 +29,7 @@
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
     "styled-components": "^5.1.3",
-    "tinacms": "^1.5.2"
+    "tinacms": "^1.5.28"
   },
   "resolutions": {
     "@headlessui/react": "1.7.7"
