@@ -38,8 +38,8 @@ export const ImageGalleryBlock = ({ block }: ImageGalleryProps) => {
                   <Image
                     src={imageObj.image}
                     alt={imageObj.imageAlt}
-                    layout="fill"
-                    objectFit="contain"
+                    fill
+                    style={{ objectFit: "contain" }}
                     sizes="(max-width: 768px) 100vw, 50w"
                   />
                 </Box>

@@ -50,12 +50,11 @@ export const InfoBoxBlock = ({
             <Box position="relative" height="100%">
               <Image
                 alt={block.imageAlt ?? ""}
-                layout="fill"
-                objectFit="cover"
+                fill
+                style={{ objectFit: "cover" }}
                 src={block.image}
                 // TODO: Use theme breakpoints
                 sizes="(max-width: 768px) 100vw, 50w"
-                fill
               />
             </Box>
           ) : undefined
