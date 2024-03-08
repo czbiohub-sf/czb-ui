@@ -13,6 +13,7 @@ interface InfoBoxBlockProps {
   image?: any;
   imageAlt?: string;
   right?: boolean;
+  newTab?: boolean;
 }
 
 interface InfoBoxProps {
@@ -33,7 +34,7 @@ export const InfoBoxBlock = ({
 }: InfoBoxProps) => {
   let page;
 
-  page = { title: block.linkText, to: block.linkTo };
+  page = { title: block.linkText, to: block.linkTo, newTab: block.newTab };
 
   return (
     <Container
