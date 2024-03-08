@@ -30,6 +30,11 @@ export const InfoBox: TinaTemplate = {
       name: "outsideLink",
     },
     {
+      type: "boolean",
+      label: "Open link in new tab",
+      name: "newTab",
+    },
+    {
       type: "image",
       label: "Image",
       name: "image",
