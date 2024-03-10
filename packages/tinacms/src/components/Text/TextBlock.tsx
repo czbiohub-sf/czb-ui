@@ -18,9 +18,9 @@ interface TextBlockProps {
   block: any;
 }
 
-// TODO: Seperate these components into their own files
+// TODO: Separate these components into their own files
 
-// TODO: Headings only supoort text with this implementation. They might include links and other stuff,
+// TODO: Headings only support text with this implementation. They might include links and other stuff,
 // thats when you need to go through the content array
 const h1Component = ({ children }: HeadingProps) => {
   const text = children.props.content[0].text;
