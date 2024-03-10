@@ -1,8 +1,8 @@
-import type { TinaTemplate } from "tinacms";
+import type { Template } from "tinacms";
 import { InfoBox } from "../InfoBox/InfoBox";
 import { LegacyInfoBox } from "../LegacyInfoBox/LegacyInfoBox";
 
-export const Grid: TinaTemplate = {
+export const Grid: Template = {
   name: "Grid",
   label: "Grid",
   fields: [

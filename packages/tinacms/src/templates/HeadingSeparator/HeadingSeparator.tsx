@@ -1,6 +1,6 @@
-import type { TinaTemplate } from "tinacms";
+import type { Template } from "tinacms";
 
-export const HeadingSeparator: TinaTemplate = {
+export const HeadingSeparator: Template = {
   name: "HeadingSeparator",
   label: "Heading Separator",
   fields: [

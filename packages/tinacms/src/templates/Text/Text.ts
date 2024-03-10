@@ -1,7 +1,7 @@
-import type { TinaTemplate } from "tinacms";
+import type { Template } from "tinacms";
 import { InfoBox } from "../InfoBox/InfoBox";
 
-export const Text: TinaTemplate = {
+export const Text: Template = {
   name: "text",
   label: "Text",
   fields: [

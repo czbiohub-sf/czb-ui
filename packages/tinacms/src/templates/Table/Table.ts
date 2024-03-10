@@ -1,6 +1,6 @@
-import type { TinaTemplate } from "tinacms";
+import type { Template } from "tinacms";
 
-export const Table: TinaTemplate = {
+export const Table: Template = {
   name: "Table",
   label: "Table",
   fields: [
