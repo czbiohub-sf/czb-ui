@@ -8,7 +8,6 @@ To install czb-ui (starting from a project without Material UI or SDS),
 run the command:
 
 ```shell
-
 npm install @czb-ui/core czifui @emotion/css @emotion/react
 @emotion/styled @mui/base @mui/material @mui/icons-material @mui/lab
 
@@ -17,7 +16,6 @@ npm install @czb-ui/core czifui @emotion/css @emotion/react
 Additionally, install the needed fonts using [Fontsource](https://github.com/fontsource/fontsource):
 
 ```shell
-
 npm install @fontsource/hanken-grotesk @fontsource/stix-two-text @fontsource/barlow @fontsource/lato
 
 ```
