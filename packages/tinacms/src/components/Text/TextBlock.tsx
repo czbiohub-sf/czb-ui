@@ -3,6 +3,8 @@ import { Box, Container, Typography } from "@mui/material";
 import Image from "next/image";
 import { InfoBoxBlock } from "../InfoBox/InfoBoxBlock";
 import { Link } from "czifui";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 // TODO: Possible to get actual types from tinacms library?
 interface HeadingProps {
@@ -147,6 +149,14 @@ const InfoBox = (props: any) => {
   return <InfoBoxBlock block={props} disableContainerGutters />;
 };
 
+const Code = (props: any) => {
+  return (
+    <SyntaxHighlighter language={props.lang} style={atomDark}>
+      {props.value}
+    </SyntaxHighlighter>
+  );
+};
+
 const components = {
   h1: h1Component,
   h2: h2Component,
@@ -157,6 +167,7 @@ const components = {
   a: aComponent,
   img: imgComponent,
   infoBox: InfoBox,
+  code_block: Code,
 };
 
 export const TextBlock = ({ block }: TextBlockProps) => {
