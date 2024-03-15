@@ -1,5 +1,19 @@
 # @czb-ui/tinacms
 
+## 1.1.0
+
+### Minor Changes
+
+- bb13b38: InfoBox new tab support
+
+### Patch Changes
+
+- 96bd2ba: next/image use new props
+- 60de8b3: Update tinacms. Update react if needed
+- ec73b0b: Use new Template type
+- Updated dependencies [60de8b3]
+  - @czb-ui/core@1.0.1
+
 ## 1.0.0
 
 ### Major Changes

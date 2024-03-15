@@ -1,5 +1,11 @@
 # @czb-ui/biohub-logos
 
+## 1.0.1
+
+### Patch Changes
+
+- 60de8b3: Update tinacms. Update react if needed
+
 ## 1.0.0
 
 ### Major Changes

@@ -1,5 +1,13 @@
 # @czb-ui/forms
 
+## 1.0.1
+
+### Patch Changes
+
+- 60de8b3: Update tinacms. Update react if needed
+- Updated dependencies [60de8b3]
+  - @czb-ui/core@1.0.1
+
 ## 1.0.0
 
 ### Minor Changes

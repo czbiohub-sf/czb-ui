@@ -1,5 +1,18 @@
 # docs
 
+## 0.1.1
+
+### Patch Changes
+
+- 60de8b3: Update tinacms. Update react if needed
+- Updated dependencies [96bd2ba]
+- Updated dependencies [60de8b3]
+- Updated dependencies [bb13b38]
+- Updated dependencies [ec73b0b]
+  - @czb-ui/tinacms@1.1.0
+  - @czb-ui/biohub-logos@1.0.1
+  - @czb-ui/core@1.0.1
+
 ## 0.1.0
 
 ### Minor Changes

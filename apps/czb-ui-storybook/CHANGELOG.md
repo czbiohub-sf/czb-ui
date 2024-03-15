@@ -1,5 +1,15 @@
 # czb-ui-storybook
 
+## 1.0.1
+
+### Patch Changes
+
+- ec73b0b: Update Storybook
+- Updated dependencies [60de8b3]
+  - @czb-ui/biohub-logos@1.0.1
+  - @czb-ui/forms@1.0.1
+  - @czb-ui/core@1.0.1
+
 ## 1.0.0
 
 ### Major Changes

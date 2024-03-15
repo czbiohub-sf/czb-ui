@@ -1,5 +1,11 @@
 # @czb-ui/viz
 
+## 0.2.1
+
+### Patch Changes
+
+- 60de8b3: Update tinacms. Update react if needed
+
 ## 0.2.0
 
 ### Minor Changes
