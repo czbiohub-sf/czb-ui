@@ -1,13 +1,5 @@
 # @czb-ui/tinacms
 
-## 2.0.0
-
-### Patch Changes
-
-- Updated dependencies [b25cabb]
-- Updated dependencies [45486ec]
-  - @czb-ui/core@1.1.0
-
 ## 1.1.0
 
 ### Minor Changes

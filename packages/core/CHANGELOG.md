@@ -1,15 +1,5 @@
 # @czb-ui/core
 
-## 1.1.0
-
-### Minor Changes
-
-- 45486ec: Add FullScreenIFrame
-
-### Patch Changes
-
-- b25cabb: Use camel case for fullScreenButtonLocation
-
 ## 1.0.1
 
 ### Patch Changes

@@ -1,19 +1,5 @@
 # czb-ui-storybook
 
-## 1.1.0
-
-### Minor Changes
-
-- 45486ec: Add FullScreenIFrame
-
-### Patch Changes
-
-- b25cabb: Use camel case for fullScreenButtonLocation
-- Updated dependencies [b25cabb]
-- Updated dependencies [45486ec]
-  - @czb-ui/core@1.1.0
-  - @czb-ui/forms@2.0.0
-
 ## 1.0.1
 
 ### Patch Changes
