@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 1.1.0
+
+### Minor Changes
+
+- 37429fc: Add FullScreenIFrame
+
 ## 1.0.1
 
 ### Patch Changes

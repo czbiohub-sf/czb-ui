@@ -1,5 +1,16 @@
 # czb-ui-storybook
 
+## 1.1.0
+
+### Minor Changes
+
+- 37429fc: Add FullScreenIFrame
+
+### Patch Changes
+
+- Updated dependencies [37429fc]
+  - @czb-ui/core@1.1.0
+
 ## 1.0.1
 
 ### Patch Changes
