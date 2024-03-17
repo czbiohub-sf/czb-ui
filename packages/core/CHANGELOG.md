@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 1.1.1
+
+### Patch Changes
+
+- 5bafbf7: Support React 17
+
 ## 1.1.0
 
 ### Minor Changes

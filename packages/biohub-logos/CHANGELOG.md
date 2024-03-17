@@ -1,5 +1,11 @@
 # @czb-ui/biohub-logos
 
+## 1.0.2
+
+### Patch Changes
+
+- 5bafbf7: Support React 17
+
 ## 1.0.1
 
 ### Patch Changes

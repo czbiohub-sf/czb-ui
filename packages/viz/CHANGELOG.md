@@ -1,5 +1,11 @@
 # @czb-ui/viz
 
+## 0.2.2
+
+### Patch Changes
+
+- 5bafbf7: Support React 17
+
 ## 0.2.1
 
 ### Patch Changes
