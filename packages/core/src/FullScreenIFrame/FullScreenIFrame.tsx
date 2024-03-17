@@ -17,9 +17,14 @@ export interface FullScreenIFrameProps
     | "topright"
     | "bottomleft"
     | "bottomright";
+  fullScreenButtonMargin?: string | number;
 }
 
-export const FullScreenIFrame = (props: FullScreenIFrameProps) => {
+export const FullScreenIFrame = ({
+  fullScreenButtonLocation = "topright",
+  fullScreenButtonMargin = "10px",
+  ...props
+}: FullScreenIFrameProps) => {
   const boxRef = useRef<HTMLDivElement>(null);
   const [isFullScreen, setIsFullScreen] = useState(false);
 
@@ -66,12 +71,25 @@ export const FullScreenIFrame = (props: FullScreenIFrameProps) => {
     };
   }, []);
 
+  const buttonPosition = {
+    topleft: { top: fullScreenButtonMargin, left: fullScreenButtonMargin },
+    topright: { top: fullScreenButtonMargin, right: fullScreenButtonMargin },
+    bottomleft: {
+      bottom: fullScreenButtonMargin,
+      left: fullScreenButtonMargin,
+    },
+    bottomright: {
+      bottom: fullScreenButtonMargin,
+      right: fullScreenButtonMargin,
+    },
+  }[fullScreenButtonLocation];
+
   return (
     <Box ref={boxRef} width="100%" height="100%">
-      <Box sx={{ position: "absolute", top: 20, right: 20 }}>
+      <Box sx={{ position: "absolute", ...buttonPosition }}>
         <Button
           sdsStyle="square"
-          sdsType={isFullScreen ? "secondary" : "primary"}
+          sdsType="primary"
           startIcon={isFullScreen ? <CloseFullscreen /> : <OpenInFull />}
           onClick={handleFullScreen}
         >

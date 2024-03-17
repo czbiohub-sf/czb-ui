@@ -9,6 +9,12 @@ export default {
   parameters: {
     layout: "fullscreen",
   },
+  argTypes: {
+    fullScreenButtonLocation: {
+      options: ["topleft", "topright", "bottomleft", "bottomright"],
+      control: { type: "radio" },
+    },
+  },
 };
 
 const Template = (args: FullScreenIFrameProps) => (
@@ -20,4 +26,6 @@ const Template = (args: FullScreenIFrameProps) => (
 export const FullScreenIframe = Template.bind({});
 FullScreenIframe.args = {
   src: "https://onclass-dash-development.ds.czbiohub.org/onclass",
+  fullScreenButtonLocation: "topright",
+  fullScreenButtonMargin: "20px",
 };
