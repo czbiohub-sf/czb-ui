@@ -11,7 +11,7 @@ export default {
   },
   argTypes: {
     fullScreenButtonLocation: {
-      options: ["topleft", "topright", "bottomleft", "bottomright"],
+      options: ["topLeft", "topRight", "bottomLeft", "bottomRight"],
       control: { type: "radio" },
     },
   },
@@ -26,6 +26,6 @@ const Template = (args: FullScreenIFrameProps) => (
 export const FullScreenIframe = Template.bind({});
 FullScreenIframe.args = {
   src: "https://onclass-dash-development.ds.czbiohub.org/onclass",
-  fullScreenButtonLocation: "topright",
+  fullScreenButtonLocation: "topRight",
   fullScreenButtonMargin: "20px",
 };
