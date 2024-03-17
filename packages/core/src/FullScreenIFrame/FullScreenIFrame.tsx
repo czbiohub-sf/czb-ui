@@ -13,15 +13,15 @@ export interface FullScreenIFrameProps
   > {
   fullScreenButton?: boolean;
   fullScreenButtonLocation?:
-    | "topleft"
-    | "topright"
-    | "bottomleft"
-    | "bottomright";
+    | "topLeft"
+    | "topRight"
+    | "bottomLeft"
+    | "bottomRight";
   fullScreenButtonMargin?: string | number;
 }
 
 export const FullScreenIFrame = ({
-  fullScreenButtonLocation = "topright",
+  fullScreenButtonLocation = "topRight",
   fullScreenButtonMargin = "10px",
   ...props
 }: FullScreenIFrameProps) => {
@@ -72,13 +72,13 @@ export const FullScreenIFrame = ({
   }, []);
 
   const buttonPosition = {
-    topleft: { top: fullScreenButtonMargin, left: fullScreenButtonMargin },
-    topright: { top: fullScreenButtonMargin, right: fullScreenButtonMargin },
-    bottomleft: {
+    topLeft: { top: fullScreenButtonMargin, left: fullScreenButtonMargin },
+    topRight: { top: fullScreenButtonMargin, right: fullScreenButtonMargin },
+    bottomLeft: {
       bottom: fullScreenButtonMargin,
       left: fullScreenButtonMargin,
     },
-    bottomright: {
+    bottomRight: {
       bottom: fullScreenButtonMargin,
       right: fullScreenButtonMargin,
     },
