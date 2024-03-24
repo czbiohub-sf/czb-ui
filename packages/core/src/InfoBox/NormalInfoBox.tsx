@@ -106,7 +106,7 @@ export default function NormalInfoBox({
             border: "1px solid",
             borderColor: "grey.200",
             maxWidth: "100%",
-            maxHeight: "50%",
+            maxHeight: "138px",
           }}
         >
           {image}
