@@ -103,7 +103,15 @@ const imgComponent = (props: ImageProps) => {
   // TODO: Get palette grey for background
   // that shows when there is no image
   return (
-    <Box sx={{ position: "relative", height: "300px", my: "20px" }}>
+    <Box
+      sx={{
+        position: "relative",
+        height: "300px",
+        my: "20px",
+        display: "block",
+      }}
+      component="span"
+    >
       {props.url && (
         <Image
           src={props.url}
@@ -123,6 +131,7 @@ const imgComponent = (props: ImageProps) => {
             justifyContent: "center",
             alignItems: "center",
           }}
+          component="span"
         >
           <Typography variant="h1" component="div">
             Please put an image
