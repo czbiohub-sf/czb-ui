@@ -121,13 +121,14 @@ export const LegacyInfoBox = ({
           ? { xs: "column", md: "row" }
           : { xs: "column", sm: small ? "column" : "row" }
       }
-      height="100%"
+      // Don't put height at all if small
+      {...(small ? { height: { xs: "200px", md: "100%" } } : {})}
     >
       <Box
         border="1px solid"
         borderColor="divider"
         width={currentDim}
-        height={square ? currentDim : small ? "inherit" : 160}
+        height={square ? currentDim : small ? "100%" : 136}
       >
         {image}
       </Box>
