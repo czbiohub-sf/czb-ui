@@ -62,7 +62,7 @@ export const LegacyInfoBoxBlock = ({
     <Container
       sx={{
         my: disableYMargins ? undefined : 5,
-        mb: smallVariants ? undefined : "30px",
+        mb: disableYMargins ? undefined : "30px",
         height: "100%",
       }}
       disableGutters={disableContainerGutters}

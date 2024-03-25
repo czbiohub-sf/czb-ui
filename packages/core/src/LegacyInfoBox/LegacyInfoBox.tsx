@@ -121,8 +121,7 @@ export const LegacyInfoBox = ({
           ? { xs: "column", md: "row" }
           : { xs: "column", sm: small ? "column" : "row" }
       }
-      // Don't put height at all if small
-      {...(small ? { height: { xs: "200px", md: "100%" } } : {})}
+      height={small ? { xs: "200px", md: "100%" } : undefined}
     >
       <Box
         border="1px solid"
