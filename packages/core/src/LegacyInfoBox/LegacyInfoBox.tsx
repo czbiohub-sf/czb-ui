@@ -123,7 +123,7 @@ export const LegacyInfoBox = ({
         border="1px solid"
         borderColor="divider"
         width={currentDim}
-        height={square ? currentDim : small ? "100%" : 136}
+        height={square ? currentDim : small ? 100 : 136}
       >
         {image}
       </Box>
