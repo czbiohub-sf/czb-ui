@@ -114,13 +114,9 @@ export const LegacyInfoBox = ({
   return (
     <Box
       display="flex"
-      gap={small ? { xs: "5px", md: "20px" } : { xs: "10px", sm: "30px" }}
-      alignItems={small ? "stretch" : { xs: "flex-start", sm: "center" }}
-      flexDirection={
-        small
-          ? { xs: "column", md: "row" }
-          : { xs: "column", sm: small ? "column" : "row" }
-      }
+      gap={small ? { xs: "10px", md: "20px" } : { xs: "10px", md: "30px" }}
+      alignItems={small ? "stretch" : { xs: "flex-start", md: "center" }}
+      flexDirection={{ xs: "column", md: "row" }}
       height={small ? { xs: "200px", md: "100%" } : undefined}
     >
       <Box
