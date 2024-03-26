@@ -150,7 +150,6 @@ const InfoBox = (props: any) => {
 };
 
 const codeInlineComponent = (props: any) => {
-  console.log(props);
   return (
     <Typography
       variant="body1"
@@ -160,6 +159,8 @@ const codeInlineComponent = (props: any) => {
         padding: "5px",
         borderRadius: "5px",
       }}
+      fontFamily="JetBrains Mono"
+      fontSize={14}
     >
       {props.children}
     </Typography>
@@ -168,7 +169,11 @@ const codeInlineComponent = (props: any) => {
 
 const codeBlockComponent = (props: any) => {
   return (
-    <SyntaxHighlighter language={props.lang} style={atomDark}>
+    <SyntaxHighlighter
+      language={props.lang}
+      style={atomDark}
+      codeTagProps={{ style: { fontFamily: "JetBrains Mono" } }}
+    >
       {props.value}
     </SyntaxHighlighter>
   );

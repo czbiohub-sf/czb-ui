@@ -3004,6 +3004,11 @@
   resolved "https://registry.yarnpkg.com/@fontsource/hanken-grotesk/-/hanken-grotesk-4.5.2.tgz#6e3a6d7abaf9267205d0a5338daf2242fd8e7643"
   integrity sha512-1pe6B4LByvRd5jG+C95zEVo0MdOT8tsz/Vn8NsCtCXaw615AV2Y3J+EmNc/l80CESOc+m0apPhM4/gVyCBGMLg==
 
+"@fontsource/jetbrains-mono@^5.0.19":
+  version "5.0.19"
+  resolved "https://registry.yarnpkg.com/@fontsource/jetbrains-mono/-/jetbrains-mono-5.0.19.tgz#780266f252016e7c16a1c3c5566de573f4b3ad07"
+  integrity sha512-SdwUuvdfuAvGWRRc4LOFRSmDrpkE+vFUpCtOIOUl1PpXdLfeU//93BZiGf7j/oFGSZJbHAurfux2uLT38/NIjw==
+
 "@fontsource/lato@^4.5.10":
   version "4.5.10"
   resolved "https://registry.yarnpkg.com/@fontsource/lato/-/lato-4.5.10.tgz#1ab3d33282e605886e4a8b4c32b1f230a4cb5ea6"
