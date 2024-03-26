@@ -37,15 +37,7 @@ const ImageComponent = ({ src, alt, small }: ImageComponentProps) => {
   }
 
   return (
-    <Image
-      style={{ objectFit: "cover" }}
-      // Subtract 1 or 2 because of the
-      // border around the image
-      width={small ? 200 : 250}
-      height={small ? 105 : 159}
-      src={src}
-      alt={alt ?? ""}
-    />
+    <Image style={{ objectFit: "cover" }} fill src={src} alt={alt ?? ""} />
   );
 };
 
@@ -70,8 +62,8 @@ export const LegacyInfoBoxBlock = ({
     <Container
       sx={{
         my: disableYMargins ? undefined : 5,
-        mb: smallVariants ? undefined : "30px",
-        height: "100%",
+        mb: disableYMargins ? undefined : "30px",
+        height: smallVariants ? "100%" : undefined,
       }}
       disableGutters={disableContainerGutters}
     >
@@ -86,7 +78,12 @@ export const LegacyInfoBoxBlock = ({
             onMouseLeave={() => setHoveringOverImg(false)}
             // We need these styles here because the span doesn't
             // automatically fill the box
-            style={{ width: "100%", height: "100%", display: "flex" }}
+            style={{
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              position: "relative",
+            }}
           >
             {!block.hoverImage && (
               <ImageComponent

@@ -114,20 +114,16 @@ export const LegacyInfoBox = ({
   return (
     <Box
       display="flex"
-      gap={small ? { xs: "5px", md: "20px" } : { xs: "10px", sm: "30px" }}
-      alignItems={small ? "stretch" : { xs: "flex-start", sm: "center" }}
-      flexDirection={
-        small
-          ? { xs: "column", md: "row" }
-          : { xs: "column", sm: small ? "column" : "row" }
-      }
-      height="100%"
+      gap={small ? { xs: "10px", md: "20px" } : { xs: "10px", md: "30px" }}
+      alignItems={small ? "stretch" : { xs: "flex-start", md: "center" }}
+      flexDirection={{ xs: "column", md: "row" }}
+      height={small ? { xs: "200px", md: "100%" } : undefined}
     >
       <Box
         border="1px solid"
         borderColor="divider"
         width={currentDim}
-        height={square ? currentDim : small ? "inherit" : 160}
+        height={square ? currentDim : small ? "100%" : 136}
       >
         {image}
       </Box>

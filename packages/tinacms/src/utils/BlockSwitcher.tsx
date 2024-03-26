@@ -118,7 +118,7 @@ export const GridBlock = ({ block }: GridProps) => {
                   blocks={[nestedBlock]}
                   disableContainerGutters
                   disableYMargins
-                  smallVariants
+                  smallVariants={blocks?.length > 2 ? true : false}
                 />
               </Grid>
             );
