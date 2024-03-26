@@ -149,7 +149,24 @@ const InfoBox = (props: any) => {
   return <InfoBoxBlock block={props} disableContainerGutters />;
 };
 
-const Code = (props: any) => {
+const codeInlineComponent = (props: any) => {
+  console.log(props);
+  return (
+    <Typography
+      variant="body1"
+      component="code"
+      sx={{
+        backgroundColor: "#f4f4f4",
+        padding: "5px",
+        borderRadius: "5px",
+      }}
+    >
+      {props.children}
+    </Typography>
+  );
+};
+
+const codeBlockComponent = (props: any) => {
   return (
     <SyntaxHighlighter language={props.lang} style={atomDark}>
       {props.value}
@@ -167,7 +184,8 @@ const components = {
   a: aComponent,
   img: imgComponent,
   infoBox: InfoBox,
-  code_block: Code,
+  code: codeInlineComponent,
+  code_block: codeBlockComponent,
 };
 
 export const TextBlock = ({ block }: TextBlockProps) => {
