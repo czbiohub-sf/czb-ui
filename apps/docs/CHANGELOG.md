@@ -1,5 +1,21 @@
 # docs
 
+## 0.2.0
+
+### Minor Changes
+
+- f6caa34: Code block syntax highlighting, inline code styles
+
+### Patch Changes
+
+- Updated dependencies [e314a31]
+- Updated dependencies [f6caa34]
+- Updated dependencies [c2376f9]
+- Updated dependencies [e314a31]
+  - @czb-ui/tinacms@1.2.0
+  - @czb-ui/core@1.2.0
+  - @czb-ui/biohub-logos@1.1.0
+
 ## 0.1.1
 
 ### Patch Changes

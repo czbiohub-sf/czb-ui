@@ -1,5 +1,15 @@
 # @czb-ui/core
 
+## 1.2.0
+
+### Minor Changes
+
+- f6caa34: Code block syntax highlighting, inline code styles
+
+### Patch Changes
+
+- e314a31: Info boxes better height styling
+
 ## 1.1.1
 
 ### Patch Changes

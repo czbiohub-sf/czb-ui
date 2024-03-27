@@ -1,5 +1,17 @@
 # @czb-ui/tinacms
 
+## 1.2.0
+
+### Minor Changes
+
+- f6caa34: Code block syntax highlighting, inline code styles
+- e314a31: Only use small variants in grids if there are three or more items in the grid
+
+### Patch Changes
+
+- e314a31: Info boxes better height styling
+- c2376f9: Fix hydration error with rich-text images
+
 ## 1.1.1
 
 ### Patch Changes

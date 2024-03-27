@@ -1,5 +1,11 @@
 # @czb-ui/biohub-logos
 
+## 1.1.0
+
+### Minor Changes
+
+- f6caa34: Code block syntax highlighting, inline code styles
+
 ## 1.0.2
 
 ### Patch Changes

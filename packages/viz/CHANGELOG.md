@@ -1,5 +1,11 @@
 # @czb-ui/viz
 
+## 0.3.0
+
+### Minor Changes
+
+- f6caa34: Code block syntax highlighting, inline code styles
+
 ## 0.2.2
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # czb-ui-storybook
 
+## 1.2.0
+
+### Minor Changes
+
+- f6caa34: Code block syntax highlighting, inline code styles
+
+### Patch Changes
+
+- Updated dependencies [e314a31]
+- Updated dependencies [f6caa34]
+  - @czb-ui/core@1.2.0
+  - @czb-ui/biohub-logos@1.1.0
+  - @czb-ui/forms@1.1.0
+
 ## 1.1.0
 
 ### Minor Changes
