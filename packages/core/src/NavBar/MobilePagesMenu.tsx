@@ -30,7 +30,6 @@ export const MobilePagesMenu = ({
       <Box>
         <Hamburger toggled={open} toggle={setOpen} />
         <Drawer
-          variant="persistent"
           anchor="top"
           open={open}
           onClose={() => setOpen(false)}

@@ -3,11 +3,12 @@ import Toolbar, { ToolbarProps } from "@mui/material/Toolbar";
 import { styled } from "@mui/material/styles";
 
 const AppBarComponent = styled(MaterialAppBar)<AppBarProps>(({ theme }) => ({
-  backgroundColor: "inherit",
+  backgroundColor: theme.palette.background.default,
   color: theme.palette.text.primary,
   boxShadow: "none",
   borderBottom: "1px solid",
   borderColor: theme.palette.divider,
+  zIndex: 9999,
 })) as typeof MaterialAppBar;
 
 interface ToolbarComponentProps extends ToolbarProps {
