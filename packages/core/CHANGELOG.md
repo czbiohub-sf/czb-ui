@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 1.3.0
+
+### Minor Changes
+
+- d082517: Improve mobile nav bar list
+
 ## 1.2.0
 
 ### Minor Changes
