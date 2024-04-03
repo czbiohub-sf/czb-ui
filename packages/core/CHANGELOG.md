@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 1.3.1
+
+### Patch Changes
+
+- ec4945c: Fix key for improved mobile nav bar
+
 ## 1.3.0
 
 ### Minor Changes
