@@ -41,9 +41,9 @@ export const MobilePagesMenu = ({
         >
           <List disablePadding>
             {pages.map((page, i) => (
-              <>
+              <Box key={i}>
                 <Divider component="li" />
-                <ListItem disableGutters disablePadding key={i}>
+                <ListItem disableGutters disablePadding>
                   {!page.externalLink && (
                     <Link
                       color="inherit"
@@ -71,7 +71,7 @@ export const MobilePagesMenu = ({
                     </Link>
                   )}
                 </ListItem>
-              </>
+              </Box>
             ))}
           </List>
         </Drawer>
