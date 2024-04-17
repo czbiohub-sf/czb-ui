@@ -118,7 +118,11 @@ export class ThreeDimScatterPlot {
     );
 
     // Colors attribute
-    // TODO
+    const colors = await this.getDataFromZarr("colors");
+    geometry.setAttribute(
+      "color",
+      new THREE.BufferAttribute(colors.data as Float32Array, 3)
+    );
 
     this.needsUpdate = true;
 
