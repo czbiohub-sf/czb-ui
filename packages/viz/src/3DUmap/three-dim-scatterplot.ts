@@ -2,6 +2,7 @@ import * as THREE from "three";
 // https://stackoverflow.com/a/56338877/10013136
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { ZarrArray, openArray, HTTPStore, NestedArray, TypedArray } from "zarr";
+import { GUI } from "three/addons/libs/lil-gui.module.min.js";
 
 const vertexShader = `
 uniform float size;
@@ -70,6 +71,16 @@ export class ThreeDimScatterPlot {
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(element.clientWidth, element.clientHeight);
     element.appendChild(this.renderer.domElement);
+
+    const gui = new GUI();
+
+    // Add sample slider with gui, just for show
+    const sizeController = gui.add(
+      this.shaderMaterial.uniforms.size,
+      "value",
+      0,
+      1
+    );
 
     // TODO: WebGL compatibility check
     // https://threejs.org/docs/index.html#manual/en/introduction/WebGL-compatibility-check
