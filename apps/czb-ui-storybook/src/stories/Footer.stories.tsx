@@ -1,48 +1,61 @@
-import React from "react";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Footer as CZBUIFooter } from "@czb-ui/core";
+import { SFColorReverse } from "@czb-ui/biohub-logos";
 
-import { Footer as CZBUIFooter } from "@czb-ui/core/src";
-import { SFColorReverse } from "@czb-ui/biohub-logos/src";
-
-export default {
-  title: "Footer",
+const meta: Meta<typeof CZBUIFooter> = {
+  title: "core/Footer",
   component: CZBUIFooter,
+  parameters: {
+    layout: "fullscreen",
+  },
 };
 
-const samplePages = [
-  {
-    title: "About",
-    to: "/about",
-  },
-  {
-    title: "Data",
-    to: "/data",
-  },
-  {
-    title: "Images",
-    to: "/images",
-  },
-];
+export default meta;
 
-const pageGroups = [
-  {
-    title: "Applications",
-    pages: samplePages,
-  },
-  {
-    title: "Company",
-    pages: samplePages,
-  },
-  {
-    title: "Resources",
-    pages: samplePages,
-  },
-];
+type Page = {
+  title: string;
+  to: string;
+};
 
-const FooterTemplate = (args: any) => (
-  <CZBUIFooter {...args} logo={<SFColorReverse />} />
-);
+type PageGroup = {
+  title: string;
+  pages: Page[];
+};
 
-export const Footer = FooterTemplate.bind({});
-Footer.args = {
-  pages: pageGroups,
+type FooterProps = {
+  pages: PageGroup[];
+  logo: JSX.Element;
+};
+
+export const Footer: StoryObj<FooterProps> = {
+  args: {
+    pages: [
+      {
+        title: "Applications",
+        pages: [
+          { title: "About", to: "/about" },
+          { title: "Data", to: "/data" },
+          { title: "Images", to: "/images" },
+        ],
+      },
+      {
+        title: "Company",
+        pages: [
+          { title: "About", to: "/about" },
+          { title: "Data", to: "/data" },
+          { title: "Images", to: "/images" },
+        ],
+      },
+      {
+        title: "Resources",
+        pages: [
+          { title: "About", to: "/about" },
+          { title: "Data", to: "/data" },
+          { title: "Images", to: "/images" },
+        ],
+      },
+    ],
+    logo: <SFColorReverse />,
+  },
+  render: (args) => <CZBUIFooter {...args} />,
 };

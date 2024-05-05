@@ -1,17 +1,23 @@
-import React from "react";
-
+import type { Meta, StoryObj } from "@storybook/react";
 import { NavBar as CZBUINavBar } from "@czb-ui/core/src";
 import { SFColor } from "@czb-ui/biohub-logos/src";
 
-export default {
-  title: "NavBar",
+type Page = {
+  title: string;
+  to: string;
+};
+
+const meta: Meta<typeof CZBUINavBar> = {
+  title: "core/NavBar",
   component: CZBUINavBar,
   parameters: {
     layout: "fullscreen",
   },
 };
 
-const pages = [
+export default meta;
+
+const pages: Page[] = [
   {
     title: "About",
     to: "/about",
@@ -26,7 +32,7 @@ const pages = [
   },
 ];
 
-const morePages = [
+const morePages: Page[] = [
   {
     title: "About",
     to: "/about",
@@ -49,18 +55,20 @@ const morePages = [
   },
 ];
 
-const NavBarTemplate = (args: any) => (
-  <CZBUINavBar logo={<SFColor />} title={args.title} pages={args.pages} />
-);
-
-export const NavBar = NavBarTemplate.bind({});
-NavBar.args = {
-  title: "CZB UI",
-  pages: pages,
+export const NavBar: StoryObj<typeof CZBUINavBar> = {
+  args: {
+    title: "CZB UI",
+    pages: pages,
+    logo: <SFColor />,
+  },
+  render: (args) => <CZBUINavBar {...args} />,
 };
 
-export const MorePages = NavBarTemplate.bind({});
-MorePages.args = {
-  title: "CZB UI",
-  pages: morePages,
+export const MorePages: StoryObj<typeof CZBUINavBar> = {
+  args: {
+    title: "CZB UI",
+    pages: morePages,
+    logo: <SFColor />,
+  },
+  render: (args) => <CZBUINavBar {...args} />,
 };

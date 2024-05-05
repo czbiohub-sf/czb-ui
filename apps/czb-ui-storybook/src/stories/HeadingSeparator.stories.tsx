@@ -1,16 +1,16 @@
-import React from "react";
-
+import type { Meta, StoryObj } from "@storybook/react";
 import { HeadingSeparator as CZBUIHeadingSeparator } from "@czb-ui/core/src";
 
-export default {
-  title: "HeadingSeparator",
+const meta: Meta<typeof CZBUIHeadingSeparator> = {
+  title: "core/HeadingSeparator",
   component: CZBUIHeadingSeparator,
-  argTypes: {},
 };
 
-const Template = (args: any) => <CZBUIHeadingSeparator {...args} />;
+export default meta;
 
-export const HeadingSeparator = Template.bind({});
-HeadingSeparator.args = {
-  title: "TABULA SAPIENS",
+export const HeadingSeparator: StoryObj<typeof CZBUIHeadingSeparator> = {
+  args: {
+    title: "Tabula Sapiens",
+  },
+  render: (args) => <CZBUIHeadingSeparator {...args} />,
 };

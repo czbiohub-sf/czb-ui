@@ -1,19 +1,20 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Banner } from "@czb-ui/core";
+import { Banner as CZBUIBanner } from "@czb-ui/core";
 
-const meta: Meta<typeof Banner> = {
+const meta: Meta<typeof CZBUIBanner> = {
   title: "core/Banner",
-  component: Banner,
+  component: CZBUIBanner,
   parameters: {
     layout: "fullscreen",
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof Banner>;
 
-export const Default: Story = {
+type Story = StoryObj<typeof CZBUIBanner>;
+
+export const Banner: Story = {
   args: {
     headline:
       "Developing Technology to Push the Boundaries of What We Can See and Measure",

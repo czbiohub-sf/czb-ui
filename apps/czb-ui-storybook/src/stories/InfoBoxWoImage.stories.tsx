@@ -1,9 +1,8 @@
-import React from "react";
-
+import type { Meta, StoryObj } from "@storybook/react";
 import { InfoBox as CZBUIInfoBox } from "@czb-ui/core/src";
 
-export default {
-  title: "Info Box",
+const meta: Meta<typeof CZBUIInfoBox> = {
+  title: "core/InfoBox",
   component: CZBUIInfoBox,
   argTypes: {
     type: {
@@ -19,23 +18,19 @@ export default {
   },
 };
 
-const Template = (args: any) => (
-  <CZBUIInfoBox
-    title={args.title}
-    subtitle={args.subtitle}
-    page={args.page}
-    small={args.small}
-  />
-);
+export default meta;
 
-export const WithoutImage = Template.bind({});
-WithoutImage.args = {
-  type: "normal",
-  title: "Tools",
-  subtitle: "tools",
-  page: {
-    title: "Go to tools",
-    to: "/tools",
+export const WithoutImage: StoryObj<typeof CZBUIInfoBox> = {
+  args: {
+    title: "Tools",
+    subtitle: "tools",
+    page: {
+      title: "Go to tools",
+      to: "/tools",
+    },
+    type: "normal",
+    imageOnRight: false,
+    small: false,
   },
-  imageOnRight: false,
+  render: (args) => <CZBUIInfoBox {...args} />,
 };

@@ -1,13 +1,8 @@
-import React from "react";
-
+import type { Meta, StoryObj } from "@storybook/react";
 import { Button as CZIFUIButton } from "czifui";
 
-export default {
-  /* 👇 The title prop is optional.
-   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
-   * to learn how to generate automatic titles
-   */
-  title: "Demos of CZI components",
+const meta: Meta<typeof CZIFUIButton> = {
+  title: "Demos of CZI components/Button",
   component: CZIFUIButton,
   argTypes: {
     sdsStyle: {
@@ -18,14 +13,21 @@ export default {
       options: ["primary", "secondary"],
       control: { type: "radio" },
     },
+    disabled: {
+      control: { type: "boolean" },
+    },
   },
 };
 
-const Template = (args: any) => <CZIFUIButton {...args}>Test</CZIFUIButton>;
+export default meta;
 
-export const Button = Template.bind({});
-Button.args = {
-  sdsStyle: "rounded",
-  sdsType: "primary",
-  disabled: false,
+type Story = StoryObj<typeof CZIFUIButton>;
+
+export const Button: Story = {
+  args: {
+    sdsStyle: "rounded",
+    sdsType: "primary",
+    disabled: false,
+  },
+  render: (args) => <CZIFUIButton {...args}>Test</CZIFUIButton>,
 };

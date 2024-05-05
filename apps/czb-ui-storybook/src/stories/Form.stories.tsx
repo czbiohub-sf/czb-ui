@@ -1,27 +1,31 @@
-import React from "react";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Form } from "@czb-ui/forms";
 
-import { Form as CZBUIForm } from "@czb-ui/forms/src";
-
-export default {
-  title: "Form",
-  component: CZBUIForm,
-  argTypes: {},
+const meta: Meta<typeof Form> = {
+  title: "Forms/Form",
+  component: Form,
 };
 
-const Template = (args: any) => <CZBUIForm {...args} />;
+export default meta;
 
-export const Forms = Template.bind({});
-Forms.args = {
-  schema: {
-    title: "Test form",
-    type: "object",
-    properties: {
-      name: {
-        type: "string",
-      },
-      age: {
-        type: "number",
+type Story = StoryObj<typeof Form>;
+
+export const SimpleForm: Story = {
+  args: {
+    schema: {
+      title: "Test form",
+      type: "object",
+      properties: {
+        name: {
+          type: "string",
+          title: "Name",
+        },
+        age: {
+          type: "number",
+          title: "Age",
+        },
       },
     },
   },
+  render: (args) => <Form {...args} />,
 };

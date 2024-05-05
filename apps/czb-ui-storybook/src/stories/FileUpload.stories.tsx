@@ -1,46 +1,48 @@
-import React from "react";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Form } from "@czb-ui/forms";
 
-import { Form as CZBUIForm } from "@czb-ui/forms/src";
-
-export default {
-  title: "Form",
-  component: CZBUIForm,
-  argTypes: {},
+const meta: Meta<typeof Form> = {
+  title: "Forms/Form",
+  component: Form,
 };
 
-const Template = (args: any) => <CZBUIForm {...args} />;
+export default meta;
 
-export const FileUpload = Template.bind({});
-FileUpload.args = {
-  schema: {
-    title: "Test form",
-    type: "object",
-    properties: {
-      file: {
-        type: "string",
-        format: "data-url",
-        title: "Single file",
-      },
-      files: {
-        type: "array",
-        title: "Multiple files",
-        items: {
+type Story = StoryObj<typeof Form>;
+
+export const FileUploadForm: Story = {
+  args: {
+    schema: {
+      title: "Test form",
+      type: "object",
+      properties: {
+        file: {
           type: "string",
           format: "data-url",
+          title: "Single file",
+        },
+        files: {
+          type: "array",
+          title: "Multiple files",
+          items: {
+            type: "string",
+            format: "data-url",
+          },
+        },
+        filesAccept: {
+          type: "string",
+          format: "data-url",
+          title: "Single File with Accept attribute",
         },
       },
+    },
+    uiSchema: {
       filesAccept: {
-        type: "string",
-        format: "data-url",
-        title: "Single File with Accept attribute",
+        "ui:options": {
+          accept: ".pdf",
+        },
       },
     },
   },
-  uiSchema: {
-    filesAccept: {
-      "ui:options": {
-        accept: ".pdf",
-      },
-    },
-  },
+  render: (args) => <Form {...args} />,
 };
