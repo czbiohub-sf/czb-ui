@@ -1,53 +1,61 @@
-import React from "react";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Form } from "@czb-ui/forms";
 
-import { Form as CZBUIForm } from "@czb-ui/forms/src";
-
-export default {
-  title: "Form",
-  component: CZBUIForm,
-  argTypes: {},
+const meta: Meta<typeof Form> = {
+  title: "Forms/Form",
+  component: Form,
 };
 
-const Template = (args: any) => <CZBUIForm {...args} />;
+export default meta;
 
-export const MultiStepForms = Template.bind({});
-MultiStepForms.args = {
-  schema: [
-    {
-      title: "Test form page 1",
-      type: "object",
-      properties: {
-        name: {
-          type: "string",
-        },
-        age: {
-          type: "number",
-        },
-      },
-    },
-    {
-      title: "Test form page 2",
-      type: "object",
-      properties: {
-        "second name": {
-          type: "string",
-        },
-        "second age": {
-          type: "number",
+type Story = StoryObj<typeof Form>;
+
+export const MultiStepForm: Story = {
+  args: {
+    schema: [
+      {
+        title: "Test form page 1",
+        type: "object",
+        properties: {
+          name: {
+            type: "string",
+            title: "Name",
+          },
+          age: {
+            type: "number",
+            title: "Age",
+          },
         },
       },
-    },
-    {
-      title: "Test form page 3",
-      type: "object",
-      properties: {
-        "Third name": {
-          type: "string",
-        },
-        "Third age": {
-          type: "number",
+      {
+        title: "Test form page 2",
+        type: "object",
+        properties: {
+          secondName: {
+            type: "string",
+            title: "Second Name",
+          },
+          secondAge: {
+            type: "number",
+            title: "Second Age",
+          },
         },
       },
-    },
-  ],
+      {
+        title: "Test form page 3",
+        type: "object",
+        properties: {
+          thirdName: {
+            type: "string",
+            title: "Third Name",
+          },
+          thirdAge: {
+            type: "number",
+            title: "Third Age",
+          },
+        },
+      },
+    ],
+  },
+  render: (args) => <Form {...args} />,
 };

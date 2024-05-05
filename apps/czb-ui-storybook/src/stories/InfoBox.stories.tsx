@@ -1,10 +1,9 @@
-import React from "react";
-
+import type { Meta, StoryObj } from "@storybook/react";
 import { InfoBox as CZBUIInfoBox } from "@czb-ui/core/src";
 import sampleImage from "./assets/sapiens_banner.webp";
 
-export default {
-  title: "Info Box",
+const meta: Meta<typeof CZBUIInfoBox> = {
+  title: "core/InfoBox",
   component: CZBUIInfoBox,
   argTypes: {
     type: {
@@ -20,30 +19,25 @@ export default {
   },
 };
 
-const Template = (args: any) => (
-  <CZBUIInfoBox
-    title={args.title}
-    subtitle={args.subtitle}
-    page={args.page}
-    image={
+export default meta;
+
+export const RegularInfoBox: StoryObj<typeof CZBUIInfoBox> = {
+  args: {
+    title: "Tools",
+    subtitle: "tools",
+    page: {
+      title: "Go to tools",
+      to: "/tools",
+    },
+    image: (
       <img
         style={{ objectFit: "cover", height: "100%", width: "100%", zIndex: 0 }}
-        src={args.image}
+        src={sampleImage}
       />
-    }
-    small={args.small}
-  />
-);
-
-export const RegularInfoBox = Template.bind({});
-RegularInfoBox.args = {
-  image: sampleImage,
-  type: "normal",
-  title: "Tools",
-  subtitle: "tools",
-  page: {
-    title: "Go to tools",
-    to: "/tools",
+    ),
+    small: false,
+    imageOnRight: false,
+    type: "normal",
   },
-  imageOnRight: false,
+  render: (args) => <CZBUIInfoBox {...args} />,
 };

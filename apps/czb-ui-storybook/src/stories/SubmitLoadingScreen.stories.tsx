@@ -1,38 +1,40 @@
-import React from "react";
-
+import type { Meta, StoryObj } from "@storybook/react";
 import { Form as CZBUIForm } from "@czb-ui/forms/src";
 
-export default {
-  title: "Form",
+const meta: Meta<typeof CZBUIForm> = {
+  title: "Forms/Form",
   component: CZBUIForm,
   argTypes: {},
 };
 
-const Template = (args: any) => <CZBUIForm {...args} />;
+export default meta;
 
-const fakeAsyncSubmit = (formData: any) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const fakeAsyncSubmit = async (formData: any) => {
+  console.log("Submitting...");
   return new Promise((resolve) => {
-    console.log("submitting...");
     setTimeout(() => {
-      console.log(formData);
+      console.log("FormData:", formData);
       resolve(formData);
     }, 2000);
   });
 };
 
-export const SubmitLoadingScreen = Template.bind({});
-SubmitLoadingScreen.args = {
-  schema: {
-    title: "Test form",
-    type: "object",
-    properties: {
-      name: {
-        type: "string",
-      },
-      age: {
-        type: "number",
+export const SubmitLoadingScreen: StoryObj<typeof CZBUIForm> = {
+  args: {
+    schema: {
+      title: "Test form",
+      type: "object",
+      properties: {
+        name: {
+          type: "string",
+        },
+        age: {
+          type: "number",
+        },
       },
     },
+    onCompleteSubmit: fakeAsyncSubmit,
   },
-  onCompleteSubmit: fakeAsyncSubmit,
+  render: (args) => <CZBUIForm {...args} />,
 };

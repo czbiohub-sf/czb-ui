@@ -1,29 +1,29 @@
-import React from "react";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Banner as CZBUIBanner } from "@czb-ui/core/src";
+import { Banner as CZBUIBanner } from "@czb-ui/core";
 
-export default {
-  title: "Banner",
+const meta: Meta<typeof CZBUIBanner> = {
+  title: "core/Banner",
   component: CZBUIBanner,
-  argTypes: {},
+  parameters: {
+    layout: "fullscreen",
+  },
 };
 
-const Template = (args: any) => (
-  <CZBUIBanner
-    headline={args.headline}
-    image={
+export default meta;
+
+type Story = StoryObj<typeof CZBUIBanner>;
+
+export const Banner: Story = {
+  args: {
+    headline:
+      "Developing Technology to Push the Boundaries of What We Can See and Measure",
+    image: (
       <img
         style={{ objectFit: "cover", height: "100%", width: "100%", zIndex: 0 }}
-        src={args.image}
+        src="https://source.unsplash.com/random"
       />
-    }
-    type={args.type}
-  />
-);
-
-export const Banner = Template.bind({});
-Banner.args = {
-  headline:
-    "Developing Technology to Push the Boundaries of What We Can See and Measure",
-  image: "https://source.unsplash.com/random",
+    ),
+    type: "background",
+  },
 };

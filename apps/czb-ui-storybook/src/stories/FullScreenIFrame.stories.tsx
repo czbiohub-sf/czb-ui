@@ -1,10 +1,11 @@
+import type { Meta, StoryObj } from "@storybook/react";
 import {
   FullScreenIFrame as CZBUIFullScreenIFrame,
   FullScreenIFrameProps,
 } from "@czb-ui/core";
 
-export default {
-  title: "Full Screen Iframe",
+const meta: Meta<typeof CZBUIFullScreenIFrame> = {
+  title: "core/FullScreenIframe",
   component: CZBUIFullScreenIFrame,
   parameters: {
     layout: "fullscreen",
@@ -17,15 +18,17 @@ export default {
   },
 };
 
-const Template = (args: FullScreenIFrameProps) => (
-  <div style={{ height: "100vh" }}>
-    <CZBUIFullScreenIFrame {...args} />
-  </div>
-);
+export default meta;
 
-export const FullScreenIframe = Template.bind({});
-FullScreenIframe.args = {
-  src: "https://onclass-dash-development.ds.czbiohub.org/onclass",
-  fullScreenButtonLocation: "topRight",
-  fullScreenButtonMargin: "20px",
+export const FullScreenIframe: StoryObj<FullScreenIFrameProps> = {
+  args: {
+    src: "https://onclass-dash-development.ds.czbiohub.org/onclass",
+    fullScreenButtonLocation: "topRight",
+    fullScreenButtonMargin: "20px",
+  },
+  render: (args) => (
+    <div style={{ height: "100vh" }}>
+      <CZBUIFullScreenIFrame {...args} />
+    </div>
+  ),
 };
