@@ -1,18 +1,21 @@
-import { Viewer as CZBUIViewer } from "@czb-ui/viz";
+import type { Meta, StoryObj } from "@storybook/react";
+import { ThreeDUmap as CZBUIThreeDUmap } from "@czb-ui/viz";
 
-export default {
-  title: "3D UMAP",
-  component: CZBUIViewer,
+const meta: Meta<typeof CZBUIThreeDUmap> = {
+  title: "core/3D UMAP",
+  component: CZBUIThreeDUmap,
   parameters: {
     layout: "fullscreen",
   },
 };
 
-const Template = (args) => (
-  <div style={{ height: "100vh" }}>
-    <CZBUIViewer {...args} />
-  </div>
-);
+export default meta;
 
-export const ThreeDUmap = Template.bind({});
-ThreeDUmap.args = {};
+export const Preview: StoryObj<typeof CZBUIThreeDUmap> = {
+  args: {},
+  render: (args) => (
+    <div style={{ height: "100vh" }}>
+      <CZBUIThreeDUmap {...args} />
+    </div>
+  ),
+};
