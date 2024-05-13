@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { ThreeDimScatterPlot } from "./three-dim-scatterplot";
 
-export const Viewer = ({
+export const ThreeDUmap = ({
   zarrStore,
   zarrPath,
   orbitControlOrigin,
