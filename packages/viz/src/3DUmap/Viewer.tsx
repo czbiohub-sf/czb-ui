@@ -27,7 +27,13 @@ export const ThreeDUmap = ({
         scatterplotContainerRef.current!
       );
 
-      scatterplotRef.current.loadZarr("http://localhost:3000", "test.zarr");
+      scatterplotRef.current.debug = true;
+
+      scatterplotRef.current.loadZarr(
+        "http://localhost:3001/export_3d_velo_nmp",
+        "coords.zarr",
+        "positions"
+      );
       // Sync state
       scatterplotRef.current!.onChange = onNewChange;
     }
