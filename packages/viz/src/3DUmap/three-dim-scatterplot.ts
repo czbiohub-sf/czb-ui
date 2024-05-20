@@ -2,6 +2,8 @@ import * as THREE from "three";
 // https://stackoverflow.com/a/56338877/10013136
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { ZarrArray, openArray, HTTPStore, NestedArray, TypedArray } from "zarr";
+import { Attributes } from "zarr/types/attributes";
+import { UserAttributes } from "zarr/types/types";
 import GUI from "lil-gui";
 
 const vertexShader = `
@@ -35,16 +37,16 @@ export class ThreeDimScatterPlot {
   private camera: THREE.PerspectiveCamera;
   private renderer: THREE.WebGLRenderer;
   private controls: OrbitControls;
-  zarrArray: ZarrArray | null;
   private needsUpdate: boolean;
   private shaderMaterial: THREE.ShaderMaterial;
+  private particleSystem: THREE.Points | null;
+  private zarrs: Map<string, ZarrArray>;
   onChange: (() => void) | undefined;
-  particleSystem: THREE.Points | null;
   debug = false;
 
   constructor(element: HTMLDivElement) {
     this.particleSystem = null;
-    this.zarrArray = null;
+    this.zarrs = new Map();
     this.needsUpdate = false;
     this.shaderMaterial = new THREE.ShaderMaterial({
       uniforms: {
@@ -108,32 +110,30 @@ export class ThreeDimScatterPlot {
     console.error(error);
   }
 
-  async loadZarr(store: string, path: string) {
-    this.zarrArray = await openArray({
+  async loadZarr(store: string, path: string, attribute: string) {
+    this.log("Loading new zarr: " + attribute);
+    const zarrToLoad = await openArray({
       store: new HTTPStore(store),
       path: path,
       mode: "r",
     });
 
-    this.drawPoints();
+    this.zarrs.set(attribute, zarrToLoad);
+
+    this.log("Loaded Zarr: " + attribute);
+
+    if (attribute === "positions") {
+      await this.drawPoints();
+    }
   }
 
   async drawPoints() {
+    this.log("Drawing points");
     const geometry = new THREE.BufferGeometry();
 
     // Positions attribute
-    const positions = await this.getDataFromZarr("positions");
-    geometry.setAttribute(
-      "position",
-      new THREE.BufferAttribute(positions.data as Float32Array, 3)
-    );
-
-    // Colors attribute
-    const colors = await this.getDataFromZarr("colors");
-    geometry.setAttribute(
-      "color",
-      new THREE.BufferAttribute(colors.data as Float32Array, 3)
-    );
+    const { data } = await this.getDataFromZarrs("positions");
+    geometry.setAttribute("position", new THREE.BufferAttribute(data, 3));
 
     this.needsUpdate = true;
 
@@ -153,20 +153,23 @@ export class ThreeDimScatterPlot {
     }
   }
 
-  async getDataFromZarr(
-    item: "positions" | "colors"
-  ): Promise<NestedArray<TypedArray>> {
-    if (this.zarrArray === null) {
-      throw new Error("Zarr array not loaded");
+  async getDataFromZarrs(attribute: string): Promise<{
+    data: Float32Array;
+    labels: Attributes<UserAttributes>;
+  }> {
+    if (!this.zarrs.has(attribute)) {
+      throw new Error("Zarr not found with attribute: " + attribute);
     }
 
-    switch (item) {
-      case "positions":
-        return this.zarrArray.get([0]) as Promise<NestedArray<TypedArray>>;
-      case "colors":
-        return this.zarrArray.get([1]) as Promise<NestedArray<TypedArray>>;
-      default:
-        throw new Error("Invalid item");
-    }
+    this.log("Getting data from attribute: " + attribute);
+
+    const zarr = this.zarrs.get(attribute)!;
+
+    const nestedArray = (await zarr.get()) as NestedArray<TypedArray>;
+    const data = nestedArray.data as Float32Array;
+
+    const labels = zarr.attrs;
+
+    return { data, labels };
   }
 }
