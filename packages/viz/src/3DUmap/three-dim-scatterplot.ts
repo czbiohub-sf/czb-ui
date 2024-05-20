@@ -2,7 +2,7 @@ import * as THREE from "three";
 // https://stackoverflow.com/a/56338877/10013136
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { ZarrArray, openArray, HTTPStore, NestedArray, TypedArray } from "zarr";
-import { GUI } from "three/addons/libs/lil-gui.module.min.js";
+import GUI from "lil-gui";
 
 const vertexShader = `
 uniform float size;
