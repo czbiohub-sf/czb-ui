@@ -7,12 +7,14 @@ class Layer {
   type: "positions" | "colors";
   zarrArray: ZarrArray | null;
   label: string;
+  enabled: boolean;
 
   constructor(name: string, type: "positions" | "colors", label: string) {
     this.name = name;
     this.type = type;
     this.zarrArray = null;
     this.label = label;
+    this.enabled = true;
   }
 
   async loadZarr(store: string, path: string) {
@@ -44,15 +46,25 @@ class Layer {
 
     return this.zarrArray!.attrs as Attributes<UserAttributes>;
   }
+
+  enable() {
+    this.enabled = true;
+  }
+
+  disable() {
+    this.enabled = false;
+  }
+
+  isEnabled(): boolean {
+    return this.enabled;
+  }
 }
 
 class LayerManager {
   layers: Map<number, Layer>;
-  enabledLayers: Set<number>;
 
   constructor() {
     this.layers = new Map();
-    this.enabledLayers = new Set();
   }
 
   addLayer(name: string, type: "positions" | "colors", label: string): number {
@@ -68,22 +80,6 @@ class LayerManager {
     } else {
       throw new Error(`Layer with id ${id} does not exist`);
     }
-  }
-
-  enableLayer(id: number) {
-    if (this.layers.has(id)) {
-      this.enabledLayers.add(id);
-    } else {
-      throw new Error(`Layer with id ${id} does not exist`);
-    }
-  }
-
-  disableLayer(id: number) {
-    this.enabledLayers.delete(id);
-  }
-
-  isLayerEnabled(id: number): boolean {
-    return this.enabledLayers.has(id);
   }
 }
 
