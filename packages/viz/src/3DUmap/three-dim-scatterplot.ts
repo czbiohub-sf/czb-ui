@@ -95,6 +95,7 @@ export class ThreeDimScatterPlot {
         this.camera,
         new BloomEffect({
           luminanceThreshold: 0,
+          mipmapBlur: true,
         })
       )
     );
