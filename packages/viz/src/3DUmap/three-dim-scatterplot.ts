@@ -6,6 +6,12 @@ import { UserAttributes } from "zarr/types/types";
 import GUI from "lil-gui";
 import { LayerManager } from "./layer";
 import { convertIntTypedArrayToCategoryColors } from "./colors";
+import {
+  BloomEffect,
+  EffectComposer,
+  EffectPass,
+  RenderPass,
+} from "postprocessing";
 
 const vertexShader = `
 uniform float size;
@@ -45,6 +51,7 @@ export class ThreeDimScatterPlot {
   private layersGuiFolder: GUI;
   private isAutoRotating: boolean = true;
   private geometry: THREE.BufferGeometry | null = null;
+  private composer: EffectComposer;
   debug = false;
 
   constructor(element: HTMLDivElement) {
@@ -76,6 +83,17 @@ export class ThreeDimScatterPlot {
     this.renderer.setSize(element.clientWidth, element.clientHeight);
     element.appendChild(this.renderer.domElement);
 
+    this.composer = new EffectComposer(this.renderer);
+    this.composer.addPass(new RenderPass(this.scene, this.camera));
+    this.composer.addPass(
+      new EffectPass(
+        this.camera,
+        new BloomEffect({
+          luminanceThreshold: 0,
+        })
+      )
+    );
+
     this.gui = new GUI();
     this.layersGuiFolder = this.gui.addFolder("Layers");
 
@@ -101,6 +119,7 @@ export class ThreeDimScatterPlot {
     // Use bind to ensure `this` inside animate() always refers to the ThreeDimScatterPlot instance,
     // even when the method is passed as a callback to requestAnimationFrame.
     requestAnimationFrame(this.animate.bind(this));
+    this.composer.render();
 
     this.controls.update();
 
