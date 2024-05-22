@@ -5,6 +5,7 @@ import { ZarrArray, openArray, HTTPStore, NestedArray, TypedArray } from "zarr";
 import { Attributes } from "zarr/types/attributes";
 import { UserAttributes } from "zarr/types/types";
 import GUI from "lil-gui";
+import { LayerManager } from "./layer";
 
 const vertexShader = `
 uniform float size;
@@ -40,13 +41,15 @@ export class ThreeDimScatterPlot {
   private needsUpdate: boolean;
   private shaderMaterial: THREE.ShaderMaterial;
   private particleSystem: THREE.Points | null;
-  private zarrs: Map<string, ZarrArray>;
+  private layers: LayerManager;
+  private gui: GUI;
+  private layersGuiFolder: GUI;
   onChange: (() => void) | undefined;
   debug = false;
 
   constructor(element: HTMLDivElement) {
     this.particleSystem = null;
-    this.zarrs = new Map();
+    this.layers = new LayerManager();
     this.needsUpdate = false;
     this.shaderMaterial = new THREE.ShaderMaterial({
       uniforms: {
@@ -74,15 +77,8 @@ export class ThreeDimScatterPlot {
     this.renderer.setSize(element.clientWidth, element.clientHeight);
     element.appendChild(this.renderer.domElement);
 
-    const gui = new GUI();
-
-    // Add sample slider with gui, just for show
-    const sizeController = gui.add(
-      this.shaderMaterial.uniforms.size,
-      "value",
-      0,
-      1
-    );
+    this.gui = new GUI();
+    this.layersGuiFolder = this.gui.addFolder("Layers");
 
     // TODO: WebGL compatibility check
     // https://threejs.org/docs/index.html#manual/en/introduction/WebGL-compatibility-check
@@ -100,6 +96,15 @@ export class ThreeDimScatterPlot {
     this.renderer.render(this.scene, this.camera);
   }
 
+  private refreshGui() {
+    for (const [layerId, layer] of this.layers.layers) {
+      const layerFolder = this.layersGuiFolder.addFolder(layer.label);
+      layerFolder.add(layer, "enabled").onChange(() => {
+        this.needsUpdate = true;
+      });
+    }
+  }
+
   notifyChange() {
     if (this.onChange !== undefined) {
       this.onChange();
@@ -110,30 +115,38 @@ export class ThreeDimScatterPlot {
     console.error(error);
   }
 
-  async loadZarr(store: string, path: string, attribute: string) {
-    this.log("Loading new zarr: " + attribute);
+  async loadZarr(
+    store: string,
+    path: string,
+    name: string,
+    displayType: "positions" | "colors",
+    label: string
+  ) {
+    this.log("Loading new zarr: " + path);
     const zarrToLoad = await openArray({
       store: new HTTPStore(store),
       path: path,
       mode: "r",
     });
 
-    this.zarrs.set(attribute, zarrToLoad);
+    const layerId = this.layers.addLayer(name, displayType, label);
+    const layer = this.layers.getLayer(layerId);
+    layer.zarrArray = zarrToLoad;
 
-    this.log("Loaded Zarr: " + attribute);
-
-    if (attribute === "positions") {
-      await this.drawPoints();
+    if (displayType === "positions") {
+      await this.drawPoints(layerId);
     }
+
+    this.refreshGui();
   }
 
-  async drawPoints() {
+  async drawPoints(layerId: number) {
     this.log("Drawing points");
     const geometry = new THREE.BufferGeometry();
 
     // Positions attribute
-    const { data } = await this.getDataFromZarrs("positions");
-    geometry.setAttribute("position", new THREE.BufferAttribute(data, 3));
+    const positions = await this.layers.getLayer(layerId).getTypedArray();
+    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
     this.needsUpdate = true;
 
@@ -151,25 +164,5 @@ export class ThreeDimScatterPlot {
     if (this.debug) {
       console.log("%c" + message, css);
     }
-  }
-
-  async getDataFromZarrs(attribute: string): Promise<{
-    data: Float32Array;
-    labels: Attributes<UserAttributes>;
-  }> {
-    if (!this.zarrs.has(attribute)) {
-      throw new Error("Zarr not found with attribute: " + attribute);
-    }
-
-    this.log("Getting data from attribute: " + attribute);
-
-    const zarr = this.zarrs.get(attribute)!;
-
-    const nestedArray = (await zarr.get()) as NestedArray<TypedArray>;
-    const data = nestedArray.data as Float32Array;
-
-    const labels = zarr.attrs;
-
-    return { data, labels };
   }
 }

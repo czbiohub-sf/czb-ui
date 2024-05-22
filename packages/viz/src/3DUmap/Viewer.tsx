@@ -32,8 +32,19 @@ export const ThreeDUmap = ({
       scatterplotRef.current.loadZarr(
         "http://localhost:3001/export_3d_velo_nmp",
         "coords.zarr",
-        "positions"
+        "first_timepoint",
+        "positions",
+        "First Timepoint"
       );
+
+      scatterplotRef.current.loadZarr(
+        "http://localhost:3001/export_3d_velo_nmp",
+        "attribute_celltype.zarr",
+        "cell_types",
+        "colors",
+        "Cell types"
+      );
+
       // Sync state
       scatterplotRef.current!.onChange = onNewChange;
     }
