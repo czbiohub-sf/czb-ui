@@ -43,6 +43,7 @@ export class ThreeDimScatterPlot {
   private layerManager: LayerManager;
   private gui: GUI;
   private layersGuiFolder: GUI;
+  private isAutoRotating: boolean = true;
   debug = false;
 
   constructor(element: HTMLDivElement) {
@@ -86,6 +87,9 @@ export class ThreeDimScatterPlot {
       .step(0.01)
       .name("Point size");
 
+    // Auto rotating toggle
+    this.gui.add(this, "isAutoRotating").name("Auto rotate");
+
     // TODO: WebGL compatibility check
     // https://threejs.org/docs/index.html#manual/en/introduction/WebGL-compatibility-check
 
@@ -98,6 +102,10 @@ export class ThreeDimScatterPlot {
     requestAnimationFrame(this.animate.bind(this));
 
     this.controls.update();
+
+    if (this.isAutoRotating) {
+      this.scene.rotation.y -= 0.003;
+    }
 
     this.renderer.render(this.scene, this.camera);
   }
