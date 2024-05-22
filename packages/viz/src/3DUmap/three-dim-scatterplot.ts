@@ -41,7 +41,7 @@ export class ThreeDimScatterPlot {
   private needsUpdate: boolean;
   private shaderMaterial: THREE.ShaderMaterial;
   private particleSystem: THREE.Points | null;
-  private layers: LayerManager;
+  private layerManager: LayerManager;
   private gui: GUI;
   private layersGuiFolder: GUI;
   onChange: (() => void) | undefined;
@@ -49,7 +49,7 @@ export class ThreeDimScatterPlot {
 
   constructor(element: HTMLDivElement) {
     this.particleSystem = null;
-    this.layers = new LayerManager();
+    this.layerManager = new LayerManager();
     this.needsUpdate = false;
     this.shaderMaterial = new THREE.ShaderMaterial({
       uniforms: {
@@ -80,6 +80,15 @@ export class ThreeDimScatterPlot {
     this.gui = new GUI();
     this.layersGuiFolder = this.gui.addFolder("Layers");
 
+    // Add some controls
+    // Point size
+    this.gui
+      .add(this.shaderMaterial.uniforms.size, "value")
+      .min(0.01)
+      .max(1)
+      .step(0.01)
+      .name("Point size");
+
     // TODO: WebGL compatibility check
     // https://threejs.org/docs/index.html#manual/en/introduction/WebGL-compatibility-check
 
@@ -97,11 +106,16 @@ export class ThreeDimScatterPlot {
   }
 
   private refreshGui() {
-    for (const [layerId, layer] of this.layers.layers) {
-      const layerFolder = this.layersGuiFolder.addFolder(layer.label);
-      layerFolder.add(layer, "enabled").onChange(() => {
-        this.needsUpdate = true;
-      });
+    // Clear layers folder
+    this.layersGuiFolder.destroy();
+    this.layersGuiFolder = this.gui.addFolder("Layers");
+    for (const layer of this.layerManager.layers) {
+      // Add checkbox
+      const layerInstance = layer[1];
+
+      this.layersGuiFolder
+        .add(layerInstance, "enabled")
+        .name(layerInstance.label);
     }
   }
 
@@ -129,8 +143,8 @@ export class ThreeDimScatterPlot {
       mode: "r",
     });
 
-    const layerId = this.layers.addLayer(name, displayType, label);
-    const layer = this.layers.getLayer(layerId);
+    const layerId = this.layerManager.addLayer(name, displayType, label);
+    const layer = this.layerManager.getLayer(layerId);
     layer.zarrArray = zarrToLoad;
 
     if (displayType === "positions") {
@@ -145,7 +159,7 @@ export class ThreeDimScatterPlot {
     const geometry = new THREE.BufferGeometry();
 
     // Positions attribute
-    const positions = await this.layers.getLayer(layerId).getTypedArray();
+    const positions = await this.layerManager.getLayer(layerId).getTypedArray();
     geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
     this.needsUpdate = true;
