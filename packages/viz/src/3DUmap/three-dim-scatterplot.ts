@@ -49,7 +49,6 @@ export class ThreeDimScatterPlot {
   private layerManager: LayerManager;
   private gui: GUI;
   private layersGuiFolder: GUI;
-  private isAutoRotating: boolean = true;
   private geometry: THREE.BufferGeometry | null = null;
   private composer: EffectComposer;
   debug = false;
@@ -78,6 +77,7 @@ export class ThreeDimScatterPlot {
     this.camera.position.z = 20;
 
     this.controls = new OrbitControls(this.camera, element);
+    this.controls.autoRotate = true;
 
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(element.clientWidth, element.clientHeight);
@@ -107,7 +107,7 @@ export class ThreeDimScatterPlot {
       .name("Point size");
 
     // Auto rotating toggle
-    this.gui.add(this, "isAutoRotating").name("Auto rotate");
+    this.gui.add(this.controls, "autoRotate").name("Auto rotate");
 
     // TODO: WebGL compatibility check
     // https://threejs.org/docs/index.html#manual/en/introduction/WebGL-compatibility-check
@@ -122,10 +122,6 @@ export class ThreeDimScatterPlot {
     this.composer.render();
 
     this.controls.update();
-
-    if (this.isAutoRotating) {
-      this.scene.rotation.y -= 0.003;
-    }
 
     this.renderer.render(this.scene, this.camera);
   }
