@@ -38,19 +38,16 @@ export class ThreeDimScatterPlot {
   private camera: THREE.PerspectiveCamera;
   private renderer: THREE.WebGLRenderer;
   private controls: OrbitControls;
-  private needsUpdate: boolean;
   private shaderMaterial: THREE.ShaderMaterial;
   private particleSystem: THREE.Points | null;
   private layerManager: LayerManager;
   private gui: GUI;
   private layersGuiFolder: GUI;
-  onChange: (() => void) | undefined;
   debug = false;
 
   constructor(element: HTMLDivElement) {
     this.particleSystem = null;
     this.layerManager = new LayerManager();
-    this.needsUpdate = false;
     this.shaderMaterial = new THREE.ShaderMaterial({
       uniforms: {
         size: { value: 0.1 },
@@ -119,16 +116,6 @@ export class ThreeDimScatterPlot {
     }
   }
 
-  notifyChange() {
-    if (this.onChange !== undefined) {
-      this.onChange();
-    }
-  }
-
-  onError(error: unknown) {
-    console.error(error);
-  }
-
   async loadZarr(
     store: string,
     path: string,
@@ -161,8 +148,6 @@ export class ThreeDimScatterPlot {
     // Positions attribute
     const positions = await this.layerManager.getLayer(layerId).getTypedArray();
     geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-
-    this.needsUpdate = true;
 
     this.particleSystem = new THREE.Points(geometry, this.shaderMaterial);
     this.particleSystem.frustumCulled = false;

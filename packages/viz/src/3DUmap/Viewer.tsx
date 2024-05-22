@@ -1,21 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
 import { ThreeDimScatterPlot } from "./three-dim-scatterplot";
 
-export const ThreeDUmap = ({
-  zarrStore,
-  zarrPath,
-  orbitControlOrigin,
-}: {
-  zarrStore: string;
-  zarrPath: string;
-  orbitControlOrigin?: [number, number, number];
-}) => {
+export const ThreeDUmap = () => {
   const scatterplotRef = useRef<ThreeDimScatterPlot | null>(null);
   const scatterplotContainerRef = useRef<HTMLDivElement>(null);
-
-  const onNewChange = () => {
-    console.log("Changed");
-  };
 
   useEffect(() => {
     // https://react.dev/reference/react/useRef#avoiding-recreating-the-ref-contents
@@ -44,9 +32,6 @@ export const ThreeDUmap = ({
         "colors",
         "Cell types"
       );
-
-      // Sync state
-      scatterplotRef.current!.onChange = onNewChange;
     }
   }, [scatterplotContainerRef]);
 
