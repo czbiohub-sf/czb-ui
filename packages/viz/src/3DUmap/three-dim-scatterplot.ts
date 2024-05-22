@@ -180,7 +180,6 @@ export class ThreeDimScatterPlot {
     const colorCategories = await this.layerManager
       .getLayer(layerId)
       .getTypedArray();
-    console.log(colorCategories);
 
     if (colorCategories instanceof Float32Array) {
       throw new Error("Color categories must be an Int32Array");
