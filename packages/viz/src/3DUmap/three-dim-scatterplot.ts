@@ -2,10 +2,10 @@ import * as THREE from "three";
 // https://stackoverflow.com/a/56338877/10013136
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { ZarrArray, openArray, HTTPStore, NestedArray, TypedArray } from "zarr";
-import { Attributes } from "zarr/types/attributes";
 import { UserAttributes } from "zarr/types/types";
 import GUI from "lil-gui";
 import { LayerManager } from "./layer";
+import { convertIntTypedArrayToCategoryColors } from "./colors";
 
 const vertexShader = `
 uniform float size;
@@ -44,6 +44,7 @@ export class ThreeDimScatterPlot {
   private gui: GUI;
   private layersGuiFolder: GUI;
   private isAutoRotating: boolean = true;
+  private geometry: THREE.BufferGeometry | null = null;
   debug = false;
 
   constructor(element: HTMLDivElement) {
@@ -146,21 +147,51 @@ export class ThreeDimScatterPlot {
       await this.drawPoints(layerId);
     }
 
+    if (displayType === "colors") {
+      await this.colorPoints(layerId);
+    }
+
     this.refreshGui();
   }
 
   async drawPoints(layerId: number) {
     this.log("Drawing points");
-    const geometry = new THREE.BufferGeometry();
+    this.geometry = new THREE.BufferGeometry();
 
     // Positions attribute
     const positions = await this.layerManager.getLayer(layerId).getTypedArray();
-    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    this.geometry.setAttribute(
+      "position",
+      new THREE.BufferAttribute(positions, 3)
+    );
 
-    this.particleSystem = new THREE.Points(geometry, this.shaderMaterial);
+    this.particleSystem = new THREE.Points(this.geometry, this.shaderMaterial);
     this.particleSystem.frustumCulled = false;
 
     this.scene.add(this.particleSystem);
+  }
+
+  async colorPoints(layerId: number) {
+    this.log("Coloring points");
+    if (!this.geometry) {
+      throw new Error("Geometry is not initialized. Call drawPoints first.");
+    }
+
+    const colorCategories = await this.layerManager
+      .getLayer(layerId)
+      .getTypedArray();
+    console.log(colorCategories);
+
+    if (colorCategories instanceof Float32Array) {
+      throw new Error("Color categories must be an Int32Array");
+    }
+
+    const colors = convertIntTypedArrayToCategoryColors(colorCategories);
+
+    this.geometry.setAttribute(
+      "color",
+      new THREE.BufferAttribute(colors, 3, true)
+    );
   }
 
   setOrbitControlOrigin(x: number, y: number, z: number) {

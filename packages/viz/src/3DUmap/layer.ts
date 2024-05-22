@@ -38,7 +38,7 @@ class Layer {
 
     const nestedArray =
       (await this.zarrArray!.get()) as NestedArray<TypedArray>;
-    return nestedArray.data as Float32Array;
+    return nestedArray.data as Int32Array | Float32Array;
   }
 
   getAttributes() {
