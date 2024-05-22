@@ -79,7 +79,12 @@ export class ThreeDimScatterPlot {
     this.controls = new OrbitControls(this.camera, element);
     this.controls.autoRotate = true;
 
-    this.renderer = new THREE.WebGLRenderer();
+    this.renderer = new THREE.WebGLRenderer({
+      powerPreference: "high-performance",
+      antialias: false,
+      stencil: false,
+      depth: false,
+    });
     this.renderer.setSize(element.clientWidth, element.clientHeight);
     element.appendChild(this.renderer.domElement);
 
