@@ -138,6 +138,7 @@ export class ThreeDimScatterPlot {
     this.layersGuiFolder = this.gui.addFolder("Layers");
     for (const layer of this.layerManager.layers) {
       // Add checkbox
+      const layerId = layer[0];
       const layerInstance = layer[1];
 
       this.layersGuiFolder
@@ -145,11 +146,10 @@ export class ThreeDimScatterPlot {
         .name(layerInstance.label)
         .onChange((value: boolean) => {
           if (value) {
-            layerInstance.enable();
-          } else {
-            layerInstance.disable();
+            this.layerManager.soloLayer(layerId);
           }
-        });
+        })
+        .listen();
     }
   }
 

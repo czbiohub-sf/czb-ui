@@ -35,6 +35,16 @@ export const ThreeDUmap = () => {
           "Cell types"
         );
       }, 2000);
+
+      setTimeout(() => {
+        scatterplotRef.current!.loadZarr(
+          "http://localhost:3001/export_3d_velo_nmp",
+          "attribute_random.zarr",
+          "random",
+          "colors",
+          "Random"
+        );
+      }, 4000);
     }
   }, [scatterplotContainerRef]);
 
