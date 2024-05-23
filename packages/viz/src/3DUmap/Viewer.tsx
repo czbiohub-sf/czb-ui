@@ -25,13 +25,16 @@ export const ThreeDUmap = () => {
         "First Timepoint"
       );
 
-      scatterplotRef.current.loadZarr(
-        "http://localhost:3001/export_3d_velo_nmp",
-        "attribute_celltype.zarr",
-        "cell_types",
-        "colors",
-        "Cell types"
-      );
+      setTimeout(() => {
+        // Delay to demonstrate loading of multiple layers
+        scatterplotRef.current!.loadZarr(
+          "http://localhost:3001/export_3d_velo_nmp",
+          "attribute_celltype.zarr",
+          "cell_types",
+          "colors",
+          "Cell types"
+        );
+      }, 2000);
     }
   }, [scatterplotContainerRef]);
 
