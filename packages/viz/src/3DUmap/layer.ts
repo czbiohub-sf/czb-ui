@@ -2,7 +2,7 @@ import { ZarrArray, openArray, HTTPStore, NestedArray, TypedArray } from "zarr";
 import { Attributes } from "zarr/types/attributes";
 import { UserAttributes } from "zarr/types/types";
 
-class Layer {
+class Layer extends EventTarget {
   name: string;
   type: "positions" | "colors";
   zarrArray: ZarrArray | null;
@@ -10,6 +10,7 @@ class Layer {
   enabled: boolean;
 
   constructor(name: string, type: "positions" | "colors", label: string) {
+    super();
     this.name = name;
     this.type = type;
     this.zarrArray = null;
@@ -49,10 +50,12 @@ class Layer {
 
   enable() {
     this.enabled = true;
+    this.dispatchEvent(new Event("enabled"));
   }
 
   disable() {
     this.enabled = false;
+    this.dispatchEvent(new Event("disabled"));
   }
 
   isEnabled(): boolean {

@@ -142,7 +142,14 @@ export class ThreeDimScatterPlot {
 
       this.layersGuiFolder
         .add(layerInstance, "enabled")
-        .name(layerInstance.label);
+        .name(layerInstance.label)
+        .onChange((value: boolean) => {
+          if (value) {
+            layerInstance.enable();
+          } else {
+            layerInstance.disable();
+          }
+        });
     }
   }
 
@@ -169,7 +176,17 @@ export class ThreeDimScatterPlot {
     }
 
     if (displayType === "colors") {
-      await this.colorPoints(layerId);
+      this.colorPoints(layerId);
+
+      layer.addEventListener("enabled", () => {
+        this.log("Enabled colors event");
+        this.colorPoints(layerId);
+      });
+
+      layer.addEventListener("disabled", () => {
+        this.log("Disabled colors event");
+        this.disableColor();
+      });
     }
 
     this.refreshGui();
@@ -211,6 +228,21 @@ export class ThreeDimScatterPlot {
     this.geometry.setAttribute(
       "color",
       new THREE.BufferAttribute(colors, 3, true)
+    );
+  }
+
+  disableColor() {
+    if (!this.geometry) {
+      throw new Error("Geometry is not initialized. Call drawPoints first.");
+    }
+
+    // Set the color attribute to a default value (white color)
+    const defaultColor = new Float32Array(
+      this.geometry.getAttribute("position").count * 3
+    ).fill(1);
+    this.geometry.setAttribute(
+      "color",
+      new THREE.BufferAttribute(defaultColor, 3, true)
     );
   }
 
