@@ -147,6 +147,8 @@ export class ThreeDimScatterPlot {
         .onChange((value: boolean) => {
           if (value) {
             this.layerManager.soloLayer(layerId);
+          } else {
+            layerInstance.disable();
           }
         })
         .listen();
