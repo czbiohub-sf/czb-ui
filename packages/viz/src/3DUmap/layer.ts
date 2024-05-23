@@ -65,15 +65,23 @@ class Layer extends EventTarget {
 
 class LayerManager {
   layers: Map<number, Layer>;
+  typeLookup: Record<"positions" | "colors", number[]>;
 
   constructor() {
     this.layers = new Map();
+    this.typeLookup = {
+      positions: [],
+      colors: [],
+    };
   }
 
   addLayer(name: string, type: "positions" | "colors", label: string): number {
     const id = this.layers.size;
     const layer = new Layer(name, type, label);
     this.layers.set(id, layer);
+
+    this.typeLookup[type].push(id);
+
     return id;
   }
 
@@ -83,6 +91,43 @@ class LayerManager {
     } else {
       throw new Error(`Layer with id ${id} does not exist`);
     }
+  }
+
+  private soloColorLayer(layerId: number) {
+    if (this.getLayer(layerId).type !== "colors") {
+      return;
+    }
+
+    console.log("soloColorLayer");
+
+    this.typeLookup.colors.forEach((id) => {
+      if (id !== layerId) {
+        this.getLayer(id).disable();
+      } else {
+        this.getLayer(id).enable();
+      }
+    });
+  }
+
+  private soloPositionLayer(layerId: number) {
+    if (this.getLayer(layerId).type !== "positions") {
+      return;
+    }
+
+    console.log("soloPositionLayer");
+
+    this.typeLookup.positions.forEach((id) => {
+      if (id !== layerId) {
+        this.getLayer(id).disable();
+      } else {
+        this.getLayer(id).enable();
+      }
+    });
+  }
+
+  soloLayer(layerId: number) {
+    this.soloColorLayer(layerId);
+    this.soloPositionLayer(layerId);
   }
 }
 
