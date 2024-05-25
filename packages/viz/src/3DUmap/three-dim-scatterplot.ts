@@ -179,6 +179,7 @@ export class ThreeDimScatterPlot {
 
     if (displayType === "colors") {
       this.colorPoints(layerId);
+      this.layerManager.soloLayer(layerId);
 
       layer.addEventListener("enabled", () => {
         this.log("Enabled colors event");
