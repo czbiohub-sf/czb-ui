@@ -66,12 +66,17 @@ class Layer extends EventTarget {
 class LayerManager {
   layers: Map<number, Layer>;
   typeLookup: Record<"positions" | "colors", number[]>;
+  soloedLayers: Record<"positions" | "colors", number>;
 
   constructor() {
     this.layers = new Map();
     this.typeLookup = {
       positions: [],
       colors: [],
+    };
+    this.soloedLayers = {
+      positions: -1,
+      colors: -1,
     };
   }
 
@@ -94,11 +99,19 @@ class LayerManager {
   }
 
   private soloColorLayer(layerId: number) {
-    if (this.getLayer(layerId).type !== "colors") {
+    // If requested layerId is -1, disable all color layers
+    if (layerId === -1) {
+      this.typeLookup.colors.forEach((id) => {
+        this.getLayer(id).disable();
+      });
+
+      this.soloedLayers.colors = -1;
       return;
     }
 
-    console.log("soloColorLayer");
+    if (this.getLayer(layerId).type !== "colors") {
+      return;
+    }
 
     this.typeLookup.colors.forEach((id) => {
       if (id !== layerId) {
@@ -107,9 +120,21 @@ class LayerManager {
         this.getLayer(id).enable();
       }
     });
+
+    this.soloedLayers.colors = layerId;
   }
 
   private soloPositionLayer(layerId: number) {
+    // If requested layerId is -1, disable all position layers
+    if (layerId === -1) {
+      this.typeLookup.positions.forEach((id) => {
+        this.getLayer(id).disable();
+      });
+
+      this.soloedLayers.positions = -1;
+      return;
+    }
+
     if (this.getLayer(layerId).type !== "positions") {
       return;
     }
@@ -123,11 +148,26 @@ class LayerManager {
         this.getLayer(id).enable();
       }
     });
+
+    this.soloedLayers.positions = layerId;
   }
 
   soloLayer(layerId: number) {
     this.soloColorLayer(layerId);
     this.soloPositionLayer(layerId);
+  }
+
+  getLayerLabelIdLookup(type: "positions" | "colors") {
+    const lookup: Record<string, number> = {};
+
+    this.typeLookup[type].forEach((id) => {
+      lookup[this.getLayer(id).label] = id;
+    });
+
+    // Add a "None" option
+    lookup["None"] = -1;
+
+    return lookup;
   }
 }
 
