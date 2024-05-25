@@ -136,23 +136,23 @@ export class ThreeDimScatterPlot {
     // Clear layers folder
     this.layersGuiFolder.destroy();
     this.layersGuiFolder = this.gui.addFolder("Layers");
-    for (const layer of this.layerManager.layers) {
-      // Add checkbox
-      const layerId = layer[0];
-      const layerInstance = layer[1];
 
-      this.layersGuiFolder
-        .add(layerInstance, "enabled")
-        .name(layerInstance.label)
-        .onChange((value: boolean) => {
-          if (value) {
-            this.layerManager.soloLayer(layerId);
-          } else {
-            layerInstance.disable();
-          }
-        })
-        .listen();
-    }
+    // Positions dropdown
+    // TODO: onChange
+    const positionItems = this.layerManager.getLayerLabelIdLookup("positions");
+    this.layersGuiFolder.add(
+      this.layerManager.soloedLayers,
+      "positions",
+      positionItems
+    );
+
+    // Colors dropdown
+    const colorItems = this.layerManager.getLayerLabelIdLookup("colors");
+    this.layersGuiFolder
+      .add(this.layerManager.soloedLayers, "colors", colorItems)
+      .onChange((layerId: number) => {
+        this.layerManager.soloLayer(layerId);
+      });
   }
 
   async loadZarr(
@@ -175,6 +175,7 @@ export class ThreeDimScatterPlot {
 
     if (displayType === "positions") {
       await this.drawPoints(layerId);
+      this.layerManager.soloLayer(layerId);
     }
 
     if (displayType === "colors") {
