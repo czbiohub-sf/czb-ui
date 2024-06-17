@@ -8,15 +8,19 @@ import {
 } from "@czi-sds/components";
 import { css } from "@emotion/react";
 
-interface BannerProps extends CommonThemeProps {
+interface BannerProps {
   headline?: string;
   image?: React.ReactNode;
   type?: "background" | "nobackground";
 }
 
+interface BannerStyleProps extends CommonThemeProps {
+  type?: "background" | "nobackground";
+}
+
 const maxHeight = "500px";
 
-const StyledBox = styled(Box)<BannerProps>((props) => {
+const StyledBox = styled(Box)<BannerStyleProps>((props) => {
   const colors = getColors(props);
 
   return css`
@@ -27,13 +31,13 @@ const StyledBox = styled(Box)<BannerProps>((props) => {
   `;
 });
 
-const StyledContainer = styled(Container)<BannerProps>(() => ({
+const StyledContainer = styled(Container)<BannerStyleProps>(() => ({
   position: "relative",
   zIndex: 2,
   height: "100%",
 }));
 
-const ContentBox = styled(Box)<BannerProps>((props) => {
+const ContentBox = styled(Box)<BannerStyleProps>((props) => {
   return css`
     display: flex;
     justify-content: left;
@@ -49,7 +53,7 @@ const ContentBox = styled(Box)<BannerProps>((props) => {
   `;
 });
 
-const Headline = styled(Typography)<BannerProps>((props) => {
+const Headline = styled(Typography)<BannerStyleProps>((props) => {
   const colors = getColors(props);
 
   return css`
@@ -61,7 +65,7 @@ const Headline = styled(Typography)<BannerProps>((props) => {
   `;
 });
 
-const GradientBox = styled(Box)<BannerProps>((props) => {
+const GradientBox = styled(Box)<BannerStyleProps>((props) => {
   return css`
     position: absolute;
     top: 0;
