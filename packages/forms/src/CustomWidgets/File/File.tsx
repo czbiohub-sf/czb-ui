@@ -1,6 +1,6 @@
 import { ChangeEvent, useCallback, useMemo, useRef, useState } from "react";
 import { Typography, Box } from "@mui/material";
-import { Button, Icon, TagFilter } from "czifui";
+import { Button, Icon, TagFilter } from "@czi-sds/components";
 import { Stack } from "@mui/material";
 import { dataURItoBlob, WidgetProps } from "@rjsf/utils";
 
@@ -152,10 +152,9 @@ export const File = ({
           <Button
             sdsType="secondary"
             sdsStyle="square"
-            startIcon={<Icon sdsIcon="upload" sdsSize="l" sdsType="button" />}
+            startIcon={<Icon sdsIcon="Upload" sdsSize="l" sdsType="button" />}
             sx={{ my: 4 }}
             component="label"
-            htmlFor={id}
           >
             Upload
             <input

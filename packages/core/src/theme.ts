@@ -1,100 +1,126 @@
-import { ThemeOptions, createTheme } from "@mui/material/styles";
+import { AppTheme, SDSAppTheme, makeThemeOptions } from "@czi-sds/components";
+import { createTheme } from "@mui/material";
 import { deepmerge } from "@mui/utils";
-import { defaultAppTheme, makeThemeOptions } from "czifui";
-// defaultAppTheme settings:
-// https://github.com/chanzuckerberg/sci-components/blob/main/packages/components/src/core/styles/common/defaultTheme.ts
 
-const appTheme = { ...defaultAppTheme };
-type AppTheme = typeof appTheme;
+import "@fontsource/hanken-grotesk/400.css";
+import "@fontsource/hanken-grotesk/700.css";
+import "@fontsource/stix-two-text/600.css";
+import "@fontsource/lato/700.css";
+import "@fontsource/barlow/600.css";
+import "@fontsource/barlow/400.css";
+import "@fontsource/jetbrains-mono/400.css";
 
-const primaryColors = {
-  "300": "#00A0DD",
-  "400": "#0D7CB5",
-  "500": "#065B86",
-  "600": "#003A57",
+// Utility type for making all properties (including nested) optional
+type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
 };
-appTheme.colors.primary = primaryColors;
 
-const mainFont = "Hanken Grotesk";
-appTheme.typography.fontFamily = mainFont;
-
-// Change our app's "body.xs" font styles to the SDS's "fontBodyM" styles
-// (SDS uses the "body.xs" styles for MUI's "body1". "body1" is the default font style for MUI)
-// https://github.com/chanzuckerberg/sci-components/blob/d607e6d8c38bf8da367844f706b314b33ab83012/src/core/styles/common/defaultTheme.ts#L399
-const fontBodyM = defaultAppTheme.typography.styles.body.m;
-appTheme.typography.styles.body["xs"] = fontBodyM;
-
-// Change h1 font
-// (SDS uses "header.xxl" for MUI's "h1")
-// https://github.com/chanzuckerberg/sci-components/blob/d607e6d8c38bf8da367844f706b314b33ab83012/src/core/styles/common/defaultTheme.ts#L404
-const newFontHeaderXxl = {
-  ...defaultAppTheme.typography.styles.header.xxl,
-  fontFamily: "STIX Two Text",
-};
-appTheme.typography.styles.header.xxl = newFontHeaderXxl;
-
-// Change h2 font
-// (SDS uses "header.xl" for MUI's "h2")
-// (https://github.com/chanzuckerberg/sci-components/blob/d607e6d8c38bf8da367844f706b314b33ab83012/src/core/styles/common/defaultTheme.ts#L405)
-const newFontHeaderXl = {
-  ...defaultAppTheme.typography.styles.header.xl,
-  fontFamily: "STIX Two Text",
-};
-appTheme.typography.styles.header.xl = newFontHeaderXl;
-
-// Change h3 font
-// (SDS uses "header.l" for MUI's "h3")
-// (https://github.com/chanzuckerberg/sci-components/blob/d607e6d8c38bf8da367844f706b314b33ab83012/src/core/styles/common/defaultTheme.ts#L406)
-const newFontHeaderL = {
-  ...defaultAppTheme.typography.styles.header.l,
-  fontFamily: "Lato",
-  fontWeight: 700, // There's only a 700 weight for Lato,
-  // not 600 which is what the defaultAppTheme uses
-};
-appTheme.typography.styles.header.l = newFontHeaderL;
-
-// Change button text style
-const newButtonStyle = {
-  ...defaultAppTheme.typography.styles.body.button,
-  fontFamily: "Barlow",
-  textTransform: "uppercase" as React.CSSProperties["textTransform"], // Type workaround
-};
-appTheme.typography.styles.body.button = newButtonStyle;
-
-const createFinalTheme = (czifuiAppTheme: AppTheme): ThemeOptions => ({
-  ...makeThemeOptions(czifuiAppTheme),
-  components: {
-    ...makeThemeOptions(czifuiAppTheme).components,
-    MuiContainer: {
-      defaultProps: {
-        maxWidth: "md",
+// See SDS default theme:
+// https://github.com/chanzuckerberg/sci-components/blob/cf36ac5d94e4f788da60ccffe666f45613f056c3/packages/components/src/core/styles/common/SDSAppTheme.ts
+const customTheme: DeepPartial<AppTheme> = {
+  colors: {
+    blue: {
+      // 100 and 200 shades are generated with
+      // https://m2.material.io/inline-tools/color/
+      100: "#b5e7f7",
+      200: "#85d7f3",
+      300: "#00A0DD",
+      400: "#0D7CB5",
+      500: "#065B86",
+      600: "#002F47",
+    },
+    common: {
+      black: "#262E31",
+      white: "#FFFFFF",
+    },
+    gray: {
+      // "Normalizing" our color palette from 100-950 to 100-600
+      100: "#F9F9FA",
+      200: "#DDE1E2",
+      300: "#6E767A",
+      400: "#565F63",
+      500: "#262E31",
+      600: "#131819",
+    },
+  },
+  typography: {
+    fontFamily: {
+      body: "Hanken Grotesk, sans-serif",
+      caps: "Barlow, sans-serif",
+      code: "JetBrains Mono, monospace",
+      header: "Stix Two Text, serif",
+    },
+    styles: {
+      body: {
+        regular: {
+          button: { fontSize: 16 },
+          l: { fontSize: 21 },
+          m: { fontSize: 19 },
+          s: { fontSize: 17 },
+          xs: { fontSize: 16 },
+          xxs: { fontSize: 15 },
+          xxxs: { fontSize: 14 },
+        },
+        semibold: {
+          button: { fontSize: 16 },
+          l: { fontSize: 21 },
+          m: { fontSize: 19 },
+          s: { fontSize: 17 },
+          xs: { fontSize: 16 },
+          xxs: { fontSize: 15 },
+          xxxs: { fontSize: 14 },
+        },
       },
-      styleOverrides: {
-        // Change default padding for MuiContainer
-        root: ({ theme }) => ({
-          [theme.breakpoints.up("sm")]: {
-            paddingLeft: theme.spacing(6),
-            paddingRight: theme.spacing(6),
-          },
-          paddingLeft: theme.spacing(6),
-          paddingRight: theme.spacing(6),
-        }),
-        disableGutters: ({ theme }) => ({
-          [theme.breakpoints.up("sm")]: {
-            paddingLeft: 0,
-            paddingRight: 0,
-          },
-          paddingLeft: 0,
-          paddingRight: 0,
-        }),
+      caps: {
+        semibold: {
+          xxs: { fontSize: 15 },
+          xxxs: { fontSize: 14 },
+          xxxxs: { fontSize: 13 },
+        },
+      },
+      code: {
+        regular: {
+          s: { fontSize: 17 },
+          xs: { fontSize: 16 },
+        },
+        semibold: {
+          s: { fontSize: 17 },
+          xs: { fontSize: 16 },
+        },
+      },
+      header: {
+        semibold: {
+          l: { fontSize: 21 },
+          m: { fontSize: 19 },
+          s: { fontSize: 17 },
+          xl: { fontSize: 25 },
+          xs: { fontSize: 16 },
+          xxl: { fontSize: 29 },
+          xxs: { fontSize: 15 },
+          xxxs: { fontSize: 14 },
+        },
+      },
+      tabular: {
+        regular: {
+          s: { fontSize: 17 },
+          xs: { fontSize: 16 },
+        },
+        semibold: {
+          s: { fontSize: 17 },
+          xs: { fontSize: 16 },
+        },
       },
     },
   },
-});
+};
 
-export const biohubTheme = createTheme(createFinalTheme(appTheme));
+const CZBTheme = deepmerge(SDSAppTheme, customTheme);
+
+const appTheme = makeThemeOptions(CZBTheme);
+
+export const biohubTheme = createTheme(appTheme);
 
 export const createCustomAppTheme = (overrides: AppTheme) => {
   const merged = deepmerge(appTheme, overrides);
-  return createTheme(createFinalTheme(merged));
+  return createTheme(merged);
 };

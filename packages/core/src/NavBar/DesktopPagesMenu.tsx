@@ -1,5 +1,5 @@
 import { PageLink } from "../UniversalTypes/links";
-import { Link } from "czifui";
+import { Link } from "@czi-sds/components";
 import { Box, ListItem, List } from "@mui/material";
 
 interface DesktopPagesMenuProps {

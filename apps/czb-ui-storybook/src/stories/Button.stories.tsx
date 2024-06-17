@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button as CZIFUIButton } from "czifui";
+import { Button as CZIFUIButton } from "@czi-sds/components";
 
 const meta: Meta<typeof CZIFUIButton> = {
   title: "Demos of CZI components/Button",

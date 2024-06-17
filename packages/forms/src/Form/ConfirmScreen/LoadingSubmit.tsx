@@ -1,6 +1,6 @@
 import React from "react";
 import { HeadingSeparator } from "@czb-ui/core";
-import { LoadingIndicator } from "czifui";
+import { LoadingIndicator } from "@czi-sds/components";
 import { Box } from "@mui/material";
 
 export default function LoadingSubmit() {

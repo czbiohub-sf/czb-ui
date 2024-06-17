@@ -1,5 +1,5 @@
 import React from "react";
-import { LoadingIndicator } from "czifui";
+import { LoadingIndicator } from "@czi-sds/components";
 import { Box } from "@mui/material";
 
 const LoadingComponent = () => {
