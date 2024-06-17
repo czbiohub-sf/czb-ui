@@ -23,7 +23,8 @@ export default {
     /^@mui\/.*/,
     /^react\.*/,
     "uuid",
-    "czifui",
+    /^@czi-sds\/.*/,
+    /^@fontsource\/.*/,
     "hamburger-react",
   ],
 };

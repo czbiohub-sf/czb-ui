@@ -1,6 +1,6 @@
 import { Card } from "../Card/Card";
 import { Box, styled, Typography } from "@mui/material";
-import { Link } from "czifui";
+import { Link } from "@czi-sds/components";
 import { PageLink } from "../UniversalTypes/links";
 
 interface ImageButtonProps {

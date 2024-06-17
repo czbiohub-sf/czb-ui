@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import { HeadingSeparator } from "@czb-ui/core";
 import { Box } from "@mui/material";
 import { RJSFSchema } from "@rjsf/utils";
-import { Button } from "czifui";
+import { Button } from "@czi-sds/components";
 import PrettyJson from "./PrettyJson";
 
 interface ConfirmScreenProps {

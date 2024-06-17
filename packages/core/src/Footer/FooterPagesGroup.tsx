@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { Link } from "czifui";
+import { Link } from "@czi-sds/components";
 import { PageGroup } from "../UniversalTypes/links";
 
 interface FooterPagesGroupProps {

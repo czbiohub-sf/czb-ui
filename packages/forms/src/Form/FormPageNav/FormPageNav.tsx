@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { Button } from "czifui";
+import { Button } from "@czi-sds/components";
 
 interface FormPageNavProps {
   steps: number; // Number of steps the form has

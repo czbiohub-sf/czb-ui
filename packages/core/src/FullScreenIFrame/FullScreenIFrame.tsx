@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { OpenInFull, CloseFullscreen } from "@mui/icons-material";
-import { Button } from "czifui";
+import { Button } from "@czi-sds/components";
 import React, { useRef, useState, useEffect } from "react";
 
 export interface FullScreenIFrameProps

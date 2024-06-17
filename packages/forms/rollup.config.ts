@@ -26,6 +26,6 @@ export default {
     /^react\.*/,
     /^@rjsf\/.*/,
     /^@czb-ui\/.*/,
-    "czifui",
+    /^@czi-sds\/.*/,
   ],
 };

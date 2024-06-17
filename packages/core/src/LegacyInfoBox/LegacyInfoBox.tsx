@@ -1,6 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material";
 import { PageLink } from "../UniversalTypes/links";
-import { Link, Button } from "czifui";
+import { Link, Button } from "@czi-sds/components";
 
 export interface LegacyInfoBoxProps {
   title?: string;
@@ -61,6 +61,7 @@ const InfoBoxLink = ({
           marginTop: { xs: 2, md: putButtonOnBottom ? "auto" : 5 },
           width: "120px",
         }}
+        // @ts-expect-error - TODO: Figure out MUI/SDS Button type for routers
         to={page?.to}
         component={page?.to ? pagesComponent : undefined}
         sdsStyle="square"
@@ -82,6 +83,7 @@ const InfoBoxLink = ({
       href={page?.to}
       sdsStyle="square"
       sdsType="primary"
+      // @ts-expect-error - TODO: Figure out MUI/SDS Button type for routers
       target={page?.newTab ? "_blank" : undefined}
       rel="noopener"
     >

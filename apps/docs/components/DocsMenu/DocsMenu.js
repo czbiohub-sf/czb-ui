@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { fontCapsXxs } from "czifui";
+import { fontCapsXxs } from "@czi-sds/components";
 import {
   Box,
   Drawer,

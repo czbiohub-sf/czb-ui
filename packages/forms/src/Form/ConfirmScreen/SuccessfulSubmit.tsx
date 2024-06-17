@@ -1,6 +1,6 @@
 import React from "react";
 import { HeadingSeparator } from "@czb-ui/core";
-import { Button } from "czifui";
+import { Button } from "@czi-sds/components";
 import { Box, Typography } from "@mui/material";
 
 interface SuccessfulSubmitProps {

@@ -1,7 +1,7 @@
 import { Typography, styled, useTheme, Stack } from "@mui/material";
 import Box, { BoxProps } from "@mui/material/Box";
 import { InfoBoxProps } from "./InfoBox";
-import { Button, Icon } from "czifui";
+import { Button, Icon } from "@czi-sds/components";
 import { PageLink } from "../UniversalTypes/links";
 
 interface NormalInfoBoxContainerProps extends BoxProps {
@@ -49,7 +49,7 @@ const InfoBoxLink = ({
         sx={{ marginTop: { xs: "0.5rem", md: "1rem" } }}
         sdsStyle={withButton ? "square" : "minimal"}
         sdsType="primary"
-        startIcon={<Icon sdsIcon="plusCircle" sdsSize="s" sdsType="button" />}
+        startIcon={<Icon sdsIcon="PlusCircle" sdsSize="s" sdsType="button" />}
         disabled={true}
       >
         {page?.title}
@@ -61,11 +61,12 @@ const InfoBoxLink = ({
     return (
       <Button
         sx={{ marginTop: { xs: "0.5rem", md: "1rem" } }}
+        // @ts-expect-error - TODO: Figure out MUI/SDS Button type for routers
         to={page?.to}
         component={page?.to ? pagesComponent : undefined}
         sdsStyle={withButton ? "square" : "minimal"}
         sdsType="primary"
-        startIcon={<Icon sdsIcon="plusCircle" sdsSize="s" sdsType="button" />}
+        startIcon={<Icon sdsIcon="PlusCircle" sdsSize="s" sdsType="button" />}
       >
         {page?.title}
       </Button>
@@ -79,9 +80,10 @@ const InfoBoxLink = ({
       href={page?.to}
       sdsStyle={withButton ? "square" : "minimal"}
       sdsType="primary"
+      // @ts-expect-error - TODO: Figure out MUI/SDS Button type for routers
       target={page?.newTab ? "_blank" : undefined}
       rel="noopener"
-      startIcon={<Icon sdsIcon="plusCircle" sdsSize="s" sdsType="button" />}
+      startIcon={<Icon sdsIcon="PlusCircle" sdsSize="s" sdsType="button" />}
     >
       {page?.title}
     </Button>

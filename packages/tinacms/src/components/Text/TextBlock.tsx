@@ -2,7 +2,7 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { Box, Container, Typography } from "@mui/material";
 import Image from "next/image";
 import { InfoBoxBlock } from "../InfoBox/InfoBoxBlock";
-import { Link } from "czifui";
+import { Link } from "@czi-sds/components";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 

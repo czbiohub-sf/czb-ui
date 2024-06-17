@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import Hamburger from "hamburger-react";
 import { useState } from "react";
-import { Link } from "czifui";
+import { Link } from "@czi-sds/components";
 
 interface MobilePagesMenuProps {
   pages: Array<PageLink>;
