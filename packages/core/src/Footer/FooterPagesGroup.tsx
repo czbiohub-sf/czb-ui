@@ -1,5 +1,13 @@
+import React from "react";
 import { Box, Typography } from "@mui/material";
-import { Link } from "@czi-sds/components";
+import { styled } from "@mui/material/styles";
+import {
+  Link,
+  CommonThemeProps,
+  getSpaces,
+  getColors,
+} from "@czi-sds/components";
+import { css } from "@emotion/react";
 import { PageGroup } from "../UniversalTypes/links";
 
 interface FooterPagesGroupProps {
@@ -8,71 +16,101 @@ interface FooterPagesGroupProps {
   small?: boolean;
 }
 
-// TODO: Create component for link
-// that handles inner routes and external
-// links (like the one in here)
+interface FooterPagesGroupStyleProps extends CommonThemeProps {
+  small?: boolean;
+}
+
+const StyledBox = styled(Box)<FooterPagesGroupStyleProps>((props) => {
+  const spaces = getSpaces(props);
+
+  return css`
+    display: flex;
+    margin-top: ${spaces?.l};
+    gap: 80px;
+    flex-direction: column;
+
+    ${props.theme.breakpoints.up("md")} {
+      flex-direction: row;
+    }
+  `;
+});
+
+const GroupTitle = styled(Typography)<FooterPagesGroupStyleProps>((props) => {
+  const colors = getColors(props);
+
+  return css`
+    text-transform: uppercase;
+    font-weight: bold;
+    color: ${colors?.common.white};
+  `;
+});
+
+const ListBox = styled(Box)<FooterPagesGroupStyleProps>((props) => {
+  const spaces = getSpaces(props);
+
+  return css`
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 0;
+    margin-top: ${spaces?.m};
+    display: block;
+
+    ${props.small &&
+    css`
+      ${props.theme.breakpoints.up("md")} {
+        display: flex;
+        gap: ${spaces?.xl};
+      }
+    `}
+  `;
+});
+
+const ListItem = styled(Box)<FooterPagesGroupStyleProps>((props) => {
+  const spaces = getSpaces(props);
+
+  return css`
+    margin-bottom: ${spaces?.xl};
+  `;
+});
+
+const CustomLink = styled(Link)<FooterPagesGroupStyleProps>((props) => {
+  const colors = getColors(props);
+  const spaces = getSpaces(props);
+
+  return css`
+    margin-top: ${spaces?.m};
+    color: ${colors?.common.white};
+  `;
+});
+
 export const FooterPagesGroup = ({
   pages,
   pagesComponent,
   small,
 }: FooterPagesGroupProps) => {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        marginTop: "8px", // So it aligns with the title and logo (being centered in their div)
-        gap: "80px",
-        flexDirection: { xs: "column", md: "row" },
-      }}
-    >
-      {pages.map((pageGroup, i) => {
-        return (
-          <Box key={i}>
-            <Typography
-              sx={{ textTransform: "uppercase", fontWeight: "bold" }}
-              component="b"
-            >
-              {pageGroup.title}
-            </Typography>
-            <Box
-              component="ul"
-              sx={{
-                listStyleType: "none",
-                padding: "0px",
-                marginBottom: "0px",
-                marginTop: 8,
-                display: small ? { xs: "block", md: "flex" } : "block",
-                gap: small ? "30px" : "",
-              }}
-            >
-              {pageGroup.pages.map((page, j) => {
-                return (
-                  <Box component="li" mb={5} key={j}>
-                    {!page.externalLink && (
-                      <Link
-                        sx={{ marginTop: "1rem", color: "white" }}
-                        to={page?.to}
-                        component={page?.to ? pagesComponent : undefined}
-                      >
-                        {page?.title}
-                      </Link>
-                    )}
-                    {/* If target="_blank" needs to be added also add rel="noopener" */}
-                    {page.externalLink && (
-                      <Link
-                        sx={{ marginTop: "1rem", color: "white" }}
-                        href={page?.to}
-                      >
-                        {page?.title}
-                      </Link>
-                    )}
-                  </Box>
-                );
-              })}
-            </Box>
-          </Box>
-        );
-      })}
-    </Box>
+    <StyledBox>
+      {pages.map((pageGroup, i) => (
+        <Box key={i}>
+          <GroupTitle>{pageGroup.title}</GroupTitle>
+          <ListBox>
+            {pageGroup.pages.map((page, j) => (
+              <ListItem component="li" key={j}>
+                {!page.externalLink ? (
+                  <CustomLink
+                    to={page?.to}
+                    component={page?.to ? pagesComponent : undefined}
+                  >
+                    {page?.title}
+                  </CustomLink>
+                ) : (
+                  <CustomLink href={page?.to}>{page?.title}</CustomLink>
+                )}
+              </ListItem>
+            ))}
+          </ListBox>
+        </Box>
+      ))}
+    </StyledBox>
   );
 };

@@ -1,10 +1,11 @@
 import React from "react";
-import { FooterBar } from "../FooterBar/FooterBar";
 import { Typography, Box, Link } from "@mui/material";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
+import { FooterBar } from "../FooterBar/FooterBar";
 import { PageGroup } from "../UniversalTypes/links";
 import { FooterPagesGroup } from "./FooterPagesGroup";
+import { CommonThemeProps, getSpaces, getColors } from "@czi-sds/components";
+import { css } from "@emotion/react";
 
 interface FooterProps {
   logo?: React.ReactNode;
@@ -14,6 +15,59 @@ interface FooterProps {
   small?: boolean;
 }
 
+interface FooterStyleProps extends CommonThemeProps {
+  small?: boolean;
+}
+
+const StyledFooterBar = styled(FooterBar)<FooterStyleProps>((props) => {
+  return css`
+    position: relative;
+    top: auto;
+    bottom: 0;
+    min-height: ${props.small ? "100px" : "200px"};
+  `;
+});
+
+const FlexBox = styled(Box)<FooterStyleProps>((props) => {
+  return css`
+    display: flex;
+    align-items: center;
+  `;
+});
+
+const CustomLink = styled(Link)<FooterStyleProps>((props) => {
+  return css`
+    display: flex;
+    align-items: center;
+    color: inherit;
+  `;
+});
+
+const LogoBox = styled(Box)<FooterStyleProps>((props) => {
+  const spaces = getSpaces(props);
+
+  return css`
+    margin-right: ${spaces?.m};
+    display: inherit;
+  `;
+});
+
+const TitleTypography = styled(Typography)<FooterStyleProps>((props) => {
+  const colors = getColors(props);
+
+  return css`
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0;
+    color: ${colors?.common.white};
+    flex-grow: 1;
+
+    ${props.theme.breakpoints.up("sm")} {
+      flex-grow: 0;
+    }
+  `;
+});
+
 export const Footer = ({
   logo,
   title,
@@ -21,32 +75,14 @@ export const Footer = ({
   pagesComponent,
   small,
 }: FooterProps) => {
-  const theme = useTheme();
-  const onDesktop = useMediaQuery(theme.breakpoints.up("sm"));
-
   return (
-    <FooterBar
-      position="relative"
-      sx={{ top: "auto", bottom: 0, minHeight: small ? "100px" : "200px" }}
-    >
-      <Box display="flex" alignItems="center">
-        <Link
-          sx={{ display: "flex", alignItems: "center", color: "inherit" }}
-          href="https://www.czbiohub.org/"
-        >
-          <Box sx={{ mr: 5, display: "inherit" }}>{logo}</Box>
-          <Typography
-            fontWeight={700}
-            fontSize="1rem"
-            gutterBottom={false}
-            component="span"
-            variant="h1"
-            flexGrow={onDesktop ? 0 : 1} // So it pushes the hamburger menu to the right
-          >
-            {title}
-          </Typography>
-        </Link>
-      </Box>
+    <StyledFooterBar small={small}>
+      <FlexBox>
+        <CustomLink href="https://www.czbiohub.org/">
+          <LogoBox>{logo}</LogoBox>
+          <TitleTypography>{title}</TitleTypography>
+        </CustomLink>
+      </FlexBox>
       {pages && (
         <FooterPagesGroup
           pages={pages}
@@ -54,6 +90,6 @@ export const Footer = ({
           small={small}
         />
       )}
-    </FooterBar>
+    </StyledFooterBar>
   );
 };
