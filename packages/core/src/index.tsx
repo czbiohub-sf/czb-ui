@@ -3,7 +3,6 @@ export * from "./ThemeProvider";
 export * from "./AppBar/AppBar";
 export * from "./FooterBar/FooterBar";
 export * from "./Center/Center";
-export * from "./Card/Card";
 
 export * from "./NavBar/NavBar";
 export * from "./Footer/Footer";
