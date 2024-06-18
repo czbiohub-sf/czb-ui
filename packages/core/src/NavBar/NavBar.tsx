@@ -53,7 +53,7 @@ export const NavBar = ({
                 position: "absolute",
                 fontWeight: "bold",
                 left: { xs: "78px", sm: "102px" },
-                top: "18px",
+                top: "17px",
                 fontSize: "20px",
               }}
             >

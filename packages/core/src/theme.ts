@@ -114,6 +114,7 @@ const appTheme = makeThemeOptions(CZBTheme);
 // https://mui.com/material-ui/customization/theme-components/
 const modifiedComponents: ThemeOptions = {
   components: {
+    // Change default container props
     MuiContainer: {
       defaultProps: {
         maxWidth: "md",
@@ -137,6 +138,23 @@ const modifiedComponents: ThemeOptions = {
           paddingRight: 0,
         }),
       },
+    },
+  },
+  // Change header fonts
+  typography: {
+    // Not sure if SDS reflects its typography styles
+    // to MUI's theme typography
+    h1: {
+      fontFamily: CZBTheme.typography.fontFamily.header,
+      marginBottom: CZBTheme.spacing.xl,
+      fontSize: "40px",
+      lineHeight: "120%",
+    },
+    h2: {
+      marginTop: CZBTheme.spacing.xxl,
+    },
+    body1: {
+      lineHeight: "150%",
     },
   },
 };
