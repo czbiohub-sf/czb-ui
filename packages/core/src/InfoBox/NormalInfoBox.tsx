@@ -6,7 +6,7 @@ import {
   CommonThemeProps,
   getSpaces,
   getColors,
-  fontHeaderXl,
+  fontHeaderL,
   fontCapsXxs,
   getTypography,
   getFontWeights,
@@ -72,7 +72,7 @@ const Title = styled(Box)<CommonThemeProps>((props) => {
   const fontWeights = getFontWeights(props);
 
   return css`
-    ${fontHeaderXl(props)}
+    ${fontHeaderL(props)}
     font-family: ${typography?.fontFamily.body};
     font-weight: ${fontWeights?.regular};
   `;
