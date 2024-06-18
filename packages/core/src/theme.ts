@@ -1,5 +1,5 @@
 import { AppTheme, SDSAppTheme, makeThemeOptions } from "@czi-sds/components";
-import { createTheme } from "@mui/material";
+import { ThemeOptions, createTheme } from "@mui/material";
 import { deepmerge } from "@mui/utils";
 
 // Utility type for making all properties (including nested) optional
@@ -110,7 +110,40 @@ const CZBTheme = deepmerge(SDSAppTheme, customTheme);
 
 const appTheme = makeThemeOptions(CZBTheme);
 
-export const biohubTheme = createTheme(appTheme);
+// Customize MUI components
+// https://mui.com/material-ui/customization/theme-components/
+const modifiedComponents: ThemeOptions = {
+  components: {
+    MuiContainer: {
+      defaultProps: {
+        maxWidth: "md",
+      },
+      styleOverrides: {
+        // Change default padding for MuiContainer
+        root: ({ theme }) => ({
+          [theme.breakpoints.up("sm")]: {
+            paddingLeft: theme.spacing(6),
+            paddingRight: theme.spacing(6),
+          },
+          paddingLeft: theme.spacing(6),
+          paddingRight: theme.spacing(6),
+        }),
+        disableGutters: ({ theme }) => ({
+          [theme.breakpoints.up("sm")]: {
+            paddingLeft: 0,
+            paddingRight: 0,
+          },
+          paddingLeft: 0,
+          paddingRight: 0,
+        }),
+      },
+    },
+  },
+};
+
+const appThemeWithModifiedComponents = deepmerge(appTheme, modifiedComponents);
+
+export const biohubTheme = createTheme(appThemeWithModifiedComponents);
 
 export const createCustomAppTheme = (overrides: AppTheme) => {
   const merged = deepmerge(appTheme, overrides);
