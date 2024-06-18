@@ -21,7 +21,7 @@ export const Banner: Story = {
     image: (
       <img
         style={{ objectFit: "cover", height: "100%", width: "100%", zIndex: 0 }}
-        src="https://source.unsplash.com/random"
+        src="https://www.czbiohub.org/sf/wp-content/uploads/sites/18/2023/02/home-sf-hero-desk.jpg"
       />
     ),
     type: "background",
