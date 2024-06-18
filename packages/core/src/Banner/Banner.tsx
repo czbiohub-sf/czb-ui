@@ -43,7 +43,6 @@ const ContentBox = styled(Box)<BannerStyleProps>((props) => {
     justify-content: left;
     height: 100%;
     padding-top: ${props.theme.spacing(7)};
-    padding-left: ${props.theme.spacing(7)};
     align-items: center;
     max-width: 500px;
 
