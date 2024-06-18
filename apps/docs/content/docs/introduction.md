@@ -8,11 +8,8 @@ czb-ui is a UI library that contains React components for data portals and
 various web apps here at the Biohub.
 
 It is based off of [Material UI](https://mui.com/ "Material UI website
-link") and [Chan ](https://github.com/chanzuckerberg/sci-components "Chan
-Zuckerberg Initiative Science Design System GitHub repository
-link")[Zuckerberg Initiative's Science Design System
-(SDS)](https://github.com/chanzuckerberg/sci-components "Chan Zuckerberg
-Initiative Science Design System GitHub repository link"). A blend of
+link") and [Chan Zuckerberg Initiative's Science Design System
+(SDS)](https://github.com/chanzuckerberg/sci-components "Chan Zuckerberg Initiative Science Design System GitHub repository link"). A blend of
 components between these two libraries are used to build higher level
 components.
 
