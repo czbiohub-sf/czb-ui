@@ -9,6 +9,7 @@ import {
 } from "@czi-sds/components";
 import { css } from "@emotion/react";
 import { PageGroup } from "../UniversalTypes/links";
+import { HeadingSeparator } from "../HeadingSeparator/HeadingSeparator";
 
 interface FooterPagesGroupProps {
   pages: Array<PageGroup>;
@@ -21,27 +22,13 @@ interface FooterPagesGroupStyleProps extends CommonThemeProps {
 }
 
 const StyledBox = styled(Box)<FooterPagesGroupStyleProps>((props) => {
-  const spaces = getSpaces(props);
-
   return css`
     display: flex;
-    margin-top: ${spaces?.l};
-    gap: 80px;
+    gap: 60px;
     flex-direction: column;
-
-    ${props.theme.breakpoints.up("md")} {
+    ${props.theme.breakpoints.up("lg")} {
       flex-direction: row;
     }
-  `;
-});
-
-const GroupTitle = styled(Typography)<FooterPagesGroupStyleProps>((props) => {
-  const colors = getColors(props);
-
-  return css`
-    text-transform: uppercase;
-    font-weight: bold;
-    color: ${colors?.common.white};
   `;
 });
 
@@ -52,16 +39,15 @@ const ListBox = styled(Box)<FooterPagesGroupStyleProps>((props) => {
     list-style-type: none;
     padding: 0;
     margin-bottom: 0;
-    margin-top: ${spaces?.m};
+    margin-top: ${spaces?.m}px;
     display: block;
-
     ${props.small &&
     css`
       ${props.theme.breakpoints.up("md")} {
         display: flex;
         gap: ${spaces?.xl};
       }
-    `}
+    `};
   `;
 });
 
@@ -69,7 +55,7 @@ const ListItem = styled(Box)<FooterPagesGroupStyleProps>((props) => {
   const spaces = getSpaces(props);
 
   return css`
-    margin-bottom: ${spaces?.xl};
+    margin-bottom: ${spaces?.s}px;
   `;
 });
 
@@ -78,8 +64,14 @@ const CustomLink = styled(Link)<FooterPagesGroupStyleProps>((props) => {
   const spaces = getSpaces(props);
 
   return css`
-    margin-top: ${spaces?.m};
+    margin-top: ${spaces?.m}px;
     color: ${colors?.common.white};
+  `;
+});
+
+const PageListContainer = styled(Box)<FooterPagesGroupStyleProps>((props) => {
+  return css`
+    width: 200px;
   `;
 });
 
@@ -91,8 +83,8 @@ export const FooterPagesGroup = ({
   return (
     <StyledBox>
       {pages.map((pageGroup, i) => (
-        <Box key={i}>
-          <GroupTitle>{pageGroup.title}</GroupTitle>
+        <PageListContainer key={i}>
+          <HeadingSeparator title={pageGroup.title} dividerOpacity={0.2} />
           <ListBox>
             {pageGroup.pages.map((page, j) => (
               <ListItem component="li" key={j}>
@@ -109,7 +101,7 @@ export const FooterPagesGroup = ({
               </ListItem>
             ))}
           </ListBox>
-        </Box>
+        </PageListContainer>
       ))}
     </StyledBox>
   );
