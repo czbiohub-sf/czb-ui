@@ -1,8 +1,8 @@
 export * from "./ThemeProvider";
 
 export * from "./AppBar/AppBar";
-export * from "./FooterBar/FooterBar";
-export * from "./Center/Center";
+export * from "./Footer/FooterBar";
+export * from "./Banner/Center";
 
 export * from "./NavBar/NavBar";
 export * from "./Footer/Footer";

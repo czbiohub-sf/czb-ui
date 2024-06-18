@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Box, Link } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { FooterBar } from "../FooterBar/FooterBar";
+import { FooterBar } from "./FooterBar";
 import { PageGroup } from "../UniversalTypes/links";
 import { FooterPagesGroup } from "./FooterPagesGroup";
 import { CommonThemeProps, getSpaces, getColors } from "@czi-sds/components";
