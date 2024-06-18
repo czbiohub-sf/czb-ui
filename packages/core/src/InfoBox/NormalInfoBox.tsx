@@ -1,52 +1,101 @@
-import { Typography, styled, useTheme, Stack } from "@mui/material";
-import Box, { BoxProps } from "@mui/material/Box";
-import { InfoBoxProps } from "./InfoBox";
-import { Button, Icon } from "@czi-sds/components";
+import React from "react";
+import { Box, styled } from "@mui/material";
+import {
+  Button,
+  Icon,
+  CommonThemeProps,
+  getSpaces,
+  getColors,
+  fontHeaderXl,
+  fontCapsXxs,
+  getTypography,
+  getFontWeights,
+} from "@czi-sds/components";
 import { PageLink } from "../UniversalTypes/links";
+import { InfoBoxProps } from "./InfoBox";
+import { css } from "@emotion/react";
 
-interface NormalInfoBoxContainerProps extends BoxProps {
+interface NormalInfoBoxContainerProps extends CommonThemeProps {
   imageOnRight?: boolean;
   small?: boolean;
 }
 
-const NormalInfoBoxContainer = styled(Box, {
-  shouldForwardProp: (prop) => !["small"].includes(prop.toString()),
-})<NormalInfoBoxContainerProps>(({ small, theme }) => ({
-  // For now the small prop will make the box take up
-  // full width. Small prop is true when placed into a Grid
-  // on TinaCMS
-  zIndex: 1,
-  width: "100%",
-  maxWidth: small ? "100%" : "350px",
-  height: small ? "350px" : "450px",
-  padding: "10px",
-  border: "1px solid",
-  borderColor: theme.palette.grey[200],
-  display: "flex",
-  flexDirection: "column",
-}));
-
-// TODO: Make this into a component itself,
-// for all the other components to use also
-interface InfoBoxLinkProps {
+interface InfoBoxLinkProps extends CommonThemeProps {
   page?: PageLink;
-  pagesComponent?: any; // TODO: Find type of mui link component prop
+  pagesComponent?: any;
   withButton: boolean;
 }
 
-// TODO: Simplify this component
-// if pagesComponent is not passed, its an external link
-// in this case for now
+const NormalInfoBoxContainer = styled(Box)<NormalInfoBoxContainerProps>(
+  (props) => {
+    const spaces = getSpaces(props);
+    const colors = getColors(props);
+
+    return css`
+      z-index: 1;
+      width: 100%;
+      max-width: ${props.small ? "100%" : "350px"};
+      height: ${props.small ? "350px" : "450px"};
+      padding: ${spaces?.m}px;
+      border: 1px solid ${colors?.gray[200]};
+      display: flex;
+      flex-direction: column;
+    `;
+  }
+);
+
+const ImageContainer = styled(Box)<CommonThemeProps>((props) => {
+  const colors = getColors(props);
+
+  return css`
+    width: 100%;
+    height: 100%;
+    border: 1px solid ${colors?.gray[200]};
+    max-width: 100%;
+    max-height: 138px;
+  `;
+});
+
+const ContentBox = styled(Box)<CommonThemeProps>((props) => {
+  const spaces = getSpaces(props);
+
+  return css`
+    display: flex;
+    flex-direction: column;
+    padding: ${spaces?.l}px;
+    height: 100%;
+  `;
+});
+
+const Title = styled(Box)<CommonThemeProps>((props) => {
+  const typography = getTypography(props);
+  const fontWeights = getFontWeights(props);
+
+  return css`
+    ${fontHeaderXl(props)}
+    font-family: ${typography?.fontFamily.body};
+    font-weight: ${fontWeights?.regular};
+  `;
+});
+
+const Subtitle = styled(Box)<CommonThemeProps>((props) => {
+  const spaces = getSpaces(props);
+  const colors = getColors(props);
+
+  return css`
+    color: ${colors?.gray[300]};
+    margin: ${spaces?.s}px 0;
+  `;
+});
+
 const InfoBoxLink = ({
   page,
   pagesComponent,
   withButton,
 }: InfoBoxLinkProps) => {
-  // Page title is given, but no link. Disable button
   if (!page?.to) {
     return (
       <Button
-        sx={{ marginTop: { xs: "0.5rem", md: "1rem" } }}
         sdsStyle={withButton ? "square" : "minimal"}
         sdsType="primary"
         startIcon={<Icon sdsIcon="PlusCircle" sdsSize="s" sdsType="button" />}
@@ -60,8 +109,7 @@ const InfoBoxLink = ({
   if (pagesComponent && withButton) {
     return (
       <Button
-        sx={{ marginTop: { xs: "0.5rem", md: "1rem" } }}
-        // @ts-expect-error - TODO: Figure out MUI/SDS Button type for routers
+        // @ts-expect-error
         to={page?.to}
         component={page?.to ? pagesComponent : undefined}
         sdsStyle={withButton ? "square" : "minimal"}
@@ -73,14 +121,12 @@ const InfoBoxLink = ({
     );
   }
 
-  // if (!pagesComponent && withButton)
   return (
     <Button
-      sx={{ marginTop: { xs: "0.5rem", md: "1rem" }, fontWeight: "bold" }}
       href={page?.to}
       sdsStyle={withButton ? "square" : "minimal"}
       sdsType="primary"
-      // @ts-expect-error - TODO: Figure out MUI/SDS Button type for routers
+      // @ts-expect-error
       target={page?.newTab ? "_blank" : undefined}
       rel="noopener"
       startIcon={<Icon sdsIcon="PlusCircle" sdsSize="s" sdsType="button" />}
@@ -100,39 +146,10 @@ export default function NormalInfoBox({
 }: InfoBoxProps) {
   return (
     <NormalInfoBoxContainer small={small}>
-      {image && (
-        <Box
-          sx={{
-            width: "100%",
-            height: "100%",
-            border: "1px solid",
-            borderColor: "grey.200",
-            maxWidth: "100%",
-            maxHeight: "138px",
-          }}
-        >
-          {image}
-        </Box>
-      )}
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          padding: 7,
-          height: "100%",
-        }}
-      >
-        {/* Using a box with display flex instead of Stack so I can adjust margins per element */}
-        <Typography
-          variant="h2"
-          component="span"
-          sx={{ fontFamily: "Hanken Grotesk" }}
-        >
-          {title}
-        </Typography>
-        <Typography variant="body2" sx={{ color: "grey", my: 2 }}>
-          {subtitle}
-        </Typography>
+      {image && <ImageContainer>{image}</ImageContainer>}
+      <ContentBox>
+        <Title>{title}</Title>
+        <Subtitle>{subtitle}</Subtitle>
         <Box marginTop="auto">
           <InfoBoxLink
             page={page}
@@ -140,7 +157,7 @@ export default function NormalInfoBox({
             withButton={false}
           />
         </Box>
-      </Box>
+      </ContentBox>
     </NormalInfoBoxContainer>
   );
 }
