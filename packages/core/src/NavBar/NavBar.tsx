@@ -48,17 +48,17 @@ export const NavBar = ({
         >
           <Box sx={{ mr: 6, display: "inherit" }}>{logo}</Box>
           {useLogoWithTitleVariant && (
-            <Typography
+            <Box
               sx={{
                 position: "absolute",
                 fontWeight: "bold",
-                left: { xs: "75px", sm: "100px" },
-                top: "15px",
+                left: { xs: "75px", sm: "102px" },
+                top: "18px",
                 fontSize: "20px",
               }}
             >
               {title}
-            </Typography>
+            </Box>
           )}
           {!legacyLook && !useLogoWithTitleVariant && (
             <>
