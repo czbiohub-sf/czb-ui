@@ -84,7 +84,7 @@ const Subtitle = styled(Box)<CommonThemeProps>((props) => {
 
   return css`
     color: ${colors?.gray[300]};
-    margin: ${spaces?.s}px 0;
+    margin: ${spaces?.xs}px 0;
   `;
 });
 
