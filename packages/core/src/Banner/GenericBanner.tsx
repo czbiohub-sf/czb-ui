@@ -1,5 +1,5 @@
 import { Box, Container, Typography } from "@mui/material";
-import { Center } from "../Center/Center";
+import { Center } from "./Center";
 
 interface GenericBannerProps {
   background?: React.ReactNode;
