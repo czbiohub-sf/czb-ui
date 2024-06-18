@@ -47,7 +47,7 @@ const LogoBox = styled(Box)<FooterStyleProps>((props) => {
   const spaces = getSpaces(props);
 
   return css`
-    margin-right: ${spaces?.m};
+    margin-right: ${spaces?.m}px;
     display: inherit;
   `;
 });
