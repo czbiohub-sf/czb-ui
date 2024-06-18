@@ -17,9 +17,6 @@ import "@fontsource/barlow/600.css";
 import "@fontsource/barlow/400.css";
 import "@fontsource/jetbrains-mono/400.css";
 
-// Import Butler font
-import "../public/fonts/Butler.css";
-
 const App = ({ Component, pageProps }) => {
   const [sidebarViz, setSidebarViz] = useState(true);
 
