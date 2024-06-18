@@ -1,11 +1,72 @@
 import { AppTheme, SDSAppTheme, makeThemeOptions } from "@czi-sds/components";
-import { ThemeOptions, createTheme } from "@mui/material";
+import { ThemeOptions, createTheme, Theme } from "@mui/material";
 import { deepmerge } from "@mui/utils";
 
 // Utility type for making all properties (including nested) optional
 type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
 };
+
+function returnModifiedMUIComponentsForCZBUI(appTheme: AppTheme): ThemeOptions {
+  // Customize MUI components
+  // https://mui.com/material-ui/customization/theme-components/
+  return {
+    components: {
+      // Change default container props
+      MuiContainer: {
+        defaultProps: {
+          maxWidth: "md",
+        },
+        styleOverrides: {
+          // Change default padding for MuiContainer
+          root: ({ theme }) => ({
+            [theme.breakpoints.up("sm")]: {
+              paddingLeft: theme.spacing(6),
+              paddingRight: theme.spacing(6),
+            },
+            paddingLeft: theme.spacing(6),
+            paddingRight: theme.spacing(6),
+          }),
+          disableGutters: ({ theme }) => ({
+            [theme.breakpoints.up("sm")]: {
+              paddingLeft: 0,
+              paddingRight: 0,
+            },
+            paddingLeft: 0,
+            paddingRight: 0,
+          }),
+        },
+      },
+    },
+    // Change header fonts
+    typography: {
+      // Not sure if SDS reflects its typography styles
+      // to MUI's theme typography
+      h1: {
+        fontFamily: appTheme.typography.fontFamily.header,
+        marginBottom: appTheme.spacing.xl,
+        fontSize: "40px",
+        lineHeight: "120%",
+      },
+      h2: {
+        marginTop: appTheme.spacing.xxl,
+      },
+      body1: {
+        lineHeight: "150%",
+      },
+    },
+  };
+}
+
+function createModifiedSDSTheme(customTheme: DeepPartial<AppTheme>): Theme {
+  const CZBTheme = deepmerge(SDSAppTheme, customTheme);
+  const appTheme = makeThemeOptions(CZBTheme);
+  const appThemeWithModifiedComponents = deepmerge(
+    appTheme,
+    returnModifiedMUIComponentsForCZBUI(CZBTheme)
+  );
+  return createTheme(appThemeWithModifiedComponents);
+}
 
 // See SDS default theme:
 // https://github.com/chanzuckerberg/sci-components/blob/cf36ac5d94e4f788da60ccffe666f45613f056c3/packages/components/src/core/styles/common/SDSAppTheme.ts
@@ -106,64 +167,9 @@ const customTheme: DeepPartial<AppTheme> = {
   },
 };
 
-const CZBTheme = deepmerge(SDSAppTheme, customTheme);
-
-const appTheme = makeThemeOptions(CZBTheme);
-
-// Customize MUI components
-// https://mui.com/material-ui/customization/theme-components/
-const modifiedComponents: ThemeOptions = {
-  components: {
-    // Change default container props
-    MuiContainer: {
-      defaultProps: {
-        maxWidth: "md",
-      },
-      styleOverrides: {
-        // Change default padding for MuiContainer
-        root: ({ theme }) => ({
-          [theme.breakpoints.up("sm")]: {
-            paddingLeft: theme.spacing(6),
-            paddingRight: theme.spacing(6),
-          },
-          paddingLeft: theme.spacing(6),
-          paddingRight: theme.spacing(6),
-        }),
-        disableGutters: ({ theme }) => ({
-          [theme.breakpoints.up("sm")]: {
-            paddingLeft: 0,
-            paddingRight: 0,
-          },
-          paddingLeft: 0,
-          paddingRight: 0,
-        }),
-      },
-    },
-  },
-  // Change header fonts
-  typography: {
-    // Not sure if SDS reflects its typography styles
-    // to MUI's theme typography
-    h1: {
-      fontFamily: CZBTheme.typography.fontFamily.header,
-      marginBottom: CZBTheme.spacing.xl,
-      fontSize: "40px",
-      lineHeight: "120%",
-    },
-    h2: {
-      marginTop: CZBTheme.spacing.xxl,
-    },
-    body1: {
-      lineHeight: "150%",
-    },
-  },
-};
-
-const appThemeWithModifiedComponents = deepmerge(appTheme, modifiedComponents);
-
-export const biohubTheme = createTheme(appThemeWithModifiedComponents);
+export const biohubTheme = createModifiedSDSTheme(customTheme);
 
 export const createCustomAppTheme = (overrides: AppTheme) => {
-  const merged = deepmerge(appTheme, overrides);
-  return createTheme(merged);
+  const customThemeWithOverrides = deepmerge(customTheme, overrides);
+  return createModifiedSDSTheme(customThemeWithOverrides);
 };
