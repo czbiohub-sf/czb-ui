@@ -1,40 +1,71 @@
 import { PageLink } from "../UniversalTypes/links";
-import { Link } from "@czi-sds/components";
-import { Box, ListItem, List } from "@mui/material";
+import { CommonThemeProps, getSpaces } from "@czi-sds/components";
+import { Box, ListItem, List, styled } from "@mui/material";
+import { css } from "@emotion/react";
+import { Button } from "@czi-sds/components";
 
-interface DesktopPagesMenuProps {
+interface DesktopPagesMenuProps extends CommonThemeProps {
   pages: Array<PageLink>;
   pagesComponent?: any; // TODO: Find type of mui button component prop
 }
+
+interface DesktopPagesMenuStyleProps extends CommonThemeProps {}
+
+const StyledBox = styled(Box)<DesktopPagesMenuStyleProps>((props) => {
+  const spaces = getSpaces(props);
+
+  return css`
+    margin: 0 ${spaces?.xl}px;
+  `;
+});
+
+const StyledList = styled(List)<DesktopPagesMenuStyleProps>(() => {
+  return css`
+    display: flex;
+    flex-direction: row;
+  `;
+});
+
+const StyledListItem = styled(ListItem)<DesktopPagesMenuStyleProps>(() => {
+  return css`
+    flex-basis: content;
+  `;
+});
+
+const StyledLink = styled(Button)<DesktopPagesMenuStyleProps>((props) => {
+  const spaces = getSpaces(props);
+
+  return css`
+    margin: 0 ${spaces?.l}px;
+    color: inherit;
+  `;
+});
 
 export const DesktopPagesMenu = ({
   pages,
   pagesComponent,
 }: DesktopPagesMenuProps) => {
   return (
-    <Box sx={{ mx: 5 }}>
-      <List sx={{ display: "flex", flexDirection: "row" }}>
+    <StyledBox>
+      <StyledList>
         {pages.map((page, i) => (
-          <ListItem disableGutters key={i} sx={{ flexBasis: "content" }}>
-            {!page.externalLink && (
-              <Link
-                color="inherit"
+          <StyledListItem disableGutters key={i}>
+            {!page.externalLink ? (
+              <StyledLink
                 component={page?.to ? pagesComponent : undefined}
+                sdsStyle="minimal"
+                sdsType="secondary"
+                // @ts-expect-error
                 to={page?.to}
-                sx={{ mx: 5 }}
               >
                 {page?.title}
-              </Link>
+              </StyledLink>
+            ) : (
+              <StyledLink href={page?.to}>{page?.title}</StyledLink>
             )}
-            {/* If target="_blank" needs to be added also add rel="noopener" */}
-            {page.externalLink && (
-              <Link color="inherit" sx={{ mx: 5 }} href={page?.to}>
-                {page?.title}
-              </Link>
-            )}
-          </ListItem>
+          </StyledListItem>
         ))}
-      </List>
-    </Box>
+      </StyledList>
+    </StyledBox>
   );
 };
