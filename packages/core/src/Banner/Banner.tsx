@@ -27,7 +27,6 @@ const StyledBox = styled(Box)<BannerStyleProps>((props) => {
     position: relative;
     height: ${maxHeight};
     width: 100%;
-    background-color: ${colors?.common.black};
   `;
 });
 
@@ -47,7 +46,7 @@ const ContentBox = styled(Box)<BannerStyleProps>((props) => {
     max-width: 500px;
 
     ${props.theme.breakpoints.down("md")} {
-      align-items: top;
+      align-items: flex-start;
     }
   `;
 });
@@ -61,6 +60,8 @@ const Headline = styled(Typography)<BannerStyleProps>((props) => {
       : colors?.common.black};
 
     ${fontHeaderXxl(props)}
+    font-size: 2.5rem;
+    line-height: 120%;
   `;
 });
 
