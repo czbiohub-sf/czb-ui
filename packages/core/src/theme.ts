@@ -1,3 +1,4 @@
+"use client";
 import { AppTheme, SDSAppTheme, makeThemeOptions } from "@czi-sds/components";
 import { ThemeOptions, createTheme, Theme } from "@mui/material";
 import { deepmerge } from "@mui/utils";

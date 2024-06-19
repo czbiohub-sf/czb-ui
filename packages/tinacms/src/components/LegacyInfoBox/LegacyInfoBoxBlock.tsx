@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { LegacyInfoBox } from "@czb-ui/core";
 import { Container, Box } from "@mui/material";

@@ -1,3 +1,4 @@
+"use client";
 // From https://mui.com/material-ui/react-drawer/#swipeable-edge
 import * as React from "react";
 import { Global } from "@emotion/react";

@@ -1,3 +1,4 @@
+"use client";
 import { Box, Stack, Typography } from "@mui/material";
 import { PageLink } from "../UniversalTypes/links";
 import { Link, Button } from "@czi-sds/components";
