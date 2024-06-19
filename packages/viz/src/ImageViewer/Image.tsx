@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect, useMemo } from "react";
 import DeckGL from "@deck.gl/react/typed";
 import { OrthographicView } from "@deck.gl/core/typed";

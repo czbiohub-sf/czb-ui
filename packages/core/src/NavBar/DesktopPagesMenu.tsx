@@ -1,3 +1,4 @@
+"use client";
 import { PageLink } from "../UniversalTypes/links";
 import { CommonThemeProps, getSpaces } from "@czi-sds/components";
 import { Box, ListItem, List, styled } from "@mui/material";

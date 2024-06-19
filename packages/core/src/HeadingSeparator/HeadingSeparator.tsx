@@ -1,3 +1,4 @@
+"use client";
 import { Box, Divider } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import {

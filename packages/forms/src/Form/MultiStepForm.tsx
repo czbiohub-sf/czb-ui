@@ -1,3 +1,4 @@
+"use client";
 import RJSFForm from "@rjsf/mui";
 import validator from "@rjsf/validator-ajv6";
 import { useState } from "react";

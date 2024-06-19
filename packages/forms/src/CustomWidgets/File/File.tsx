@@ -1,3 +1,4 @@
+"use client";
 import { ChangeEvent, useCallback, useMemo, useRef, useState } from "react";
 import { Typography, Box } from "@mui/material";
 import { Button, Icon, TagFilter } from "@czi-sds/components";

@@ -1,3 +1,4 @@
+"use client";
 import { Box } from "@mui/material";
 import { OpenInFull, CloseFullscreen } from "@mui/icons-material";
 import { Button } from "@czi-sds/components";

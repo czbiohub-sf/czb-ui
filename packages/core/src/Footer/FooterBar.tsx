@@ -1,3 +1,4 @@
+"use client";
 import MaterialAppBar, { AppBarProps } from "@mui/material/AppBar";
 import Toolbar, { ToolbarProps } from "@mui/material/Toolbar";
 import { styled } from "@mui/material/styles";

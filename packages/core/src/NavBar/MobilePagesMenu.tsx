@@ -1,3 +1,4 @@
+"use client";
 import { PageLink } from "../UniversalTypes/links";
 import {
   Box,

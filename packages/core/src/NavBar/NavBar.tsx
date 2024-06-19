@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { AppBar } from "../AppBar/AppBar";
 import { Typography, Box, Link, Divider } from "@mui/material";
