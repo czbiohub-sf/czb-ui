@@ -91,7 +91,7 @@ export const FooterPagesGroup = ({
               <ListItem component="li" key={j}>
                 {!page.externalLink ? (
                   <CustomLink
-                    to={page?.to}
+                    href={page?.to}
                     component={page?.to ? pagesComponent : undefined}
                   >
                     {page?.title}

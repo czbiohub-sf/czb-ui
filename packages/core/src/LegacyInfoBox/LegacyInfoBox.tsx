@@ -36,7 +36,7 @@ const InfoBoxLink = ({
     return (
       <Link
         sx={{ marginTop: putButtonOnBottom ? "auto" : 5 }}
-        to={page?.to}
+        href={page?.to}
         component={page?.to ? pagesComponent : undefined}
       >
         {page?.title}
@@ -62,8 +62,7 @@ const InfoBoxLink = ({
           marginTop: { xs: 2, md: putButtonOnBottom ? "auto" : 5 },
           width: "120px",
         }}
-        // @ts-expect-error - TODO: Figure out MUI/SDS Button type for routers
-        to={page?.to}
+        href={page?.to}
         component={page?.to ? pagesComponent : undefined}
         sdsStyle="square"
         sdsType="primary"

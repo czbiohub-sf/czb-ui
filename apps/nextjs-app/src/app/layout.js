@@ -5,6 +5,7 @@ import { NavBar as CZBUINavBar } from "@czb-ui/core";
 import { WithTitle } from "@czb-ui/biohub-logos";
 import { Footer as CZBUIFooter } from "@czb-ui/core";
 import { SFColorReverse } from "@czb-ui/biohub-logos";
+import NextLink from "next/link";
 
 import "@fontsource/hanken-grotesk/400.css";
 import "@fontsource/hanken-grotesk/600.css";
@@ -29,6 +30,7 @@ function NavBar() {
       logo={<WithTitle />}
       useLogoWithTitleVariant={true}
       pages={pages}
+      pagesComponent={NextLink}
     />
   );
 }
@@ -84,7 +86,13 @@ const footerPages = [
 ];
 
 function Footer() {
-  return <CZBUIFooter logo={<SFColorReverse />} pages={footerPages} />;
+  return (
+    <CZBUIFooter
+      logo={<SFColorReverse />}
+      pages={footerPages}
+      pagesComponent={NextLink}
+    />
+  );
 }
 
 export const metadata = {

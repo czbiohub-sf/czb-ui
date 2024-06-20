@@ -23,7 +23,6 @@ interface NormalInfoBoxContainerProps extends CommonThemeProps {
 interface InfoBoxLinkProps extends CommonThemeProps {
   page?: PageLink;
   pagesComponent?: any;
-  withButton: boolean;
 }
 
 const NormalInfoBoxContainer = styled(Box)<NormalInfoBoxContainerProps>(
@@ -88,15 +87,11 @@ const Subtitle = styled(Box)<CommonThemeProps>((props) => {
   `;
 });
 
-const InfoBoxLink = ({
-  page,
-  pagesComponent,
-  withButton,
-}: InfoBoxLinkProps) => {
+const InfoBoxLink = ({ page, pagesComponent }: InfoBoxLinkProps) => {
   if (!page?.to) {
     return (
       <Button
-        sdsStyle={withButton ? "square" : "minimal"}
+        sdsStyle="minimal"
         sdsType="primary"
         startIcon={<Icon sdsIcon="PlusCircle" sdsSize="s" sdsType="button" />}
         disabled={true}
@@ -106,13 +101,12 @@ const InfoBoxLink = ({
     );
   }
 
-  if (pagesComponent && withButton) {
+  if (pagesComponent) {
     return (
       <Button
-        // @ts-expect-error
-        to={page?.to}
+        href={page?.to}
         component={page?.to ? pagesComponent : undefined}
-        sdsStyle={withButton ? "square" : "minimal"}
+        sdsStyle="minimal"
         sdsType="primary"
         startIcon={<Icon sdsIcon="PlusCircle" sdsSize="s" sdsType="button" />}
       >
@@ -124,7 +118,7 @@ const InfoBoxLink = ({
   return (
     <Button
       href={page?.to}
-      sdsStyle={withButton ? "square" : "minimal"}
+      sdsStyle="minimal"
       sdsType="primary"
       // @ts-expect-error
       target={page?.newTab ? "_blank" : undefined}
@@ -151,11 +145,7 @@ export default function NormalInfoBox({
         <Title>{title}</Title>
         <Subtitle>{subtitle}</Subtitle>
         <Box marginTop="auto">
-          <InfoBoxLink
-            page={page}
-            pagesComponent={pagesComponent}
-            withButton={false}
-          />
+          <InfoBoxLink page={page} pagesComponent={pagesComponent} />
         </Box>
       </ContentBox>
     </NormalInfoBoxContainer>

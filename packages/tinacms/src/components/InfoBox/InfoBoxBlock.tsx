@@ -2,7 +2,7 @@ import { InfoBox } from "@czb-ui/core";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Image from "next/image";
-import { NextLinkComposed } from "../../utils/NextLinkComposed";
+import NextLink from "next/link";
 
 interface InfoBoxBlockProps {
   title?: string;
@@ -61,7 +61,7 @@ export const InfoBoxBlock = ({
           ) : undefined
         }
         imageOnRight={block.right}
-        pagesComponent={block.outsideLink ? undefined : NextLinkComposed}
+        pagesComponent={block.outsideLink ? undefined : NextLink}
       />
     </Container>
   );

@@ -1,6 +1,6 @@
 import { Footer as CZBUIFooter } from "@czb-ui/core";
 import { SFColorReverse } from "@czb-ui/biohub-logos";
-import { NextLinkComposed } from "@czb-ui/tinacms";
+import NextLink from "next/link";
 
 const pages = [
   {
@@ -44,7 +44,7 @@ export default function Footer() {
     <CZBUIFooter
       logo={<SFColorReverse />}
       pages={pages}
-      pagesComponent={NextLinkComposed}
+      pagesComponent={NextLink}
     />
   );
 }

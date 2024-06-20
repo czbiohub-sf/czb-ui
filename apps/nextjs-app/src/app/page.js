@@ -1,6 +1,7 @@
 import { Banner, InfoBox } from "@czb-ui/core";
-import { Box, Container, Typography } from "@mui/material";
+import { Grid, Container, Typography } from "@mui/material";
 import Image from "next/image";
+import NextLink from "next/link";
 
 const BannerImageComponent = () => (
   <Image
@@ -27,17 +28,33 @@ export default function Home() {
           The App Router is a tool that allows you to create a multi-page app
           with Next.js.
         </Typography>
-        <Box sx={{ my: 8 }}>
-          <InfoBox
-            title="Explore Next.js"
-            subtitle="For new applications, we recommend using the App Router. This router allows you to use React's latest features and is an evolution of the Pages Router based on community feedback."
-            page={{
-              title: "Next.js Docs",
-              to: "https://nextjs.org/docs",
-              externalLink: true,
-            }}
-          />
-        </Box>
+        <Grid sx={{ my: 8 }} spacing={4} direction="row" container>
+          <Grid item md>
+            <InfoBox
+              title="Explore Next.js"
+              subtitle="For new applications, we recommend using the App Router. This router allows you to use React's latest features and is an evolution of the Pages Router based on community feedback."
+              page={{
+                title: "Next.js Docs",
+                to: "https://nextjs.org/docs",
+                externalLink: true,
+                newTab: true,
+              }}
+              small
+            />
+          </Grid>
+          <Grid item md>
+            <InfoBox
+              title="Go to about page"
+              subtitle="Demo of Next.js app router linking to another page. The page should not reload."
+              page={{
+                title: "About page",
+                to: "/about",
+              }}
+              pagesComponent={NextLink}
+              small
+            />
+          </Grid>
+        </Grid>
       </Container>
     </>
   );

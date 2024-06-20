@@ -10,7 +10,7 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import { NextLinkComposed } from "@czb-ui/tinacms";
+import NextLink from "next/link";
 
 const drawerWidth = 240;
 
@@ -86,8 +86,8 @@ export default function DocsMenu() {
                   <ListItem key={j} disablePadding>
                     <ListItemButton
                       sx={{ paddingY: 3 }}
-                      component={NextLinkComposed}
-                      to={`/docs/${item.slug}`}
+                      component={NextLink}
+                      href={`/docs/${item.slug}`}
                     >
                       <ListItemText primary={item.title} />
                     </ListItemButton>
