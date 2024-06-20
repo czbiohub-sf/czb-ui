@@ -45,7 +45,7 @@ export const NavBar = ({
         <Link
           sx={{ display: "flex", alignItems: "center", color: "inherit" }}
           component={pagesComponent}
-          to="/"
+          href="/"
         >
           <Box sx={{ mr: 6, display: "inherit" }}>{logo}</Box>
           {useLogoWithTitleVariant && (

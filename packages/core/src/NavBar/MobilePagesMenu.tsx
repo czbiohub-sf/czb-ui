@@ -49,7 +49,7 @@ export const MobilePagesMenu = ({
                     <Link
                       color="inherit"
                       component={page?.to ? pagesComponent : undefined}
-                      to={page?.to}
+                      href={page?.to}
                       sx={{ mx: 5, width: "100%" }}
                       onClick={() => setOpen(false)}
                     >

@@ -43,7 +43,7 @@ export default function BackgroundInfoBox({
         {pagesComponent && (
           <Link
             sx={{ marginTop: "1rem" }}
-            to={page?.to}
+            href={page?.to}
             component={page?.to ? pagesComponent : undefined}
           >
             {page?.title}

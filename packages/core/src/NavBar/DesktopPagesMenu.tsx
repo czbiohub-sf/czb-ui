@@ -56,8 +56,7 @@ export const DesktopPagesMenu = ({
                 component={page?.to ? pagesComponent : undefined}
                 sdsStyle="minimal"
                 sdsType="secondary"
-                // @ts-expect-error
-                to={page?.to}
+                href={page?.to}
               >
                 {page?.title}
               </StyledLink>
