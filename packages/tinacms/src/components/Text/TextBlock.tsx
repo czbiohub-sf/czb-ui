@@ -4,7 +4,7 @@ import Image from "next/image";
 import { InfoBoxBlock } from "../InfoBox/InfoBoxBlock";
 import { Link } from "@czi-sds/components";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 // TODO: Possible to get actual types from tinacms library?
 interface HeadingProps {

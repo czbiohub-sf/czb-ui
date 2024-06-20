@@ -34,5 +34,7 @@ export default {
     /^tinacms\/.*/,
     /^@czb-ui\/.*/,
     "react",
+    "d3-dsv",
+    /^react-syntax-highlighter\/.*/,
   ],
 };

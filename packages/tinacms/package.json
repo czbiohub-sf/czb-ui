@@ -1,7 +1,7 @@
 {
   "name": "@czb-ui/tinacms",
   "version": "1.2.0",
-  "module": "./dist/packages/tinacms/src/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
   "license": "MIT",
   "scripts": {
@@ -10,6 +10,7 @@
   },
   "peerDependencies": {
     "@czb-ui/core": "*",
+    "@czi-sds/components": "^20.5.0",
     "@emotion/css": "^11.11.2",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
@@ -19,15 +20,16 @@
     "@mui/material": "^5.15.3",
     "@mui/x-data-grid": "^5.15.0",
     "next": ">=13.0.0",
-    "@czi-sds/components": "^20.5.0",
     "react": "^17.0.1 || ^18.0.0",
     "react-dom": "^17.0.1 || ^18.0.0",
     "tinacms": "^1.5.28"
   },
   "dependencies": {
+    "d3-dsv": "^3.0.1",
     "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
+    "@types/d3-dsv": "^3.0.0",
     "@types/react-syntax-highlighter": "^15.5.11"
   }
 }
