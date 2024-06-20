@@ -2,7 +2,7 @@
 "@czb-ui/core": major
 ---
 
-New font imports are required:
+Add Hanken Grotesk font weight. Please import the following fonts in your project:
 
 ```jsx
 import "@fontsource/hanken-grotesk/400.css";
