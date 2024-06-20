@@ -1,7 +1,10 @@
-import { Footer, NavBar, ThemeProvider } from "@czb-ui/core";
+import { ThemeProvider } from "@czb-ui/core";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-
 import { NavBarAndFooterPlacer } from "@czb-ui/core";
+import { NavBar as CZBUINavBar } from "@czb-ui/core";
+import { WithTitle } from "@czb-ui/biohub-logos";
+import { Footer as CZBUIFooter } from "@czb-ui/core";
+import { SFColorReverse } from "@czb-ui/biohub-logos";
 
 import "@fontsource/hanken-grotesk/400.css";
 import "@fontsource/hanken-grotesk/600.css";
@@ -11,6 +14,78 @@ import "@fontsource/lato/700.css";
 import "@fontsource/barlow/600.css";
 import "@fontsource/barlow/400.css";
 import "@fontsource/jetbrains-mono/400.css";
+
+const pages = [
+  {
+    title: "About",
+    to: "/about",
+  },
+];
+
+function NavBar() {
+  return (
+    <CZBUINavBar
+      title="App Router Demo"
+      logo={<WithTitle />}
+      useLogoWithTitleVariant={true}
+      pages={pages}
+    />
+  );
+}
+
+const footerPages = [
+  {
+    title: "App Router",
+    pages: [
+      {
+        title: "Home",
+        to: "/",
+      },
+      {
+        title: "About",
+        to: "/about",
+      },
+    ],
+  },
+  {
+    title: "czb-ui",
+    pages: [
+      {
+        title: "Storybook",
+        to: "https://czb-ui.vercel.app/",
+        externalLink: true,
+        newTab: true, // newTab doesn't work as of now
+      },
+      {
+        title: "GitHub",
+        to: "https://github.com/czbiohub/czb-ui",
+        externalLink: true,
+        newTab: true, // newTab doesn't work as of now
+      },
+      {
+        title: "Portal Template (Internal)",
+        to: "https://github.com/czbiohub-sf/portal-template",
+        externalLink: true,
+        newTab: true, // newTab doesn't work as of now
+      },
+    ],
+  },
+  {
+    title: "Company",
+    pages: [
+      {
+        title: "CZ Biohub",
+        to: "https://www.czbiohub.org/",
+        externalLink: true,
+        newTab: true, // newTab doesn't work as of now
+      },
+    ],
+  },
+];
+
+function Footer() {
+  return <CZBUIFooter logo={<SFColorReverse />} pages={footerPages} />;
+}
 
 export const metadata = {
   title: "Create Next App",
