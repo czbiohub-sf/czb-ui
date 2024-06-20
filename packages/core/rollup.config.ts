@@ -32,5 +32,6 @@ export default {
     /^@czi-sds\/.*/,
     /^@fontsource\/.*/,
     "hamburger-react",
+    "tslib", // tslib for some reason needs to be in FullScreenIFrame
   ],
 };
