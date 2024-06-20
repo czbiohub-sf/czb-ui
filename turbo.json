@@ -1,8 +1,14 @@
 {
-  "pipeline": {
+  "tasks": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**", "storybook-static/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**",
+        "storybook-static/**"
+      ]
     },
     "lint": {
       "outputs": []
