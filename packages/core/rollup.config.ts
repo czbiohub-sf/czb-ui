@@ -15,6 +15,15 @@ export default {
     del({ targets: "dist/*", runOnce: true }),
     preserveDirectives(),
   ],
+  onwarn(warning, warn) {
+    if (
+      warning.code === "MODULE_LEVEL_DIRECTIVE" &&
+      warning.message.includes(`'use client'`)
+    ) {
+      return;
+    }
+    warn(warning);
+  },
   external: [
     /^@emotion\/.*/,
     /^@mui\/.*/,
