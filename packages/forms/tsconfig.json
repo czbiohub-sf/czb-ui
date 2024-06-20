@@ -3,8 +3,7 @@
   "include": ["src/**/*"],
   "exclude": ["dist", "build", "node_modules", "src/__tests__"],
   "compilerOptions": {
-    "outDir": "dist",
     "declaration": true,
-    "declarationDir": "."
+    "declarationDir": "dist/types"
   }
 }

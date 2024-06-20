@@ -2,24 +2,30 @@
 import typescript from "@rollup/plugin-typescript";
 import del from "rollup-plugin-delete";
 import { babel } from "@rollup/plugin-babel";
+import preserveDirectives from "rollup-plugin-preserve-directives";
 
 export default {
   input: "src/index.ts",
-  output: [
-    {
-      file: "dist/index.cjs.js",
-      format: "cjs",
-    },
-    {
-      file: "dist/index.esm.js",
-      format: "esm",
-    },
-  ],
+  output: {
+    dir: "dist",
+    format: "esm",
+    preserveModules: true,
+  },
   plugins: [
     typescript({ tsconfig: "./tsconfig.json" }),
     del({ targets: "dist/*", runOnce: true }),
     babel({ babelHelpers: "bundled" }),
+    preserveDirectives(),
   ],
+  onwarn(warning, warn) {
+    if (
+      warning.code === "MODULE_LEVEL_DIRECTIVE" &&
+      warning.message.includes(`'use client'`)
+    ) {
+      return;
+    }
+    warn(warning);
+  },
   external: [
     /^@emotion\/.*/,
     /^@mui\/.*/,
