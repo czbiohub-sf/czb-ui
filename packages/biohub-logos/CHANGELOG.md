@@ -1,5 +1,11 @@
 # @czb-ui/biohub-logos
 
+## 2.0.0-next.0
+
+### Major Changes
+
+- f9657f4: Drop CJS support
+
 ## 1.1.0
 
 ### Minor Changes

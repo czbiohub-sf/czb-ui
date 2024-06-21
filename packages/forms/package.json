@@ -1,6 +1,6 @@
 {
   "name": "@czb-ui/forms",
-  "version": "1.1.0",
+  "version": "2.0.0-next.0",
   "module": "./dist/packages/forms/src/index.js",
   "types": "./dist/types/index.d.ts",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "test": "jest"
   },
   "peerDependencies": {
-    "@czb-ui/core": "*",
+    "@czb-ui/core": "2.0.0-next.0",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.3",
