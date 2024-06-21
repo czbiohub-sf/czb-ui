@@ -1,5 +1,51 @@
 # @czb-ui/core
 
+## 2.0.0-next.0
+
+### Major Changes
+
+- f9657f4: Drop CJS support
+- 458c708: Remove withButton style on Info Box
+- 12da0c7: Use `href=` instead of `to=` for buttons and link components. This is related to using routers for navigation (e.g. Next.js' `Link` component). If using Next.js, you'll need to use Next.js' `Link` component for the `pagesComponent` prop:
+
+  ```jsx
+  import NextLink from "next/link";
+  import { InfoBox } from "@czb-ui/core";
+
+  // ...
+
+  <InfoBox
+    page={{
+      title: "About page",
+      to: "/about",
+    }}
+    pagesComponent={NextLink}
+  />;
+  ```
+
+- 12da0c7: Add Hanken Grotesk font weight. Please import the following fonts in your project:
+
+  ```jsx
+  import "@fontsource/hanken-grotesk/400.css";
+  import "@fontsource/hanken-grotesk/600.css";
+  import "@fontsource/hanken-grotesk/700.css";
+  import "@fontsource/stix-two-text/600.css";
+  import "@fontsource/lato/700.css";
+  import "@fontsource/barlow/600.css";
+  import "@fontsource/barlow/400.css";
+  import "@fontsource/jetbrains-mono/400.css";
+  ```
+
+- 8e322f0: Update to SDS v20, refactor most components to use emotion/styled customization
+
+### Minor Changes
+
+- f9657f4: Support RSC/Client Components
+
+### Patch Changes
+
+- a81748c: Fix externalLink having wrong type
+
 ## 1.3.1
 
 ### Patch Changes

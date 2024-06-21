@@ -1,5 +1,26 @@
 # @czb-ui/forms
 
+## 2.0.0-next.0
+
+### Major Changes
+
+- f9657f4: Drop CJS support
+
+### Minor Changes
+
+- f9657f4: Support RSC/Client Components
+
+### Patch Changes
+
+- Updated dependencies [f9657f4]
+- Updated dependencies [458c708]
+- Updated dependencies [f9657f4]
+- Updated dependencies [12da0c7]
+- Updated dependencies [12da0c7]
+- Updated dependencies [a81748c]
+- Updated dependencies [8e322f0]
+  - @czb-ui/core@2.0.0-next.0
+
 ## 1.1.0
 
 ### Minor Changes

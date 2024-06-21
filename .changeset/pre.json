@@ -1,0 +1,29 @@
+{
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "czb-ui-storybook": "1.2.0",
+    "docs": "0.2.0",
+    "nextjs-app": "0.1.0",
+    "@czb-ui/biohub-logos": "1.1.0",
+    "config": "0.0.0",
+    "@czb-ui/core": "1.3.1",
+    "@czb-ui/forms": "1.1.0",
+    "@czb-ui/tinacms": "1.2.0",
+    "tsconfig": "0.0.0",
+    "@czb-ui/viz": "0.3.0"
+  },
+  "changesets": [
+    "blue-houses-brake",
+    "curvy-pots-ring",
+    "eleven-camels-beam",
+    "famous-hounds-lay",
+    "nervous-owls-hunt",
+    "serious-birds-arrive",
+    "seven-bats-repair",
+    "soft-pots-kick",
+    "tame-steaks-wave",
+    "ten-colts-sell",
+    "wise-oranges-cry"
+  ]
+}

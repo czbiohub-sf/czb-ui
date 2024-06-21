@@ -1,5 +1,12 @@
 # @czb-ui/viz
 
+## 0.4.0-next.0
+
+### Minor Changes
+
+- f9657f4: Drop CJS support
+- f9657f4: Support RSC/Client Components
+
 ## 0.3.0
 
 ### Minor Changes
