@@ -1,8 +1,6 @@
 import React from "react";
 import {
   BannerBlock,
-  GenericBannerBlock,
-  GrandBannerBlock,
   TextBlock,
   InfoBoxBlock,
   TableBlock,
@@ -26,8 +24,6 @@ export const BlockSwitcher = (props: BlockSwitcher) => {
 
   const usableBlocks = {
     Banner: BannerBlock,
-    GenericBanner: GenericBannerBlock,
-    GrandBanner: GrandBannerBlock,
     Text: TextBlock,
     InfoBox: InfoBoxBlock,
     Grid: GridBlock,
@@ -43,8 +39,8 @@ export const BlockSwitcher = (props: BlockSwitcher) => {
       {blocks
         ? blocks.map((block, i) => {
             // Regex to remove all the collection name prefixes and the "Blocks" suffixes
-            // Example block names: "PagesBlocksGenericBanner", "PagesBlocksGridBlocksInfoBox"
-            // Outputs for those examples: "GenericBanner", "InfoBox"
+            // Example block names: "PagesBlocksBanner", "PagesBlocksGridBlocksInfoBox"
+            // Outputs for those examples: "Banner", "InfoBox"
             const blockToLookFor = block.__typename
               .replace(/(([A-Z][a-z0-9]+)+)Blocks/g, "")
               .replace(/Blocks/g, "");
