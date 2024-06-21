@@ -1,7 +1,7 @@
 export interface PageLink {
   title?: string;
   to?: string;
-  externalLink?: string;
+  externalLink?: boolean;
   newTab?: boolean;
 }
 
