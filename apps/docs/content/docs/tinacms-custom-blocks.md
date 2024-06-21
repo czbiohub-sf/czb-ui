@@ -30,15 +30,14 @@ Add this template to your Tina config. For the [internal portal template](https:
 
 ```javascript
 import {
-  GenericBanner,
-  GrandBanner,
+  Banner,
+  Text,
   // ...
 } from "@czb-ui/tinacms";
 import { Vimeo } from "./customTemplates";
 
 const templates = [
-  GenericBanner,
-  GrandBanner,
+  Banner,
   Text,
   InfoBox,
   Grid,

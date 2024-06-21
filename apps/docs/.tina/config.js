@@ -2,8 +2,6 @@ import { defineConfig, defineSchema } from "tinacms";
 
 import {
   Banner,
-  GenericBanner,
-  GrandBanner,
   Text,
   InfoBox,
   Grid,
@@ -15,8 +13,6 @@ import {
 
 const templates = [
   Banner,
-  GenericBanner,
-  GrandBanner,
   Text,
   InfoBox,
   Grid,
