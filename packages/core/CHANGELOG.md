@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 2.0.0-next.1
+
+### Major Changes
+
+- cc97274: Remove deprecated Banner components
+
 ## 2.0.0-next.0
 
 ### Major Changes

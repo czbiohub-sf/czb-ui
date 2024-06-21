@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "0.3.0-next.0",
+  "version": "0.3.0-next.1",
   "private": true,
   "scripts": {
     "dev": "tinacms dev -c \"next dev\"",
@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@czb-ui/biohub-logos": "2.0.0-next.0",
-    "@czb-ui/core": "2.0.0-next.0",
-    "@czb-ui/tinacms": "2.0.0-next.0",
+    "@czb-ui/core": "2.0.0-next.1",
+    "@czb-ui/tinacms": "2.0.0-next.1",
     "@emotion/css": "^11.11.2",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
