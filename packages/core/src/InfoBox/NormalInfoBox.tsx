@@ -25,23 +25,23 @@ interface InfoBoxLinkProps extends CommonThemeProps {
   pagesComponent?: any;
 }
 
-const NormalInfoBoxContainer = styled(Box)<NormalInfoBoxContainerProps>(
-  (props) => {
-    const spaces = getSpaces(props);
-    const colors = getColors(props);
+const NormalInfoBoxContainer = styled(Box, {
+  shouldForwardProp: (prop) => prop !== "small",
+})<NormalInfoBoxContainerProps>((props) => {
+  const spaces = getSpaces(props);
+  const colors = getColors(props);
 
-    return css`
-      z-index: 1;
-      width: 100%;
-      max-width: ${props.small ? "100%" : "350px"};
-      height: ${props.small ? "350px" : "450px"};
-      padding: ${spaces?.m}px;
-      border: 1px solid ${colors?.gray[200]};
-      display: flex;
-      flex-direction: column;
-    `;
-  }
-);
+  return css`
+    z-index: 1;
+    width: 100%;
+    max-width: ${props.small ? "100%" : "350px"};
+    height: ${props.small ? "350px" : "450px"};
+    padding: ${spaces?.m}px;
+    border: 1px solid ${colors?.gray[200]};
+    display: flex;
+    flex-direction: column;
+  `;
+});
 
 const ImageContainer = styled(Box)<CommonThemeProps>((props) => {
   const colors = getColors(props);
