@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 2.0.0-next.2
+
+### Patch Changes
+
+- 8051015: Fix small prop being passed to MUI Box component in InfoBox
+
 ## 2.0.0-next.1
 
 ### Major Changes

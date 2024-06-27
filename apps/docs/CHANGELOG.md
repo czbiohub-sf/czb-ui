@@ -1,5 +1,15 @@
 # docs
 
+## 0.3.0-next.2
+
+### Patch Changes
+
+- bb14e34: Update TinaCMS
+- Updated dependencies [8051015]
+- Updated dependencies [bb14e34]
+  - @czb-ui/core@2.0.0-next.2
+  - @czb-ui/tinacms@2.0.0-next.2
+
 ## 0.3.0-next.1
 
 ### Patch Changes
