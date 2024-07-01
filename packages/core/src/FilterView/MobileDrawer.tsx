@@ -1,13 +1,19 @@
 // Based off example: https://mui.com/material-ui/react-drawer/#swipeable-edge
 import { useState } from "react";
-import { Box, Typography, SwipeableDrawer } from "@mui/material";
+import {
+  Box,
+  Typography,
+  SwipeableDrawer,
+  Fab,
+  IconButton,
+} from "@mui/material";
+import { Close } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 import { getColors } from "@czi-sds/components";
-import { Global } from "@emotion/react";
 
 import { FilterViewProps } from "./FilterView";
 
-const drawerBleeding = 72;
+const drawerBleeding = 0;
 const drawerHeight = "80%";
 
 const StyledBox = styled("div")(() => {
@@ -30,10 +36,17 @@ const Puller = styled("div")((props) => {
   };
 });
 
+const fabStyle = {
+  position: "fixed",
+  bottom: 16,
+  right: 16,
+};
+
 export default function MobileDrawer({
   drawerComponent,
   contentComponent,
-  mobileDrawerPullerText,
+  mobileFabAriaLabel,
+  mobileFabIcon,
 }: FilterViewProps) {
   const [open, setOpen] = useState(false);
 
@@ -43,15 +56,17 @@ export default function MobileDrawer({
 
   return (
     <>
-      <Global
-        styles={{
-          ".MuiDrawer-root > .MuiPaper-root": {
-            height: `calc(${drawerHeight} - ${drawerBleeding}px)`,
-            overflow: "visible",
-          },
-        }}
-      />
-      <Box>{contentComponent}</Box>
+      <Box>
+        {contentComponent}
+        <Fab
+          color="primary"
+          aria-label={mobileFabAriaLabel}
+          onClick={toggleDrawer(true)}
+          sx={fabStyle}
+        >
+          {mobileFabIcon}
+        </Fab>
+      </Box>
       {/* @ts-expect-error */}
       <SwipeableDrawer
         anchor="bottom"
@@ -63,23 +78,22 @@ export default function MobileDrawer({
         ModalProps={{
           keepMounted: true,
         }}
+        transitionDuration={200}
       >
-        <StyledBox
+        <Puller />
+
+        <IconButton
+          aria-label="close"
+          onClick={toggleDrawer(false)}
           sx={{
-            position: "absolute",
-            top: -drawerBleeding,
-            borderTopLeftRadius: 8,
-            borderTopRightRadius: 8,
-            visibility: "visible",
-            right: 0,
-            left: 0,
+            position: "relative",
+            display: "flex",
+            justifyContent: "flex-end",
+            p: 7,
           }}
         >
-          <Puller />
-          <Typography sx={{ p: 7, color: "text.secondary" }}>
-            51 results
-          </Typography>
-        </StyledBox>
+          <Close />
+        </IconButton>
         <StyledBox
           sx={{
             px: 2,
