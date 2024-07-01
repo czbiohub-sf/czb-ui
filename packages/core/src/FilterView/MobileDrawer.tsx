@@ -1,3 +1,4 @@
+"use client";
 // Based off example: https://mui.com/material-ui/react-drawer/#swipeable-edge
 import { useState } from "react";
 import {

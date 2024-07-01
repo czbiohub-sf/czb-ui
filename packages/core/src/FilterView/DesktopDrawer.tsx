@@ -1,3 +1,4 @@
+"use client";
 // Based off example: https://mui.com/material-ui/react-drawer/#full-height-navigation
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
