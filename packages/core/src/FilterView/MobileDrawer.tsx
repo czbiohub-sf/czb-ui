@@ -72,6 +72,7 @@ export default function MobileDrawer({
         open={open}
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
+        swipeAreaWidth={0}
         disableSwipeToOpen={false}
         ModalProps={{
           keepMounted: true,
