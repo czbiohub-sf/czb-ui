@@ -2,32 +2,39 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Footer as CZBUIFooter } from "@czb-ui/core";
 import { SFColorReverse } from "@czb-ui/biohub-logos";
 
-const meta: Meta<typeof CZBUIFooter> = {
+type FooterPropsAndCustomArgs = React.ComponentProps<typeof CZBUIFooter> & {
+  logoSrc?: string;
+};
+
+const meta: Meta<FooterPropsAndCustomArgs> = {
   title: "core/Footer",
   component: CZBUIFooter,
   parameters: {
     layout: "fullscreen",
   },
+  argTypes: {
+    logoSrc: {
+      table: {
+        disable: true,
+      },
+    },
+    pages: {
+      control: "object",
+    },
+    pagesComponent: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  render: ({ ...args }) => <CZBUIFooter {...args} logo={<SFColorReverse />} />,
 };
 
 export default meta;
 
-type Page = {
-  title: string;
-  to: string;
-};
+type Story = StoryObj<FooterPropsAndCustomArgs>;
 
-type PageGroup = {
-  title: string;
-  pages: Page[];
-};
-
-type FooterProps = {
-  pages: PageGroup[];
-  logo: JSX.Element;
-};
-
-export const Footer: StoryObj<FooterProps> = {
+export const Footer: Story = {
   args: {
     pages: [
       {
@@ -55,7 +62,5 @@ export const Footer: StoryObj<FooterProps> = {
         ],
       },
     ],
-    logo: <SFColorReverse />,
   },
-  render: (args) => <CZBUIFooter {...args} />,
 };
