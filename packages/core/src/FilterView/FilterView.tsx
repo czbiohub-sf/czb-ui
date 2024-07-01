@@ -11,6 +11,7 @@ export type FilterViewProps = {
   mobileFabAriaLabel?: string;
   mobileFabIcon?: React.ReactNode;
   muiBreakpointForMobile?: "xs" | "sm" | "md" | "lg" | "xl";
+  mobileDrawerHeightPx?: number;
 };
 
 export const FilterView = ({
@@ -20,6 +21,7 @@ export const FilterView = ({
   mobileFabAriaLabel = "Options",
   mobileFabIcon = <Settings />,
   muiBreakpointForMobile = "md",
+  mobileDrawerHeightPx = 300,
 }: FilterViewProps) => {
   const theme = useTheme();
   const onMobile = useMediaQuery(
@@ -33,6 +35,7 @@ export const FilterView = ({
         contentComponent={contentComponent}
         mobileFabAriaLabel={mobileFabAriaLabel}
         mobileFabIcon={mobileFabIcon}
+        mobileDrawerHeightPx={mobileDrawerHeightPx}
       />
     );
   }
