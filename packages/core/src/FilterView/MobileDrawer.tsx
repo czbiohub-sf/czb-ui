@@ -14,9 +14,6 @@ import { getColors } from "@czi-sds/components";
 
 import { FilterViewProps } from "./FilterView";
 
-const drawerBleeding = 0;
-const drawerHeight = "80%";
-
 const StyledBox = styled("div")(() => {
   return {
     backgroundColor: "#fff",
@@ -48,6 +45,7 @@ export default function MobileDrawer({
   contentComponent,
   mobileFabAriaLabel,
   mobileFabIcon,
+  mobileDrawerHeightPx,
 }: FilterViewProps) {
   const [open, setOpen] = useState(false);
 
@@ -74,7 +72,6 @@ export default function MobileDrawer({
         open={open}
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
-        swipeAreaWidth={drawerBleeding}
         disableSwipeToOpen={false}
         ModalProps={{
           keepMounted: true,
@@ -82,7 +79,6 @@ export default function MobileDrawer({
         transitionDuration={200}
       >
         <Puller />
-
         <IconButton
           aria-label="close"
           onClick={toggleDrawer(false)}
@@ -99,7 +95,7 @@ export default function MobileDrawer({
           sx={{
             px: 2,
             pb: 2,
-            height: "100%",
+            height: `${mobileDrawerHeightPx}px`,
             overflow: "auto",
           }}
         >
