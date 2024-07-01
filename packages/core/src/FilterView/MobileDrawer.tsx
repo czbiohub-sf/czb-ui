@@ -79,19 +79,22 @@ export default function MobileDrawer({
         }}
         transitionDuration={200}
       >
-        <Puller />
-        <IconButton
-          aria-label="close"
-          onClick={toggleDrawer(false)}
-          sx={{
-            position: "relative",
-            display: "flex",
-            justifyContent: "flex-end",
-            p: 7,
-          }}
-        >
-          <Close />
-        </IconButton>
+        <Box borderBottom={1} sx={{ borderColor: "divider" }}>
+          <Puller />
+          <IconButton
+            aria-label="close"
+            onClick={toggleDrawer(false)}
+            sx={{
+              position: "relative",
+              display: "flex",
+              justifyContent: "flex-end",
+              p: 7,
+              width: "100%",
+            }}
+          >
+            <Close />
+          </IconButton>
+        </Box>
         <StyledBox
           sx={{
             px: 2,
