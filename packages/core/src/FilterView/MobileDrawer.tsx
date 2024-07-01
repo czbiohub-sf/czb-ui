@@ -1,16 +1,11 @@
 "use client";
 // Based off example: https://mui.com/material-ui/react-drawer/#swipeable-edge
 import { useState } from "react";
-import {
-  Box,
-  Typography,
-  SwipeableDrawer,
-  Fab,
-  IconButton,
-} from "@mui/material";
+import { Box, SwipeableDrawer, Fab, IconButton } from "@mui/material";
 import { Close } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 import { getColors } from "@czi-sds/components";
+import { Global } from "@emotion/react";
 
 import { FilterViewProps } from "./FilterView";
 
@@ -55,6 +50,13 @@ export default function MobileDrawer({
 
   return (
     <>
+      <Global
+        styles={{
+          ".MuiDrawer-root > .MuiPaper-root": {
+            overflow: "visible",
+          },
+        }}
+      />
       <Box>
         {contentComponent}
         <Fab
