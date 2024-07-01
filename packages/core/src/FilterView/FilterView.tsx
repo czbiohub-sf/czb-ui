@@ -1,5 +1,5 @@
 "use client";
-import { useMediaQuery } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 import { Settings } from "@mui/icons-material";
 import MobileDrawer from "./MobileDrawer";
 import { DesktopDrawer } from "./DesktopDrawer";
@@ -10,6 +10,7 @@ export type FilterViewProps = {
   desktopDrawerWidth?: number;
   mobileFabAriaLabel?: string;
   mobileFabIcon?: React.ReactNode;
+  muiBreakpointForMobile?: "xs" | "sm" | "md" | "lg" | "xl";
 };
 
 export const FilterView = ({
@@ -18,8 +19,12 @@ export const FilterView = ({
   desktopDrawerWidth = 240,
   mobileFabAriaLabel = "Options",
   mobileFabIcon = <Settings />,
+  muiBreakpointForMobile = "md",
 }: FilterViewProps) => {
-  const onMobile = useMediaQuery("(max-width:600px)");
+  const theme = useTheme();
+  const onMobile = useMediaQuery(
+    theme.breakpoints.down(muiBreakpointForMobile)
+  );
 
   if (onMobile) {
     return (
