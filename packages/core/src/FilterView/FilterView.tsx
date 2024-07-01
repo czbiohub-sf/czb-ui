@@ -1,5 +1,6 @@
 "use client";
 import { useMediaQuery } from "@mui/material";
+import { Settings } from "@mui/icons-material";
 import MobileDrawer from "./MobileDrawer";
 import { DesktopDrawer } from "./DesktopDrawer";
 
@@ -7,14 +8,16 @@ export type FilterViewProps = {
   drawerComponent: React.ReactNode;
   contentComponent: React.ReactNode;
   desktopDrawerWidth?: number;
-  mobileDrawerPullerText?: string;
+  mobileFabAriaLabel?: string;
+  mobileFabIcon?: React.ReactNode;
 };
 
 export const FilterView = ({
   drawerComponent,
   contentComponent,
   desktopDrawerWidth = 240,
-  mobileDrawerPullerText = "Options",
+  mobileFabAriaLabel = "Options",
+  mobileFabIcon = <Settings />,
 }: FilterViewProps) => {
   const onMobile = useMediaQuery("(max-width:600px)");
 
@@ -23,7 +26,8 @@ export const FilterView = ({
       <MobileDrawer
         drawerComponent={drawerComponent}
         contentComponent={contentComponent}
-        mobileDrawerPullerText={mobileDrawerPullerText}
+        mobileFabAriaLabel={mobileFabAriaLabel}
+        mobileFabIcon={mobileFabIcon}
       />
     );
   }
