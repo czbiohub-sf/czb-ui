@@ -1,5 +1,11 @@
 # @czb-ui/biohub-logos
 
+## 2.0.0-next.1
+
+### Minor Changes
+
+- c912f38: Allow all logo props to be overridden
+
 ## 2.0.0-next.0
 
 ### Major Changes

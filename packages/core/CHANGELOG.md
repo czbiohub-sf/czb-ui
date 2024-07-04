@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 2.0.0-next.4
+
+### Minor Changes
+
+- e6c9794: Expose sx props for custom styling in FilterView
+
 ## 2.0.0-next.3
 
 ### Minor Changes
