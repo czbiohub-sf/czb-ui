@@ -1,5 +1,12 @@
 # docs
 
+## 0.3.0-next.5
+
+### Patch Changes
+
+- Updated dependencies [0771187]
+  - @czb-ui/biohub-logos@2.0.0-next.2
+
 ## 0.3.0-next.4
 
 ### Patch Changes

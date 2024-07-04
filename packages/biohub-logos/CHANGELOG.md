@@ -1,5 +1,11 @@
 # @czb-ui/biohub-logos
 
+## 2.0.0-next.2
+
+### Patch Changes
+
+- 0771187: Props overwrote pre-defined sx props
+
 ## 2.0.0-next.1
 
 ### Minor Changes
