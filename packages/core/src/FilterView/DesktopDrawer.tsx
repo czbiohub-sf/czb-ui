@@ -9,9 +9,10 @@ export const DesktopDrawer = ({
   drawerComponent,
   contentComponent,
   desktopDrawerWidth,
+  desktopContainerSxProps,
 }: FilterViewProps) => {
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", ...desktopContainerSxProps }}>
       <Drawer
         sx={{
           width: desktopDrawerWidth,

@@ -41,6 +41,7 @@ export default function MobileDrawer({
   mobileFabAriaLabel,
   mobileFabIcon,
   mobileDrawerHeightPx,
+  mobileContentContainerSxProps,
 }: FilterViewProps) {
   const [open, setOpen] = useState(false);
 
@@ -57,7 +58,7 @@ export default function MobileDrawer({
           },
         }}
       />
-      <Box>
+      <Box sx={mobileContentContainerSxProps}>
         {contentComponent}
         <Fab
           color="primary"

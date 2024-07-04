@@ -1,5 +1,5 @@
 "use client";
-import { useMediaQuery, useTheme } from "@mui/material";
+import { SxProps, Theme, useMediaQuery, useTheme } from "@mui/material";
 import { Settings } from "@mui/icons-material";
 import MobileDrawer from "./MobileDrawer";
 import { DesktopDrawer } from "./DesktopDrawer";
@@ -12,6 +12,8 @@ export type FilterViewProps = {
   mobileFabIcon?: React.ReactNode;
   muiBreakpointForMobile?: "xs" | "sm" | "md" | "lg" | "xl";
   mobileDrawerHeightPx?: number;
+  desktopContainerSxProps?: SxProps<Theme>;
+  mobileContentContainerSxProps?: SxProps<Theme>;
 };
 
 export const FilterView = ({
@@ -22,6 +24,8 @@ export const FilterView = ({
   mobileFabIcon = <Settings />,
   muiBreakpointForMobile = "md",
   mobileDrawerHeightPx = 300,
+  desktopContainerSxProps,
+  mobileContentContainerSxProps,
 }: FilterViewProps) => {
   const theme = useTheme();
   const onMobile = useMediaQuery(
@@ -36,6 +40,7 @@ export const FilterView = ({
         mobileFabAriaLabel={mobileFabAriaLabel}
         mobileFabIcon={mobileFabIcon}
         mobileDrawerHeightPx={mobileDrawerHeightPx}
+        mobileContentContainerSxProps={mobileContentContainerSxProps}
       />
     );
   }
@@ -45,6 +50,7 @@ export const FilterView = ({
       drawerComponent={drawerComponent}
       contentComponent={contentComponent}
       desktopDrawerWidth={desktopDrawerWidth}
+      desktopContainerSxProps={desktopContainerSxProps}
     />
   );
 };
