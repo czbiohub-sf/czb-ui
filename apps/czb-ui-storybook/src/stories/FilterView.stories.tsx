@@ -12,6 +12,7 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import SettingsIcon from "@mui/icons-material/Settings";
+import Box from "@mui/material/Box";
 
 const meta: Meta<typeof CZBUIFilterView> = {
   component: CZBUIFilterView,
@@ -62,36 +63,21 @@ const DrawerComponent = (
 );
 
 const ContentComponent = (
-  <>
+  <Box m={6} maxWidth="sm">
+    <Typography variant="h1">What is the FilterView component?</Typography>
     <Typography paragraph>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus
-      non enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-      imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-      Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-      Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-      adipiscing bibendum est ultricies integer quis. Cursus euismod quis
-      viverra nibh cras. Metus vulputate eu scelerisque felis imperdiet proin
-      fermentum leo. Mauris commodo quis imperdiet massa tincidunt. Cras
-      tincidunt lobortis feugiat vivamus at augue. At augue eget arcu dictum
-      varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt.
-      Lorem donec massa sapien faucibus et molestie ac.
+      The FilterView component is a responsive layout component that displays a
+      drawer on the left side of the screen on desktop devices, and a floating
+      action button that opens a drawer on mobile devices.
     </Typography>
     <Typography paragraph>
-      Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-      ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar elementum
-      integer enim neque volutpat ac tincidunt. Ornare suspendisse sed nisi
-      lacus sed viverra tellus. Purus sit amet volutpat consequat mauris.
-      Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-      vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra
-      accumsan in. In hendrerit gravida rutrum quisque non tellus orci ac.
-      Pellentesque nec nam aliquam sem et tortor. Habitant morbi tristique
-      senectus et. Adipiscing elit duis tristique sollicitudin nibh sit. Ornare
-      aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-      accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices
-      sagittis orci a.
+      This component is most suitable for applications that require a set of
+      filters along with a table of data.
     </Typography>
-  </>
+    <Typography paragraph>
+      The name of this component will definitely be changed for the v2 release.
+    </Typography>
+  </Box>
 );
 
 export const FilterView: Story = {
