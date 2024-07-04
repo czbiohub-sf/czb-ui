@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 2.0.0-next.5
+
+### Patch Changes
+
+- 2321a0f: Remove unnecessary styles in FilterView
+
 ## 2.0.0-next.4
 
 ### Minor Changes
