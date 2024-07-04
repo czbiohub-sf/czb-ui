@@ -1,7 +1,7 @@
 {
   "name": "czb-ui-storybook",
   "private": true,
-  "version": "2.0.0-next.5",
+  "version": "2.0.0-next.6",
   "type": "module",
   "scripts": {
     "dev": "storybook dev -p 6006",
@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "@czb-ui/biohub-logos": "2.0.0-next.2",
-    "@czb-ui/core": "2.0.0-next.4",
-    "@czb-ui/forms": "2.0.0-next.4",
+    "@czb-ui/core": "2.0.0-next.5",
+    "@czb-ui/forms": "2.0.0-next.5",
     "@emotion/css": "^11.11.2",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
