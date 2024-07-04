@@ -100,8 +100,6 @@ export default function MobileDrawer({
         </Box>
         <StyledBox
           sx={{
-            px: 2,
-            pb: 2,
             height: `${mobileDrawerHeightPx}px`,
             overflow: "auto",
           }}

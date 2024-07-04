@@ -27,10 +27,7 @@ export const DesktopDrawer = ({
       >
         {drawerComponent}
       </Drawer>
-      <Box
-        component="main"
-        sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
-      >
+      <Box component="main" sx={{ flexGrow: 1 }}>
         {contentComponent}
       </Box>
     </Box>
