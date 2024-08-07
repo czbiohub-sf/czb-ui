@@ -69,7 +69,7 @@ class LayerManager {
   layers: Map<number, Layer>;
   typeLookup: Record<"positions" | "colors", number[]>;
   soloedLayers: Record<"positions" | "colors", number>;
-  selectedAttributes: string[];
+  selectedAttribute: string | null;
 
   constructor() {
     this.layers = new Map();
@@ -81,7 +81,7 @@ class LayerManager {
       positions: -1,
       colors: -1,
     };
-    this.selectedAttributes = [];
+    this.selectedAttribute = null;
   }
 
   addLayer(name: string, type: "positions" | "colors", label: string): number {
@@ -183,8 +183,8 @@ class LayerManager {
     return this.getLayer(layerId).getAttributes();
   }
 
-  selectAttributes(attributes: string[]) {
-    this.selectedAttributes = attributes;
+  selectAttribute(attribute: string) {
+    this.selectedAttribute = attribute;
   }
 }
 

@@ -152,22 +152,33 @@ export class ThreeDimScatterPlot {
       .add(this.layerManager.soloedLayers, "colors", colorItems)
       .onChange((layerId: number) => {
         this.layerManager.soloLayer(layerId);
-        // The selectedAttributes dropdown
+        // The selectedAttribute dropdown
         // would need to update, based on the
         // color layer selected. So refresh the GUI
         this.refreshGui();
       });
 
-    // Attributes of current color dropdown
     const currentColorAttributes =
       await this.layerManager.getAttributesOfCurrentColorLayer();
-    if (currentColorAttributes) {
-      this.layersGuiFolder.add(
-        this.layerManager,
-        "selectedAttributes",
-        currentColorAttributes
-      );
+
+    if (!currentColorAttributes) {
+      return;
     }
+
+    // Automatically select the first attribute
+    // on change of color layer, since different
+    // color layers can have different attributes
+    this.layerManager.selectedAttribute = currentColorAttributes[0];
+
+    // Attributes of current color dropdown
+    this.layersGuiFolder.add(
+      this.layerManager,
+      "selectedAttribute",
+      currentColorAttributes
+    );
+    // As of now since lil-gui doesn't have
+    // multi-select dropdowns, we can't have
+    // multiple attributes selected at once.
   }
 
   async loadZarr(
