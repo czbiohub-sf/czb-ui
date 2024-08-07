@@ -42,10 +42,12 @@ class Layer extends EventTarget {
     return nestedArray.data as Int32Array | Float32Array;
   }
 
-  getAttributes() {
+  async getAttributes() {
     this.checkIfZarrArrayLoaded();
 
-    return this.zarrArray!.attrs as Attributes<UserAttributes>;
+    const attrs = await this.zarrArray!.attrs.asObject();
+
+    return attrs.map as Array<any>;
   }
 
   enable() {
@@ -67,6 +69,7 @@ class LayerManager {
   layers: Map<number, Layer>;
   typeLookup: Record<"positions" | "colors", number[]>;
   soloedLayers: Record<"positions" | "colors", number>;
+  selectedAttributes: string[];
 
   constructor() {
     this.layers = new Map();
@@ -78,6 +81,7 @@ class LayerManager {
       positions: -1,
       colors: -1,
     };
+    this.selectedAttributes = [];
   }
 
   addLayer(name: string, type: "positions" | "colors", label: string): number {
@@ -168,6 +172,19 @@ class LayerManager {
     lookup["None"] = -1;
 
     return lookup;
+  }
+
+  getAttributesOfCurrentColorLayer() {
+    const layerId = this.soloedLayers.colors;
+    if (layerId === -1) {
+      return null;
+    }
+
+    return this.getLayer(layerId).getAttributes();
+  }
+
+  selectAttributes(attributes: string[]) {
+    this.selectedAttributes = attributes;
   }
 }
 

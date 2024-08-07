@@ -132,7 +132,7 @@ export class ThreeDimScatterPlot {
     this.renderer.render(this.scene, this.camera);
   }
 
-  private refreshGui() {
+  private async refreshGui() {
     // Clear layers folder
     this.layersGuiFolder.destroy();
     this.layersGuiFolder = this.gui.addFolder("Layers");
@@ -152,7 +152,22 @@ export class ThreeDimScatterPlot {
       .add(this.layerManager.soloedLayers, "colors", colorItems)
       .onChange((layerId: number) => {
         this.layerManager.soloLayer(layerId);
+        // The selectedAttributes dropdown
+        // would need to update, based on the
+        // color layer selected. So refresh the GUI
+        this.refreshGui();
       });
+
+    // Attributes of current color dropdown
+    const currentColorAttributes =
+      await this.layerManager.getAttributesOfCurrentColorLayer();
+    if (currentColorAttributes) {
+      this.layersGuiFolder.add(
+        this.layerManager,
+        "selectedAttributes",
+        currentColorAttributes
+      );
+    }
   }
 
   async loadZarr(
