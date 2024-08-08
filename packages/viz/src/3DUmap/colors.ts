@@ -1,9 +1,11 @@
 import { scaleSequential, rgb, interpolateCool } from "d3";
 
 const GREYED_COLOR = [64, 64, 64];
+const HIGHLIGHT_COLOR = [255, 255, 0];
 
 function convertIntTypedArrayToCategoryColors(
-  intTypedArray: Int32Array
+  intTypedArray: Int32Array,
+  highlightMode: boolean
 ): Uint8Array {
   // intTypedArray looks like [0, 0, 2, 1, 2] where each number is a category
   const colorScale = scaleSequential(interpolateCool);
@@ -16,6 +18,12 @@ function convertIntTypedArrayToCategoryColors(
       categoryColors[i * 3] = GREYED_COLOR[0];
       categoryColors[i * 3 + 1] = GREYED_COLOR[1];
       categoryColors[i * 3 + 2] = GREYED_COLOR[2];
+      continue;
+    }
+    if (highlightMode) {
+      categoryColors[i * 3] = HIGHLIGHT_COLOR[0];
+      categoryColors[i * 3 + 1] = HIGHLIGHT_COLOR[1];
+      categoryColors[i * 3 + 2] = HIGHLIGHT_COLOR[2];
       continue;
     }
     const color = rgb(colorScale(intTypedArray[i] / maxValue));

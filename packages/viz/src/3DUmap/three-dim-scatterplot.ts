@@ -252,15 +252,21 @@ export class ThreeDimScatterPlot {
       throw new Error("Geometry is not initialized. Call drawPoints first.");
     }
 
-    const colorCategories = await this.layerManager
-      .getLayer(layerId)
-      .getTypedArrayWithSelectedAttributeFiltered();
+    const layer = this.layerManager.getLayer(layerId);
+
+    const colorCategories =
+      await layer.getTypedArrayWithSelectedAttributeFiltered();
+
+    const inHighlightMode = layer.selectedAttribute !== undefined;
 
     if (colorCategories instanceof Float32Array) {
       throw new Error("Color categories must be an Int32Array");
     }
 
-    const colors = convertIntTypedArrayToCategoryColors(colorCategories);
+    const colors = convertIntTypedArrayToCategoryColors(
+      colorCategories,
+      inHighlightMode
+    );
 
     this.geometry.setAttribute(
       "color",
