@@ -222,6 +222,7 @@ export class ThreeDimScatterPlot {
 
       layer.addEventListener("newAttributeSelected", () => {
         this.log(`New attribute selected: ${layer.selectedAttribute}`);
+        this.colorPoints(layerId);
       });
     }
 
@@ -253,7 +254,7 @@ export class ThreeDimScatterPlot {
 
     const colorCategories = await this.layerManager
       .getLayer(layerId)
-      .getTypedArray();
+      .getTypedArrayWithSelectedAttributeFiltered();
 
     if (colorCategories instanceof Float32Array) {
       throw new Error("Color categories must be an Int32Array");

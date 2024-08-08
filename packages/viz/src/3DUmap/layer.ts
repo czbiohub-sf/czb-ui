@@ -9,6 +9,8 @@ class Layer extends EventTarget {
   label: string;
   enabled: boolean;
   selectedAttribute: string | undefined;
+  attributesCache: string[] | null;
+  typedArrayCache: Int32Array | Float32Array | null;
 
   constructor(name: string, type: "positions" | "colors", label: string) {
     super();
@@ -18,6 +20,8 @@ class Layer extends EventTarget {
     this.label = label;
     this.enabled = true;
     this.selectedAttribute = undefined;
+    this.attributesCache = null;
+    this.typedArrayCache = null;
   }
 
   async loadZarr(store: string, path: string) {
@@ -39,15 +43,68 @@ class Layer extends EventTarget {
   async getTypedArray() {
     this.checkIfZarrArrayLoaded();
 
+    if (this.typedArrayCache !== null) {
+      return this.typedArrayCache;
+    }
+
     const nestedArray =
       (await this.zarrArray!.get()) as NestedArray<TypedArray>;
-    return nestedArray.data as Int32Array | Float32Array;
+    const data = nestedArray.data as Int32Array | Float32Array;
+
+    this.typedArrayCache = data;
+
+    return data;
+  }
+
+  async getTypedArrayWithSelectedAttributeFiltered(): Promise<Int32Array> {
+    this.checkIfZarrArrayLoaded();
+
+    // Since we are dealing with an attribute/color layer,
+    // we know that the data is an Int32Array
+    const data = (await this.getTypedArray()) as Int32Array;
+
+    if (this.selectedAttribute === undefined) {
+      return data;
+    }
+
+    // Find the index of the selected attribute
+    const attrs = await this.getAttributes();
+
+    if (attrs === null) {
+      throw new Error("Attributes not loaded");
+    }
+
+    const selectedAttributeIndex = attrs.indexOf(this.selectedAttribute);
+
+    if (selectedAttributeIndex === -1) {
+      throw new Error("Selected attribute not found in attributes");
+    }
+
+    // Now go through each element in the data, and if
+    // data[i] != selectedAttributeIndex, set it to -1
+    const filteredData = new Int32Array(data.length);
+
+    for (let i = 0; i < data.length; i++) {
+      if (data[i] !== selectedAttributeIndex) {
+        filteredData[i] = -1;
+      } else {
+        filteredData[i] = data[i];
+      }
+    }
+
+    return filteredData;
   }
 
   async getAttributes() {
     this.checkIfZarrArrayLoaded();
 
+    if (this.attributesCache !== null) {
+      return this.attributesCache;
+    }
+
     const attrs = await this.zarrArray!.attrs.asObject();
+
+    this.attributesCache = attrs.map;
 
     return attrs.map as Array<any>;
   }
