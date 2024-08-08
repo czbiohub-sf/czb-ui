@@ -158,24 +158,26 @@ export class ThreeDimScatterPlot {
         this.refreshGui();
       });
 
-    const currentColorAttributes =
-      await this.layerManager.getAttributesOfCurrentColorLayer();
+    // If colors is set to "None", don't show the selectedAttribute dropdown
+    if (this.layerManager.soloedLayers.colors === -1) {
+      return;
+    }
+
+    const currentLayerInstance =
+      this.layerManager.getSoloedLayerInstance("colors");
+
+    const currentColorAttributes = await currentLayerInstance.getAttributes();
 
     if (!currentColorAttributes) {
       return;
     }
 
-    // Automatically select the first attribute
-    // on change of color layer, since different
-    // color layers can have different attributes
-    this.layerManager.selectedAttribute = currentColorAttributes[0];
-
     // Attributes of current color dropdown
-    this.layersGuiFolder.add(
-      this.layerManager,
-      "selectedAttribute",
-      currentColorAttributes
-    );
+    this.layersGuiFolder
+      .add(currentLayerInstance, "selectedAttribute", currentColorAttributes)
+      .onChange((attribute: string) => {
+        currentLayerInstance.selectAttribute(attribute);
+      });
     // As of now since lil-gui doesn't have
     // multi-select dropdowns, we can't have
     // multiple attributes selected at once.
@@ -216,6 +218,10 @@ export class ThreeDimScatterPlot {
       layer.addEventListener("disabled", () => {
         this.log("Disabled colors event");
         this.disableColor();
+      });
+
+      layer.addEventListener("newAttributeSelected", () => {
+        this.log(`New attribute selected: ${layer.selectedAttribute}`);
       });
     }
 

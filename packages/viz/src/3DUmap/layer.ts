@@ -8,6 +8,7 @@ class Layer extends EventTarget {
   zarrArray: ZarrArray | null;
   label: string;
   enabled: boolean;
+  selectedAttribute: string | undefined;
 
   constructor(name: string, type: "positions" | "colors", label: string) {
     super();
@@ -16,6 +17,7 @@ class Layer extends EventTarget {
     this.zarrArray = null;
     this.label = label;
     this.enabled = true;
+    this.selectedAttribute = undefined;
   }
 
   async loadZarr(store: string, path: string) {
@@ -50,6 +52,11 @@ class Layer extends EventTarget {
     return attrs.map as Array<any>;
   }
 
+  selectAttribute(attribute: string) {
+    this.selectedAttribute = attribute;
+    this.dispatchEvent(new Event("newAttributeSelected"));
+  }
+
   enable() {
     this.enabled = true;
     this.dispatchEvent(new Event("enabled"));
@@ -69,7 +76,6 @@ class LayerManager {
   layers: Map<number, Layer>;
   typeLookup: Record<"positions" | "colors", number[]>;
   soloedLayers: Record<"positions" | "colors", number>;
-  selectedAttribute: string | null;
 
   constructor() {
     this.layers = new Map();
@@ -81,7 +87,6 @@ class LayerManager {
       positions: -1,
       colors: -1,
     };
-    this.selectedAttribute = null;
   }
 
   addLayer(name: string, type: "positions" | "colors", label: string): number {
@@ -174,17 +179,8 @@ class LayerManager {
     return lookup;
   }
 
-  getAttributesOfCurrentColorLayer() {
-    const layerId = this.soloedLayers.colors;
-    if (layerId === -1) {
-      return null;
-    }
-
-    return this.getLayer(layerId).getAttributes();
-  }
-
-  selectAttribute(attribute: string) {
-    this.selectedAttribute = attribute;
+  getSoloedLayerInstance(type: "positions" | "colors") {
+    return this.getLayer(this.soloedLayers[type]);
   }
 }
 
