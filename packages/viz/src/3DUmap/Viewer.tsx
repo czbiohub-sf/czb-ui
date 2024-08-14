@@ -18,7 +18,7 @@ export const ThreeDUmap = () => {
       scatterplotRef.current.debug = true;
 
       scatterplotRef.current.loadZarr(
-        "http://localhost:3001/export_3d_velo_nmp",
+        "https://public.czbiohub.org/royerlab/zebrahub/sequencing/3d-umaps/3d_umap_nmp",
         "coords.zarr",
         "first_timepoint",
         "positions",
@@ -28,7 +28,7 @@ export const ThreeDUmap = () => {
       setTimeout(() => {
         // Delay to demonstrate loading of multiple layers
         scatterplotRef.current!.loadZarr(
-          "http://localhost:3001/export_3d_velo_nmp",
+          "https://public.czbiohub.org/royerlab/zebrahub/sequencing/3d-umaps/3d_umap_nmp",
           "attribute_celltype.zarr",
           "cell_types",
           "colors",
@@ -38,7 +38,7 @@ export const ThreeDUmap = () => {
 
       setTimeout(() => {
         scatterplotRef.current!.loadZarr(
-          "http://localhost:3001/export_3d_velo_nmp",
+          "https://public.czbiohub.org/royerlab/zebrahub/sequencing/3d-umaps/3d_umap_nmp",
           "attribute_random.zarr",
           "random",
           "colors",
