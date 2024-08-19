@@ -166,11 +166,17 @@ export class ThreeDimScatterPlot {
     const currentLayerInstance =
       this.layerManager.getSoloedLayerInstance("colors");
 
-    const currentColorAttributes = await currentLayerInstance.getAttributes();
+    let currentColorAttributes = await currentLayerInstance.getAttributes();
+
+    // Copy the array so we can add "None" to it
+    currentColorAttributes = [...currentColorAttributes];
 
     if (!currentColorAttributes) {
       return;
     }
+
+    // Append "None" option at the beginning
+    currentColorAttributes.unshift("None");
 
     // Attributes of current color dropdown
     this.layersGuiFolder
@@ -257,7 +263,7 @@ export class ThreeDimScatterPlot {
     const colorCategories =
       await layer.getTypedArrayWithSelectedAttributeFiltered();
 
-    const inHighlightMode = layer.selectedAttribute !== undefined;
+    const inHighlightMode = layer.selectedAttribute !== "None";
 
     if (colorCategories instanceof Float32Array) {
       throw new Error("Color categories must be an Int32Array");

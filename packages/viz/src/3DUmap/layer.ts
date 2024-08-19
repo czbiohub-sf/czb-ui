@@ -8,7 +8,7 @@ class Layer extends EventTarget {
   zarrArray: ZarrArray | null;
   label: string;
   enabled: boolean;
-  selectedAttribute: string | undefined;
+  selectedAttribute: string | "None";
   attributesCache: string[] | null;
   typedArrayCache: Int32Array | Float32Array | null;
 
@@ -19,7 +19,7 @@ class Layer extends EventTarget {
     this.zarrArray = null;
     this.label = label;
     this.enabled = true;
-    this.selectedAttribute = undefined;
+    this.selectedAttribute = "None";
     this.attributesCache = null;
     this.typedArrayCache = null;
   }
@@ -63,7 +63,7 @@ class Layer extends EventTarget {
     // we know that the data is an Int32Array
     const data = (await this.getTypedArray()) as Int32Array;
 
-    if (this.selectedAttribute === undefined) {
+    if (this.selectedAttribute === "None") {
       return data;
     }
 
@@ -109,8 +109,9 @@ class Layer extends EventTarget {
     return attrs.map as Array<any>;
   }
 
-  selectAttribute(attribute: string) {
+  selectAttribute(attribute: string | "None") {
     this.selectedAttribute = attribute;
+
     this.dispatchEvent(new Event("newAttributeSelected"));
   }
 
