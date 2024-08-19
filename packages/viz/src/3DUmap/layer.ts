@@ -219,9 +219,17 @@ class LayerManager {
     this.soloedLayers.positions = layerId;
   }
 
-  soloLayer(layerId: number) {
-    this.soloColorLayer(layerId);
-    this.soloPositionLayer(layerId);
+  soloLayer(type: "positions" | "colors", layerId: number) {
+    switch (type) {
+      case "positions":
+        this.soloPositionLayer(layerId);
+        break;
+      case "colors":
+        this.soloColorLayer(layerId);
+        break;
+      default:
+        throw new Error(`Unknown layer type: ${type}`);
+    }
   }
 
   getLayerLabelIdLookup(type: "positions" | "colors") {

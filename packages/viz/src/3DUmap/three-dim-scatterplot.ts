@@ -151,7 +151,7 @@ export class ThreeDimScatterPlot {
     this.layersGuiFolder
       .add(this.layerManager.soloedLayers, "colors", colorItems)
       .onChange((layerId: number) => {
-        this.layerManager.soloLayer(layerId);
+        this.layerManager.soloLayer("colors", layerId);
         // The selectedAttribute dropdown
         // would need to update, based on the
         // color layer selected. So refresh the GUI
@@ -209,12 +209,12 @@ export class ThreeDimScatterPlot {
 
     if (displayType === "positions") {
       await this.drawPoints(layerId);
-      this.layerManager.soloLayer(layerId);
+      this.layerManager.soloLayer("positions", layerId);
     }
 
     if (displayType === "colors") {
       this.colorPoints(layerId);
-      this.layerManager.soloLayer(layerId);
+      this.layerManager.soloLayer("colors", layerId);
 
       layer.addEventListener("enabled", () => {
         this.log("Enabled colors event");
