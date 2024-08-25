@@ -17,7 +17,7 @@ import { css } from "@emotion/react";
 
 interface NormalInfoBoxContainerProps extends CommonThemeProps {
   imageOnRight?: boolean;
-  small?: boolean;
+  inGrid?: boolean;
 }
 
 interface InfoBoxLinkProps extends CommonThemeProps {
@@ -26,7 +26,7 @@ interface InfoBoxLinkProps extends CommonThemeProps {
 }
 
 const NormalInfoBoxContainer = styled(Box, {
-  shouldForwardProp: (prop) => prop !== "small",
+  shouldForwardProp: (prop) => prop !== "inGrid",
 })<NormalInfoBoxContainerProps>((props) => {
   const spaces = getSpaces(props);
   const colors = getColors(props);
@@ -34,8 +34,8 @@ const NormalInfoBoxContainer = styled(Box, {
   return css`
     z-index: 1;
     width: 100%;
-    max-width: ${props.small ? "100%" : "350px"};
-    height: ${props.small ? "350px" : "450px"};
+    max-width: ${props.inGrid ? "100%" : "350px"};
+    height: ${props.inGrid ? "350px" : "450px"};
     padding: ${spaces?.m}px;
     border: 1px solid ${colors?.gray[200]};
     display: flex;
@@ -136,10 +136,10 @@ export default function NormalInfoBox({
   page,
   pagesComponent,
   image,
-  inGrid: small,
+  inGrid,
 }: InfoBoxProps) {
   return (
-    <NormalInfoBoxContainer small={small}>
+    <NormalInfoBoxContainer inGrid={inGrid}>
       {image && <ImageContainer>{image}</ImageContainer>}
       <ContentBox>
         <Title>{title}</Title>
