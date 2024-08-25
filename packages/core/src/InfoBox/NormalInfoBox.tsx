@@ -10,6 +10,7 @@ import {
   fontCapsXxs,
   getTypography,
   getFontWeights,
+  fontHeaderM,
 } from "@czi-sds/components";
 import { PageLink } from "../UniversalTypes/links";
 import { InfoBoxProps } from "./InfoBox";
@@ -37,7 +38,11 @@ const NormalInfoBoxContainer = styled(Box, {
     padding: ${spaces?.m}px;
     border: 1px solid ${colors?.gray[200]};
     display: flex;
-    flex-direction: row;
+    flex-direction: ${props.inGrid ? "column" : "row"};
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
   `;
 });
 
@@ -69,9 +74,9 @@ const Title = styled(Box)<CommonThemeProps>((props) => {
   const fontWeights = getFontWeights(props);
 
   return css`
-    ${fontHeaderL(props)}
+    ${fontHeaderM(props)}
     font-family: ${typography?.fontFamily.body};
-    font-weight: ${fontWeights?.regular};
+    font-weight: ${fontWeights?.semibold};
   `;
 });
 
@@ -80,7 +85,7 @@ const Subtitle = styled(Box)<CommonThemeProps>((props) => {
   const colors = getColors(props);
 
   return css`
-    color: ${colors?.gray[300]};
+    color: ${colors?.gray[400]};
     margin: ${spaces?.xs}px 0;
   `;
 });

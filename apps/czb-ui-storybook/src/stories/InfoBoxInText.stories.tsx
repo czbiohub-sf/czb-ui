@@ -94,20 +94,24 @@ export const InText: StoryObj<typeof CZBUIInfoBox> = {
         viverra ante semper at. Duis ac lectus eget nisl congue ornare non in
         sapien.
       </TypographyWithContainerAndMargin>
-      <Grid container spacing={2}>
-        <Grid item xs={6}>
+      <Grid
+        container
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ xs: 1, sm: 8, md: 12 }}
+      >
+        <Grid item xs={1} sm={4} md={4}>
           <CZBUIInfoBox {...args} inGrid />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={1} sm={4} md={4}>
           <CZBUIInfoBox {...args} inGrid />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={1} sm={4} md={4}>
           <CZBUIInfoBox {...args} inGrid />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={1} sm={4} md={4}>
           <CZBUIInfoBox {...args} inGrid />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={1} sm={4} md={4}>
           <CZBUIInfoBox {...args} inGrid />
         </Grid>
       </Grid>
@@ -122,6 +126,22 @@ export const InText: StoryObj<typeof CZBUIInfoBox> = {
         tincidunt. Aliquam a euismod elit. Morbi nec rhoncus tortor. Suspendisse
         potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Maecenas vel tristique metus, at iaculis tortor.
+      </TypographyWithContainerAndMargin>
+      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 8 }}>
+        <Grid item xs={1} sm={4} md={4}>
+          <CZBUIInfoBox {...args} inGrid />
+        </Grid>
+        <Grid item xs={1} sm={4} md={4}>
+          <CZBUIInfoBox {...args} inGrid />
+        </Grid>
+      </Grid>
+      <TypographyWithContainerAndMargin variant="body1">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie
+        orci non tortor feugiat, ac malesuada eros tempus. Nulla venenatis leo
+        eu odio gravida semper. In at ex ac est tristique dignissim. Donec quis
+        ultricies velit. Quisque pellentesque id metus ac feugiat. Nam ex elit,
+        bibendum sed libero eu, vehicula venenatis diam. Lorem ipsum dolor sit
+        amet, consectetur adipiscing elit.
       </TypographyWithContainerAndMargin>
     </Container>
   ),
