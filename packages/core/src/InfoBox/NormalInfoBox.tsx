@@ -34,12 +34,10 @@ const NormalInfoBoxContainer = styled(Box, {
   return css`
     z-index: 1;
     width: 100%;
-    max-width: ${props.inGrid ? "100%" : "350px"};
-    height: ${props.inGrid ? "350px" : "450px"};
     padding: ${spaces?.m}px;
     border: 1px solid ${colors?.gray[200]};
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
   `;
 });
 
@@ -47,22 +45,22 @@ const ImageContainer = styled(Box)<CommonThemeProps>((props) => {
   const colors = getColors(props);
 
   return css`
-    width: 100%;
-    height: 100%;
-    border: 1px solid ${colors?.gray[200]};
-    max-width: 100%;
-    max-height: 138px;
+    flex: 1;
+    background-color: ${colors?.gray[200]};
+    aspect-ratio: 4/3;
   `;
 });
 
 const ContentBox = styled(Box)<CommonThemeProps>((props) => {
   const spaces = getSpaces(props);
+  const colors = getColors(props);
 
   return css`
+    flex: 1;
     display: flex;
     flex-direction: column;
-    padding: ${spaces?.l}px;
-    height: 100%;
+    padding: ${spaces?.xl}px;
+    background-color: ${colors?.gray[100]};
   `;
 });
 
