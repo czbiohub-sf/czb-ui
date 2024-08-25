@@ -38,7 +38,7 @@ export const InGrid: StoryObj<typeof CZBUIInfoBox> = {
         src={sampleImage}
       />
     ),
-    small: true,
+    inGrid: true,
     type: "normal",
   },
   render: (args) => (

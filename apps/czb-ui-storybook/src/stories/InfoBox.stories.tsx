@@ -35,7 +35,7 @@ export const RegularInfoBox: StoryObj<typeof CZBUIInfoBox> = {
         src={sampleImage}
       />
     ),
-    small: false,
+    inGrid: false,
     imageOnRight: false,
     type: "normal",
   },

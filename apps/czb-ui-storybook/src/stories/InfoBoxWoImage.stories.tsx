@@ -30,7 +30,7 @@ export const WithoutImage: StoryObj<typeof CZBUIInfoBox> = {
     },
     type: "normal",
     imageOnRight: false,
-    small: false,
+    inGrid: false,
   },
   render: (args) => <CZBUIInfoBox {...args} />,
 };

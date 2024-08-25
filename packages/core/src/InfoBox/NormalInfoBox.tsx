@@ -136,7 +136,7 @@ export default function NormalInfoBox({
   page,
   pagesComponent,
   image,
-  small,
+  inGrid: small,
 }: InfoBoxProps) {
   return (
     <NormalInfoBoxContainer small={small}>

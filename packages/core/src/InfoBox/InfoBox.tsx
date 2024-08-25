@@ -1,6 +1,5 @@
 "use client";
 import { PageLink } from "../UniversalTypes/links";
-import BackgroundInfoBox from "./BackgroundInfoBox";
 import NormalInfoBox from "./NormalInfoBox";
 
 export interface InfoBoxProps {
@@ -8,13 +7,12 @@ export interface InfoBoxProps {
   subtitle?: string;
   page?: PageLink;
   image?: React.ReactNode;
-  imageOnRight?: boolean;
-  small?: boolean;
+  inGrid?: boolean;
   pagesComponent?: any; // TODO: Find type of mui link component prop
 }
 
 interface InfoBoxContainerProps extends InfoBoxProps {
-  small?: boolean;
+  inGrid?: boolean;
   type?: "normal" | "background";
 }
 
@@ -24,8 +22,7 @@ export const InfoBox = ({
   page,
   pagesComponent,
   image,
-  imageOnRight,
-  small,
+  inGrid,
   type = "normal",
 }: InfoBoxContainerProps) => {
   return (
@@ -37,19 +34,7 @@ export const InfoBox = ({
           page={page}
           pagesComponent={pagesComponent}
           image={image}
-          imageOnRight={imageOnRight}
-          small={small}
-        />
-      )}
-      {/* BackgroundInfoBox is deprecated */}
-      {type == "background" && (
-        <BackgroundInfoBox
-          title={title}
-          subtitle={subtitle}
-          page={page}
-          pagesComponent={pagesComponent}
-          image={image}
-          imageOnRight={imageOnRight}
+          inGrid={inGrid}
         />
       )}
     </>
