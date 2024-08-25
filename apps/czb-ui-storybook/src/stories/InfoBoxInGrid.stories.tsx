@@ -12,11 +12,6 @@ const meta: Meta<typeof CZBUIInfoBox> = {
         disable: true,
       },
     },
-    imageOnRight: {
-      table: {
-        disable: true,
-      },
-    },
   },
 };
 
