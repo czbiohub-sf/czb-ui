@@ -97,7 +97,7 @@ export const InText: StoryObj<typeof CZBUIInfoBox> = {
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
-        columns={{ xs: 1, sm: 8, md: 12 }}
+        columns={{ xs: 2, sm: 8, md: 12 }}
       >
         <Grid item xs={1} sm={4} md={4}>
           <CZBUIInfoBox {...args} inGrid />
