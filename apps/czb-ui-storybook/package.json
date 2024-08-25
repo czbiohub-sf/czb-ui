@@ -10,7 +10,6 @@
   "dependencies": {
     "@czb-ui/biohub-logos": "2.0.0-next.2",
     "@czb-ui/core": "2.0.0-next.5",
-    "@czb-ui/forms": "2.0.0-next.5",
     "@emotion/css": "^11.11.2",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",

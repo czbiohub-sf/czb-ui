@@ -1,6 +1,5 @@
 ---
 "@czb-ui/biohub-logos": major
-"@czb-ui/forms": major
 "@czb-ui/core": major
 "@czb-ui/viz": minor
 ---
