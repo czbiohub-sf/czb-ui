@@ -1420,6 +1420,11 @@
   resolved "https://registry.yarnpkg.com/@czi-sds/components/-/components-20.5.0.tgz#810c82b46bfc5dc70fe4f7d203e6f50036e4ca7d"
   integrity sha512-9lWHj6ZE6dIcOknXyyjbRzWlb+AX0PRppafUuQq9vopr33eF2GwjTbbj2PS240VFj7kJ44bqD/ZkS33YXc7iTw==
 
+"@czi-sds/components@^20.8.0":
+  version "20.8.0"
+  resolved "https://registry.yarnpkg.com/@czi-sds/components/-/components-20.8.0.tgz#2c628b846292c040cc09b83c387d68b45d5c63ea"
+  integrity sha512-SOcsz4o0rWmROMsPWYj3IpT1KrCl16RhS3FYtGNzboSgZYs3E7UHYRUKEA/vS78fHWnTOh3EFsp78MQLGnkEDw==
+
 "@deck.gl/aggregation-layers@8.9.36":
   version "8.9.36"
   resolved "https://registry.yarnpkg.com/@deck.gl/aggregation-layers/-/aggregation-layers-8.9.36.tgz#a4cfd03b2cb8245076310b702138627b538f72e5"
