@@ -9,10 +9,13 @@ import CssBaseline from "@mui/material/CssBaseline";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
-  darkMode?: boolean;
+  _experimentalDarkMode?: boolean;
 }
 
-export const ThemeProvider = ({ children, darkMode }: ThemeProviderProps) => {
+export const ThemeProvider = ({
+  children,
+  _experimentalDarkMode: darkMode,
+}: ThemeProviderProps) => {
   let finalTheme = biohubTheme;
 
   if (darkMode) {
