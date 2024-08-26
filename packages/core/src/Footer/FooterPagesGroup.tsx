@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import {
   Link,
@@ -81,11 +81,16 @@ export const FooterPagesGroup = ({
   pagesComponent,
   small,
 }: FooterPagesGroupProps) => {
+  const theme = useTheme();
+
   return (
     <StyledBox>
       {pages.map((pageGroup, i) => (
         <PageListContainer key={i}>
-          <HeadingSeparator title={pageGroup.title} dividerOpacity={0.2} />
+          <HeadingSeparator
+            title={pageGroup.title}
+            dividerOpacity={theme.palette.mode == "dark" ? 0.8 : 0.2}
+          />
           <ListBox>
             {pageGroup.pages.map((page, j) => (
               <ListItem component="li" key={j}>
