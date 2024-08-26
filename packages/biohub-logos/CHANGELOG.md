@@ -1,5 +1,11 @@
 # @czb-ui/biohub-logos
 
+## 2.0.0-next.4
+
+### Minor Changes
+
+- c8fee4a: Add WithTitleLight
+
 ## 2.0.0-next.3
 
 ### Minor Changes

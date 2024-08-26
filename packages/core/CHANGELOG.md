@@ -1,5 +1,12 @@
 # @czb-ui/core
 
+## 2.0.0-next.7
+
+### Minor Changes
+
+- a2c1049: Hide NavBar menu items if there are no pages
+- dc7c05d: Improved experimental dark mode
+
 ## 2.0.0-next.6
 
 ### Major Changes
