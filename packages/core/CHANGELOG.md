@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 2.0.0-next.6
+
+### Major Changes
+
+- 0e5b39f: Improved info box
+
 ## 2.0.0-next.5
 
 ### Patch Changes

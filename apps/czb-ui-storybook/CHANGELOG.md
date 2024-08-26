@@ -1,5 +1,21 @@
 # czb-ui-storybook
 
+## 2.0.0-next.7
+
+### Major Changes
+
+- 0e5b39f: Use autodocs
+- 0e5b39f: Improved info box
+- 0e5b39f: Remove deleted czb-ui libraries
+- 0e5b39f: Update Storybook
+
+### Patch Changes
+
+- Updated dependencies [0e5b39f]
+- Updated dependencies [6399d5b]
+  - @czb-ui/core@2.0.0-next.6
+  - @czb-ui/biohub-logos@2.0.0-next.3
+
 ## 2.0.0-next.6
 
 ### Patch Changes
