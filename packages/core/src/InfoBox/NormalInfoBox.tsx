@@ -11,6 +11,7 @@ import {
   getTypography,
   getFontWeights,
   fontHeaderM,
+  getPalette,
 } from "@czi-sds/components";
 import { PageLink } from "../UniversalTypes/links";
 import { InfoBoxProps } from "./InfoBox";
@@ -31,12 +32,14 @@ const NormalInfoBoxContainer = styled(Box, {
 })<NormalInfoBoxContainerProps>((props) => {
   const spaces = getSpaces(props);
   const colors = getColors(props);
+  const palette = getPalette(props);
+  const inDarkMode = palette.mode === "dark";
 
   return css`
     z-index: 1;
     width: 100%;
     padding: ${spaces?.m}px;
-    border: 1px solid ${colors?.gray[200]};
+    border: 1px solid ${inDarkMode ? colors?.gray[500] : colors?.gray[200]};
     display: flex;
     flex-direction: ${props.inGrid ? "column" : "row"};
 
@@ -49,10 +52,12 @@ const NormalInfoBoxContainer = styled(Box, {
 
 const ImageContainer = styled(Box)<CommonThemeProps>((props) => {
   const colors = getColors(props);
+  const palette = getPalette(props);
+  const inDarkMode = palette.mode === "dark";
 
   return css`
     flex: 1;
-    background-color: ${colors?.gray[200]};
+    background-color: ${inDarkMode ? colors?.gray[600] : colors?.gray[200]};
     aspect-ratio: 4/3;
   `;
 });
@@ -60,13 +65,15 @@ const ImageContainer = styled(Box)<CommonThemeProps>((props) => {
 const ContentBox = styled(Box)<CommonThemeProps>((props) => {
   const spaces = getSpaces(props);
   const colors = getColors(props);
+  const palette = getPalette(props);
+  const inDarkMode = palette.mode === "dark";
 
   return css`
     flex: 1;
     display: flex;
     flex-direction: column;
     padding: ${spaces?.xl}px;
-    background-color: ${colors?.gray[100]};
+    background-color: ${inDarkMode ? colors?.gray[500] : colors?.gray[100]};
   `;
 });
 
@@ -84,9 +91,11 @@ const Title = styled(Box)<CommonThemeProps>((props) => {
 const Subtitle = styled(Box)<CommonThemeProps>((props) => {
   const spaces = getSpaces(props);
   const colors = getColors(props);
+  const palette = getPalette(props);
+  const inDarkMode = palette.mode === "dark";
 
   return css`
-    color: ${colors?.gray[400]};
+    color: ${inDarkMode ? colors?.gray[200] : colors?.gray[400]};
     margin: ${spaces?.xs}px 0;
   `;
 });
