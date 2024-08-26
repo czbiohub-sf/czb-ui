@@ -14,7 +14,7 @@ import "@fontsource/jetbrains-mono/400.css";
 const preview: Preview = {
   decorators: [
     (Story) => (
-      <ThemeProvider _experimentalDarkMode>
+      <ThemeProvider>
         <Story />
       </ThemeProvider>
     ),
