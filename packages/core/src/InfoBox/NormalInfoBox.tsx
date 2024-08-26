@@ -40,6 +40,7 @@ const NormalInfoBoxContainer = styled(Box, {
     display: flex;
     flex-direction: ${props.inGrid ? "column" : "row"};
 
+    /* TODO: Use global breakpoints */
     @media (max-width: 600px) {
       flex-direction: column;
     }
