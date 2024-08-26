@@ -87,10 +87,10 @@ export const NavBar = ({
           )}
         </Link>
       </Box>
-      {pages && showHamburger && (
+      {pages && numberOfPages > 0 && showHamburger && (
         <DesktopPagesMenu pages={pages} pagesComponent={pagesComponent} />
       )}
-      {pages && !showHamburger && (
+      {pages && numberOfPages > 0 && !showHamburger && (
         <MobilePagesMenu
           pages={pages}
           pagesComponent={pagesComponent}
