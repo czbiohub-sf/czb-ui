@@ -80,7 +80,9 @@ export const InText: StoryObj<typeof CZBUIInfoBox> = {
         fringilla enim luctus sit amet. Quisque non libero tortor. Phasellus a
         accumsan sem. Aenean eget maximus nibh.
       </TypographyWithContainerAndMargin>
-      <CZBUIInfoBox {...args} />
+      <Container maxWidth={CONTAINER_MAX_WIDTH}>
+        <CZBUIInfoBox {...args} />
+      </Container>
       <TypographyWithContainerAndMargin variant="body1">
         Duis mauris dolor, faucibus eu lorem a, laoreet finibus mi. Donec
         tincidunt elit quis gravida tristique. Donec facilisis urna varius
@@ -94,27 +96,29 @@ export const InText: StoryObj<typeof CZBUIInfoBox> = {
         viverra ante semper at. Duis ac lectus eget nisl congue ornare non in
         sapien.
       </TypographyWithContainerAndMargin>
-      <Grid
-        container
-        spacing={{ xs: 2, md: 3 }}
-        columns={{ xs: 2, sm: 8, md: 12 }}
-      >
-        <Grid item xs={1} sm={4} md={4}>
-          <CZBUIInfoBox {...args} inGrid />
+      <Container maxWidth={CONTAINER_MAX_WIDTH}>
+        <Grid
+          container
+          spacing={{ xs: 2, md: 3 }}
+          columns={{ xs: 2, sm: 8, md: 12 }}
+        >
+          <Grid item xs={1} sm={4} md={4}>
+            <CZBUIInfoBox {...args} inGrid />
+          </Grid>
+          <Grid item xs={1} sm={4} md={4}>
+            <CZBUIInfoBox {...args} inGrid />
+          </Grid>
+          <Grid item xs={1} sm={4} md={4}>
+            <CZBUIInfoBox {...args} inGrid />
+          </Grid>
+          <Grid item xs={1} sm={4} md={4}>
+            <CZBUIInfoBox {...args} inGrid />
+          </Grid>
+          <Grid item xs={1} sm={4} md={4}>
+            <CZBUIInfoBox {...args} inGrid />
+          </Grid>
         </Grid>
-        <Grid item xs={1} sm={4} md={4}>
-          <CZBUIInfoBox {...args} inGrid />
-        </Grid>
-        <Grid item xs={1} sm={4} md={4}>
-          <CZBUIInfoBox {...args} inGrid />
-        </Grid>
-        <Grid item xs={1} sm={4} md={4}>
-          <CZBUIInfoBox {...args} inGrid />
-        </Grid>
-        <Grid item xs={1} sm={4} md={4}>
-          <CZBUIInfoBox {...args} inGrid />
-        </Grid>
-      </Grid>
+      </Container>
       <TypographyWithContainerAndMargin variant="body1">
         Duis facilisis ligula vel nulla egestas, et iaculis est bibendum. Donec
         congue convallis ultrices. Morbi in magna rutrum dolor tempor
@@ -127,14 +131,16 @@ export const InText: StoryObj<typeof CZBUIInfoBox> = {
         potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Maecenas vel tristique metus, at iaculis tortor.
       </TypographyWithContainerAndMargin>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 8 }}>
-        <Grid item xs={1} sm={4} md={4}>
-          <CZBUIInfoBox {...args} inGrid />
+      <Container maxWidth={CONTAINER_MAX_WIDTH}>
+        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 8 }}>
+          <Grid item xs={1} sm={4} md={4}>
+            <CZBUIInfoBox {...args} inGrid />
+          </Grid>
+          <Grid item xs={1} sm={4} md={4}>
+            <CZBUIInfoBox {...args} inGrid />
+          </Grid>
         </Grid>
-        <Grid item xs={1} sm={4} md={4}>
-          <CZBUIInfoBox {...args} inGrid />
-        </Grid>
-      </Grid>
+      </Container>
       <TypographyWithContainerAndMargin variant="body1">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie
         orci non tortor feugiat, ac malesuada eros tempus. Nulla venenatis leo
