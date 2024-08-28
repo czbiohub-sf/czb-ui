@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 2.0.0-next.8
+
+### Major Changes
+
+- 1da8dbd: Add CJS support
+
 ## 2.0.0-next.7
 
 ### Minor Changes

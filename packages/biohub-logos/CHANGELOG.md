@@ -1,5 +1,11 @@
 # @czb-ui/biohub-logos
 
+## 2.0.0-next.5
+
+### Major Changes
+
+- 1da8dbd: Add CJS support
+
 ## 2.0.0-next.4
 
 ### Minor Changes

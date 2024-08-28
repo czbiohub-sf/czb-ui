@@ -1,5 +1,13 @@
 # nextjs-app
 
+## 0.2.0-next.9
+
+### Patch Changes
+
+- Updated dependencies [1da8dbd]
+  - @czb-ui/biohub-logos@2.0.0-next.5
+  - @czb-ui/core@2.0.0-next.8
+
 ## 0.2.0-next.8
 
 ### Patch Changes
