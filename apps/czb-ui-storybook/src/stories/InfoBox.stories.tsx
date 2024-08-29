@@ -24,6 +24,10 @@ export const RegularInfoBox: StoryObj<typeof CZBUIInfoBox> = {
       title: "Go to tools",
       to: "/tools",
     },
+    secondaryPage: {
+      title: "Learn more",
+      to: "/learn-more",
+    },
     image: (
       <img
         style={{ objectFit: "cover", height: "100%", width: "100%", zIndex: 0 }}

@@ -6,6 +6,7 @@ export interface InfoBoxProps {
   title?: string;
   subtitle?: string;
   page?: PageLink;
+  secondaryPage?: PageLink;
   image?: React.ReactNode;
   inGrid?: boolean;
   pagesComponent?: any; // TODO: Find type of mui link component prop
@@ -20,6 +21,7 @@ export const InfoBox = ({
   title,
   subtitle,
   page,
+  secondaryPage,
   pagesComponent,
   image,
   inGrid,
@@ -32,6 +34,7 @@ export const InfoBox = ({
           title={title}
           subtitle={subtitle}
           page={page}
+          secondaryPage={secondaryPage}
           pagesComponent={pagesComponent}
           image={image}
           inGrid={inGrid}

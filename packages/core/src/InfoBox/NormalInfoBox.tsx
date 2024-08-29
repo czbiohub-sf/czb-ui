@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, styled } from "@mui/material";
+import { Box, Stack, styled } from "@mui/material";
 import {
   Button,
   Icon,
@@ -23,6 +23,7 @@ interface NormalInfoBoxContainerProps extends CommonThemeProps {
 }
 
 interface InfoBoxLinkProps extends CommonThemeProps {
+  sdsType: "primary" | "secondary";
   page?: PageLink;
   pagesComponent?: any;
 }
@@ -38,6 +39,7 @@ const NormalInfoBoxContainer = styled(Box, {
   return css`
     z-index: 1;
     width: 100%;
+    height: ${props.inGrid ? "100%" : "auto"};
     padding: ${spaces?.m}px;
     border: 1px solid ${inDarkMode ? colors?.gray[500] : colors?.gray[200]};
     display: flex;
@@ -58,7 +60,8 @@ const ImageContainer = styled(Box)<CommonThemeProps>((props) => {
   return css`
     flex: 1;
     background-color: ${inDarkMode ? colors?.gray[600] : colors?.gray[200]};
-    aspect-ratio: 4/3;
+    aspect-ratio: 4 / 3;
+    max-height: 50%;
   `;
 });
 
@@ -74,6 +77,7 @@ const ContentBox = styled(Box)<CommonThemeProps>((props) => {
     flex-direction: column;
     padding: ${spaces?.xl}px;
     background-color: ${inDarkMode ? colors?.gray[500] : colors?.gray[100]};
+    overflow: scroll;
   `;
 });
 
@@ -100,12 +104,12 @@ const Subtitle = styled(Box)<CommonThemeProps>((props) => {
   `;
 });
 
-const InfoBoxLink = ({ page, pagesComponent }: InfoBoxLinkProps) => {
+const InfoBoxLink = ({ page, pagesComponent, sdsType }: InfoBoxLinkProps) => {
   if (!page?.to) {
     return (
       <Button
         sdsStyle="minimal"
-        sdsType="primary"
+        sdsType={sdsType}
         startIcon={<Icon sdsIcon="PlusCircle" sdsSize="s" sdsType="button" />}
         disabled={true}
       >
@@ -120,7 +124,7 @@ const InfoBoxLink = ({ page, pagesComponent }: InfoBoxLinkProps) => {
         href={page?.to}
         component={page?.to ? pagesComponent : undefined}
         sdsStyle="minimal"
-        sdsType="primary"
+        sdsType={sdsType}
         startIcon={<Icon sdsIcon="PlusCircle" sdsSize="s" sdsType="button" />}
       >
         {page?.title}
@@ -132,7 +136,7 @@ const InfoBoxLink = ({ page, pagesComponent }: InfoBoxLinkProps) => {
     <Button
       href={page?.to}
       sdsStyle="minimal"
-      sdsType="primary"
+      sdsType={sdsType}
       // @ts-expect-error
       target={page?.newTab ? "_blank" : undefined}
       rel="noopener"
@@ -147,6 +151,7 @@ export default function NormalInfoBox({
   title,
   subtitle,
   page,
+  secondaryPage,
   pagesComponent,
   image,
   inGrid,
@@ -157,9 +162,20 @@ export default function NormalInfoBox({
       <ContentBox>
         <Title>{title}</Title>
         <Subtitle>{subtitle}</Subtitle>
-        <Box marginTop="auto">
-          <InfoBoxLink page={page} pagesComponent={pagesComponent} />
-        </Box>
+        <Stack marginTop="auto" alignItems="baseline" direction="row" gap={6}>
+          <InfoBoxLink
+            page={page}
+            pagesComponent={pagesComponent}
+            sdsType="primary"
+          />
+          {secondaryPage && (
+            <InfoBoxLink
+              page={secondaryPage}
+              pagesComponent={pagesComponent}
+              sdsType="secondary"
+            />
+          )}
+        </Stack>
       </ContentBox>
     </NormalInfoBoxContainer>
   );

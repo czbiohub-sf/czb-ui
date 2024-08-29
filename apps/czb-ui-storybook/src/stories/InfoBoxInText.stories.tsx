@@ -36,25 +36,44 @@ const TypographyWithContainerAndMargin = ({
   </Container>
 );
 
-export const InText: StoryObj<typeof CZBUIInfoBox> = {
-  args: {
-    title:
-      "Super Long Text To See How This Text Would Fit In This Grid View. View This Dataset.",
-    subtitle:
-      "This is a dataset containing some data. The data is very important. It is very important to view this data.",
-    page: {
-      title: "Go to Very Long Dataset Name Viewer",
-      to: "/tools",
-    },
-    image: (
-      <img
-        style={{ objectFit: "cover", height: "100%", width: "100%", zIndex: 0 }}
-        src={sampleImage}
-      />
-    ),
-    type: "normal",
+// Function to generate a text with a specified number of words
+const generateTextWithWordCount = (wordCount: number) => {
+  const words = "Lorem ipsum dolor sit amet consectetur adipiscing elit".split(
+    " "
+  );
+  let result = "";
+  for (let i = 0; i < wordCount; i++) {
+    result += words[i % words.length] + " ";
+  }
+  return result.trim();
+};
+
+// Arguments for each InfoBox with different word counts
+const infoBoxArgs = [
+  {
+    title: generateTextWithWordCount(5),
+    subtitle: generateTextWithWordCount(10),
   },
-  render: (args) => (
+  {
+    title: generateTextWithWordCount(10),
+    subtitle: generateTextWithWordCount(20),
+  },
+  {
+    title: generateTextWithWordCount(15),
+    subtitle: generateTextWithWordCount(30),
+  },
+  {
+    title: generateTextWithWordCount(20),
+    subtitle: generateTextWithWordCount(40),
+  },
+  {
+    title: generateTextWithWordCount(25),
+    subtitle: generateTextWithWordCount(50),
+  },
+];
+
+export const InText: StoryObj<typeof CZBUIInfoBox> = {
+  render: () => (
     <Container maxWidth="md">
       <TypographyWithContainerAndMargin variant="h1">
         Info Box example with text
@@ -67,21 +86,22 @@ export const InText: StoryObj<typeof CZBUIInfoBox> = {
         bibendum sed libero eu, vehicula venenatis diam. Lorem ipsum dolor sit
         amet, consectetur adipiscing elit.
       </TypographyWithContainerAndMargin>
-      <TypographyWithContainerAndMargin variant="body1">
-        In ac risus a odio suscipit malesuada. Proin interdum quam quis ex
-        pharetra facilisis. Duis feugiat mi a sem rhoncus, eget volutpat lorem
-        convallis. Sed ex nisl, ultrices a ante vel, consectetur gravida nibh.
-        Phasellus in nulla ullamcorper, mollis leo in, tempor mauris. Duis ipsum
-        eros, ornare nec mauris non, sagittis feugiat nulla. Mauris at malesuada
-        justo. Curabitur maximus metus dolor, scelerisque porttitor velit
-        tincidunt viverra. Suspendisse tincidunt, diam ut rutrum lacinia, ligula
-        turpis lacinia elit, sit amet lobortis dolor purus id nisl. Vestibulum
-        ut tempus mauris, sed porttitor justo. Praesent elementum velit nunc, ac
-        fringilla enim luctus sit amet. Quisque non libero tortor. Phasellus a
-        accumsan sem. Aenean eget maximus nibh.
-      </TypographyWithContainerAndMargin>
       <Container maxWidth={CONTAINER_MAX_WIDTH}>
-        <CZBUIInfoBox {...args} />
+        <CZBUIInfoBox
+          {...infoBoxArgs[0]}
+          page={{ title: "Go to Dataset", to: "/tools" }}
+          image={
+            <img
+              style={{
+                objectFit: "cover",
+                height: "100%",
+                width: "100%",
+                zIndex: 0,
+              }}
+              src={sampleImage}
+            />
+          }
+        />
       </Container>
       <TypographyWithContainerAndMargin variant="body1">
         Duis mauris dolor, faucibus eu lorem a, laoreet finibus mi. Donec
@@ -103,19 +123,76 @@ export const InText: StoryObj<typeof CZBUIInfoBox> = {
           columns={{ xs: 2, sm: 8, md: 12 }}
         >
           <Grid item xs={1} sm={4} md={4}>
-            <CZBUIInfoBox {...args} inGrid />
+            <CZBUIInfoBox
+              {...infoBoxArgs[1]}
+              inGrid
+              page={{ title: "Go to Dataset", to: "/tools" }}
+              image={
+                <img
+                  style={{
+                    objectFit: "cover",
+                    height: "100%",
+                    width: "100%",
+                    zIndex: 0,
+                  }}
+                  src={sampleImage}
+                />
+              }
+            />
           </Grid>
           <Grid item xs={1} sm={4} md={4}>
-            <CZBUIInfoBox {...args} inGrid />
+            <CZBUIInfoBox
+              {...infoBoxArgs[2]}
+              inGrid
+              page={{ title: "Go to Dataset", to: "/tools" }}
+              image={
+                <img
+                  style={{
+                    objectFit: "cover",
+                    height: "100%",
+                    width: "100%",
+                    zIndex: 0,
+                  }}
+                  src={sampleImage}
+                />
+              }
+            />
           </Grid>
           <Grid item xs={1} sm={4} md={4}>
-            <CZBUIInfoBox {...args} inGrid />
+            <CZBUIInfoBox
+              {...infoBoxArgs[3]}
+              inGrid
+              page={{ title: "Go to Dataset", to: "/tools" }}
+              image={
+                <img
+                  style={{
+                    objectFit: "cover",
+                    height: "100%",
+                    width: "100%",
+                    zIndex: 0,
+                  }}
+                  src={sampleImage}
+                />
+              }
+            />
           </Grid>
           <Grid item xs={1} sm={4} md={4}>
-            <CZBUIInfoBox {...args} inGrid />
-          </Grid>
-          <Grid item xs={1} sm={4} md={4}>
-            <CZBUIInfoBox {...args} inGrid />
+            <CZBUIInfoBox
+              {...infoBoxArgs[4]}
+              inGrid
+              page={{ title: "Go to Dataset", to: "/tools" }}
+              image={
+                <img
+                  style={{
+                    objectFit: "cover",
+                    height: "100%",
+                    width: "100%",
+                    zIndex: 0,
+                  }}
+                  src={sampleImage}
+                />
+              }
+            />
           </Grid>
         </Grid>
       </Container>
@@ -134,10 +211,40 @@ export const InText: StoryObj<typeof CZBUIInfoBox> = {
       <Container maxWidth={CONTAINER_MAX_WIDTH}>
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 8 }}>
           <Grid item xs={1} sm={4} md={4}>
-            <CZBUIInfoBox {...args} inGrid />
+            <CZBUIInfoBox
+              {...infoBoxArgs[0]}
+              inGrid
+              page={{ title: "Go to Dataset", to: "/tools" }}
+              image={
+                <img
+                  style={{
+                    objectFit: "cover",
+                    height: "100%",
+                    width: "100%",
+                    zIndex: 0,
+                  }}
+                  src={sampleImage}
+                />
+              }
+            />
           </Grid>
           <Grid item xs={1} sm={4} md={4}>
-            <CZBUIInfoBox {...args} inGrid />
+            <CZBUIInfoBox
+              {...infoBoxArgs[1]}
+              inGrid
+              page={{ title: "Go to Dataset", to: "/tools" }}
+              image={
+                <img
+                  style={{
+                    objectFit: "cover",
+                    height: "100%",
+                    width: "100%",
+                    zIndex: 0,
+                  }}
+                  src={sampleImage}
+                />
+              }
+            />
           </Grid>
         </Grid>
       </Container>
