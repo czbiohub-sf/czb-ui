@@ -1,5 +1,11 @@
 # @czb-ui/viz
 
+## 0.4.0-next.1
+
+### Minor Changes
+
+- Use SDS v21
+
 ## 0.4.0-next.0
 
 ### Minor Changes

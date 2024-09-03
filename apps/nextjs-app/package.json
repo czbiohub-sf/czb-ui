@@ -1,6 +1,6 @@
 {
   "name": "nextjs-app",
-  "version": "0.2.0-next.9",
+  "version": "0.2.0-next.11",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@czb-ui/biohub-logos": "2.0.0-next.5",
-    "@czb-ui/core": "2.0.0-next.8",
+    "@czb-ui/core": "2.0.0-next.10",
     "@czi-sds/components": "^21.0.0",
     "@emotion/cache": "^11.11.0",
     "@emotion/css": "^11.11.2",

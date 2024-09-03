@@ -1,5 +1,17 @@
 # @czb-ui/core
 
+## 2.0.0-next.10
+
+### Major Changes
+
+- Add dark mode support with SDS v21
+
+## 2.0.0-next.9
+
+### Major Changes
+
+- Use SDS v21
+
 ## 2.0.0-next.8
 
 ### Major Changes
