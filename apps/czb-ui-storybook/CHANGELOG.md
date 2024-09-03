@@ -1,5 +1,12 @@
 # czb-ui-storybook
 
+## 2.0.0-next.12
+
+### Patch Changes
+
+- Updated dependencies
+  - @czb-ui/biohub-logos@2.0.0-next.6
+
 ## 2.0.0-next.11
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @czb-ui/biohub-logos
 
+## 2.0.0-next.6
+
+### Patch Changes
+
+- Export WithTitleLight, keep logo color
+
 ## 2.0.0-next.5
 
 ### Major Changes
