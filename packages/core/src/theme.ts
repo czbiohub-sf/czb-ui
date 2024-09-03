@@ -1,5 +1,11 @@
 "use client";
-import { AppTheme, SDSAppTheme, makeThemeOptions } from "@czi-sds/components";
+import {
+  AppTheme,
+  SDSLightAppTheme,
+  SDSDarkAppTheme,
+  makeThemeOptions,
+  Colors,
+} from "@czi-sds/components";
 import { ThemeOptions, createTheme, Theme } from "@mui/material";
 import { deepmerge } from "@mui/utils";
 
@@ -7,6 +13,8 @@ import { deepmerge } from "@mui/utils";
 type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
 };
+
+type ThemeMode = "light" | "dark";
 
 function returnModifiedMUIComponentsForCZBUI(appTheme: AppTheme): ThemeOptions {
   // Customize MUI components
@@ -59,9 +67,13 @@ function returnModifiedMUIComponentsForCZBUI(appTheme: AppTheme): ThemeOptions {
   };
 }
 
-function createModifiedSDSTheme(customTheme: DeepPartial<AppTheme>): Theme {
+function createModifiedSDSTheme(
+  customTheme: DeepPartial<AppTheme>,
+  mode: ThemeMode
+): Theme {
+  const SDSAppTheme = mode === "light" ? SDSLightAppTheme : SDSDarkAppTheme;
   const CZBTheme = deepmerge(SDSAppTheme, customTheme);
-  const appTheme = makeThemeOptions(CZBTheme);
+  const appTheme = makeThemeOptions(CZBTheme, mode);
   const appThemeWithModifiedComponents = deepmerge(
     appTheme,
     returnModifiedMUIComponentsForCZBUI(CZBTheme)
@@ -69,34 +81,59 @@ function createModifiedSDSTheme(customTheme: DeepPartial<AppTheme>): Theme {
   return createTheme(appThemeWithModifiedComponents);
 }
 
+// Some of the colors below are generated manually
+const BiohubLightThemeColors: DeepPartial<Colors> = {
+  blue: {
+    100: "#B5E7F7", // Lightened variant of San Francisco Cyan
+    200: "#85D7F3", // Lightened variant of San Francisco Cyan
+    300: "#0D7CB5", // San Francisco Cyan
+    400: "#0D7CB5", // San Francisco Cyan (Primary)
+    500: "#0D7CB5", // San Francisco Cyan (Primary)
+    600: "#002F47", // Dark
+  },
+  // @ts-expect-error TODO: Figure out why common is not being recognized
+  common: {
+    black: "#000000", // Black
+    white: "#FFFFFF", // White
+  },
+  gray: {
+    100: "#F9F9FA", // Network Gray 950
+    200: "#F1F4F5", // Network Gray 900
+    300: "#DDE1E2", // Network Gray 800
+    400: "#BDC3C6", // Network Gray 700
+    500: "#6E767A", // Network Gray 500
+    600: "#565F63", // Network Gray 400
+  },
+};
+
+const BiohubDarkThemeColors: DeepPartial<Colors> = {
+  blue: {
+    100: "#002F47", // Dark
+    200: "#065B86", // Medium
+    300: "#0D7CB5", // San Francisco Cyan
+    400: "#00A0DD", // San Francisco Cyan Bright (Primary on dark background)
+    500: "#00A0DD", // San Francisco Cyan Bright (Primary)
+    600: "#B5E7F7", // Lightened variant for dark background
+  },
+  // @ts-expect-error TODO: Figure out why common is not being recognized
+  common: {
+    black: "#131819", // Network Gray 100
+    white: "#F9F9FA", // Network Gray 950
+  },
+  gray: {
+    100: "#131819", // Network Gray 100
+    200: "#262E31", // Network Gray 200
+    300: "#262E31", // Network Gray 200
+    400: "#262E31", // Network Gray 200
+    500: "#6E767A", // Network Gray 500
+    600: "#DDE1E2", // Network Gray 800
+  },
+};
+
 // See SDS default theme:
 // https://github.com/chanzuckerberg/sci-components/blob/cf36ac5d94e4f788da60ccffe666f45613f056c3/packages/components/src/core/styles/common/SDSAppTheme.ts
-const customTheme: DeepPartial<AppTheme> = {
-  colors: {
-    blue: {
-      // 100 and 200 shades are generated with
-      // https://m2.material.io/inline-tools/color/
-      100: "#b5e7f7",
-      200: "#85d7f3",
-      300: "#00A0DD",
-      400: "#0D7CB5",
-      500: "#065B86",
-      600: "#002F47",
-    },
-    common: {
-      black: "#262E31",
-      white: "#FFFFFF",
-    },
-    gray: {
-      // "Normalizing" our color palette from 100-950 to 100-600
-      100: "#F9F9FA",
-      200: "#DDE1E2",
-      300: "#6E767A",
-      400: "#565F63",
-      500: "#262E31",
-      600: "#131819",
-    },
-  },
+
+const sharedAppTheme: DeepPartial<AppTheme> = {
   typography: {
     fontFamily: {
       body: "Hanken Grotesk, sans-serif",
@@ -168,9 +205,25 @@ const customTheme: DeepPartial<AppTheme> = {
   },
 };
 
-export const biohubTheme = createModifiedSDSTheme(customTheme);
+export const BiohubLightAppTheme = {
+  ...sharedAppTheme,
+  colors: BiohubLightThemeColors,
+};
 
-export const createCustomAppTheme = (overrides: AppTheme) => {
+export const BiohubDarkAppTheme = {
+  ...sharedAppTheme,
+  colors: BiohubDarkThemeColors,
+};
+
+export const createBiohubTheme = (mode: ThemeMode) => {
+  const customTheme =
+    mode === "light" ? BiohubLightAppTheme : BiohubDarkAppTheme;
+  return createModifiedSDSTheme(customTheme, mode);
+};
+
+export const createCustomAppTheme = (overrides: AppTheme, mode: ThemeMode) => {
+  const customTheme =
+    mode === "light" ? BiohubLightAppTheme : BiohubDarkAppTheme;
   const customThemeWithOverrides = deepmerge(customTheme, overrides);
-  return createModifiedSDSTheme(customThemeWithOverrides);
+  return createModifiedSDSTheme(customThemeWithOverrides, mode);
 };

@@ -7,7 +7,7 @@ const AppBarComponent = styled(MaterialAppBar)<AppBarProps>(({ theme }) => ({
   backgroundColor:
     theme.palette.mode === "dark"
       ? theme.palette.background.default
-      : theme.palette.primary.dark,
+      : "#003A57",
   color: "white",
   boxShadow: "none",
 })) as typeof MaterialAppBar;

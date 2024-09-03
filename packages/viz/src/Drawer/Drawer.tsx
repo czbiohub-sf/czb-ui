@@ -13,22 +13,14 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const drawerBleeding = 34;
 
-const Root = styled("div")(({ theme }) => ({
+const Root = styled("div")(() => ({
   height: "100%",
-  backgroundColor:
-    theme.palette.mode === "light"
-      ? grey[100]
-      : theme.palette.background.default,
-}));
-
-const StyledBox = styled(Box)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "light" ? "#fff" : grey[800],
 }));
 
 const Puller = styled(Box)(({ theme }) => ({
   width: 30,
   height: 6,
-  backgroundColor: theme.palette.mode === "light" ? grey[300] : grey[900],
+  backgroundColor: grey[300],
   borderRadius: 3,
   position: "absolute",
   top: 8,
@@ -81,7 +73,7 @@ export default function SwipeableEdgeDrawer({
           keepMounted: true,
         }}
       >
-        <StyledBox
+        <Box
           sx={{
             position: "absolute",
             top: -drawerBleeding,
@@ -97,8 +89,8 @@ export default function SwipeableEdgeDrawer({
           <Typography sx={{ p: 2, color: "text.secondary" }}>
             Options
           </Typography>
-        </StyledBox>
-        <StyledBox
+        </Box>
+        <Box
           sx={{
             px: 6,
             pb: 6,
@@ -119,7 +111,7 @@ export default function SwipeableEdgeDrawer({
             <CloseIcon />
           </IconButton>
           {children}
-        </StyledBox>
+        </Box>
       </SwipeableDrawer>
     </Root>
   );

@@ -1,31 +1,19 @@
 import * as React from "react";
-import {
-  ThemeProvider as MUIThemeProvider,
-  createTheme,
-} from "@mui/material/styles";
-import { biohubTheme } from "./theme";
+import { ThemeProvider as MUIThemeProvider } from "@mui/material/styles";
+import { createBiohubTheme } from "./theme";
 
 import CssBaseline from "@mui/material/CssBaseline";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
-  _experimentalDarkMode?: boolean;
+  mode?: "light" | "dark";
 }
 
 export const ThemeProvider = ({
   children,
-  _experimentalDarkMode: darkMode,
+  mode = "light",
 }: ThemeProviderProps) => {
-  let finalTheme = biohubTheme;
-
-  if (darkMode) {
-    finalTheme = createTheme({
-      ...biohubTheme,
-      palette: {
-        mode: "dark",
-      },
-    });
-  }
+  let finalTheme = createBiohubTheme(mode);
 
   return (
     <MUIThemeProvider theme={finalTheme}>

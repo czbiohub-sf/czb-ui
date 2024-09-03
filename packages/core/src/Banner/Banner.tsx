@@ -57,8 +57,10 @@ const Headline = styled(Typography)<BannerStyleProps>((props) => {
 
   return css`
     color: ${props.type === "background"
-      ? colors?.common.white
-      : colors?.common.black};
+      ? // @ts-expect-error TODO: Figure out why common is not being recognized
+        colors?.common.white
+      : // @ts-expect-error TODO: Figure out why common is not being recognized
+        colors?.common.black};
 
     ${fontHeaderXxl(props)}
     font-size: 2.5rem;

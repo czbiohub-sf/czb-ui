@@ -63,7 +63,12 @@ export const NavBar = ({
           )}
           {!legacyLook && !useLogoWithTitleVariant && (
             <>
-              <Divider orientation="vertical" flexItem sx={{ mr: 6 }} />
+              <Divider
+                orientation="vertical"
+                flexItem
+                // TODO: Use theme variables
+                sx={{ mr: 6, borderColor: "gray", opacity: 0.5 }}
+              />
               <Typography
                 fontWeight={700}
                 fontSize="1.2rem"

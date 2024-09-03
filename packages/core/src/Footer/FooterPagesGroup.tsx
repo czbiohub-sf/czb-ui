@@ -66,7 +66,10 @@ const CustomLink = styled(Link)<FooterPagesGroupStyleProps>((props) => {
 
   return css`
     margin-top: ${spaces?.m}px;
-    color: ${colors?.common.white};
+    color: ${
+      // @ts-expect-error TODO: Figure out why common is not being recognized */
+      colors?.common.white
+    };
   `;
 });
 
@@ -81,15 +84,14 @@ export const FooterPagesGroup = ({
   pagesComponent,
   small,
 }: FooterPagesGroupProps) => {
-  const theme = useTheme();
-
   return (
     <StyledBox>
       {pages.map((pageGroup, i) => (
         <PageListContainer key={i}>
           <HeadingSeparator
             title={pageGroup.title}
-            dividerOpacity={theme.palette.mode == "dark" ? 0.8 : 0.2}
+            dividerOpacity={0.2}
+            _todoTempFixForFooterPagesGroup
           />
           <ListBox>
             {pageGroup.pages.map((page, j) => (

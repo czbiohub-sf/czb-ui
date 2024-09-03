@@ -1330,10 +1330,10 @@
     react-confetti "^6.1.0"
     strip-ansi "^7.1.0"
 
-"@czi-sds/components@^20.8.0":
-  version "20.8.0"
-  resolved "https://registry.yarnpkg.com/@czi-sds/components/-/components-20.8.0.tgz#2c628b846292c040cc09b83c387d68b45d5c63ea"
-  integrity sha512-SOcsz4o0rWmROMsPWYj3IpT1KrCl16RhS3FYtGNzboSgZYs3E7UHYRUKEA/vS78fHWnTOh3EFsp78MQLGnkEDw==
+"@czi-sds/components@^21.0.0":
+  version "21.0.0"
+  resolved "https://registry.yarnpkg.com/@czi-sds/components/-/components-21.0.0.tgz#8b73d1301aa30546914079ae75ff10650ab0ed19"
+  integrity sha512-YwBFHrOqxMXWWcV/W2A4hClXLbCOujKYszeQRrKcV2PhLEaNjpcNOdMrnqaHlaUaqFimOkOOPaOqdNim/6ayew==
 
 "@deck.gl/aggregation-layers@8.9.36":
   version "8.9.36"

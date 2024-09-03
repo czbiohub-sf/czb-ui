@@ -60,7 +60,10 @@ const TitleTypography = styled(Typography)<FooterStyleProps>((props) => {
     font-weight: 700;
     font-size: 1rem;
     margin-bottom: 0;
-    color: ${colors?.common.white};
+    color: ${
+      // @ts-expect-error TODO: Figure out why common is not being recognized */
+      colors?.common.white
+    };
     flex-grow: 1;
 
     ${props.theme.breakpoints.up("sm")} {

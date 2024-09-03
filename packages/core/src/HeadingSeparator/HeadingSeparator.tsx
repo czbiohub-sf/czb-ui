@@ -13,6 +13,7 @@ interface HeadingSeparatorProps extends CommonThemeProps {
   title?: string;
   id?: string;
   dividerOpacity?: number;
+  _todoTempFixForFooterPagesGroup?: boolean;
 }
 
 interface HeadingSeparatorStyleProps extends CommonThemeProps {}
@@ -41,11 +42,17 @@ export const HeadingSeparator = ({
   title,
   id,
   dividerOpacity = 1.0,
+  _todoTempFixForFooterPagesGroup,
 }: HeadingSeparatorProps) => {
   return (
     <StyledContainer id={id}>
       <HeadingTitle>{title}</HeadingTitle>
-      <Divider sx={{ opacity: dividerOpacity }} />
+      {!_todoTempFixForFooterPagesGroup && (
+        <Divider sx={{ opacity: dividerOpacity }} />
+      )}
+      {_todoTempFixForFooterPagesGroup && (
+        <Divider sx={{ mr: 6, borderColor: "gray", opacity: 0.5 }} />
+      )}
     </StyledContainer>
   );
 };
