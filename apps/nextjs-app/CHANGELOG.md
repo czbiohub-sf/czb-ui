@@ -1,5 +1,12 @@
 # nextjs-app
 
+## 0.2.0-next.13
+
+### Patch Changes
+
+- Updated dependencies [aad0d29]
+  - @czb-ui/core@2.0.0-next.11
+
 ## 0.2.0-next.12
 
 ### Patch Changes

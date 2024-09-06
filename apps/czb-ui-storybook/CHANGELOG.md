@@ -1,5 +1,16 @@
 # czb-ui-storybook
 
+## 2.0.0-next.13
+
+### Minor Changes
+
+- aad0d29: Add logoLink prop for footer
+
+### Patch Changes
+
+- Updated dependencies [aad0d29]
+  - @czb-ui/core@2.0.0-next.11
+
 ## 2.0.0-next.12
 
 ### Patch Changes
