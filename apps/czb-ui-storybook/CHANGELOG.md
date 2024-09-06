@@ -1,5 +1,22 @@
 # czb-ui-storybook
 
+## 2.0.0
+
+### Major Changes
+
+- 58263ae: Update Storybook
+
+### Minor Changes
+
+- bf56475: Add logoLink prop for footer
+
+### Patch Changes
+
+- Updated dependencies [bf56475]
+- Updated dependencies [6399d5b]
+  - @czb-ui/core@1.4.0
+  - @czb-ui/biohub-logos@1.2.0
+
 ## 1.2.0
 
 ### Minor Changes

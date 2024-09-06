@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 1.4.0
+
+### Minor Changes
+
+- bf56475: Add logoLink prop for footer
+
 ## 1.3.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @czb-ui/biohub-logos
 
+## 1.2.0
+
+### Minor Changes
+
+- 6399d5b: Add CZB mark logo
+
 ## 1.1.0
 
 ### Minor Changes
