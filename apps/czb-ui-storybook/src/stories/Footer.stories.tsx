@@ -25,6 +25,7 @@ type PageGroup = {
 type FooterProps = {
   pages: PageGroup[];
   logo: JSX.Element;
+  logoLink: string;
 };
 
 export const Footer: StoryObj<FooterProps> = {
@@ -56,6 +57,7 @@ export const Footer: StoryObj<FooterProps> = {
       },
     ],
     logo: <SFColorReverse />,
+    logoLink: "https://www.czbiohub.org/sf/",
   },
   render: (args) => <CZBUIFooter {...args} />,
 };
