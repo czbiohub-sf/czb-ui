@@ -27,7 +27,13 @@ const meta: Meta<FooterPropsAndCustomArgs> = {
       },
     },
   },
-  render: ({ ...args }) => <CZBUIFooter {...args} logo={<SFColorReverse />} />,
+  render: ({ ...args }) => (
+    <CZBUIFooter
+      {...args}
+      logo={<SFColorReverse />}
+      logoLink="https://www.czbiohub.org/sf/"
+    />
+  ),
 };
 
 export default meta;

@@ -10,6 +10,7 @@ import { css } from "@emotion/react";
 
 interface FooterProps {
   logo?: React.ReactNode;
+  logoLink?: string;
   title?: string;
   pages?: Array<PageGroup>;
   pagesComponent?: any; // TODO: Find type of mui button component prop
@@ -74,6 +75,7 @@ const TitleTypography = styled(Typography)<FooterStyleProps>((props) => {
 
 export const Footer = ({
   logo,
+  logoLink,
   title,
   pages,
   pagesComponent,
@@ -82,7 +84,7 @@ export const Footer = ({
   return (
     <StyledFooterBar small={small}>
       <FlexBox>
-        <CustomLink href="https://www.czbiohub.org/">
+        <CustomLink href={logoLink}>
           <LogoBox>{logo}</LogoBox>
           <TitleTypography>{title}</TitleTypography>
         </CustomLink>
