@@ -8,6 +8,7 @@ import { FooterPagesGroup } from "./FooterPagesGroup";
 
 interface FooterProps {
   logo?: React.ReactNode;
+  logoLink?: string;
   title?: string;
   pages?: Array<PageGroup>;
   pagesComponent?: any; // TODO: Find type of mui button component prop
@@ -16,6 +17,7 @@ interface FooterProps {
 
 export const Footer = ({
   logo,
+  logoLink,
   title,
   pages,
   pagesComponent,
@@ -32,7 +34,7 @@ export const Footer = ({
       <Box display="flex" alignItems="center">
         <Link
           sx={{ display: "flex", alignItems: "center", color: "inherit" }}
-          href="https://www.czbiohub.org/"
+          href={logoLink}
         >
           <Box sx={{ mr: 5, display: "inherit" }}>{logo}</Box>
           <Typography
