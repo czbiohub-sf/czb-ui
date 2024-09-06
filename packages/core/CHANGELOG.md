@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 2.0.0-next.12
+
+### Minor Changes
+
+- add `small` prop back for info boxes backwards compatibility
+
 ## 2.0.0-next.11
 
 ### Minor Changes

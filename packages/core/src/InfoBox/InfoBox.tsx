@@ -9,6 +9,11 @@ export interface InfoBoxProps {
   secondaryPage?: PageLink;
   image?: React.ReactNode;
   inGrid?: boolean;
+  /**
+   * @deprecated The `small` prop is deprecated and only used for backwards compatibility.
+   * Please use the `inGrid` prop instead.
+   */
+  small?: boolean;
   pagesComponent?: any; // TODO: Find type of mui link component prop
 }
 
@@ -25,6 +30,7 @@ export const InfoBox = ({
   pagesComponent,
   image,
   inGrid,
+  small,
   type = "normal",
 }: InfoBoxContainerProps) => {
   return (
@@ -37,7 +43,7 @@ export const InfoBox = ({
           secondaryPage={secondaryPage}
           pagesComponent={pagesComponent}
           image={image}
-          inGrid={inGrid}
+          inGrid={inGrid || small}
         />
       )}
     </>
