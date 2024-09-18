@@ -14,6 +14,7 @@ export type FilterViewProps = {
   mobileDrawerHeightPx?: number;
   desktopContainerSxProps?: SxProps<Theme>;
   mobileContentContainerSxProps?: SxProps<Theme>;
+  desktopContentContainerSxProps?: SxProps<Theme>;
 };
 
 export const FilterView = ({
@@ -26,6 +27,7 @@ export const FilterView = ({
   mobileDrawerHeightPx = 300,
   desktopContainerSxProps,
   mobileContentContainerSxProps,
+  desktopContentContainerSxProps,
 }: FilterViewProps) => {
   const theme = useTheme();
   const onMobile = useMediaQuery(
@@ -51,6 +53,7 @@ export const FilterView = ({
       contentComponent={contentComponent}
       desktopDrawerWidth={desktopDrawerWidth}
       desktopContainerSxProps={desktopContainerSxProps}
+      desktopContentContainerSxProps={desktopContentContainerSxProps}
     />
   );
 };
