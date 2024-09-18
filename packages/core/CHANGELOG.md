@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 2.0.0-next.13
+
+### Minor Changes
+
+- 41036bf: add `desktopContentContainerSxProps` prop to FilterView
+
 ## 2.0.0-next.12
 
 ### Minor Changes
