@@ -96,16 +96,19 @@ export const FooterPagesGroup = ({
           <ListBox>
             {pageGroup.pages.map((page, j) => (
               <ListItem component="li" key={j}>
-                {!page.externalLink ? (
-                  <CustomLink
-                    href={page?.to}
-                    component={page?.to ? pagesComponent : undefined}
-                  >
-                    {page?.title}
-                  </CustomLink>
-                ) : (
-                  <CustomLink href={page?.to}>{page?.title}</CustomLink>
-                )}
+                <CustomLink
+                  href={page?.to}
+                  component={
+                    // If we are using newTab, use "a" straight away as client routers don't support new tab
+                    // If externalLink is true, use "a" as well
+                    // Otherwise, use the pagesComponent for a regular client side navigation
+                    page.newTab ? "a" : page.externalLink ? "a" : pagesComponent
+                  }
+                  // @ts-ignore: We already know that if target is used, we're using an <a> tag for new tab
+                  target={page.newTab ? "_blank" : undefined}
+                >
+                  {page?.title}
+                </CustomLink>
               </ListItem>
             ))}
           </ListBox>
