@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 2.0.0-next.14
+
+### Patch Changes
+
+- 501667e: Improved NavBar and Footer link functionality
+
 ## 2.0.0-next.13
 
 ### Minor Changes
