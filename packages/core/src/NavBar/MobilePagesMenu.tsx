@@ -45,32 +45,26 @@ export const MobilePagesMenu = ({
               <Box key={i}>
                 <Divider component="li" />
                 <ListItem disableGutters disablePadding>
-                  {!page.externalLink && (
-                    <Link
-                      color="inherit"
-                      component={page?.to ? pagesComponent : undefined}
-                      href={page?.to}
-                      sx={{ mx: 5, width: "100%" }}
-                      onClick={() => setOpen(false)}
-                    >
-                      <ListItemButton sx={{ p: 6 }}>
-                        {page.title}
-                      </ListItemButton>
-                    </Link>
-                  )}
-                  {/* If target="_blank" needs to be added also add rel="noopener" */}
-                  {page.externalLink && (
-                    <Link
-                      color="inherit"
-                      sx={{ mx: 5, width: "100%" }}
-                      onClick={() => setOpen(false)}
-                      href={page?.to}
-                    >
-                      <ListItemButton sx={{ p: 6 }}>
-                        {page.title}
-                      </ListItemButton>
-                    </Link>
-                  )}
+                  <Link
+                    color="inherit"
+                    component={
+                      // If we are using newTab, use "a" straight away as client routers don't support new tab
+                      // If externalLink is true, use "a" as well
+                      // Otherwise, use the pagesComponent for a regular client side navigation
+                      page.newTab
+                        ? "a"
+                        : page.externalLink
+                        ? "a"
+                        : pagesComponent
+                    }
+                    href={page?.to}
+                    sx={{ mx: 5, width: "100%" }}
+                    onClick={() => setOpen(false)}
+                    // @ts-ignore: We already know that if target is used, we're using an <a> tag for new tab
+                    target={page.newTab ? "_blank" : undefined}
+                  >
+                    <ListItemButton sx={{ p: 6 }}>{page.title}</ListItemButton>
+                  </Link>
                 </ListItem>
               </Box>
             ))}

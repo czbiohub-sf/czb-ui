@@ -51,18 +51,21 @@ export const DesktopPagesMenu = ({
       <StyledList>
         {pages.map((page, i) => (
           <StyledListItem disableGutters key={i}>
-            {!page.externalLink ? (
-              <StyledLink
-                component={page?.to ? pagesComponent : undefined}
-                sdsStyle="minimal"
-                sdsType="secondary"
-                href={page?.to}
-              >
-                {page?.title}
-              </StyledLink>
-            ) : (
-              <StyledLink href={page?.to}>{page?.title}</StyledLink>
-            )}
+            <StyledLink
+              component={
+                // If we are using newTab, use "a" straight away as client routers don't support new tab
+                // If externalLink is true, use "a" as well
+                // Otherwise, use the pagesComponent for a regular client side navigation
+                page.newTab ? "a" : page.externalLink ? "a" : pagesComponent
+              }
+              sdsStyle="minimal"
+              sdsType="secondary"
+              href={page?.to}
+              // @ts-ignore: We already know that if target is used, we are either external or using an <a> tag for new tab
+              target={page.newTab ? "_blank" : undefined}
+            >
+              {page?.title}
+            </StyledLink>
           </StyledListItem>
         ))}
       </StyledList>
