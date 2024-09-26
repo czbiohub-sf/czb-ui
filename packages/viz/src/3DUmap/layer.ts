@@ -157,6 +157,24 @@ class LayerManager {
     return id;
   }
 
+  replaceLayer(
+    name: string,
+    type: "positions" | "colors",
+    label: string,
+    id: number
+  ): number {
+    if (this.layers.has(id)) {
+      this.layers.delete(id);
+    }
+
+    const layer = new Layer(name, type, label);
+    this.layers.set(id, layer);
+
+    this.typeLookup[type].push(id);
+
+    return id;
+  }
+
   getLayer(id: number): Layer {
     if (this.layers.has(id)) {
       return this.layers.get(id)!;

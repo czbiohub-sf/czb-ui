@@ -137,15 +137,6 @@ export class ThreeDimScatterPlot {
     this.layersGuiFolder.destroy();
     this.layersGuiFolder = this.gui.addFolder("Layers");
 
-    // Positions dropdown
-    // TODO: onChange
-    const positionItems = this.layerManager.getLayerLabelIdLookup("positions");
-    this.layersGuiFolder.add(
-      this.layerManager.soloedLayers,
-      "positions",
-      positionItems
-    );
-
     // Colors dropdown
     const colorItems = this.layerManager.getLayerLabelIdLookup("colors");
     this.layersGuiFolder
@@ -203,13 +194,40 @@ export class ThreeDimScatterPlot {
       mode: "r",
     });
 
-    const layerId = this.layerManager.addLayer(name, displayType, label);
+    let layerId: number = -1;
+
+    const currentPositionsLayerId = this.layerManager.soloedLayers.positions;
+    if (displayType === "positions" && currentPositionsLayerId !== -1) {
+      // Only one position layer can be displayed, so
+      // if a new position layer is loaded, replace it
+      this.log("Replacing positions layer");
+      layerId = this.layerManager.replaceLayer(
+        name,
+        displayType,
+        label,
+        currentPositionsLayerId
+      );
+    } else {
+      this.log("Adding layer normally");
+      layerId = this.layerManager.addLayer(name, displayType, label);
+    }
+
+    if (layerId === -1) {
+      throw new Error("Layer ID is -1.");
+    }
+
     const layer = this.layerManager.getLayer(layerId);
     layer.zarrArray = zarrToLoad;
 
     if (displayType === "positions") {
       await this.drawPoints(layerId);
       this.layerManager.soloLayer("positions", layerId);
+
+      // If there is a selected color layer already, color the points
+      const currentColorLayerId = this.layerManager.soloedLayers.colors;
+      if (currentColorLayerId !== -1) {
+        this.colorPoints(currentColorLayerId);
+      }
     }
 
     if (displayType === "colors") {

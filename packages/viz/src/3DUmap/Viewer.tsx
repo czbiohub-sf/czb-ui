@@ -45,6 +45,16 @@ export const ThreeDUmap = () => {
           "Random"
         );
       }, 4000);
+
+      setTimeout(() => {
+        scatterplotRef.current!.loadZarr(
+          "https://public.czbiohub.org/royerlab/zebrahub/sequencing/3d-umaps/3d_umap_nmp",
+          "coords.zarr",
+          "first_timepoint",
+          "positions",
+          "First Timepoint"
+        );
+      }, 5000);
     }
   }, [scatterplotContainerRef]);
 
