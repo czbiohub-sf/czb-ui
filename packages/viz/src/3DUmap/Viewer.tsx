@@ -18,7 +18,7 @@ export const ThreeDUmap = () => {
       scatterplotRef.current.debug = true;
 
       scatterplotRef.current.loadZarr(
-        "https://public.czbiohub.org/royerlab/zebrahub/sequencing/3d-umaps/3d_umap_nmp",
+        "https://public.czbiohub.org/royerlab/zebrahub/sequencing/3d-umaps/integrated_full_umap_3d",
         "coords.zarr",
         "first_timepoint",
         "positions",
@@ -28,33 +28,23 @@ export const ThreeDUmap = () => {
       setTimeout(() => {
         // Delay to demonstrate loading of multiple layers
         scatterplotRef.current!.loadZarr(
-          "https://public.czbiohub.org/royerlab/zebrahub/sequencing/3d-umaps/3d_umap_nmp",
-          "attribute_celltype.zarr",
-          "cell_types",
-          "colors",
-          "Cell types"
-        );
-      }, 2000);
-
-      setTimeout(() => {
-        scatterplotRef.current!.loadZarr(
-          "https://public.czbiohub.org/royerlab/zebrahub/sequencing/3d-umaps/3d_umap_nmp",
+          "https://public.czbiohub.org/royerlab/zebrahub/sequencing/3d-umaps/integrated_full_umap_3d",
           "attribute_random.zarr",
           "random",
           "colors",
           "Random"
         );
-      }, 4000);
+      }, 2000);
 
       setTimeout(() => {
         scatterplotRef.current!.loadZarr(
-          "https://public.czbiohub.org/royerlab/zebrahub/sequencing/3d-umaps/3d_umap_nmp",
-          "coords.zarr",
-          "first_timepoint",
-          "positions",
-          "First Timepoint"
+          "https://public.czbiohub.org/royerlab/zebrahub/sequencing/3d-umaps/integrated_full_umap_3d",
+          "attribute_celltype.zarr",
+          "cell_types",
+          "colors",
+          "Cell types"
         );
-      }, 5000);
+      }, 3000);
     }
   }, [scatterplotContainerRef]);
 
