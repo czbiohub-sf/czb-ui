@@ -47,8 +47,7 @@ export class ThreeDimScatterPlot {
   private shaderMaterial: THREE.ShaderMaterial;
   private particleSystem: THREE.Points | null;
   private layerManager: LayerManager;
-  private gui: GUI;
-  private layersGuiFolder: GUI;
+  private gui: GUI | null = null;
   private geometry: THREE.BufferGeometry | null = null;
   private composer: EffectComposer;
   debug = false;
@@ -100,20 +99,7 @@ export class ThreeDimScatterPlot {
       )
     );
 
-    this.gui = new GUI();
-    this.layersGuiFolder = this.gui.addFolder("Layers");
-
-    // Add some controls
-    // Point size
-    this.gui
-      .add(this.shaderMaterial.uniforms.size, "value")
-      .min(0.01)
-      .max(1)
-      .step(0.01)
-      .name("Point size");
-
-    // Auto rotating toggle
-    this.gui.add(this.controls, "autoRotate").name("Auto rotate");
+    this.refreshGui();
 
     // TODO: WebGL compatibility check
     // https://threejs.org/docs/index.html#manual/en/introduction/WebGL-compatibility-check
@@ -133,13 +119,27 @@ export class ThreeDimScatterPlot {
   }
 
   private async refreshGui() {
-    // Clear layers folder
-    this.layersGuiFolder.destroy();
-    this.layersGuiFolder = this.gui.addFolder("Layers");
+    // Clear UI
+    if (this.gui) {
+      this.gui.destroy();
+    }
+    this.gui = new GUI();
+
+    // Add some controls
+    // Point size
+    this.gui
+      .add(this.shaderMaterial.uniforms.size, "value")
+      .min(0.01)
+      .max(1)
+      .step(0.01)
+      .name("Point size");
+
+    // Auto rotating toggle
+    this.gui.add(this.controls, "autoRotate").name("Auto rotate");
 
     // Colors dropdown
     const colorItems = this.layerManager.getLayerLabelIdLookup("colors");
-    this.layersGuiFolder
+    this.gui
       .add(this.layerManager.soloedLayers, "colors", colorItems)
       .onChange((layerId: number) => {
         this.layerManager.soloLayer("colors", layerId);
@@ -147,7 +147,8 @@ export class ThreeDimScatterPlot {
         // would need to update, based on the
         // color layer selected. So refresh the GUI
         this.refreshGui();
-      });
+      })
+      .name("Attributes");
 
     // If colors is set to "None", don't show the selectedAttribute dropdown
     if (this.layerManager.soloedLayers.colors === -1) {
@@ -170,11 +171,12 @@ export class ThreeDimScatterPlot {
     currentColorAttributes.unshift("None");
 
     // Attributes of current color dropdown
-    this.layersGuiFolder
+    this.gui
       .add(currentLayerInstance, "selectedAttribute", currentColorAttributes)
       .onChange((attribute: string) => {
         currentLayerInstance.selectAttribute(attribute);
-      });
+      })
+      .name("Highlight");
     // As of now since lil-gui doesn't have
     // multi-select dropdowns, we can't have
     // multiple attributes selected at once.
