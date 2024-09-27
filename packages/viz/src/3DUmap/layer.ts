@@ -62,6 +62,8 @@ class Layer extends EventTarget {
     attributesLength: number;
   }> {
     this.checkIfZarrArrayLoaded();
+    const attrs = await this.getAttributes();
+    const attributesLength = attrs.length;
 
     // Since we are dealing with an attribute/color layer,
     // we know that the data is an Int32Array
@@ -71,17 +73,15 @@ class Layer extends EventTarget {
       return {
         filteredData: data,
         selectedAttributeIndex: -1,
-        attributesLength: -1,
+        attributesLength,
       };
     }
-
-    // Find the index of the selected attribute
-    const attrs = await this.getAttributes();
 
     if (attrs === null) {
       throw new Error("Attributes not loaded");
     }
 
+    // Find the index of the selected attribute
     const selectedAttributeIndex = attrs.indexOf(this.selectedAttribute);
 
     // Now go through each element in the data, and if
@@ -99,7 +99,7 @@ class Layer extends EventTarget {
     return {
       filteredData,
       selectedAttributeIndex,
-      attributesLength: attrs.length,
+      attributesLength,
     };
   }
 

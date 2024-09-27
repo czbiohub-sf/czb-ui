@@ -11,7 +11,6 @@ function convertIntTypedArrayToCategoryColors(
 ): Uint8Array {
   // intTypedArray looks like [0, 0, 2, 1, 2] where each number is a category
   const colorScale = scaleSequential(interpolateCool);
-  const maxValue = colorHighlightMaxValue;
 
   const categoryColors = new Uint8Array(intTypedArray.length * 3);
   for (let i = 0; i < intTypedArray.length; i++) {
@@ -34,7 +33,7 @@ function convertIntTypedArrayToCategoryColors(
       categoryColors[i * 3 + 2] = color.b;
       continue;
     }
-    const color = rgb(colorScale(intTypedArray[i] / maxValue));
+    const color = rgb(colorScale(value / colorHighlightMaxValue));
     categoryColors[i * 3] = color.r;
     categoryColors[i * 3 + 1] = color.g;
     categoryColors[i * 3 + 2] = color.b;

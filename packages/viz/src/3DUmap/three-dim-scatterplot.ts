@@ -286,6 +286,8 @@ export class ThreeDimScatterPlot {
       attributesLength,
     } = await layer.getTypedArrayWithSelectedAttributeFiltered();
 
+    this.log("attributesLength: " + attributesLength);
+
     const inHighlightMode = layer.selectedAttribute !== "None";
 
     if (colorCategories instanceof Float32Array) {
@@ -301,8 +303,8 @@ export class ThreeDimScatterPlot {
     const colors = convertIntTypedArrayToCategoryColors(
       colorCategories,
       inHighlightMode,
-      selectedAttributeIndex,
-      attributesLength
+      attributesLength,
+      selectedAttributeIndex
     );
 
     this.geometry.setAttribute(
