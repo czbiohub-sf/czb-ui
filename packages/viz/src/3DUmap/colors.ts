@@ -6,12 +6,12 @@ const HIGHLIGHT_COLOR = [255, 255, 0];
 function convertIntTypedArrayToCategoryColors(
   intTypedArray: Int32Array,
   highlightMode: boolean,
-  colorHighlightIndex?: number,
-  colorHighlightMaxValue?: number
+  colorHighlightMaxValue: number,
+  colorHighlightIndex?: number
 ): Uint8Array {
   // intTypedArray looks like [0, 0, 2, 1, 2] where each number is a category
   const colorScale = scaleSequential(interpolateCool);
-  const maxValue = Math.max(...intTypedArray);
+  const maxValue = colorHighlightMaxValue;
 
   const categoryColors = new Uint8Array(intTypedArray.length * 3);
   for (let i = 0; i < intTypedArray.length; i++) {
@@ -25,9 +25,6 @@ function convertIntTypedArrayToCategoryColors(
     if (highlightMode) {
       if (colorHighlightIndex === undefined) {
         throw new Error("colorHighlightIndex is required in highlight mode");
-      }
-      if (colorHighlightMaxValue === undefined) {
-        throw new Error("colorHighlightMaxValue is required in highlight mode");
       }
       const color = rgb(
         colorScale(colorHighlightIndex / colorHighlightMaxValue)
