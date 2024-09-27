@@ -278,8 +278,11 @@ export class ThreeDimScatterPlot {
 
     const layer = this.layerManager.getLayer(layerId);
 
-    const colorCategories =
-      await layer.getTypedArrayWithSelectedAttributeFiltered();
+    const {
+      filteredData: colorCategories,
+      selectedAttributeIndex,
+      attributesLength,
+    } = await layer.getTypedArrayWithSelectedAttributeFiltered();
 
     const inHighlightMode = layer.selectedAttribute !== "None";
 
@@ -287,9 +290,17 @@ export class ThreeDimScatterPlot {
       throw new Error("Color categories must be an Int32Array");
     }
 
+    if (inHighlightMode) {
+      this.log(
+        `Highlighting mode: ${layer.selectedAttribute}, index: ${selectedAttributeIndex}, max: ${attributesLength}`
+      );
+    }
+
     const colors = convertIntTypedArrayToCategoryColors(
       colorCategories,
-      inHighlightMode
+      inHighlightMode,
+      selectedAttributeIndex,
+      attributesLength
     );
 
     this.geometry.setAttribute(

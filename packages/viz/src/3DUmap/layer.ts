@@ -56,7 +56,11 @@ class Layer extends EventTarget {
     return data;
   }
 
-  async getTypedArrayWithSelectedAttributeFiltered(): Promise<Int32Array> {
+  async getTypedArrayWithSelectedAttributeFiltered(): Promise<{
+    filteredData: Int32Array;
+    selectedAttributeIndex: number;
+    attributesLength: number;
+  }> {
     this.checkIfZarrArrayLoaded();
 
     // Since we are dealing with an attribute/color layer,
@@ -64,7 +68,11 @@ class Layer extends EventTarget {
     const data = (await this.getTypedArray()) as Int32Array;
 
     if (this.selectedAttribute === "None") {
-      return data;
+      return {
+        filteredData: data,
+        selectedAttributeIndex: -1,
+        attributesLength: -1,
+      };
     }
 
     // Find the index of the selected attribute
@@ -75,10 +83,6 @@ class Layer extends EventTarget {
     }
 
     const selectedAttributeIndex = attrs.indexOf(this.selectedAttribute);
-
-    if (selectedAttributeIndex === -1) {
-      throw new Error("Selected attribute not found in attributes");
-    }
 
     // Now go through each element in the data, and if
     // data[i] != selectedAttributeIndex, set it to -1
@@ -92,7 +96,11 @@ class Layer extends EventTarget {
       }
     }
 
-    return filteredData;
+    return {
+      filteredData,
+      selectedAttributeIndex,
+      attributesLength: attrs.length,
+    };
   }
 
   async getAttributes() {

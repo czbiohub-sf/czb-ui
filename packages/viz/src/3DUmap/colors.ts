@@ -5,7 +5,9 @@ const HIGHLIGHT_COLOR = [255, 255, 0];
 
 function convertIntTypedArrayToCategoryColors(
   intTypedArray: Int32Array,
-  highlightMode: boolean
+  highlightMode: boolean,
+  colorHighlightIndex?: number,
+  colorHighlightMaxValue?: number
 ): Uint8Array {
   // intTypedArray looks like [0, 0, 2, 1, 2] where each number is a category
   const colorScale = scaleSequential(interpolateCool);
@@ -21,9 +23,18 @@ function convertIntTypedArrayToCategoryColors(
       continue;
     }
     if (highlightMode) {
-      categoryColors[i * 3] = HIGHLIGHT_COLOR[0];
-      categoryColors[i * 3 + 1] = HIGHLIGHT_COLOR[1];
-      categoryColors[i * 3 + 2] = HIGHLIGHT_COLOR[2];
+      if (colorHighlightIndex === undefined) {
+        throw new Error("colorHighlightIndex is required in highlight mode");
+      }
+      if (colorHighlightMaxValue === undefined) {
+        throw new Error("colorHighlightMaxValue is required in highlight mode");
+      }
+      const color = rgb(
+        colorScale(colorHighlightIndex / colorHighlightMaxValue)
+      );
+      categoryColors[i * 3] = color.r;
+      categoryColors[i * 3 + 1] = color.g;
+      categoryColors[i * 3 + 2] = color.b;
       continue;
     }
     const color = rgb(colorScale(intTypedArray[i] / maxValue));
