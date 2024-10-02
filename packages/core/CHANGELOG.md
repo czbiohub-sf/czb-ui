@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 2.0.0-next.15
+
+### Patch Changes
+
+- 3fd7563: Fix scroll bars showing in Info Box, even if there was no overflow
+
 ## 2.0.0-next.14
 
 ### Patch Changes
