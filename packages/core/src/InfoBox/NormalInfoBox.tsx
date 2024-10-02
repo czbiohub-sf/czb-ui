@@ -71,7 +71,7 @@ const ContentBox = styled(Box)<CommonThemeProps>((props) => {
     flex-direction: column;
     padding: ${spaces?.xl}px;
     background-color: ${colors?.gray[100]};
-    overflow: scroll;
+    overflow: auto;
   `;
 });
 
