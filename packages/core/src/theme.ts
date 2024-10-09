@@ -97,8 +97,8 @@ const BiohubLightThemeColors: DeepPartial<Colors> = {
     white: "#FFFFFF", // White
   },
   gray: {
-    100: "#F9F9FA", // Network Gray 950
-    200: "#F1F4F5", // Network Gray 900
+    100: "#F1F4F5", // Network Gray 950
+    200: "#DDE1E2", // Network Gray 900, I think this is what MUI uses for borders
     300: "#DDE1E2", // Network Gray 800
     400: "#BDC3C6", // Network Gray 700
     500: "#6E767A", // Network Gray 500
