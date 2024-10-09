@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 2.0.0-next.16
+
+### Patch Changes
+
+- 69bbb31: Change gray shade for MUI borders
+
 ## 2.0.0-next.15
 
 ### Patch Changes
