@@ -48,6 +48,7 @@ export class ThreeDimScatterPlot {
   private particleSystem: THREE.Points | null;
   private layerManager: LayerManager;
   private gui: GUI | null = null;
+  private guiElement: HTMLDivElement | undefined = undefined;
   private geometry: THREE.BufferGeometry | null = null;
   private composer: EffectComposer;
   debug = false;
@@ -123,7 +124,7 @@ export class ThreeDimScatterPlot {
     if (this.gui) {
       this.gui.destroy();
     }
-    this.gui = new GUI();
+    this.gui = new GUI({ container: this.guiElement });
 
     // Add some controls
     // Point size
@@ -180,6 +181,11 @@ export class ThreeDimScatterPlot {
     // As of now since lil-gui doesn't have
     // multi-select dropdowns, we can't have
     // multiple attributes selected at once.
+  }
+
+  setGuiContainer(element: HTMLDivElement) {
+    this.guiElement = element;
+    this.refreshGui();
   }
 
   async loadZarr(
