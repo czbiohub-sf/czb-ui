@@ -1,7 +1,4 @@
 import React, { useState, useEffect, useMemo } from "react";
-import DeckGL from "@deck.gl/react/typed";
-import { OrthographicView } from "@deck.gl/core/typed";
-import { BitmapLayer } from "@deck.gl/layers/typed";
 import { ImageLoader } from "@loaders.gl/images";
 import { load } from "@loaders.gl/core";
 import LoadingComponent from "../LoadingComponent/LoadingComponent";
