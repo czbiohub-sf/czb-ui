@@ -161,12 +161,18 @@ export class ThreeDimScatterPlot {
 
     let currentColorAttributes = await currentLayerInstance.getAttributes();
 
-    // Copy the array so we can add "None" to it
+    // Copy the array so we can sort it and add "None" to it
     currentColorAttributes = [...currentColorAttributes];
 
     if (!currentColorAttributes) {
       return;
     }
+
+    // Sort by alphabetical order (with smart numeric sorting)
+    // https://stackoverflow.com/a/38641281/10013136
+    currentColorAttributes.sort((a, b) =>
+      a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" })
+    );
 
     // Append "None" option at the beginning
     currentColorAttributes.unshift("None");
