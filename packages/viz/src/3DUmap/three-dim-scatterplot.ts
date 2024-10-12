@@ -194,6 +194,12 @@ export class ThreeDimScatterPlot {
     this.refreshGui();
   }
 
+  updateViewportSize(width: number, height: number) {
+    this.camera.aspect = width / height;
+    this.camera.updateProjectionMatrix();
+    this.renderer.setSize(width, height);
+  }
+
   async loadZarr(
     store: string,
     path: string,
