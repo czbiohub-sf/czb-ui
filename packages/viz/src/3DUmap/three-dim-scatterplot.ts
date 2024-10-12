@@ -58,7 +58,7 @@ export class ThreeDimScatterPlot {
     this.layerManager = new LayerManager();
     this.shaderMaterial = new THREE.ShaderMaterial({
       uniforms: {
-        size: { value: 0.1 },
+        size: { value: 0.05 },
       },
       vertexShader: vertexShader,
       fragmentShader: fragmentShader,
