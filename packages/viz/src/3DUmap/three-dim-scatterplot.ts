@@ -202,6 +202,12 @@ export class ThreeDimScatterPlot {
     this.camera.updateProjectionMatrix();
   }
 
+  setGuiOpen(open: boolean) {
+    if (this.gui) {
+      this.gui.open(open);
+    }
+  }
+
   async loadZarr(
     store: string,
     path: string,
