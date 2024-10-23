@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 2.0.0-next.17
+
+### Minor Changes
+
+- 3f21abd: New experimental theme to use Inter font and more SDS default styles
+
 ## 2.0.0-next.16
 
 ### Patch Changes

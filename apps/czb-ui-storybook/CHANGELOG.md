@@ -1,5 +1,12 @@
 # czb-ui-storybook
 
+## 2.0.0-next.19
+
+### Patch Changes
+
+- Updated dependencies [3f21abd]
+  - @czb-ui/core@2.0.0-next.17
+
 ## 2.0.0-next.18
 
 ### Patch Changes
