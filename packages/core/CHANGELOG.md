@@ -1,5 +1,11 @@
 # @czb-ui/core
 
+## 2.0.0-next.18
+
+### Patch Changes
+
+- 54eccc4: Remove console.logs
+
 ## 2.0.0-next.17
 
 ### Minor Changes
