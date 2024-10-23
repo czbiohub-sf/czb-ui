@@ -6,6 +6,7 @@ import {
   SDSLightAppTheme,
   SDSDarkAppTheme,
   makeThemeOptions,
+  SDSThemeOptions,
 } from "@czi-sds/components";
 import {
   createTheme,
@@ -23,7 +24,24 @@ const createThemeFromMode = (themeMode: ThemeMode) => {
   const themeOptions = deepmerge(baseTheme, customTheme);
 
   const appTheme = makeThemeOptions(themeOptions, themeMode);
-  return createTheme(appTheme);
+
+  // https://github.com/mui/material-ui/issues/29677#issuecomment-1378648375
+  const spacingFix: SDSThemeOptions = {
+    spacing: (factor: number) => {
+      const values = appTheme.spacing as number[];
+      const index = Math.floor(factor);
+      const currentSpace = values[index];
+      const nextSpace = values[index + 1] || currentSpace * 2;
+      const space =
+        currentSpace + (nextSpace - currentSpace) * (factor - index);
+      return `${space}px`;
+    },
+  };
+
+  const appThemeWithSpacingFix = deepmerge(appTheme, spacingFix);
+
+  console.log("appTheme", appThemeWithSpacingFix);
+  return createTheme(appThemeWithSpacingFix);
 };
 
 // CustomThemeProvider component to wrap your app
