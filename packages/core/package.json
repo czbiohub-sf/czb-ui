@@ -18,6 +18,7 @@
     "@mui/lab": "^5.0.0-alpha.159",
     "@mui/material": "^5.15.3",
     "@czi-sds/components": "^21.0.0",
+    "next": "^14.2.8",
     "react": ">=17.0.1",
     "react-dom": ">=17.0.1"
   },

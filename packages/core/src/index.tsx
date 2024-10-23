@@ -1,4 +1,5 @@
 export * from "./ThemeProvider";
+export * from "./NextJSThemeProvider";
 
 export * from "./AppBar/AppBar";
 export * from "./Footer/FooterBar";
