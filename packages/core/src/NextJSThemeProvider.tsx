@@ -40,7 +40,6 @@ const createThemeFromMode = (themeMode: ThemeMode) => {
 
   const appThemeWithSpacingFix = deepmerge(appTheme, spacingFix);
 
-  console.log("appTheme", appThemeWithSpacingFix);
   return createTheme(appThemeWithSpacingFix);
 };
 
