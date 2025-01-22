@@ -5,11 +5,12 @@ import preserveDirectives from "rollup-plugin-preserve-directives";
 
 export default {
   input: "src/index.ts",
-  output: {
-    dir: "dist",
-    format: "esm",
-    preserveModules: true,
-  },
+  output: [
+    {
+      file: "dist/index.esm.js",
+      format: "esm",
+    },
+  ],
   plugins: [
     typescript({ tsconfig: "./tsconfig.json" }),
     del({ targets: "dist/*", runOnce: true }),
