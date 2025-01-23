@@ -1,7 +1,7 @@
 "use client";
 import { SxProps, Theme, useMediaQuery, useTheme } from "@mui/material";
 import { Settings } from "@mui/icons-material";
-import MobileDrawer from "./MobileDrawer";
+import { MobileDrawer } from "./MobileDrawer";
 import { DesktopDrawer } from "./DesktopDrawer";
 
 export type FilterViewProps = {

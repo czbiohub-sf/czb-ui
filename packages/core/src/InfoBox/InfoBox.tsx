@@ -1,6 +1,6 @@
 "use client";
 import { PageLink } from "../UniversalTypes/links";
-import NormalInfoBox from "./NormalInfoBox";
+import { NormalInfoBox } from "./NormalInfoBox";
 
 export interface InfoBoxProps {
   title?: string;

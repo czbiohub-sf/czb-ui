@@ -7,8 +7,10 @@ export default {
   input: "src/index.ts",
   output: [
     {
-      file: "dist/index.esm.js",
+      dir: "dist",
       format: "esm",
+      preserveModules: true,
+      entryFileNames: "[name].esm.js",
     },
   ],
   plugins: [
@@ -32,5 +34,9 @@ export default {
     /^@deck.gl\/.*/,
     /^@loaders.gl\/.*/,
     /^@czi-sds\/.*/,
+    /^three.*/,
+    /^zarr.*/,
+    /^lil-gui.*/,
+    /^d3.*/,
   ],
 };

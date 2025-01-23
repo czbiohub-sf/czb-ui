@@ -1,6 +1,6 @@
 import SvgIcon, { SvgIconProps } from "@mui/material/SvgIcon";
 
-const TextOnly = (props: SvgIconProps) => {
+export function WithTitleLight(props: SvgIconProps) {
   return (
     <SvgIcon
       viewBox="0 0 323 60"
@@ -17,6 +17,4 @@ const TextOnly = (props: SvgIconProps) => {
       ></path>
     </SvgIcon>
   );
-};
-
-export default TextOnly;
+}

@@ -139,7 +139,7 @@ const InfoBoxLink = ({ page, pagesComponent, sdsType }: InfoBoxLinkProps) => {
   );
 };
 
-export default function NormalInfoBox({
+export function NormalInfoBox({
   title,
   subtitle,
   page,

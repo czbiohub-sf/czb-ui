@@ -1,6 +1,6 @@
 import SvgIcon, { SvgIconProps } from "@mui/material/SvgIcon";
 
-const SFColor = (props: SvgIconProps) => {
+export function SFColor(props: SvgIconProps) {
   return (
     <SvgIcon
       viewBox="0 0 241 42"
@@ -141,6 +141,4 @@ const SFColor = (props: SvgIconProps) => {
       ></path>
     </SvgIcon>
   );
-};
-
-export default SFColor;
+}

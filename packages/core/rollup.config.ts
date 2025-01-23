@@ -42,5 +42,6 @@ export default {
     /^@fontsource\/.*/,
     "hamburger-react",
     "tslib", // tslib for some reason needs to be in FullScreenIFrame
+    /^next.*/,
   ],
 };

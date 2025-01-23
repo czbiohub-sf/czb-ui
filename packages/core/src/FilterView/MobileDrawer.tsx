@@ -35,7 +35,7 @@ const fabStyle = {
   right: 16,
 };
 
-export default function MobileDrawer({
+export function MobileDrawer({
   drawerComponent,
   contentComponent,
   mobileFabAriaLabel,
