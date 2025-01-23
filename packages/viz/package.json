@@ -21,11 +21,13 @@
     "react-dom": "^17.0.1 || ^18.0.0"
   },
   "dependencies": {
+    "@deck.gl/core": "^9.1.0",
+    "@deck.gl/layers": "^9.1.0",
+    "@deck.gl/react": "^9.1.0",
     "@loaders.gl/core": "^3.4.1",
     "@loaders.gl/images": "^3.4.1",
     "comlink": "^4.4.1",
     "d3": "^7.9.0",
-    "deck.gl": "^9.0.33",
     "lil-gui": "^0.19.2",
     "three": "^0.163.0",
     "zarr": "^0.6.3"
