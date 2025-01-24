@@ -2,7 +2,7 @@
   "name": "@czb-ui/viz",
   "version": "0.4.0-next.1",
   "module": "./dist/index.esm.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "license": "MIT",
   "scripts": {
     "build": "rollup --config rollup.config.ts",

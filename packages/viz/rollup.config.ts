@@ -38,5 +38,6 @@ export default {
     /^zarr.*/,
     /^lil-gui.*/,
     /^d3.*/,
+    /^tslib.*/,
   ],
 };
