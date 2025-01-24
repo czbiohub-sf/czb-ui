@@ -8683,6 +8683,7 @@ __metadata:
     "@chromatic-com/storybook": "npm:^3.2.4"
     "@czb-ui/biohub-logos": "npm:2.0.0-next.6"
     "@czb-ui/core": "npm:2.0.0-next.19"
+    "@czi-sds/components": "npm:^21.0.0"
     "@emotion/css": "npm:^11.11.2"
     "@emotion/react": "npm:^11.11.3"
     "@emotion/styled": "npm:^11.11.0"

@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { InfoBox as CZBUIInfoBox } from "@czb-ui/core/src";
 import sampleImage from "./assets/sapiens_banner.webp";
 import { Grid } from "@mui/material";
+import Image from "next/image";
+import { Box } from "@mui/material";
 
 const meta: Meta<typeof CZBUIInfoBox> = {
   title: "core/InfoBox",
@@ -28,10 +30,19 @@ export const InGrid: StoryObj<typeof CZBUIInfoBox> = {
       to: "/tools",
     },
     image: (
-      <img
-        style={{ objectFit: "cover", height: "100%", width: "100%", zIndex: 0 }}
-        src={sampleImage}
-      />
+      <Box sx={{ position: "relative", height: "100%", width: "100%" }}>
+        <Image
+          style={{
+            objectFit: "cover",
+            height: "100%",
+            width: "100%",
+            zIndex: 0,
+          }}
+          fill
+          src={sampleImage}
+          alt="sample image"
+        />
+      </Box>
     ),
     inGrid: true,
     type: "normal",

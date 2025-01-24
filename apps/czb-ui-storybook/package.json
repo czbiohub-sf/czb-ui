@@ -10,6 +10,7 @@
   "dependencies": {
     "@czb-ui/biohub-logos": "2.0.0-next.6",
     "@czb-ui/core": "2.0.0-next.19",
+    "@czi-sds/components": "^21.0.0",
     "@emotion/css": "^11.11.2",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
@@ -34,19 +35,16 @@
     "@storybook/blocks": "^8.5.1",
     "@storybook/nextjs": "^8.5.1",
     "@storybook/react": "^8.5.1",
-    "@storybook/react-vite": "^8.5.1",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
-    "@vitejs/plugin-react": "^4.0.0-beta.0",
     "eslint": "^8.38.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
     "eslint-plugin-storybook": "^0.11.2",
     "prop-types": "^15.8.1",
     "storybook": "^8.5.1",
-    "typescript": "^5.0.2",
-    "vite": "^4.3.0"
+    "typescript": "^5.0.2"
   }
 }

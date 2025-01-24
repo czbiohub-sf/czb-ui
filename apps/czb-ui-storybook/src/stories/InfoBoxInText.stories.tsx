@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { InfoBox as CZBUIInfoBox } from "@czb-ui/core/src";
 import sampleImage from "./assets/sapiens_banner.webp";
-import { Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
+import Image from "next/image";
 
 const meta: Meta<typeof CZBUIInfoBox> = {
   title: "core/InfoBox",
@@ -91,15 +92,19 @@ export const InText: StoryObj<typeof CZBUIInfoBox> = {
           {...infoBoxArgs[0]}
           page={{ title: "Go to Dataset", to: "/tools" }}
           image={
-            <img
-              style={{
-                objectFit: "cover",
-                height: "100%",
-                width: "100%",
-                zIndex: 0,
-              }}
-              src={sampleImage}
-            />
+            <Box sx={{ position: "relative", height: "100%", width: "100%" }}>
+              <Image
+                style={{
+                  objectFit: "cover",
+                  height: "100%",
+                  width: "100%",
+                  zIndex: 0,
+                }}
+                fill
+                src={sampleImage}
+                alt="sample image"
+              />
+            </Box>
           }
         />
       </Container>
@@ -128,15 +133,21 @@ export const InText: StoryObj<typeof CZBUIInfoBox> = {
               inGrid
               page={{ title: "Go to Dataset", to: "/tools" }}
               image={
-                <img
-                  style={{
-                    objectFit: "cover",
-                    height: "100%",
-                    width: "100%",
-                    zIndex: 0,
-                  }}
-                  src={sampleImage}
-                />
+                <Box
+                  sx={{ position: "relative", height: "100%", width: "100%" }}
+                >
+                  <Image
+                    style={{
+                      objectFit: "cover",
+                      height: "100%",
+                      width: "100%",
+                      zIndex: 0,
+                    }}
+                    fill
+                    src={sampleImage}
+                    alt="sample image"
+                  />
+                </Box>
               }
             />
           </Grid>
@@ -146,15 +157,21 @@ export const InText: StoryObj<typeof CZBUIInfoBox> = {
               inGrid
               page={{ title: "Go to Dataset", to: "/tools" }}
               image={
-                <img
-                  style={{
-                    objectFit: "cover",
-                    height: "100%",
-                    width: "100%",
-                    zIndex: 0,
-                  }}
-                  src={sampleImage}
-                />
+                <Box
+                  sx={{ position: "relative", height: "100%", width: "100%" }}
+                >
+                  <Image
+                    style={{
+                      objectFit: "cover",
+                      height: "100%",
+                      width: "100%",
+                      zIndex: 0,
+                    }}
+                    fill
+                    src={sampleImage}
+                    alt="sample image"
+                  />
+                </Box>
               }
             />
           </Grid>
@@ -164,15 +181,21 @@ export const InText: StoryObj<typeof CZBUIInfoBox> = {
               inGrid
               page={{ title: "Go to Dataset", to: "/tools" }}
               image={
-                <img
-                  style={{
-                    objectFit: "cover",
-                    height: "100%",
-                    width: "100%",
-                    zIndex: 0,
-                  }}
-                  src={sampleImage}
-                />
+                <Box
+                  sx={{ position: "relative", height: "100%", width: "100%" }}
+                >
+                  <Image
+                    style={{
+                      objectFit: "cover",
+                      height: "100%",
+                      width: "100%",
+                      zIndex: 0,
+                    }}
+                    fill
+                    src={sampleImage}
+                    alt="sample image"
+                  />
+                </Box>
               }
             />
           </Grid>
@@ -182,15 +205,21 @@ export const InText: StoryObj<typeof CZBUIInfoBox> = {
               inGrid
               page={{ title: "Go to Dataset", to: "/tools" }}
               image={
-                <img
-                  style={{
-                    objectFit: "cover",
-                    height: "100%",
-                    width: "100%",
-                    zIndex: 0,
-                  }}
-                  src={sampleImage}
-                />
+                <Box
+                  sx={{ position: "relative", height: "100%", width: "100%" }}
+                >
+                  <Image
+                    style={{
+                      objectFit: "cover",
+                      height: "100%",
+                      width: "100%",
+                      zIndex: 0,
+                    }}
+                    fill
+                    src={sampleImage}
+                    alt="sample image"
+                  />
+                </Box>
               }
             />
           </Grid>
@@ -216,15 +245,21 @@ export const InText: StoryObj<typeof CZBUIInfoBox> = {
               inGrid
               page={{ title: "Go to Dataset", to: "/tools" }}
               image={
-                <img
-                  style={{
-                    objectFit: "cover",
-                    height: "100%",
-                    width: "100%",
-                    zIndex: 0,
-                  }}
-                  src={sampleImage}
-                />
+                <Box
+                  sx={{ position: "relative", height: "100%", width: "100%" }}
+                >
+                  <Image
+                    style={{
+                      objectFit: "cover",
+                      height: "100%",
+                      width: "100%",
+                      zIndex: 0,
+                    }}
+                    fill
+                    src={sampleImage}
+                    alt="sample image"
+                  />
+                </Box>
               }
             />
           </Grid>
@@ -234,15 +269,21 @@ export const InText: StoryObj<typeof CZBUIInfoBox> = {
               inGrid
               page={{ title: "Go to Dataset", to: "/tools" }}
               image={
-                <img
-                  style={{
-                    objectFit: "cover",
-                    height: "100%",
-                    width: "100%",
-                    zIndex: 0,
-                  }}
-                  src={sampleImage}
-                />
+                <Box
+                  sx={{ position: "relative", height: "100%", width: "100%" }}
+                >
+                  <Image
+                    style={{
+                      objectFit: "cover",
+                      height: "100%",
+                      width: "100%",
+                      zIndex: 0,
+                    }}
+                    fill
+                    src={sampleImage}
+                    alt="sample image"
+                  />
+                </Box>
               }
             />
           </Grid>
