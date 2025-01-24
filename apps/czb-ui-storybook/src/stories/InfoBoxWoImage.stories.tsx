@@ -10,11 +10,6 @@ const meta: Meta<typeof CZBUIInfoBox> = {
         disable: true,
       },
     },
-    imageOnRight: {
-      table: {
-        disable: true,
-      },
-    },
   },
 };
 
@@ -29,7 +24,6 @@ export const WithoutImage: StoryObj<typeof CZBUIInfoBox> = {
       to: "/tools",
     },
     type: "normal",
-    imageOnRight: false,
     inGrid: false,
   },
   render: (args) => <CZBUIInfoBox {...args} />,
