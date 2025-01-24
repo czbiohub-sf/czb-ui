@@ -40,3 +40,6 @@ storybook-static
 
 # python stuff
 .venv
+
+# yarn install-state.gz
+.yarn/install-state.gz
