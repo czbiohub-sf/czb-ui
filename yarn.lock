@@ -2993,6 +2993,7 @@ __metadata:
     "@deck.gl/core": "npm:^9.1.0"
     "@deck.gl/layers": "npm:^9.1.0"
     "@deck.gl/react": "npm:^9.1.0"
+    "@deck.gl/widgets": "npm:^9.1.0"
     "@loaders.gl/core": "npm:^3.4.1"
     "@loaders.gl/images": "npm:^3.4.1"
     "@types/d3": "npm:^7.4.3"
@@ -3088,6 +3089,17 @@ __metadata:
     react: ">=16.3.0"
     react-dom: ">=16.3.0"
   checksum: 10c0/9164da07812c5701913208f51e69ea35bc27a5e92a29ca7e4fa76bdf02091781daf2b19aff42b78d87f79f92e3be92418260c85f022b217d89b1e7b06d670fa4
+  languageName: node
+  linkType: hard
+
+"@deck.gl/widgets@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "@deck.gl/widgets@npm:9.1.0"
+  dependencies:
+    preact: "npm:^10.17.0"
+  peerDependencies:
+    "@deck.gl/core": ^9.1.0
+  checksum: 10c0/488cec875d244780930989cc7e49edb315b1408de2b7eb9274cdca5a092356891066fd8baafe9dd4f3b3380961813a5f6049ec3088cf77fd5c099ec416eb20fd
   languageName: node
   linkType: hard
 
@@ -14279,6 +14291,13 @@ __metadata:
     picocolors: "npm:^1.0.1"
     source-map-js: "npm:^1.2.0"
   checksum: 10c0/16f5ac3c4e32ee76d1582b3c0dcf1a1fdb91334a45ad755eeb881ccc50318fb8d64047de4f1601ac96e30061df203f0f2e2edbdc0bfc49b9c57bc9fb9bedaea3
+  languageName: node
+  linkType: hard
+
+"preact@npm:^10.17.0":
+  version: 10.25.4
+  resolution: "preact@npm:10.25.4"
+  checksum: 10c0/33a009d614d2b47df1c867935fe057c1dfd2bae1aaab41d6e981434b761f75b88e82eac7847ae486b4dbcffc74af814b8dc59ccef17b10625e3effefa2e1ef67
   languageName: node
   linkType: hard
 

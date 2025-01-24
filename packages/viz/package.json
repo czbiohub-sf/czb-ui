@@ -24,6 +24,7 @@
     "@deck.gl/core": "^9.1.0",
     "@deck.gl/layers": "^9.1.0",
     "@deck.gl/react": "^9.1.0",
+    "@deck.gl/widgets": "^9.1.0",
     "@loaders.gl/core": "^3.4.1",
     "@loaders.gl/images": "^3.4.1",
     "comlink": "^4.4.1",
