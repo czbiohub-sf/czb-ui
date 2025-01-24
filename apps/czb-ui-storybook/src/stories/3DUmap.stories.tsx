@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ThreeDUmap as CZBUIThreeDUmap } from "@czb-ui/viz";
 
 const meta: Meta<typeof CZBUIThreeDUmap> = {
-  title: "core/3D UMAP",
+  title: "viz/3D UMAP",
   component: CZBUIThreeDUmap,
   parameters: {
     layout: "fullscreen",
